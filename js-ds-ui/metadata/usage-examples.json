@@ -1,0 +1,115 @@
+{
+  "$description": "Comprehensive usage examples for AI-assisted development",
+  "examples": {
+    "basicButton": {
+      "intent": "User wants a basic clickable button",
+      "solution": {
+        "component": "Button",
+        "code": "<Button>Click me</Button>",
+        "explanation": "Default button with primary styling"
+      }
+    },
+    "ctaButton": {
+      "intent": "User wants a prominent call-to-action button",
+      "solution": {
+        "component": "Button",
+        "code": "<Button variant=\"primary\" size=\"lg\">Get Started Free</Button>",
+        "explanation": "Large primary button for maximum visibility"
+      }
+    },
+    "destructiveAction": {
+      "intent": "User wants to perform a destructive action like delete",
+      "solution": {
+        "component": "Button",
+        "code": "<Button variant=\"danger\">Delete Account</Button>",
+        "explanation": "Danger variant signals destructive action"
+      }
+    },
+    "formInput": {
+      "intent": "User wants to enter their email address",
+      "solution": {
+        "component": "Input",
+        "code": "<label htmlFor=\"email\">Email</label>\n<Input id=\"email\" type=\"email\" placeholder=\"you@example.com\" />",
+        "explanation": "Email input with label for accessibility"
+      }
+    },
+    "searchBar": {
+      "intent": "User wants to search or filter content",
+      "solution": {
+        "component": "Input",
+        "code": "<Input type=\"search\" placeholder=\"Search...\" />",
+        "explanation": "Search input with appropriate type for better mobile keyboards"
+      }
+    },
+    "loginForm": {
+      "intent": "User wants to create a login form",
+      "solution": {
+        "components": ["Input", "Button"],
+        "code": "<form>\n  <div>\n    <label htmlFor=\"email\">Email</label>\n    <Input id=\"email\" type=\"email\" required />\n  </div>\n  <div>\n    <label htmlFor=\"password\">Password</label>\n    <Input id=\"password\" type=\"password\" required />\n  </div>\n  <Button type=\"submit\" variant=\"primary\">Log In</Button>\n</form>",
+        "explanation": "Complete login form with email and password inputs"
+      }
+    },
+    "theming": {
+      "intent": "User wants to implement theme switching",
+      "solution": {
+        "hook": "useTheme",
+        "code": "import { useTheme } from '@/hooks/use-theme';\n\nfunction ThemeSwitcher() {\n  const { theme, setTheme } = useTheme();\n  \n  return (\n    <Button \n      variant=\"ghost\" \n      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}\n    >\n      {theme === 'light' ? '🌙' : '☀️'}\n    </Button>\n  );\n}",
+        "explanation": "Toggle between light and dark themes using the useTheme hook"
+      }
+    },
+    "densityControl": {
+      "intent": "User wants to adjust UI density",
+      "solution": {
+        "hook": "useDensity",
+        "code": "import { useDensity } from '@/hooks/use-density';\n\nfunction DensityControl() {\n  const { density, setDensity } = useDensity();\n  \n  return (\n    <select value={density} onChange={(e) => setDensity(e.target.value)}>\n      <option value=\"compact\">Compact</option>\n      <option value=\"default\">Default</option>\n      <option value=\"comfortable\">Comfortable</option>\n    </select>\n  );\n}",
+        "explanation": "Allow users to control spacing density of the entire UI"
+      }
+    },
+    "accessibleForm": {
+      "intent": "User wants to build an accessible form with validation",
+      "solution": {
+        "components": ["Input", "Button"],
+        "code": "<form onSubmit={handleSubmit}>\n  <div>\n    <label htmlFor=\"name\">Name *</label>\n    <Input \n      id=\"name\" \n      required \n      aria-describedby=\"name-error\"\n      aria-invalid={errors.name ? 'true' : 'false'}\n    />\n    {errors.name && <span id=\"name-error\" role=\"alert\">{errors.name}</span>}\n  </div>\n  \n  <Button type=\"submit\">Submit</Button>\n</form>",
+        "explanation": "Accessible form with proper ARIA attributes, labels, and error announcements"
+      }
+    },
+    "responsiveButton": {
+      "intent": "User wants button size to adapt to screen size",
+      "solution": {
+        "component": "Button",
+        "code": "// Mobile-first approach\n<Button \n  size=\"sm\" \n  className=\"md:h-[var(--sizing-component-height-lg)]\"\n>\n  Responsive Button\n</Button>",
+        "explanation": "Small button on mobile, larger on desktop using Tailwind breakpoints"
+      }
+    }
+  },
+  "conversationalPatterns": {
+    "userSays": {
+      "addButton": ["add a button", "create a button", "I need a button", "make a clickable element"],
+      "addInput": ["add an input", "create a text field", "I need a form field", "add a search box"],
+      "makeForm": ["create a form", "build a login form", "add a signup form", "I need user registration"],
+      "changeTheme": ["switch themes", "toggle dark mode", "change to dark theme", "support light and dark mode"],
+      "adjustDensity": ["make it more compact", "increase spacing", "adjust density", "make the UI tighter"]
+    }
+  },
+  "bestPractices": {
+    "accessibility": [
+      "Always pair inputs with labels using htmlFor/id",
+      "Use semantic HTML (button over div with onClick)",
+      "Include aria-label for icon-only buttons",
+      "Provide error messages with role='alert'",
+      "Ensure focus indicators are visible",
+      "Test with keyboard navigation (Tab, Enter, Space)"
+    ],
+    "performance": [
+      "Components use CSS variables for instant theme switching (no re-render)",
+      "Density changes via CSS custom properties (no component re-render)",
+      "Tree-shakeable imports when building"
+    ],
+    "tokens": [
+      "Use semantic tokens (--color-text-primary) not primitives (--color-neutral-900)",
+      "Spacing tokens are density-aware automatically",
+      "Typography uses clamp() for fluid responsive sizing",
+      "Colors use OKLCH with automatic RGB fallbacks"
+    ]
+  }
+}

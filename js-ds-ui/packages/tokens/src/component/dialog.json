@@ -1,0 +1,25 @@
+{
+  "$description": "Component-specific tokens for Dialog",
+  "component": {
+    "dialog": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Dialog background color" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Dialog text color" },
+      "description-text": { "$type": "color", "$value": "{color.text.secondary}", "$description": "Dialog description text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Dialog border color" },
+      "overlay-bg": { "$type": "color", "$value": "{color.background.overlay}", "$description": "Dialog overlay background" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Dialog close button focus ring" },
+      "padding": { "$type": "dimension", "$value": "{space.component.padding.xl}", "$description": "Dialog content padding" },
+      "gap": { "$type": "dimension", "$value": "{space.component.gap.sm}", "$description": "Dialog content gap" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.5rem", "$description": "Dialog border radius" },
+        "width": { "$type": "dimension", "$value": "1px", "$description": "Dialog border width" }
+      },
+      "max-width": { "$type": "dimension", "$value": "32rem", "$description": "Dialog max width" },
+      "font": {
+        "title-size": { "$type": "dimension", "$value": "{typography.size.lg}", "$description": "Dialog title font size" },
+        "title-weight": { "$type": "fontWeight", "$value": "{typography.weight.semibold}", "$description": "Dialog title font weight" },
+        "description-size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Dialog description font size" }
+      }
+    }
+  }
+}

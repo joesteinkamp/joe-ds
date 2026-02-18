@@ -1,0 +1,215 @@
+/**
+ * js-ds-ui Base Styles
+ *
+ * Establishes CSS cascade layers, container query utilities,
+ * and modern CSS patterns for the design system.
+ */
+
+/* Layer ordering - defines cascade priority (lowest → highest) */
+@layer tokens, base, components, utilities;
+
+/* Base layer - reset and foundational styles */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  .sb-show-main,
+  .sbdocs {
+    background-color: var(--color-background-primary) !important;
+    color: var(--color-text-primary) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Storybook Docs specific overrides */
+  .sbdocs h1,
+  .sbdocs h2,
+  .sbdocs h3,
+  .sbdocs h4,
+  .sbdocs h5,
+  .sbdocs h6,
+  .sbdocs p {
+    color: var(--color-text-primary) !important;
+  }
+
+  /* Fix ArgsTable and other tables in docs */
+  .sbdocs .docblock-argstable,
+  .sbdocs table {
+    background-color: transparent !important;
+    color: var(--color-text-primary) !important;
+  }
+
+  .sbdocs .docblock-argstable thead th,
+  .sbdocs .docblock-argstable tbody td,
+  .sbdocs table th,
+  .sbdocs table td {
+    color: var(--color-text-primary) !important;
+    background-color: var(--color-background-secondary) !important;
+    border-color: var(--color-border-default) !important;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--typography-family-sans);
+    line-height: var(--typography-lineHeight-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus-visible baseline */
+  :focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Component layer - design system component base styles */
+@layer components {
+  /* Container query contexts for responsive components */
+  .ds-container {
+    container-type: inline-size;
+  }
+
+  .ds-container-normal {
+    container-type: normal;
+  }
+
+  /* Named containers for specific components */
+  .ds-card-container {
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  .ds-dialog-container {
+    container-type: inline-size;
+    container-name: dialog;
+  }
+
+  .ds-sheet-container {
+    container-type: inline-size;
+    container-name: sheet;
+  }
+
+  .ds-table-container {
+    container-type: inline-size;
+    container-name: table;
+  }
+
+  /* Container query responsive patterns */
+
+  /* Card: stack layout below 300px, side-by-side above */
+  @container card (max-width: 300px) {
+    .ds-card-responsive {
+      flex-direction: column;
+    }
+  }
+
+  @container card (min-width: 301px) {
+    .ds-card-responsive {
+      flex-direction: row;
+    }
+  }
+
+  /* Table: scroll horizontally on narrow containers */
+  @container table (max-width: 500px) {
+    .ds-table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ds-table-responsive th,
+    .ds-table-responsive td {
+      white-space: nowrap;
+    }
+  }
+
+  @container table (min-width: 501px) {
+    .ds-table-responsive th,
+    .ds-table-responsive td {
+      white-space: normal;
+    }
+  }
+
+  /* Dialog: full-width on narrow containers, centered on wide */
+  @container dialog (max-width: 500px) {
+    .ds-dialog-responsive {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 0;
+    }
+  }
+}
+
+/* Utility layer - :has() based contextual styles and helpers */
+@layer utilities {
+  /* Form field validation states using :has() */
+  .ds-form-field {
+    &:has([aria-invalid="true"]) {
+      --field-border-color: var(--color-semantic-error);
+      --field-text-color: var(--color-text-error);
+    }
+
+    &:has(:focus-visible) {
+      --field-border-color: var(--color-border-focus);
+    }
+
+    &:has(:disabled) {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    &:has(:required)::before {
+      content: '';
+    }
+  }
+
+  /* Interactive group states using :has() */
+  .ds-group {
+    &:has(:focus-visible) {
+      --group-focus: 1;
+    }
+
+    &:has(:hover) {
+      --group-hover: 1;
+    }
+  }
+
+  /* Density utilities */
+  .ds-density-compact {
+    --density-multiplier: 0.85;
+  }
+
+  .ds-density-default {
+    --density-multiplier: 1;
+  }
+
+  .ds-density-comfortable {
+    --density-multiplier: 1.15;
+  }
+
+  /* Color scheme */
+  .ds-color-scheme-light {
+    color-scheme: light;
+  }
+
+  .ds-color-scheme-dark {
+    color-scheme: dark;
+  }
+}

@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+.pnpm
+
+# Build output
+dist/
+build/
+
+# OS files
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+
+# Turbo
+.turbo/

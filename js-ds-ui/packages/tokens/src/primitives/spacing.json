@@ -1,0 +1,57 @@
+{
+  "spacing": {
+    "$type": "dimension",
+    "0": {
+      "$value": "0rem",
+      "$description": "Zero spacing"
+    },
+    "1": {
+      "$value": "0.25rem",
+      "$description": "4px - Extra small spacing"
+    },
+    "2": {
+      "$value": "0.5rem",
+      "$description": "8px - Small spacing"
+    },
+    "3": {
+      "$value": "0.75rem",
+      "$description": "12px - Medium-small spacing"
+    },
+    "4": {
+      "$value": "1rem",
+      "$description": "16px - Base spacing unit"
+    },
+    "5": {
+      "$value": "1.25rem",
+      "$description": "20px - Medium spacing"
+    },
+    "6": {
+      "$value": "1.5rem",
+      "$description": "24px - Medium-large spacing"
+    },
+    "8": {
+      "$value": "2rem",
+      "$description": "32px - Large spacing"
+    },
+    "10": {
+      "$value": "2.5rem",
+      "$description": "40px - Extra large spacing"
+    },
+    "12": {
+      "$value": "3rem",
+      "$description": "48px - 2XL spacing"
+    },
+    "16": {
+      "$value": "4rem",
+      "$description": "64px - 3XL spacing"
+    },
+    "20": {
+      "$value": "5rem",
+      "$description": "80px - 4XL spacing"
+    },
+    "24": {
+      "$value": "6rem",
+      "$description": "96px - 5XL spacing"
+    }
+  }
+}

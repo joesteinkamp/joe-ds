@@ -1,0 +1,58 @@
+{
+  "$description": "Semantic spacing tokens with density multiplier support",
+  "space": {
+    "$type": "dimension",
+    "component": {
+      "padding": {
+        "xs": {
+          "$value": "calc({spacing.1} * var(--density-multiplier, 1))",
+          "$description": "Extra small component padding - density aware"
+        },
+        "sm": {
+          "$value": "calc({spacing.2} * var(--density-multiplier, 1))",
+          "$description": "Small component padding - density aware"
+        },
+        "md": {
+          "$value": "calc({spacing.3} * var(--density-multiplier, 1))",
+          "$description": "Medium component padding - density aware"
+        },
+        "lg": {
+          "$value": "calc({spacing.4} * var(--density-multiplier, 1))",
+          "$description": "Large component padding - density aware"
+        },
+        "xl": {
+          "$value": "calc({spacing.6} * var(--density-multiplier, 1))",
+          "$description": "Extra large component padding - density aware"
+        }
+      },
+      "gap": {
+        "xs": {
+          "$value": "calc({spacing.1} * var(--density-multiplier, 1))",
+          "$description": "Extra small gap between elements"
+        },
+        "sm": {
+          "$value": "calc({spacing.2} * var(--density-multiplier, 1))",
+          "$description": "Small gap between elements"
+        },
+        "md": {
+          "$value": "calc({spacing.3} * var(--density-multiplier, 1))",
+          "$description": "Medium gap between elements"
+        },
+        "lg": {
+          "$value": "calc({spacing.4} * var(--density-multiplier, 1))",
+          "$description": "Large gap between elements"
+        }
+      }
+    },
+    "layout": {
+      "section": {
+        "$value": "{spacing.16}",
+        "$description": "Spacing between major layout sections"
+      },
+      "container": {
+        "$value": "{spacing.8}",
+        "$description": "Container padding"
+      }
+    }
+  }
+}

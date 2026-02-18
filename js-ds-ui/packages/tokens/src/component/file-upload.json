@@ -1,0 +1,24 @@
+{
+  "$description": "Component-specific tokens for FileUpload",
+  "component": {
+    "file-upload": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "File upload dropzone background" },
+      "bg-hover": { "$type": "color", "$value": "{color.background.secondary}", "$description": "File upload dropzone hover background" },
+      "bg-active": { "$type": "color", "$value": "{color.background.secondary}", "$description": "File upload dropzone drag-active background" },
+      "text": { "$type": "color", "$value": "{color.text.secondary}", "$description": "File upload text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "File upload border color" },
+      "border-active": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "File upload active drag border" },
+      "icon-color": { "$type": "color", "$value": "{color.text.tertiary}", "$description": "File upload icon color" },
+      "error-text": { "$type": "color", "$value": "{color.text.error}", "$description": "File upload error text color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "File upload focus ring" },
+      "padding": { "$type": "dimension", "$value": "{space.component.padding.xl}", "$description": "File upload dropzone padding" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.5rem", "$description": "File upload border radius" },
+        "width": { "$type": "dimension", "$value": "2px", "$description": "File upload border width (dashed)" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "File upload text size" }
+      }
+    }
+  }
+}

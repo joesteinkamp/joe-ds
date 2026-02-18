@@ -1,0 +1,167 @@
+{
+  "$description": "Semantic color tokens — all values reference primitive color scales",
+  "color": {
+    "text": {
+      "$type": "color",
+      "primary": {
+        "$value": "{color.neutral.900}",
+        "$description": "Primary text color",
+        "$extensions": { "theme": { "dark": "{color.neutral.50}", "high-contrast": "{color.black}" } }
+      },
+      "secondary": {
+        "$value": "{color.neutral.600}",
+        "$description": "Secondary text color — lower contrast",
+        "$extensions": { "theme": { "dark": "{color.neutral.400}", "high-contrast": "{color.black}" } }
+      },
+      "tertiary": {
+        "$value": "{color.neutral.500}",
+        "$description": "Tertiary text color — lowest contrast",
+        "$extensions": { "theme": { "dark": "{color.neutral.500}", "high-contrast": "{color.black}" } }
+      },
+      "inverse": {
+        "$value": "{color.white}",
+        "$description": "Text on dark backgrounds",
+        "$extensions": { "theme": { "dark": "{color.neutral.900}", "high-contrast": "{color.white}" } }
+      },
+      "success": {
+        "$value": "{color.green.600}",
+        "$description": "Success message text",
+        "$extensions": { "theme": { "dark": "{color.green.400}", "high-contrast": "{color.green.900}" } }
+      },
+      "warning": {
+        "$value": "{color.amber.700}",
+        "$description": "Warning message text",
+        "$extensions": { "theme": { "dark": "{color.amber.300}", "high-contrast": "{color.amber.900}" } }
+      },
+      "error": {
+        "$value": "{color.red.600}",
+        "$description": "Error message text",
+        "$extensions": { "theme": { "dark": "{color.red.400}", "high-contrast": "{color.red.900}" } }
+      },
+      "info": {
+        "$value": "{color.cyan.600}",
+        "$description": "Info message text",
+        "$extensions": { "theme": { "dark": "{color.cyan.400}", "high-contrast": "{color.cyan.900}" } }
+      }
+    },
+    "background": {
+      "$type": "color",
+      "primary": {
+        "$value": "{color.neutral.50}",
+        "$description": "Primary background color",
+        "$extensions": { "theme": { "dark": "{color.neutral.900}", "high-contrast": "{color.white}" } }
+      },
+      "secondary": {
+        "$value": "{color.neutral.100}",
+        "$description": "Secondary background — subtle contrast",
+        "$extensions": { "theme": { "dark": "{color.neutral.800}", "high-contrast": "{color.white}" } }
+      },
+      "tertiary": {
+        "$value": "{color.neutral.200}",
+        "$description": "Tertiary background — more contrast",
+        "$extensions": { "theme": { "dark": "{color.neutral.700}", "high-contrast": "{color.white}" } }
+      },
+      "inverse": {
+        "$value": "{color.neutral.900}",
+        "$description": "Inverse background for dark sections",
+        "$extensions": { "theme": { "dark": "{color.neutral.50}", "high-contrast": "{color.black}" } }
+      },
+      "success": {
+        "$value": "{color.green.50}",
+        "$description": "Success background — light green",
+        "$extensions": { "theme": { "dark": "{color.green.900}", "high-contrast": "{color.white}" } }
+      },
+      "warning": {
+        "$value": "{color.amber.50}",
+        "$description": "Warning background — light amber",
+        "$extensions": { "theme": { "dark": "{color.amber.900}", "high-contrast": "{color.white}" } }
+      },
+      "error": {
+        "$value": "{color.red.50}",
+        "$description": "Error background — light red",
+        "$extensions": { "theme": { "dark": "{color.red.900}", "high-contrast": "{color.white}" } }
+      },
+      "info": {
+        "$value": "{color.cyan.50}",
+        "$description": "Info background — light cyan",
+        "$extensions": { "theme": { "dark": "{color.cyan.900}", "high-contrast": "{color.white}" } }
+      },
+      "overlay": {
+        "$value": "{color.neutral.950}",
+        "$description": "Overlay backdrop base color",
+        "$extensions": { "theme": { "dark": "{color.neutral.950}", "high-contrast": "{color.neutral.950}" } }
+      }
+    },
+    "border": {
+      "$type": "color",
+      "default": {
+        "$value": "{color.neutral.300}",
+        "$description": "Default border color",
+        "$extensions": { "theme": { "dark": "{color.neutral.700}", "high-contrast": "{color.black}" } }
+      },
+      "hover": {
+        "$value": "{color.neutral.400}",
+        "$description": "Border color on hover",
+        "$extensions": { "theme": { "dark": "{color.neutral.600}", "high-contrast": "{color.black}" } }
+      },
+      "focus": {
+        "$value": "{color.blue.500}",
+        "$description": "Border color on focus",
+        "$extensions": { "theme": { "dark": "{color.blue.400}", "high-contrast": "{color.black}" } }
+      }
+    },
+    "interactive": {
+      "$type": "color",
+      "primary": {
+        "$value": "{color.blue.500}",
+        "$description": "Primary interactive color (buttons, links)",
+        "$extensions": { "theme": { "dark": "{color.blue.400}", "high-contrast": "{color.blue.900}" } }
+      },
+      "primary-hover": {
+        "$value": "{color.blue.600}",
+        "$description": "Primary interactive hover state",
+        "$extensions": { "theme": { "dark": "{color.blue.300}", "high-contrast": "{color.black}" } }
+      },
+      "primary-active": {
+        "$value": "{color.blue.700}",
+        "$description": "Primary interactive active state",
+        "$extensions": { "theme": { "dark": "{color.blue.200}", "high-contrast": "{color.black}" } }
+      },
+      "secondary": {
+        "$value": "{color.neutral.100}",
+        "$description": "Secondary interactive color",
+        "$extensions": { "theme": { "dark": "{color.neutral.800}", "high-contrast": "{color.white}" } }
+      },
+      "secondary-hover": {
+        "$value": "{color.neutral.200}",
+        "$description": "Secondary interactive hover state",
+        "$extensions": { "theme": { "dark": "{color.neutral.700}", "high-contrast": "{color.neutral.50}" } }
+      },
+      "secondary-active": {
+        "$value": "{color.neutral.300}",
+        "$description": "Secondary interactive active state",
+        "$extensions": { "theme": { "dark": "{color.neutral.600}", "high-contrast": "{color.neutral.100}" } }
+      },
+      "danger": {
+        "$value": "{color.red.50}",
+        "$description": "Danger interactive color",
+        "$extensions": { "theme": { "dark": "{color.red.900}", "high-contrast": "{color.white}" } }
+      },
+      "danger-hover": {
+        "$value": "{color.red.100}",
+        "$description": "Danger interactive hover state",
+        "$extensions": { "theme": { "dark": "{color.red.800}", "high-contrast": "{color.neutral.50}" } }
+      },
+      "danger-active": {
+        "$value": "{color.red.200}",
+        "$description": "Danger interactive active state",
+        "$extensions": { "theme": { "dark": "{color.red.700}", "high-contrast": "{color.neutral.100}" } }
+      },
+      "disabled": {
+        "$value": "{color.neutral.300}",
+        "$description": "Disabled state color",
+        "$extensions": { "theme": { "dark": "{color.neutral.700}", "high-contrast": "{color.neutral.600}" } }
+      }
+    }
+  }
+}

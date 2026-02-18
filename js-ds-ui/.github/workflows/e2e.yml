@@ -1,0 +1,145 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e:
+    name: E2E Tests (${{ matrix.project }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox, webkit]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm --filter @js-ds-ui/e2e exec playwright install --with-deps ${{ matrix.project }}
+
+      - name: Build tokens
+        run: pnpm --filter @js-ds-ui/tokens build
+
+      - name: Run E2E tests
+        run: pnpm --filter @js-ds-ui/e2e test -- --project=${{ matrix.project }}
+        env:
+          CI: true
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report-${{ matrix.project }}
+          path: packages/e2e/playwright-report/
+          retention-days: 14
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-results-${{ matrix.project }}
+          path: packages/e2e/test-results/
+          retention-days: 7
+
+  e2e-mobile:
+    name: E2E Tests (Mobile)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm --filter @js-ds-ui/e2e exec playwright install --with-deps chromium webkit
+
+      - name: Build tokens
+        run: pnpm --filter @js-ds-ui/tokens build
+
+      - name: Run mobile E2E tests
+        run: pnpm --filter @js-ds-ui/e2e test -- --project=mobile-chrome --project=mobile-safari
+        env:
+          CI: true
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report-mobile
+          path: packages/e2e/playwright-report/
+          retention-days: 14
+
+  visual-regression:
+    name: Visual Regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm --filter @js-ds-ui/e2e exec playwright install --with-deps chromium
+
+      - name: Build tokens
+        run: pnpm --filter @js-ds-ui/tokens build
+
+      - name: Run visual regression tests
+        run: pnpm --filter @js-ds-ui/e2e test -- --project=visual-regression
+        env:
+          CI: true
+
+      - name: Upload diff artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-diffs
+          path: packages/e2e/test-results/
+          retention-days: 14
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-report
+          path: packages/e2e/playwright-report/
+          retention-days: 14

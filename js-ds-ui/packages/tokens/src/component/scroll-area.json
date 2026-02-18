@@ -1,0 +1,12 @@
+{
+  "$description": "Component-specific tokens for ScrollArea",
+  "component": {
+    "scroll-area": {
+      "scrollbar-bg": { "$type": "color", "$value": "transparent", "$description": "Scrollbar track background" },
+      "thumb-bg": { "$type": "color", "$value": "{color.border.default}", "$description": "Scrollbar thumb color" },
+      "thumb-hover-bg": { "$type": "color", "$value": "{color.border.hover}", "$description": "Scrollbar thumb hover color" },
+      "scrollbar-size": { "$type": "dimension", "$value": "0.625rem", "$description": "Scrollbar track width" },
+      "thumb-radius": { "$type": "dimension", "$value": "9999px", "$description": "Scrollbar thumb border radius" }
+    }
+  }
+}

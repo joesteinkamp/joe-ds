@@ -1,0 +1,9 @@
+{
+  "$description": "Component-specific tokens for Collapsible",
+  "component": {
+    "collapsible": {
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Collapsible border color" },
+      "bg": { "$type": "color", "$value": "transparent", "$description": "Collapsible background" }
+    }
+  }
+}

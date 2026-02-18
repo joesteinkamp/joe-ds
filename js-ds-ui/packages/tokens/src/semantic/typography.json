@@ -1,0 +1,89 @@
+{
+  "$description": "Semantic typography tokens — all values reference primitive font tokens",
+  "typography": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": "{font.family.sans}",
+        "$description": "Default sans-serif font"
+      },
+      "mono": {
+        "$value": "{font.family.mono}",
+        "$description": "Monospace font for code"
+      }
+    },
+    "size": {
+      "$type": "dimension",
+      "xs": {
+        "$value": "{font.size.xs}",
+        "$description": "Extra small text size"
+      },
+      "sm": {
+        "$value": "{font.size.sm}",
+        "$description": "Small text size"
+      },
+      "base": {
+        "$value": "{font.size.base}",
+        "$description": "Base body text size"
+      },
+      "lg": {
+        "$value": "{font.size.lg}",
+        "$description": "Large text size"
+      },
+      "xl": {
+        "$value": "{font.size.xl}",
+        "$description": "Extra large text size"
+      },
+      "2xl": {
+        "$value": "{font.size.2xl}",
+        "$description": "Heading 4 text size"
+      },
+      "3xl": {
+        "$value": "{font.size.3xl}",
+        "$description": "Heading 3 text size"
+      },
+      "4xl": {
+        "$value": "{font.size.4xl}",
+        "$description": "Heading 2 text size"
+      },
+      "5xl": {
+        "$value": "{font.size.5xl}",
+        "$description": "Heading 1 text size"
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "normal": {
+        "$value": "{font.weight.normal}",
+        "$description": "Normal text weight"
+      },
+      "medium": {
+        "$value": "{font.weight.medium}",
+        "$description": "Medium text weight"
+      },
+      "semibold": {
+        "$value": "{font.weight.semibold}",
+        "$description": "Semibold text weight"
+      },
+      "bold": {
+        "$value": "{font.weight.bold}",
+        "$description": "Bold text weight"
+      }
+    },
+    "lineHeight": {
+      "$type": "number",
+      "tight": {
+        "$value": "{font.lineHeight.tight}",
+        "$description": "Tight line height for headings"
+      },
+      "normal": {
+        "$value": "{font.lineHeight.normal}",
+        "$description": "Normal line height for body text"
+      },
+      "relaxed": {
+        "$value": "{font.lineHeight.relaxed}",
+        "$description": "Relaxed line height for readability"
+      }
+    }
+  }
+}

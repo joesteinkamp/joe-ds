@@ -1,0 +1,13 @@
+{
+  "$description": "Component-specific tokens for Progress",
+  "component": {
+    "progress": {
+      "track-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Progress track background" },
+      "indicator-bg": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Progress indicator fill color" },
+      "height": { "$type": "dimension", "$value": "1rem", "$description": "Progress bar height" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "9999px", "$description": "Progress border radius (fully rounded)" }
+      }
+    }
+  }
+}

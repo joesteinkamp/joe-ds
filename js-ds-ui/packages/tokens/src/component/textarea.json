@@ -1,0 +1,25 @@
+{
+  "$description": "Component-specific tokens for Textarea",
+  "component": {
+    "textarea": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Textarea background color" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Textarea text color" },
+      "placeholder": { "$type": "color", "$value": "{color.text.tertiary}", "$description": "Textarea placeholder text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Textarea border color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Textarea focus ring color" },
+      "error-border": { "$type": "color", "$value": "{color.text.error}", "$description": "Textarea error state border" },
+      "min-height": { "$type": "dimension", "$value": "5rem", "$description": "Textarea minimum height" },
+      "padding": {
+        "x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Textarea horizontal padding" },
+        "y": { "$type": "dimension", "$value": "{space.component.padding.sm}", "$description": "Textarea vertical padding" }
+      },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Textarea border radius" },
+        "width": { "$type": "dimension", "$value": "1px", "$description": "Textarea border width" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Textarea text size" }
+      }
+    }
+  }
+}

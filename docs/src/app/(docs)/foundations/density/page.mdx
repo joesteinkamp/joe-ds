@@ -1,0 +1,15 @@
+# Density
+
+Density controls spacing across the system through the `data-density` attribute.
+The docs toolbar lets you switch between compact, default, and comfortable modes.
+
+## How it works
+
+Spacing tokens multiply against `--density-multiplier`, so switching density does
+not trigger React re-renders.
+
+```css
+[data-density="compact"] {
+  --density-multiplier: 0.85;
+}
+```

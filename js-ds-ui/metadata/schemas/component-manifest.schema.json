@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://js-ds-ui.dev/schemas/component-manifest.schema.json",
+  "title": "Component Manifest Schema",
+  "description": "Schema for js-ds-ui component manifest - designed for AI/MCP consumption",
+  "type": "object",
+  "required": ["version", "components"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON schema reference"
+    },
+    "$description": {
+      "type": "string",
+      "description": "Human-readable description of this manifest"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the design system"
+    },
+    "components": {
+      "type": "object",
+      "description": "Component definitions indexed by component key",
+      "additionalProperties": {
+        "$ref": "#/definitions/Component"
+      }
+    },
+    "patterns": {
+      "type": "object",
+      "description": "Common UI patterns and their component compositions",
+      "additionalProperties": {
+        "$ref": "#/definitions/Pattern"
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "description": "Information about the token system for AI context"
+    }
+  },
+  "definitions": {
+    "Component": {
+      "type": "object",
+      "required": ["name", "description", "intent", "props", "accessibility", "usage"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name of the component"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of component purpose and behavior"
+        },
+        "intent": {
+          "type": "array",
+          "description": "Natural language user intents this component satisfies",
+          "items": {
+            "type": "string"
+          }
+        },
+        "props": {
+          "type": "object",
+          "description": "Component props/properties",
+          "additionalProperties": {
+            "$ref": "#/definitions/Prop"
+          }
+        },
+        "accessibility": {
+          "$ref": "#/definitions/Accessibility"
+        },
+        "usage": {
+          "$ref": "#/definitions/Usage"
+        },
+        "dependencies": {
+          "type": "array",
+          "description": "NPM dependencies required by this component",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relatedComponents": {
+          "type": "array",
+          "description": "Related components that might be used together",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Prop": {
+      "type": "object",
+      "required": ["type", "description"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "TypeScript type of the prop"
+        },
+        "values": {
+          "type": "array",
+          "description": "For enum types, the allowed values",
+          "items": {
+            "type": "string"
+          }
+        },
+        "default": {
+          "description": "Default value if not specified"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the prop's purpose"
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether this prop is required"
+        }
+      }
+    },
+    "Accessibility": {
+      "type": "object",
+      "description": "Accessibility information for the component",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "ARIA role of the component"
+        },
+        "keyboardNavigation": {
+          "type": "array",
+          "description": "Keyboard shortcuts/navigation supported",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ariaSupport": {
+          "type": "array",
+          "description": "ARIA attributes supported",
+          "items": {
+            "type": "string"
+          }
+        },
+        "focusManagement": {
+          "type": "string",
+          "description": "How focus is managed"
+        },
+        "wcag": {
+          "type": "string",
+          "description": "WCAG compliance information"
+        }
+      }
+    },
+    "Usage": {
+      "type": "object",
+      "description": "Usage guidelines and examples",
+      "required": ["when", "examples"],
+      "properties": {
+        "when": {
+          "type": "string",
+          "description": "When to use this component"
+        },
+        "avoid": {
+          "type": "string",
+          "description": "When NOT to use this component"
+        },
+        "examples": {
+          "type": "array",
+          "description": "Code examples showing common usage",
+          "items": {
+            "$ref": "#/definitions/Example"
+          }
+        }
+      }
+    },
+    "Example": {
+      "type": "object",
+      "required": ["scenario", "code"],
+      "properties": {
+        "scenario": {
+          "type": "string",
+          "description": "Description of the use case"
+        },
+        "code": {
+          "type": "string",
+          "description": "Example code snippet"
+        }
+      }
+    },
+    "Pattern": {
+      "type": "object",
+      "required": ["name", "description", "components"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Pattern name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Pattern description"
+        },
+        "components": {
+          "type": "array",
+          "description": "Components used in this pattern",
+          "items": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "string",
+          "description": "Example of how to compose this pattern"
+        }
+      }
+    }
+  }
+}

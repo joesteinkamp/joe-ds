@@ -1,0 +1,13 @@
+{
+  "$description": "Component-specific tokens for Label",
+  "component": {
+    "label": {
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Label text color" },
+      "error-text": { "$type": "color", "$value": "{color.text.error}", "$description": "Label error state text color" },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Label text size" },
+        "weight": { "$type": "fontWeight", "$value": "{typography.weight.medium}", "$description": "Label font weight" }
+      }
+    }
+  }
+}

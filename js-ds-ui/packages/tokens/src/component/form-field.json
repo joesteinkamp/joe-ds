@@ -1,0 +1,17 @@
+{
+  "$description": "Component-specific tokens for FormField",
+  "component": {
+    "form-field": {
+      "label-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Form label text color" },
+      "label-error-text": { "$type": "color", "$value": "{color.text.error}", "$description": "Form label error text color" },
+      "helper-text": { "$type": "color", "$value": "{color.text.tertiary}", "$description": "Form helper text color" },
+      "error-text": { "$type": "color", "$value": "{color.text.error}", "$description": "Form error message text color" },
+      "gap": { "$type": "dimension", "$value": "{space.component.gap.sm}", "$description": "Form field internal gap" },
+      "font": {
+        "label-size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Form label text size" },
+        "label-weight": { "$type": "fontWeight", "$value": "{typography.weight.medium}", "$description": "Form label font weight" },
+        "helper-size": { "$type": "dimension", "$value": "{typography.size.xs}", "$description": "Form helper/error text size" }
+      }
+    }
+  }
+}

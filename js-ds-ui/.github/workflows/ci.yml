@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build tokens
+        run: pnpm --filter @js-ds-ui/tokens build
+
+      - name: Type-check
+        run: pnpm --filter @js-ds-ui/components type-check
+
+      - name: Lint
+        run: pnpm --filter @js-ds-ui/components lint
+
+      - name: Unit tests
+        run: pnpm --filter @js-ds-ui/components test -- --run
+
+      - name: Bundle size check
+        run: pnpm --filter @js-ds-ui/components size
+
+      - name: Upload size report
+        if: github.event_name == 'pull_request'
+        run: pnpm --filter @js-ds-ui/components size:report
+
+      - name: Upload size artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: size-report
+          path: packages/components/.size-report.json
+          retention-days: 7

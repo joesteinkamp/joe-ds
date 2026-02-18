@@ -1,0 +1,12 @@
+{
+  "$description": "Component-specific tokens for ToggleGroup",
+  "component": {
+    "toggle-group": {
+      "bg": { "$type": "color", "$value": "transparent", "$description": "Toggle group item default background" },
+      "active-bg": { "$type": "color", "$value": "{color.background.tertiary}", "$description": "Toggle group active item background" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Toggle group text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Toggle group border color" },
+      "gap": { "$type": "dimension", "$value": "{space.component.gap.xs}", "$description": "Toggle group item gap" }
+    }
+  }
+}

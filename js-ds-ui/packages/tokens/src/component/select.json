@@ -1,0 +1,30 @@
+{
+  "$description": "Component-specific tokens for Select",
+  "component": {
+    "select": {
+      "trigger-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Select trigger background" },
+      "trigger-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Select trigger text color" },
+      "trigger-placeholder": { "$type": "color", "$value": "{color.text.tertiary}", "$description": "Select trigger placeholder color" },
+      "trigger-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Select trigger border color" },
+      "content-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Select content background" },
+      "content-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Select content text color" },
+      "content-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Select content border color" },
+      "item-hover-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Select item hover background" },
+      "item-focus-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Select item focus text" },
+      "separator-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Select separator color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Select focus ring color" },
+      "trigger-height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Select trigger height" },
+      "padding": {
+        "x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Select horizontal padding" },
+        "y": { "$type": "dimension", "$value": "{space.component.padding.sm}", "$description": "Select vertical padding" }
+      },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Select border radius" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Select text size" },
+        "label-weight": { "$type": "fontWeight", "$value": "{typography.weight.semibold}", "$description": "Select group label font weight" }
+      }
+    }
+  }
+}

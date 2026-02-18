@@ -1,0 +1,21 @@
+{
+  "$description": "Component-specific tokens for Sheet",
+  "component": {
+    "sheet": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Sheet background color" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Sheet title text color" },
+      "description-text": { "$type": "color", "$value": "{color.text.secondary}", "$description": "Sheet description text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Sheet border color" },
+      "overlay-bg": { "$type": "color", "$value": "{color.background.overlay}", "$description": "Sheet overlay background" },
+      "close-hover-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Sheet close button hover background" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Sheet focus ring color" },
+      "padding": { "$type": "dimension", "$value": "{space.component.padding.xl}", "$description": "Sheet content padding" },
+      "gap": { "$type": "dimension", "$value": "{space.component.gap.md}", "$description": "Sheet content gap" },
+      "font": {
+        "title-size": { "$type": "dimension", "$value": "{typography.size.lg}", "$description": "Sheet title font size" },
+        "title-weight": { "$type": "fontWeight", "$value": "{typography.weight.semibold}", "$description": "Sheet title font weight" },
+        "description-size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Sheet description font size" }
+      }
+    }
+  }
+}

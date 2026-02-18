@@ -1,0 +1,65 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "none": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0)"
+      },
+      "$description": "No shadow"
+    },
+    "xs": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0.05)"
+      },
+      "$description": "Subtle shadow for cards and surfaces"
+    },
+    "sm": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "3px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "$description": "Small shadow for buttons and inputs"
+    },
+    "md": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "4px",
+        "blur": "6px",
+        "spread": "-1px",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "$description": "Medium shadow for dropdowns and popovers"
+    },
+    "lg": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "10px",
+        "blur": "15px",
+        "spread": "-3px",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "$description": "Large shadow for modals and dialogs"
+    },
+    "xl": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "20px",
+        "blur": "25px",
+        "spread": "-5px",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "$description": "Extra large shadow for sheets and elevated surfaces"
+    }
+  }
+}

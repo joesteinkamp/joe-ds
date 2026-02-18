@@ -1,0 +1,41 @@
+{
+  "$description": "Component-specific tokens for Alert",
+  "component": {
+    "alert": {
+      "default": {
+        "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Default alert background" },
+        "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Default alert text color" },
+        "border": { "$type": "color", "$value": "{color.border.default}", "$description": "Default alert border color" }
+      },
+      "info": {
+        "bg": { "$type": "color", "$value": "{color.background.info}", "$description": "Info alert background" },
+        "text": { "$type": "color", "$value": "{color.text.info}", "$description": "Info alert text color" },
+        "border": { "$type": "color", "$value": "{color.text.info}", "$description": "Info alert border color" }
+      },
+      "warning": {
+        "bg": { "$type": "color", "$value": "{color.background.warning}", "$description": "Warning alert background" },
+        "text": { "$type": "color", "$value": "{color.text.warning}", "$description": "Warning alert text color" },
+        "border": { "$type": "color", "$value": "{color.text.warning}", "$description": "Warning alert border color" }
+      },
+      "error": {
+        "bg": { "$type": "color", "$value": "{color.background.error}", "$description": "Error alert background" },
+        "text": { "$type": "color", "$value": "{color.text.error}", "$description": "Error alert text color" },
+        "border": { "$type": "color", "$value": "{color.text.error}", "$description": "Error alert border color" }
+      },
+      "success": {
+        "bg": { "$type": "color", "$value": "{color.background.success}", "$description": "Success alert background" },
+        "text": { "$type": "color", "$value": "{color.text.success}", "$description": "Success alert text color" },
+        "border": { "$type": "color", "$value": "{color.text.success}", "$description": "Success alert border color" }
+      },
+      "padding": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Alert padding" },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Alert description text size" },
+        "weight": { "$type": "fontWeight", "$value": "{typography.weight.medium}", "$description": "Alert title font weight" }
+      },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.5rem", "$description": "Alert border radius" },
+        "width": { "$type": "dimension", "$value": "1px", "$description": "Alert border width" }
+      }
+    }
+  }
+}

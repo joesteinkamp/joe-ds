@@ -1,0 +1,108 @@
+{
+  "$description": "Primitive color tokens — full 50-900 OKLCH spectrums for each color family",
+  "color": {
+    "$type": "color",
+
+    "white": { "$value": "oklch(1 0 0)", "$description": "Pure white" },
+    "black": { "$value": "oklch(0 0 0)", "$description": "Pure black" },
+
+    "blue": {
+      "$description": "Primary brand blue — hue 250",
+      "50":  { "$value": "oklch(0.97 0.02 250)", "$description": "Lightest blue" },
+      "100": { "$value": "oklch(0.93 0.05 250)", "$description": "Very light blue" },
+      "200": { "$value": "oklch(0.87 0.10 250)", "$description": "Light blue" },
+      "300": { "$value": "oklch(0.78 0.14 250)", "$description": "Soft blue" },
+      "400": { "$value": "oklch(0.68 0.18 250)", "$description": "Medium blue" },
+      "500": { "$value": "oklch(0.55 0.22 250)", "$description": "Base blue — primary brand color" },
+      "600": { "$value": "oklch(0.50 0.22 250)", "$description": "Dark blue" },
+      "700": { "$value": "oklch(0.45 0.20 250)", "$description": "Darker blue" },
+      "800": { "$value": "oklch(0.35 0.16 250)", "$description": "Very dark blue" },
+      "900": { "$value": "oklch(0.25 0.12 250)", "$description": "Darkest blue" }
+    },
+
+    "purple": {
+      "$description": "Secondary brand purple — hue 320",
+      "50":  { "$value": "oklch(0.97 0.02 320)", "$description": "Lightest purple" },
+      "100": { "$value": "oklch(0.93 0.05 320)", "$description": "Very light purple" },
+      "200": { "$value": "oklch(0.87 0.09 320)", "$description": "Light purple" },
+      "300": { "$value": "oklch(0.78 0.13 320)", "$description": "Soft purple" },
+      "400": { "$value": "oklch(0.68 0.16 320)", "$description": "Medium purple" },
+      "500": { "$value": "oklch(0.58 0.18 320)", "$description": "Base purple — secondary brand color" },
+      "600": { "$value": "oklch(0.50 0.18 320)", "$description": "Dark purple" },
+      "700": { "$value": "oklch(0.43 0.16 320)", "$description": "Darker purple" },
+      "800": { "$value": "oklch(0.35 0.13 320)", "$description": "Very dark purple" },
+      "900": { "$value": "oklch(0.25 0.10 320)", "$description": "Darkest purple" }
+    },
+
+    "green": {
+      "$description": "Accent / success green — hue 145",
+      "50":  { "$value": "oklch(0.97 0.02 145)", "$description": "Lightest green" },
+      "100": { "$value": "oklch(0.93 0.05 145)", "$description": "Very light green" },
+      "200": { "$value": "oklch(0.87 0.10 145)", "$description": "Light green" },
+      "300": { "$value": "oklch(0.78 0.14 145)", "$description": "Soft green" },
+      "400": { "$value": "oklch(0.70 0.17 145)", "$description": "Medium green" },
+      "500": { "$value": "oklch(0.62 0.19 145)", "$description": "Base green" },
+      "600": { "$value": "oklch(0.55 0.18 145)", "$description": "Dark green" },
+      "700": { "$value": "oklch(0.45 0.15 145)", "$description": "Darker green" },
+      "800": { "$value": "oklch(0.35 0.12 145)", "$description": "Very dark green" },
+      "900": { "$value": "oklch(0.25 0.09 145)", "$description": "Darkest green" }
+    },
+
+    "red": {
+      "$description": "Error / danger red — hue 25",
+      "50":  { "$value": "oklch(0.97 0.02 25)", "$description": "Lightest red" },
+      "100": { "$value": "oklch(0.93 0.05 25)", "$description": "Very light red" },
+      "200": { "$value": "oklch(0.87 0.10 25)", "$description": "Light red" },
+      "300": { "$value": "oklch(0.78 0.14 25)", "$description": "Soft red" },
+      "400": { "$value": "oklch(0.68 0.19 25)", "$description": "Medium red" },
+      "500": { "$value": "oklch(0.58 0.22 25)", "$description": "Base red" },
+      "600": { "$value": "oklch(0.50 0.20 25)", "$description": "Dark red" },
+      "700": { "$value": "oklch(0.43 0.18 25)", "$description": "Darker red" },
+      "800": { "$value": "oklch(0.35 0.14 25)", "$description": "Very dark red" },
+      "900": { "$value": "oklch(0.25 0.10 25)", "$description": "Darkest red" }
+    },
+
+    "amber": {
+      "$description": "Warning amber — hue 85",
+      "50":  { "$value": "oklch(0.97 0.02 85)", "$description": "Lightest amber" },
+      "100": { "$value": "oklch(0.93 0.05 85)", "$description": "Very light amber" },
+      "200": { "$value": "oklch(0.87 0.10 85)", "$description": "Light amber" },
+      "300": { "$value": "oklch(0.80 0.13 85)", "$description": "Soft amber" },
+      "400": { "$value": "oklch(0.75 0.15 85)", "$description": "Medium amber" },
+      "500": { "$value": "oklch(0.68 0.16 85)", "$description": "Base amber" },
+      "600": { "$value": "oklch(0.60 0.15 85)", "$description": "Dark amber" },
+      "700": { "$value": "oklch(0.50 0.13 85)", "$description": "Darker amber" },
+      "800": { "$value": "oklch(0.40 0.10 85)", "$description": "Very dark amber" },
+      "900": { "$value": "oklch(0.30 0.08 85)", "$description": "Darkest amber" }
+    },
+
+    "cyan": {
+      "$description": "Info cyan — hue 240",
+      "50":  { "$value": "oklch(0.97 0.02 240)", "$description": "Lightest cyan" },
+      "100": { "$value": "oklch(0.93 0.05 240)", "$description": "Very light cyan" },
+      "200": { "$value": "oklch(0.87 0.09 240)", "$description": "Light cyan" },
+      "300": { "$value": "oklch(0.78 0.13 240)", "$description": "Soft cyan" },
+      "400": { "$value": "oklch(0.68 0.16 240)", "$description": "Medium cyan" },
+      "500": { "$value": "oklch(0.58 0.18 240)", "$description": "Base cyan" },
+      "600": { "$value": "oklch(0.50 0.17 240)", "$description": "Dark cyan" },
+      "700": { "$value": "oklch(0.43 0.14 240)", "$description": "Darker cyan" },
+      "800": { "$value": "oklch(0.35 0.11 240)", "$description": "Very dark cyan" },
+      "900": { "$value": "oklch(0.25 0.08 240)", "$description": "Darkest cyan" }
+    },
+
+    "neutral": {
+      "$description": "Neutral grays — hue 250, near-zero chroma",
+      "50":  { "$value": "oklch(0.98 0.005 250)", "$description": "Near white" },
+      "100": { "$value": "oklch(0.96 0.005 250)", "$description": "Very light gray" },
+      "200": { "$value": "oklch(0.92 0.008 250)", "$description": "Light gray" },
+      "300": { "$value": "oklch(0.85 0.01 250)", "$description": "Soft gray" },
+      "400": { "$value": "oklch(0.75 0.012 250)", "$description": "Medium gray" },
+      "500": { "$value": "oklch(0.60 0.015 250)", "$description": "Base gray" },
+      "600": { "$value": "oklch(0.50 0.015 250)", "$description": "Dark gray" },
+      "700": { "$value": "oklch(0.40 0.015 250)", "$description": "Darker gray" },
+      "800": { "$value": "oklch(0.27 0.015 250)", "$description": "Very dark gray" },
+      "900": { "$value": "oklch(0.18 0.015 250)", "$description": "Near black" },
+      "950": { "$value": "oklch(0.13 0.02 250)", "$description": "Darkest — near black with blue tint" }
+    }
+  }
+}

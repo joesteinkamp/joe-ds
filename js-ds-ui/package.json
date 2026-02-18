@@ -1,0 +1,32 @@
+{
+  "name": "js-ds-ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A modern design system for 2026 with OKLCH colors, density controls, and theme-first architecture",
+  "workspaces": [
+    "packages/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "tokens:build": "pnpm --filter @js-ds-ui/tokens build",
+    "colors:generate": "pnpm --filter @js-ds-ui/color-generator generate",
+    "cli:dev": "pnpm --filter @js-ds-ui/cli dev",
+    "e2e": "pnpm --filter @js-ds-ui/e2e test",
+    "e2e:ui": "pnpm --filter @js-ds-ui/e2e test:ui",
+    "theme:create": "pnpm --filter @js-ds-ui/cli exec js-ds-ui theme create"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

@@ -1,0 +1,226 @@
+#!/usr/bin/env tsx
+
+/**
+ * Dependency graph generator for js-ds-ui components
+ *
+ * Outputs a Mermaid diagram showing component interdependencies
+ * and external dependency relationships.
+ *
+ * Usage: tsx scripts/dep-graph.ts
+ */
+
+import { promises as fs } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const UI_DIR = path.join(__dirname, '../src/ui');
+
+interface ComponentNode {
+  name: string;
+  internalDeps: string[]; // other ui/ components
+  radixDeps: string[]; // @radix-ui packages
+  utilDeps: string[]; // cva, lucide, cn
+}
+
+function extractComponentName(importPath: string): string | null {
+  // Match imports like './button' or '../ui/button'
+  const match = importPath.match(/(?:\.\/|\.\.\/(?:ui\/)?)([a-z-]+)/);
+  return match ? match[1] : null;
+}
+
+async function parseComponent(filePath: string): Promise<ComponentNode> {
+  const content = await fs.readFile(filePath, 'utf-8');
+  const name = path.basename(filePath, '.tsx');
+
+  const importRegex = /import\s+(?:.*?\s+from\s+)?['"](.+?)['"]/g;
+  const internalDeps: string[] = [];
+  const radixDeps: string[] = [];
+  const utilDeps: string[] = [];
+
+  let match;
+  while ((match = importRegex.exec(content)) !== null) {
+    const imp = match[1];
+
+    if (imp.startsWith('@radix-ui/')) {
+      radixDeps.push(imp.replace('@radix-ui/react-', ''));
+    } else if (imp === 'class-variance-authority') {
+      utilDeps.push('cva');
+    } else if (imp === 'lucide-react') {
+      utilDeps.push('lucide');
+    } else if (imp.startsWith('./') || imp.startsWith('../')) {
+      // Internal dependency — check if it's another component
+      const depName = extractComponentName(imp);
+      if (depName && depName !== name && !depName.includes('utils')) {
+        internalDeps.push(depName);
+      }
+    }
+  }
+
+  return { name, internalDeps, radixDeps, utilDeps };
+}
+
+async function main() {
+  const files = await fs.readdir(UI_DIR);
+  const componentFiles = files
+    .filter(
+      (f) =>
+        f.endsWith('.tsx') &&
+        !f.endsWith('.test.tsx') &&
+        !f.endsWith('.stories.tsx') &&
+        !f.endsWith('.figma.tsx')
+    )
+    .sort();
+
+  const nodes: ComponentNode[] = [];
+  for (const file of componentFiles) {
+    nodes.push(await parseComponent(path.join(UI_DIR, file)));
+  }
+
+  // Generate Mermaid diagram
+  let mermaid = 'graph TD\n';
+  mermaid += '  %% Component Dependencies\n';
+
+  // Group components by their dependency patterns
+  const withInternalDeps = nodes.filter((n) => n.internalDeps.length > 0);
+  const withRadixOnly = nodes.filter(
+    (n) => n.internalDeps.length === 0 && n.radixDeps.length > 0
+  );
+  const standalone = nodes.filter(
+    (n) => n.internalDeps.length === 0 && n.radixDeps.length === 0
+  );
+
+  // Internal dependencies (component -> component)
+  if (withInternalDeps.length > 0) {
+    mermaid += '\n  %% Cross-component dependencies\n';
+    for (const node of withInternalDeps) {
+      for (const dep of node.internalDeps) {
+        mermaid += `  ${node.name}["${node.name}"] --> ${dep}["${dep}"]\n`;
+      }
+    }
+  }
+
+  // Radix dependencies
+  const allRadix = new Set<string>();
+  for (const node of nodes) {
+    for (const dep of node.radixDeps) {
+      allRadix.add(dep);
+    }
+  }
+
+  if (allRadix.size > 0) {
+    mermaid += '\n  %% Radix UI dependencies\n';
+    for (const radix of allRadix) {
+      mermaid += `  radix_${radix.replace(/-/g, '_')}(("@radix-ui/${radix}"))\n`;
+    }
+    mermaid += '\n';
+    for (const node of nodes) {
+      for (const dep of node.radixDeps) {
+        mermaid += `  ${node.name} -.-> radix_${dep.replace(/-/g, '_')}\n`;
+      }
+    }
+  }
+
+  // Standalone components
+  if (standalone.length > 0) {
+    mermaid += '\n  %% Standalone components (no external deps)\n';
+    for (const node of standalone) {
+      mermaid += `  ${node.name}["${node.name}"]\n`;
+    }
+  }
+
+  // Styling
+  mermaid += '\n  %% Styling\n';
+  mermaid += '  classDef component fill:#4f46e5,stroke:#312e81,color:#fff\n';
+  mermaid += '  classDef radix fill:#059669,stroke:#064e3b,color:#fff\n';
+  mermaid +=
+    '  classDef standalone fill:#7c3aed,stroke:#4c1d95,color:#fff\n';
+
+  const componentNames = nodes.map((n) => n.name).join(',');
+  mermaid += `  class ${componentNames} component\n`;
+
+  const radixNames = [...allRadix]
+    .map((r) => `radix_${r.replace(/-/g, '_')}`)
+    .join(',');
+  if (radixNames) {
+    mermaid += `  class ${radixNames} radix\n`;
+  }
+
+  const standaloneNames = standalone.map((n) => n.name).join(',');
+  if (standaloneNames) {
+    mermaid += `  class ${standaloneNames} standalone\n`;
+  }
+
+  // Write Mermaid file
+  const mermaidPath = path.join(__dirname, '../docs/dep-graph.md');
+  await fs.mkdir(path.dirname(mermaidPath), { recursive: true });
+
+  const mermaidDoc = `# Component Dependency Graph
+
+> Auto-generated by \`tsx scripts/dep-graph.ts\`
+
+## Internal Dependencies
+
+Components that import other components:
+
+${withInternalDeps.map((n) => `- **${n.name}** → ${n.internalDeps.join(', ')}`).join('\n')}
+
+## Standalone Components
+
+Components with no internal dependencies (can be used independently):
+
+${withRadixOnly.map((n) => `- **${n.name}** (uses: ${n.radixDeps.join(', ')})`).join('\n')}
+
+## Zero-Dependency Components
+
+Components with no Radix or internal dependencies (lightest weight):
+
+${standalone.map((n) => `- **${n.name}**`).join('\n')}
+
+## Full Dependency Graph
+
+\`\`\`mermaid
+${mermaid}
+\`\`\`
+
+## Component Count Summary
+
+| Category | Count |
+|----------|-------|
+| Total Components | ${nodes.length} |
+| With internal deps | ${withInternalDeps.length} |
+| Radix-only deps | ${withRadixOnly.length} |
+| Zero dependencies | ${standalone.length} |
+| Uses CVA | ${nodes.filter((n) => n.utilDeps.includes('cva')).length} |
+| Uses Lucide icons | ${nodes.filter((n) => n.utilDeps.includes('lucide')).length} |
+`;
+
+  await fs.writeFile(mermaidPath, mermaidDoc);
+  console.log(`Dependency graph written to ${mermaidPath}`);
+
+  // Also write raw JSON
+  const jsonPath = path.join(__dirname, '../docs/dep-graph.json');
+  await fs.writeFile(
+    jsonPath,
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        components: nodes,
+        summary: {
+          total: nodes.length,
+          withInternalDeps: withInternalDeps.length,
+          radixOnly: withRadixOnly.length,
+          standalone: standalone.length,
+          usesCVA: nodes.filter((n) => n.utilDeps.includes('cva')).length,
+          usesLucide: nodes.filter((n) => n.utilDeps.includes('lucide')).length,
+        },
+      },
+      null,
+      2
+    )
+  );
+  console.log(`JSON data written to ${jsonPath}`);
+}
+
+main().catch(console.error);

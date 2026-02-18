@@ -1,0 +1,25 @@
+{
+  "$description": "Component-specific tokens for Pagination",
+  "component": {
+    "pagination": {
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Pagination link text color" },
+      "bg-hover": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Pagination link hover background" },
+      "active-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Pagination active page background" },
+      "active-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Pagination active page border" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Pagination focus ring color" },
+      "gap": { "$type": "dimension", "$value": "{space.component.gap.xs}", "$description": "Pagination item gap" },
+      "item-size": {
+        "sm": { "$type": "dimension", "$value": "2rem", "$description": "Small pagination item size" },
+        "md": { "$type": "dimension", "$value": "2.5rem", "$description": "Medium pagination item size" },
+        "lg": { "$type": "dimension", "$value": "3rem", "$description": "Large pagination item size" }
+      },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Pagination item border radius" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Pagination text size" },
+        "weight": { "$type": "fontWeight", "$value": "{typography.weight.medium}", "$description": "Pagination font weight" }
+      }
+    }
+  }
+}

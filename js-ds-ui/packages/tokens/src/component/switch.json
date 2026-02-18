@@ -1,0 +1,19 @@
+{
+  "$description": "Component-specific tokens for Switch",
+  "component": {
+    "switch": {
+      "track-bg": { "$type": "color", "$value": "{color.border.default}", "$description": "Switch unchecked track background" },
+      "track-checked-bg": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Switch checked track background" },
+      "thumb-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Switch thumb background" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Switch focus ring color" },
+      "width": { "$type": "dimension", "$value": "2.75rem", "$description": "Switch track width" },
+      "height": { "$type": "dimension", "$value": "1.5rem", "$description": "Switch track height" },
+      "thumb": {
+        "size": { "$type": "dimension", "$value": "1.25rem", "$description": "Switch thumb diameter" }
+      },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "9999px", "$description": "Switch border radius (fully rounded)" }
+      }
+    }
+  }
+}

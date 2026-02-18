@@ -1,0 +1,50 @@
+{
+  "animation": {
+    "duration": {
+      "$type": "duration",
+      "instant": {
+        "$value": "0ms",
+        "$description": "No animation, immediate state change"
+      },
+      "fast": {
+        "$value": "100ms",
+        "$description": "Micro-interactions, toggles, small state changes"
+      },
+      "normal": {
+        "$value": "200ms",
+        "$description": "Standard transitions, hover effects, focus changes"
+      },
+      "slow": {
+        "$value": "300ms",
+        "$description": "Emphasis animations, overlays opening"
+      },
+      "slower": {
+        "$value": "500ms",
+        "$description": "Page transitions, large content shifts"
+      }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "linear": {
+        "$value": [0, 0, 1, 1],
+        "$description": "No easing, constant speed"
+      },
+      "ease-in": {
+        "$value": [0.4, 0, 1, 1],
+        "$description": "Accelerating, use for elements exiting the screen"
+      },
+      "ease-out": {
+        "$value": [0, 0, 0.2, 1],
+        "$description": "Decelerating, use for elements entering the screen"
+      },
+      "ease-in-out": {
+        "$value": [0.4, 0, 0.2, 1],
+        "$description": "Smooth acceleration and deceleration, use for most transitions"
+      },
+      "spring": {
+        "$value": [0.175, 0.885, 0.32, 1.275],
+        "$description": "Slight overshoot, use for playful or bouncy interactions"
+      }
+    }
+  }
+}

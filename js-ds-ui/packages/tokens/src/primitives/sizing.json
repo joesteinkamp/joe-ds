@@ -1,0 +1,61 @@
+{
+  "sizing": {
+    "$type": "dimension",
+    "component": {
+      "height": {
+        "xs": {
+          "$value": "1.5rem",
+          "$description": "24px - Extra small component height"
+        },
+        "sm": {
+          "$value": "2rem",
+          "$description": "32px - Small component height"
+        },
+        "md": {
+          "$value": "2.5rem",
+          "$description": "40px - Medium component height (default)"
+        },
+        "lg": {
+          "$value": "3rem",
+          "$description": "48px - Large component height"
+        },
+        "xl": {
+          "$value": "3.5rem",
+          "$description": "56px - Extra large component height"
+        }
+      },
+      "icon": {
+        "xs": {
+          "$value": "1rem",
+          "$description": "16px - Extra small icon"
+        },
+        "sm": {
+          "$value": "1.25rem",
+          "$description": "20px - Small icon"
+        },
+        "md": {
+          "$value": "1.5rem",
+          "$description": "24px - Medium icon (default)"
+        },
+        "lg": {
+          "$value": "2rem",
+          "$description": "32px - Large icon"
+        },
+        "xl": {
+          "$value": "2.5rem",
+          "$description": "40px - Extra large icon"
+        }
+      }
+    },
+    "touch": {
+      "minimum": {
+        "$value": "2.75rem",
+        "$description": "44px - Minimum touch target (Apple HIG)"
+      },
+      "comfortable": {
+        "$value": "3rem",
+        "$description": "48px - Comfortable touch target (WCAG 2.5.5 guidance)"
+      }
+    }
+  }
+}

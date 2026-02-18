@@ -1,0 +1,2736 @@
+{
+  "$schema": "./schemas/component-manifest.schema.json",
+  "$description": "Component manifest for AI/MCP consumption. Maps user intent to components with semantic descriptions, props, accessibility info, and usage patterns.",
+  "version": "0.2.0",
+  "components": {
+    "button": {
+      "name": "Button",
+      "description": "Interactive button component for user actions. Supports multiple visual variants and sizes with full keyboard navigation and ARIA support.",
+      "intent": [
+        "user wants to trigger an action",
+        "user needs a clickable element",
+        "user wants to submit a form",
+        "user needs a call-to-action",
+        "user needs a destructive action confirmation trigger"
+      ],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["primary", "secondary", "outline", "ghost", "danger"],
+          "default": "primary",
+          "description": "Visual style variant. Primary for main actions, secondary for less important actions, outline for subtle actions, ghost for minimal UI, danger for destructive actions."
+        },
+        "size": {
+          "type": "enum",
+          "values": ["sm", "md", "lg"],
+          "default": "md",
+          "description": "Button size. Small for compact UIs, medium for default, large for emphasis."
+        },
+        "asChild": {
+          "type": "boolean",
+          "default": false,
+          "description": "Render as a child element (e.g., Link component) using Radix Slot"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables interaction and applies disabled styling"
+        }
+      },
+      "accessibility": {
+        "role": "button",
+        "keyboardNavigation": ["Enter", "Space"],
+        "ariaSupport": ["aria-label", "aria-describedby", "aria-pressed"],
+        "focusManagement": "Automatic focus ring on keyboard navigation",
+        "wcag": "WCAG 2.2 AAA compliant - meets 7:1 contrast ratio"
+      },
+      "usage": {
+        "when": "User needs to perform an action (submit, navigate, trigger event)",
+        "avoid": "Don't use for navigation alone (use Link instead with asChild), don't use for toggles (use Switch/Checkbox)",
+        "examples": [
+          {
+            "scenario": "Primary call-to-action",
+            "code": "<Button variant=\"primary\" size=\"lg\">Get Started</Button>"
+          },
+          {
+            "scenario": "Destructive action",
+            "code": "<Button variant=\"danger\">Delete Account</Button>"
+          },
+          {
+            "scenario": "Subtle action in dense UI",
+            "code": "<Button variant=\"ghost\" size=\"sm\">Cancel</Button>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-slot"],
+      "relatedComponents": ["Link", "ToggleGroup", "Toolbar"]
+    },
+    "input": {
+      "name": "Input",
+      "description": "Text input field for user data entry. Supports all HTML input types with consistent styling and validation states.",
+      "intent": [
+        "user needs to enter text",
+        "user needs to provide input data",
+        "user wants to fill out a form field",
+        "user needs to search or filter"
+      ],
+      "props": {
+        "type": {
+          "type": "string",
+          "default": "text",
+          "description": "HTML input type (text, email, password, number, tel, url, search, etc.)"
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "Placeholder text shown when input is empty"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables input interaction"
+        },
+        "value": {
+          "type": "string",
+          "description": "Controlled input value"
+        },
+        "onChange": {
+          "type": "function",
+          "description": "Callback fired when input value changes"
+        }
+      },
+      "accessibility": {
+        "role": "textbox",
+        "keyboardNavigation": ["Tab", "Shift+Tab", "Escape"],
+        "ariaSupport": ["aria-label", "aria-describedby", "aria-invalid", "aria-required"],
+        "focusManagement": "Focus ring on keyboard navigation, clear focus indicator",
+        "wcag": "WCAG 2.2 AAA compliant - label contrast, focus indicators, error messaging"
+      },
+      "usage": {
+        "when": "User needs to enter text, numbers, or other input data",
+        "avoid": "Don't use for large text (use Textarea), don't use for selections (use Select), don't use without labels",
+        "examples": [
+          {
+            "scenario": "Email input with validation",
+            "code": "<Input type=\"email\" placeholder=\"Enter your email\" />"
+          },
+          {
+            "scenario": "Search field",
+            "code": "<Input type=\"search\" placeholder=\"Search...\" />"
+          },
+          {
+            "scenario": "Password input",
+            "code": "<Input type=\"password\" placeholder=\"Enter password\" />"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Textarea", "Select", "FormField", "Label"]
+    },
+    "label": {
+      "name": "Label",
+      "description": "Accessible label for form fields. Provides automatic association to form controls via htmlFor and adapts styling when peer input is disabled.",
+      "intent": [
+        "user needs to label a form field",
+        "user wants accessible text for an input",
+        "user needs to associate text with a control"
+      ],
+      "props": {
+        "htmlFor": {
+          "type": "string",
+          "description": "ID of the form element this label is associated with"
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS class names"
+        }
+      },
+      "accessibility": {
+        "role": "label (implicit)",
+        "keyboardNavigation": ["Click focuses associated control"],
+        "ariaSupport": ["htmlFor association", "implicit labelling"],
+        "focusManagement": "Clicking label focuses the associated form control",
+        "wcag": "WCAG 2.2 AA compliant - provides programmatic label association"
+      },
+      "usage": {
+        "when": "Every form field needs a visible label for accessibility",
+        "avoid": "Don't use without associating to a form control, use VisuallyHidden if label should be hidden",
+        "examples": [
+          {
+            "scenario": "Basic label with input",
+            "code": "<Label htmlFor=\"email\">Email</Label>\n<Input id=\"email\" type=\"email\" />"
+          },
+          {
+            "scenario": "Label with checkbox",
+            "code": "<div className=\"flex items-center space-x-2\">\n  <Checkbox id=\"terms\" />\n  <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n</div>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-label"],
+      "relatedComponents": ["Input", "Checkbox", "RadioGroup", "Switch", "FormField"]
+    },
+    "checkbox": {
+      "name": "Checkbox",
+      "description": "Boolean input with check indicator. Supports checked, unchecked, and indeterminate states with full keyboard navigation.",
+      "intent": [
+        "user needs a boolean toggle",
+        "user wants to accept terms",
+        "user needs to select multiple options",
+        "user wants a checkmark input"
+      ],
+      "props": {
+        "checked": {
+          "type": "boolean | 'indeterminate'",
+          "description": "Controlled checked state. Supports true, false, and 'indeterminate'."
+        },
+        "defaultChecked": {
+          "type": "boolean",
+          "description": "Default checked state for uncontrolled usage"
+        },
+        "onCheckedChange": {
+          "type": "function",
+          "description": "Callback fired when checked state changes. Receives boolean | 'indeterminate'."
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables interaction"
+        },
+        "required": {
+          "type": "boolean",
+          "default": false,
+          "description": "Marks the checkbox as required for form validation"
+        }
+      },
+      "accessibility": {
+        "role": "checkbox",
+        "keyboardNavigation": ["Space to toggle", "Tab to focus"],
+        "ariaSupport": ["aria-checked", "aria-label", "aria-describedby"],
+        "focusManagement": "Focus ring on keyboard navigation, peer disabled state propagation",
+        "wcag": "WCAG 2.2 AAA compliant - contrast, focus indicators, state announcements"
+      },
+      "usage": {
+        "when": "User needs to toggle a boolean value or select multiple options from a list",
+        "avoid": "Don't use for mutually exclusive options (use RadioGroup), don't use for on/off settings (prefer Switch)",
+        "examples": [
+          {
+            "scenario": "Terms acceptance",
+            "code": "<div className=\"flex items-center space-x-2\">\n  <Checkbox id=\"terms\" />\n  <Label htmlFor=\"terms\">Accept terms</Label>\n</div>"
+          },
+          {
+            "scenario": "Controlled checkbox",
+            "code": "<Checkbox checked={isChecked} onCheckedChange={setIsChecked} />"
+          },
+          {
+            "scenario": "Indeterminate state for parent checkbox",
+            "code": "<Checkbox checked=\"indeterminate\" />"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-checkbox", "lucide-react"],
+      "relatedComponents": ["Label", "FormField", "Switch", "RadioGroup"]
+    },
+    "radio-group": {
+      "name": "RadioGroup",
+      "description": "Single selection from a group of options. Composed of RadioGroup (container) and RadioGroupItem (individual options).",
+      "intent": [
+        "user needs to choose one option from several",
+        "user wants mutually exclusive selection",
+        "user needs radio buttons",
+        "user wants single-select options"
+      ],
+      "props": {
+        "value": {
+          "type": "string",
+          "description": "Controlled selected value"
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "Default selected value for uncontrolled usage"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired when selection changes. Receives the selected value string."
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables all radio items in the group"
+        },
+        "orientation": {
+          "type": "enum",
+          "values": ["horizontal", "vertical"],
+          "default": "vertical",
+          "description": "Layout direction of the radio group"
+        }
+      },
+      "accessibility": {
+        "role": "radiogroup",
+        "keyboardNavigation": ["Arrow keys to navigate between items", "Space to select", "Tab to enter/exit group"],
+        "ariaSupport": ["aria-label", "aria-labelledby", "aria-required"],
+        "focusManagement": "Roving tabindex within group, arrow key navigation",
+        "wcag": "WCAG 2.2 AAA compliant - group labelling, keyboard navigation"
+      },
+      "usage": {
+        "when": "User must choose exactly one option from a predefined set",
+        "avoid": "Don't use for multi-select (use Checkbox), don't use for large option sets (use Select)",
+        "examples": [
+          {
+            "scenario": "Basic radio group",
+            "code": "<RadioGroup defaultValue=\"option1\">\n  <div className=\"flex items-center space-x-2\">\n    <RadioGroupItem value=\"option1\" id=\"r1\" />\n    <Label htmlFor=\"r1\">Option 1</Label>\n  </div>\n  <div className=\"flex items-center space-x-2\">\n    <RadioGroupItem value=\"option2\" id=\"r2\" />\n    <Label htmlFor=\"r2\">Option 2</Label>\n  </div>\n</RadioGroup>"
+          },
+          {
+            "scenario": "Controlled radio group",
+            "code": "<RadioGroup value={plan} onValueChange={setPlan}>\n  <RadioGroupItem value=\"free\" id=\"free\" />\n  <RadioGroupItem value=\"pro\" id=\"pro\" />\n</RadioGroup>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-radio-group", "lucide-react"],
+      "relatedComponents": ["Label", "FormField", "Select", "ToggleGroup"]
+    },
+    "switch": {
+      "name": "Switch",
+      "description": "Toggle switch for on/off settings. Provides a visual sliding toggle with smooth animation.",
+      "intent": [
+        "user wants to toggle a setting on or off",
+        "user needs a boolean switch",
+        "user wants to enable/disable a feature",
+        "user needs an on/off control"
+      ],
+      "props": {
+        "checked": {
+          "type": "boolean",
+          "description": "Controlled checked state"
+        },
+        "defaultChecked": {
+          "type": "boolean",
+          "description": "Default checked state for uncontrolled usage"
+        },
+        "onCheckedChange": {
+          "type": "function",
+          "description": "Callback fired when checked state changes"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables interaction"
+        }
+      },
+      "accessibility": {
+        "role": "switch",
+        "keyboardNavigation": ["Space to toggle", "Enter to toggle"],
+        "ariaSupport": ["aria-checked", "aria-label", "aria-describedby"],
+        "focusManagement": "Focus ring on keyboard navigation",
+        "wcag": "WCAG 2.2 AAA compliant - clear on/off visual state"
+      },
+      "usage": {
+        "when": "User needs to toggle a setting that takes effect immediately (e.g., dark mode, notifications)",
+        "avoid": "Don't use for form submissions (use Checkbox), don't use for multiple options (use Checkbox group)",
+        "examples": [
+          {
+            "scenario": "Setting toggle with label",
+            "code": "<div className=\"flex items-center space-x-2\">\n  <Switch id=\"airplane-mode\" />\n  <Label htmlFor=\"airplane-mode\">Airplane Mode</Label>\n</div>"
+          },
+          {
+            "scenario": "Controlled switch",
+            "code": "<Switch checked={enabled} onCheckedChange={setEnabled} />"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-switch"],
+      "relatedComponents": ["Label", "Checkbox", "FormField"]
+    },
+    "select": {
+      "name": "Select",
+      "description": "Dropdown select for choosing from a list of options. Compound component: Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectGroup, SelectLabel, SelectSeparator.",
+      "intent": [
+        "user needs to choose from a dropdown list",
+        "user wants a select box",
+        "user needs a dropdown menu for form selection",
+        "user wants to pick one option from many"
+      ],
+      "props": {
+        "value": {
+          "type": "string",
+          "description": "Controlled selected value"
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "Default value for uncontrolled usage"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired when selection changes"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables the select"
+        },
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state of the dropdown"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        }
+      },
+      "accessibility": {
+        "role": "combobox (trigger) / listbox (content)",
+        "keyboardNavigation": ["Space/Enter to open", "Arrow keys to navigate items", "Enter to select", "Escape to close"],
+        "ariaSupport": ["aria-label", "aria-labelledby", "aria-expanded", "aria-required"],
+        "focusManagement": "Focus trapped within dropdown when open, returns to trigger on close",
+        "wcag": "WCAG 2.2 AAA compliant - full keyboard operation, scroll buttons for overflow"
+      },
+      "usage": {
+        "when": "User needs to pick one option from 5+ items, or when space is limited",
+        "avoid": "Don't use for 2-3 options (use RadioGroup), don't use for multi-select (use Checkbox group)",
+        "examples": [
+          {
+            "scenario": "Basic select",
+            "code": "<Select>\n  <SelectTrigger className=\"w-[180px]\">\n    <SelectValue placeholder=\"Select a fruit\" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectItem value=\"apple\">Apple</SelectItem>\n    <SelectItem value=\"banana\">Banana</SelectItem>\n    <SelectItem value=\"cherry\">Cherry</SelectItem>\n  </SelectContent>\n</Select>"
+          },
+          {
+            "scenario": "Grouped select with labels",
+            "code": "<Select>\n  <SelectTrigger><SelectValue placeholder=\"Select\" /></SelectTrigger>\n  <SelectContent>\n    <SelectGroup>\n      <SelectLabel>Fruits</SelectLabel>\n      <SelectItem value=\"apple\">Apple</SelectItem>\n    </SelectGroup>\n    <SelectSeparator />\n    <SelectGroup>\n      <SelectLabel>Vegetables</SelectLabel>\n      <SelectItem value=\"carrot\">Carrot</SelectItem>\n    </SelectGroup>\n  </SelectContent>\n</Select>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-select", "lucide-react"],
+      "relatedComponents": ["RadioGroup", "FormField", "Label", "DropdownMenu"]
+    },
+    "slider": {
+      "name": "Slider",
+      "description": "Range input with draggable thumb for selecting numeric values within a range.",
+      "intent": [
+        "user needs to select a value from a range",
+        "user wants a range slider",
+        "user needs to adjust a numeric value visually",
+        "user wants a volume or brightness control"
+      ],
+      "props": {
+        "value": {
+          "type": "number[]",
+          "description": "Controlled value array (supports single or dual thumb)"
+        },
+        "defaultValue": {
+          "type": "number[]",
+          "description": "Default value array"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired during value change (continuous)"
+        },
+        "onValueCommit": {
+          "type": "function",
+          "description": "Callback fired when thumb is released (final value)"
+        },
+        "min": {
+          "type": "number",
+          "default": 0,
+          "description": "Minimum value"
+        },
+        "max": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum value"
+        },
+        "step": {
+          "type": "number",
+          "default": 1,
+          "description": "Step increment"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables interaction"
+        }
+      },
+      "accessibility": {
+        "role": "slider",
+        "keyboardNavigation": ["Arrow keys to adjust value", "Home/End for min/max", "Page Up/Down for large steps"],
+        "ariaSupport": ["aria-label", "aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-orientation"],
+        "focusManagement": "Focus ring on thumb, keyboard adjustable",
+        "wcag": "WCAG 2.2 AAA compliant - keyboard operable, value announcements"
+      },
+      "usage": {
+        "when": "User needs to select a value from a continuous range (volume, price, etc.)",
+        "avoid": "Don't use for precise numeric entry (use Input type=number), don't use for discrete options (use RadioGroup)",
+        "examples": [
+          {
+            "scenario": "Basic slider",
+            "code": "<Slider defaultValue={[50]} max={100} step={1} />"
+          },
+          {
+            "scenario": "Range slider with two thumbs",
+            "code": "<Slider defaultValue={[25, 75]} max={100} step={5} />"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-slider"],
+      "relatedComponents": ["Input", "FormField", "Label", "Progress"]
+    },
+    "textarea": {
+      "name": "Textarea",
+      "description": "Multi-line text input for longer form content. Supports all HTML textarea attributes with consistent styling.",
+      "intent": [
+        "user needs multi-line text input",
+        "user wants to write a message or description",
+        "user needs a comment box",
+        "user wants a large text field"
+      ],
+      "props": {
+        "placeholder": {
+          "type": "string",
+          "description": "Placeholder text shown when textarea is empty"
+        },
+        "rows": {
+          "type": "number",
+          "description": "Number of visible text lines"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables interaction"
+        },
+        "value": {
+          "type": "string",
+          "description": "Controlled textarea value"
+        },
+        "onChange": {
+          "type": "function",
+          "description": "Callback fired when value changes"
+        }
+      },
+      "accessibility": {
+        "role": "textbox (multiline)",
+        "keyboardNavigation": ["Tab to focus", "Enter for new line", "Escape to blur (custom)"],
+        "ariaSupport": ["aria-label", "aria-describedby", "aria-invalid", "aria-required"],
+        "focusManagement": "Focus ring on keyboard navigation",
+        "wcag": "WCAG 2.2 AAA compliant - label association, focus indicators"
+      },
+      "usage": {
+        "when": "User needs to enter more than a single line of text (messages, descriptions, comments)",
+        "avoid": "Don't use for single-line input (use Input), don't use for rich text (use a rich text editor)",
+        "examples": [
+          {
+            "scenario": "Basic textarea",
+            "code": "<Textarea placeholder=\"Type your message here.\" />"
+          },
+          {
+            "scenario": "Textarea with custom rows",
+            "code": "<Textarea rows={6} placeholder=\"Write a detailed description...\" />"
+          },
+          {
+            "scenario": "Disabled textarea",
+            "code": "<Textarea disabled placeholder=\"Read-only content\" />"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Input", "FormField", "Label"]
+    },
+    "form-field": {
+      "name": "FormField",
+      "description": "Composite form field that links label, control, helper text, and error message with automatic aria-describedby. Sub-components: FormField, FormLabel, FormControl, FormHelperText, FormErrorMessage.",
+      "intent": [
+        "user needs a complete form field with label and validation",
+        "user wants accessible form inputs with error messages",
+        "user needs to compose label + input + helper text",
+        "user wants form validation feedback"
+      ],
+      "props": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Unique field ID used for aria-describedby linkage between label, input, helper text, and error message"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message to display. When set, aria-invalid is added to the control."
+        },
+        "helperText": {
+          "type": "string",
+          "description": "Helper text displayed below the field for guidance"
+        }
+      },
+      "accessibility": {
+        "role": "group (implicit via context)",
+        "keyboardNavigation": ["Tab through form controls"],
+        "ariaSupport": ["aria-describedby (auto-linked)", "aria-invalid (auto-set on error)", "htmlFor (auto-set on label)"],
+        "focusManagement": "Context-driven: FormControl clones aria props onto child input",
+        "wcag": "WCAG 2.2 AAA compliant - programmatic label, error, and description association"
+      },
+      "usage": {
+        "when": "Building any form with labels, helper text, or validation error messages",
+        "avoid": "Don't use for standalone labels without inputs, overkill for simple search fields",
+        "examples": [
+          {
+            "scenario": "Form field with validation",
+            "code": "<FormField id=\"email\" error={errors.email} helperText=\"We'll never share your email.\">\n  <FormLabel>Email</FormLabel>\n  <FormControl>\n    <Input type=\"email\" placeholder=\"you@example.com\" />\n  </FormControl>\n  <FormHelperText />\n  <FormErrorMessage />\n</FormField>"
+          },
+          {
+            "scenario": "Form field without error",
+            "code": "<FormField id=\"name\" helperText=\"Enter your full name\">\n  <FormLabel>Full Name</FormLabel>\n  <FormControl>\n    <Input placeholder=\"John Doe\" />\n  </FormControl>\n  <FormHelperText />\n</FormField>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Input", "Textarea", "Select", "Checkbox", "Label"]
+    },
+    "link": {
+      "name": "Link",
+      "description": "Styled hyperlink with automatic external link detection. External links open in new tab with an icon indicator.",
+      "intent": [
+        "user needs a hyperlink",
+        "user wants navigation to another page",
+        "user needs an external link with indicator",
+        "user wants styled anchor text"
+      ],
+      "props": {
+        "href": {
+          "type": "string",
+          "description": "Link destination URL"
+        },
+        "external": {
+          "type": "boolean",
+          "description": "Force external treatment (new tab + icon). Auto-detected for http:// and // URLs."
+        },
+        "className": {
+          "type": "string",
+          "description": "Additional CSS class names"
+        }
+      },
+      "accessibility": {
+        "role": "link",
+        "keyboardNavigation": ["Enter to activate", "Tab to focus"],
+        "ariaSupport": ["aria-label", "target=_blank with rel=noopener noreferrer for external"],
+        "focusManagement": "Focus ring on keyboard navigation",
+        "wcag": "WCAG 2.2 AA compliant - visible link styling, external link indicator"
+      },
+      "usage": {
+        "when": "User needs to navigate to another page or external resource",
+        "avoid": "Don't use for actions (use Button), don't use inside buttons",
+        "examples": [
+          {
+            "scenario": "Internal link",
+            "code": "<Link href=\"/about\">About</Link>"
+          },
+          {
+            "scenario": "External link (auto-detected)",
+            "code": "<Link href=\"https://example.com\">Visit Example</Link>"
+          },
+          {
+            "scenario": "Forced external link",
+            "code": "<Link href=\"/docs\" external>Documentation</Link>"
+          }
+        ]
+      },
+      "dependencies": ["lucide-react"],
+      "relatedComponents": ["Button", "Breadcrumb", "NavigationMenu"]
+    },
+    "dialog": {
+      "name": "Dialog",
+      "description": "Modal dialog for focused user interactions. Compound component: Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose.",
+      "intent": [
+        "user needs a modal dialog",
+        "user wants a popup form",
+        "user needs to confirm an action",
+        "user wants to display focused content overlay",
+        "user needs a modal window"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "description": "Default open state for uncontrolled usage"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "modal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether the dialog blocks interaction with the rest of the page"
+        }
+      },
+      "accessibility": {
+        "role": "dialog",
+        "keyboardNavigation": ["Escape to close", "Tab to cycle focus within dialog", "Shift+Tab for reverse focus"],
+        "ariaSupport": ["aria-labelledby (via DialogTitle)", "aria-describedby (via DialogDescription)", "aria-modal"],
+        "focusManagement": "Focus trapped within dialog, returns to trigger on close. Close button has sr-only label.",
+        "wcag": "WCAG 2.2 AAA compliant - focus trap, escape to close, screen reader announcements"
+      },
+      "usage": {
+        "when": "User needs to complete a focused task (form, confirmation) that blocks the main content",
+        "avoid": "Don't use for non-blocking info (use Popover or Toast), don't nest dialogs",
+        "examples": [
+          {
+            "scenario": "Confirmation dialog",
+            "code": "<Dialog>\n  <DialogTrigger asChild>\n    <Button variant=\"outline\">Edit Profile</Button>\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Edit Profile</DialogTitle>\n      <DialogDescription>Make changes to your profile.</DialogDescription>\n    </DialogHeader>\n    <Input placeholder=\"Name\" />\n    <DialogFooter>\n      <Button type=\"submit\">Save</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
+          },
+          {
+            "scenario": "Controlled dialog",
+            "code": "<Dialog open={isOpen} onOpenChange={setIsOpen}>\n  <DialogContent>\n    <DialogTitle>Controlled Dialog</DialogTitle>\n  </DialogContent>\n</Dialog>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-dialog", "lucide-react"],
+      "relatedComponents": ["AlertDialog", "Sheet", "Button"]
+    },
+    "popover": {
+      "name": "Popover",
+      "description": "Floating popover for displaying rich content anchored to a trigger element. Compound component: Popover, PopoverTrigger, PopoverContent, PopoverAnchor.",
+      "intent": [
+        "user needs a floating panel of content",
+        "user wants a popover form or picker",
+        "user needs non-modal floating UI",
+        "user wants content anchored to a button"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "description": "Default open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "align": {
+          "type": "enum",
+          "values": ["start", "center", "end"],
+          "default": "center",
+          "description": "Alignment relative to trigger (on PopoverContent)"
+        },
+        "sideOffset": {
+          "type": "number",
+          "default": 4,
+          "description": "Distance from trigger in pixels (on PopoverContent)"
+        }
+      },
+      "accessibility": {
+        "role": "dialog (non-modal)",
+        "keyboardNavigation": ["Escape to close", "Tab within content"],
+        "ariaSupport": ["aria-expanded on trigger", "aria-haspopup"],
+        "focusManagement": "Focus moves to content on open, returns to trigger on close",
+        "wcag": "WCAG 2.2 AA compliant - keyboard operable, dismissible"
+      },
+      "usage": {
+        "when": "User needs floating content that doesn't block the page (color picker, date picker, filters)",
+        "avoid": "Don't use for simple hover info (use Tooltip), don't use for blocking content (use Dialog)",
+        "examples": [
+          {
+            "scenario": "Basic popover",
+            "code": "<Popover>\n  <PopoverTrigger asChild>\n    <Button variant=\"outline\">Open</Button>\n  </PopoverTrigger>\n  <PopoverContent>\n    <p>Popover content goes here</p>\n  </PopoverContent>\n</Popover>"
+          },
+          {
+            "scenario": "Popover with form",
+            "code": "<Popover>\n  <PopoverTrigger asChild>\n    <Button>Set dimensions</Button>\n  </PopoverTrigger>\n  <PopoverContent className=\"w-80\">\n    <div className=\"grid gap-4\">\n      <Input placeholder=\"Width\" />\n      <Input placeholder=\"Height\" />\n    </div>\n  </PopoverContent>\n</Popover>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-popover"],
+      "relatedComponents": ["Tooltip", "Dialog", "HoverCard", "DropdownMenu"]
+    },
+    "tooltip": {
+      "name": "Tooltip",
+      "description": "Small popup displaying additional information on hover or focus. Compound component: TooltipProvider, Tooltip, TooltipTrigger, TooltipContent.",
+      "intent": [
+        "user needs hover information",
+        "user wants to show a hint on hover",
+        "user needs an icon button label",
+        "user wants supplementary info on focus"
+      ],
+      "props": {
+        "delayDuration": {
+          "type": "number",
+          "default": 700,
+          "description": "Delay in ms before showing tooltip (on TooltipProvider)"
+        },
+        "sideOffset": {
+          "type": "number",
+          "default": 4,
+          "description": "Distance from trigger in pixels (on TooltipContent)"
+        },
+        "side": {
+          "type": "enum",
+          "values": ["top", "right", "bottom", "left"],
+          "default": "top",
+          "description": "Preferred side for tooltip placement (on TooltipContent)"
+        }
+      },
+      "accessibility": {
+        "role": "tooltip",
+        "keyboardNavigation": ["Focus trigger to show", "Escape to dismiss"],
+        "ariaSupport": ["aria-describedby auto-linked", "role=tooltip on content"],
+        "focusManagement": "Shows on focus and hover, dismisses on escape",
+        "wcag": "WCAG 2.2 AA compliant - keyboard accessible, not blocking"
+      },
+      "usage": {
+        "when": "User needs supplementary text on hover (icon labels, abbreviation explanations)",
+        "avoid": "Don't use for interactive content (use Popover), don't use for essential information (content must be accessible without hover)",
+        "examples": [
+          {
+            "scenario": "Tooltip on icon button",
+            "code": "<TooltipProvider>\n  <Tooltip>\n    <TooltipTrigger asChild>\n      <Button variant=\"outline\">Hover me</Button>\n    </TooltipTrigger>\n    <TooltipContent>\n      <p>Helpful information</p>\n    </TooltipContent>\n  </Tooltip>\n</TooltipProvider>"
+          },
+          {
+            "scenario": "Tooltip with custom delay",
+            "code": "<TooltipProvider delayDuration={300}>\n  <Tooltip>\n    <TooltipTrigger>Fast tooltip</TooltipTrigger>\n    <TooltipContent side=\"right\">Shows quickly</TooltipContent>\n  </Tooltip>\n</TooltipProvider>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "relatedComponents": ["Popover", "HoverCard", "Button"]
+    },
+    "dropdown-menu": {
+      "name": "DropdownMenu",
+      "description": "Dropdown menu for actions and options. Full compound component: DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuGroup, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuRadioGroup.",
+      "intent": [
+        "user needs a dropdown with actions",
+        "user wants a context-style action menu",
+        "user needs a menu with keyboard shortcuts",
+        "user wants nested menu items",
+        "user needs checkbox or radio items in a menu"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "description": "Default open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "inset": {
+          "type": "boolean",
+          "default": false,
+          "description": "Adds left padding for items with icons or indicators (on MenuItem/SubTrigger/Label)"
+        }
+      },
+      "accessibility": {
+        "role": "menu / menuitem / menuitemcheckbox / menuitemradio",
+        "keyboardNavigation": ["Arrow keys to navigate", "Enter/Space to select", "Escape to close", "Right arrow to open submenu", "Left arrow to close submenu"],
+        "ariaSupport": ["aria-expanded", "aria-haspopup", "aria-checked for checkbox/radio items"],
+        "focusManagement": "Focus trapped in menu, roving tabindex, auto-focus first item on open",
+        "wcag": "WCAG 2.2 AAA compliant - full keyboard navigation, typeahead search"
+      },
+      "usage": {
+        "when": "User needs a menu of actions triggered by a button (settings, more actions, user menu)",
+        "avoid": "Don't use for form selection (use Select), don't use for navigation (use NavigationMenu)",
+        "examples": [
+          {
+            "scenario": "Basic action menu",
+            "code": "<DropdownMenu>\n  <DropdownMenuTrigger asChild>\n    <Button variant=\"outline\">Open</Button>\n  </DropdownMenuTrigger>\n  <DropdownMenuContent>\n    <DropdownMenuLabel>My Account</DropdownMenuLabel>\n    <DropdownMenuSeparator />\n    <DropdownMenuItem>Profile</DropdownMenuItem>\n    <DropdownMenuItem>Settings</DropdownMenuItem>\n    <DropdownMenuSeparator />\n    <DropdownMenuItem>Log out</DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>"
+          },
+          {
+            "scenario": "Menu with keyboard shortcuts",
+            "code": "<DropdownMenuItem>\n  New Tab <DropdownMenuShortcut>⌘T</DropdownMenuShortcut>\n</DropdownMenuItem>"
+          },
+          {
+            "scenario": "Menu with checkbox items",
+            "code": "<DropdownMenuCheckboxItem checked={showStatus} onCheckedChange={setShowStatus}>\n  Show Status Bar\n</DropdownMenuCheckboxItem>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-dropdown-menu", "lucide-react"],
+      "relatedComponents": ["ContextMenu", "Menubar", "Button", "Select"]
+    },
+    "context-menu": {
+      "name": "ContextMenu",
+      "description": "Right-click context menu. Mirrors DropdownMenu structure. Compound component: ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem, ContextMenuCheckboxItem, ContextMenuRadioItem, ContextMenuLabel, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubTrigger, ContextMenuSubContent, ContextMenuRadioGroup.",
+      "intent": [
+        "user needs a right-click menu",
+        "user wants context-sensitive actions",
+        "user needs a secondary action menu on right-click",
+        "user wants custom context menu replacing browser default"
+      ],
+      "props": {
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "inset": {
+          "type": "boolean",
+          "default": false,
+          "description": "Adds left padding for items with icons (on MenuItem/SubTrigger/Label)"
+        }
+      },
+      "accessibility": {
+        "role": "menu / menuitem / menuitemcheckbox / menuitemradio",
+        "keyboardNavigation": ["Arrow keys to navigate", "Enter/Space to select", "Escape to close", "Right arrow for submenu"],
+        "ariaSupport": ["aria-expanded", "aria-checked for checkbox/radio items"],
+        "focusManagement": "Focus trapped in menu, roving tabindex",
+        "wcag": "WCAG 2.2 AA compliant - keyboard operable, typeahead search"
+      },
+      "usage": {
+        "when": "User needs right-click actions on specific content areas (file browsers, editors, canvas)",
+        "avoid": "Don't use as the only way to access actions (always provide alternatives), don't use on mobile",
+        "examples": [
+          {
+            "scenario": "Basic context menu",
+            "code": "<ContextMenu>\n  <ContextMenuTrigger className=\"h-[150px] w-[300px] border border-dashed\">\n    Right click here\n  </ContextMenuTrigger>\n  <ContextMenuContent>\n    <ContextMenuItem>Cut</ContextMenuItem>\n    <ContextMenuItem>Copy</ContextMenuItem>\n    <ContextMenuItem>Paste</ContextMenuItem>\n  </ContextMenuContent>\n</ContextMenu>"
+          },
+          {
+            "scenario": "Context menu with shortcut hints",
+            "code": "<ContextMenuItem>\n  Copy <ContextMenuShortcut>⌘C</ContextMenuShortcut>\n</ContextMenuItem>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-context-menu", "lucide-react"],
+      "relatedComponents": ["DropdownMenu", "Menubar"]
+    },
+    "hover-card": {
+      "name": "HoverCard",
+      "description": "Rich hover preview for displaying additional content on hover. Compound component: HoverCard, HoverCardTrigger, HoverCardContent.",
+      "intent": [
+        "user needs a rich preview on hover",
+        "user wants a profile card on hover",
+        "user needs link preview on hover",
+        "user wants a preview popup"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "description": "Default open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "openDelay": {
+          "type": "number",
+          "default": 700,
+          "description": "Delay in ms before showing"
+        },
+        "closeDelay": {
+          "type": "number",
+          "default": 300,
+          "description": "Delay in ms before hiding"
+        },
+        "align": {
+          "type": "enum",
+          "values": ["start", "center", "end"],
+          "default": "center",
+          "description": "Alignment relative to trigger (on HoverCardContent)"
+        }
+      },
+      "accessibility": {
+        "role": "presentation (non-essential content)",
+        "keyboardNavigation": ["Content accessible on focus of trigger"],
+        "ariaSupport": ["aria-expanded on trigger"],
+        "focusManagement": "Non-blocking, does not trap focus",
+        "wcag": "WCAG 2.2 AA compliant - supplementary content, not required for operation"
+      },
+      "usage": {
+        "when": "User needs rich preview on hover (user profiles, link previews, product cards)",
+        "avoid": "Don't use for essential information, don't use for interactive forms (use Popover), don't use for simple text (use Tooltip)",
+        "examples": [
+          {
+            "scenario": "User profile hover card",
+            "code": "<HoverCard>\n  <HoverCardTrigger asChild>\n    <Link href=\"/user\">@username</Link>\n  </HoverCardTrigger>\n  <HoverCardContent>\n    <div className=\"flex space-x-4\">\n      <Avatar><AvatarImage src=\"/avatar.png\" /></Avatar>\n      <div><p className=\"font-semibold\">Username</p><p>Bio text here</p></div>\n    </div>\n  </HoverCardContent>\n</HoverCard>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-hover-card"],
+      "relatedComponents": ["Tooltip", "Popover", "Avatar"]
+    },
+    "sheet": {
+      "name": "Sheet",
+      "description": "Side drawer panel that slides in from any edge. Built on Radix Dialog. Compound component: Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose.",
+      "intent": [
+        "user needs a side panel",
+        "user wants a drawer for settings or details",
+        "user needs a mobile navigation menu",
+        "user wants a sliding panel from the side"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "side": {
+          "type": "enum",
+          "values": ["top", "right", "bottom", "left"],
+          "default": "right",
+          "description": "Edge from which the sheet slides in (on SheetContent)"
+        }
+      },
+      "accessibility": {
+        "role": "dialog",
+        "keyboardNavigation": ["Escape to close", "Tab to cycle focus within sheet"],
+        "ariaSupport": ["aria-labelledby (via SheetTitle)", "aria-describedby (via SheetDescription)", "aria-modal"],
+        "focusManagement": "Focus trapped within sheet, returns to trigger on close. Close button has sr-only label.",
+        "wcag": "WCAG 2.2 AAA compliant - focus trap, escape to close"
+      },
+      "usage": {
+        "when": "User needs supplementary content or forms in a side panel (navigation, settings, detail views)",
+        "avoid": "Don't use for critical confirmations (use Dialog or AlertDialog), don't use for small content (use Popover)",
+        "examples": [
+          {
+            "scenario": "Right-side sheet",
+            "code": "<Sheet>\n  <SheetTrigger asChild>\n    <Button variant=\"outline\">Open Settings</Button>\n  </SheetTrigger>\n  <SheetContent>\n    <SheetHeader>\n      <SheetTitle>Settings</SheetTitle>\n      <SheetDescription>Adjust your preferences.</SheetDescription>\n    </SheetHeader>\n    <div className=\"py-4\">Settings content here</div>\n    <SheetFooter>\n      <Button>Save</Button>\n    </SheetFooter>\n  </SheetContent>\n</Sheet>"
+          },
+          {
+            "scenario": "Left-side mobile navigation",
+            "code": "<Sheet>\n  <SheetTrigger asChild><Button variant=\"ghost\">Menu</Button></SheetTrigger>\n  <SheetContent side=\"left\">\n    <nav>Navigation items</nav>\n  </SheetContent>\n</Sheet>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-dialog", "class-variance-authority", "lucide-react"],
+      "relatedComponents": ["Dialog", "NavigationMenu", "Button"]
+    },
+    "toast": {
+      "name": "Toast",
+      "description": "Notification toast with variants. Supports swipe to dismiss. Compound component: ToastProvider, ToastViewport, Toast, ToastTitle, ToastDescription, ToastClose, ToastAction.",
+      "intent": [
+        "user needs a notification message",
+        "user wants a success/error toast",
+        "user needs a temporary notification",
+        "user wants to show feedback after an action"
+      ],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "success", "error", "warning"],
+          "default": "default",
+          "description": "Visual style variant indicating toast type"
+        },
+        "duration": {
+          "type": "number",
+          "default": 5000,
+          "description": "Auto-dismiss duration in ms. Set to Infinity to disable auto-dismiss."
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        }
+      },
+      "accessibility": {
+        "role": "status (via aria-live)",
+        "keyboardNavigation": ["Tab to focus toast actions", "Escape to dismiss"],
+        "ariaSupport": ["aria-live=polite", "aria-atomic for announcements"],
+        "focusManagement": "Toast does not steal focus, actions are focusable",
+        "wcag": "WCAG 2.2 AA compliant - non-blocking, screen reader announcements"
+      },
+      "usage": {
+        "when": "User needs brief feedback after an action (save success, error notification, warning)",
+        "avoid": "Don't use for persistent messages (use Alert), don't use for confirmations (use Dialog)",
+        "examples": [
+          {
+            "scenario": "Success toast",
+            "code": "<Toast variant=\"success\">\n  <ToastTitle>Saved!</ToastTitle>\n  <ToastDescription>Your changes have been saved.</ToastDescription>\n  <ToastClose />\n</Toast>"
+          },
+          {
+            "scenario": "Toast with action",
+            "code": "<Toast variant=\"error\">\n  <ToastTitle>Error</ToastTitle>\n  <ToastDescription>Something went wrong.</ToastDescription>\n  <ToastAction altText=\"Try again\">Retry</ToastAction>\n</Toast>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-toast", "class-variance-authority", "lucide-react"],
+      "relatedComponents": ["Alert", "Button"]
+    },
+    "alert-dialog": {
+      "name": "AlertDialog",
+      "description": "Confirmation dialog that interrupts the user for critical actions. Requires explicit user response. Uses @radix-ui/react-alert-dialog.",
+      "intent": [
+        "user needs a confirmation before destructive action",
+        "user wants a blocking confirmation dialog",
+        "user needs a yes/no decision dialog",
+        "user wants to prevent accidental deletions"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "description": "Default open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        }
+      },
+      "accessibility": {
+        "role": "alertdialog",
+        "keyboardNavigation": ["Tab to cycle between Cancel and Confirm", "Escape does NOT close (intentional for critical actions)"],
+        "ariaSupport": ["aria-labelledby", "aria-describedby", "role=alertdialog"],
+        "focusManagement": "Focus trapped, no click-outside dismiss, requires explicit action",
+        "wcag": "WCAG 2.2 AAA compliant - cannot be accidentally dismissed"
+      },
+      "usage": {
+        "when": "User is about to perform an irreversible or destructive action (delete, discard changes)",
+        "avoid": "Don't use for non-critical confirmations (use Dialog), don't use for informational messages (use Toast or Alert)",
+        "examples": [
+          {
+            "scenario": "Delete confirmation",
+            "code": "<AlertDialog>\n  <AlertDialogTrigger asChild>\n    <Button variant=\"danger\">Delete Account</Button>\n  </AlertDialogTrigger>\n  <AlertDialogContent>\n    <AlertDialogHeader>\n      <AlertDialogTitle>Are you sure?</AlertDialogTitle>\n      <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>\n    </AlertDialogHeader>\n    <AlertDialogFooter>\n      <AlertDialogCancel>Cancel</AlertDialogCancel>\n      <AlertDialogAction>Delete</AlertDialogAction>\n    </AlertDialogFooter>\n  </AlertDialogContent>\n</AlertDialog>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-alert-dialog"],
+      "relatedComponents": ["Dialog", "Button", "Toast"]
+    },
+    "card": {
+      "name": "Card",
+      "description": "Content container with border, background, and shadow. Compound component: Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter.",
+      "intent": [
+        "user needs a content container",
+        "user wants a card layout",
+        "user needs a grouped content section",
+        "user wants a bordered panel with header and footer"
+      ],
+      "props": {
+        "className": {
+          "type": "string",
+          "description": "Additional CSS class names for customizing card appearance"
+        }
+      },
+      "accessibility": {
+        "role": "region (when combined with aria-label) or generic container",
+        "keyboardNavigation": ["Tab through interactive children"],
+        "ariaSupport": ["aria-label", "aria-labelledby (via CardTitle)"],
+        "focusManagement": "Card itself is not focusable; children manage their own focus",
+        "wcag": "WCAG 2.2 AA compliant - semantic heading in CardTitle"
+      },
+      "usage": {
+        "when": "User needs to group related content in a visually distinct container (profile cards, stats, settings groups)",
+        "avoid": "Don't nest cards within cards, don't use for full-page layouts",
+        "examples": [
+          {
+            "scenario": "Basic card",
+            "code": "<Card>\n  <CardHeader>\n    <CardTitle>Title</CardTitle>\n    <CardDescription>Description text</CardDescription>\n  </CardHeader>\n  <CardContent>\n    <p>Card content goes here.</p>\n  </CardContent>\n  <CardFooter>\n    <Button>Action</Button>\n  </CardFooter>\n</Card>"
+          },
+          {
+            "scenario": "Stat card",
+            "code": "<Card>\n  <CardHeader>\n    <CardDescription>Total Revenue</CardDescription>\n    <CardTitle className=\"text-2xl\">$45,231.89</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <p className=\"text-xs text-muted\">+20.1% from last month</p>\n  </CardContent>\n</Card>"
+          },
+          {
+            "scenario": "Card with form",
+            "code": "<Card>\n  <CardHeader>\n    <CardTitle>Login</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <FormField id=\"email\"><FormLabel>Email</FormLabel><FormControl><Input type=\"email\" /></FormControl></FormField>\n  </CardContent>\n  <CardFooter><Button className=\"w-full\">Sign In</Button></CardFooter>\n</Card>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Button", "Badge", "Separator"]
+    },
+    "badge": {
+      "name": "Badge",
+      "description": "Status badge for labels and indicators. Small pill-shaped element with semantic color variants.",
+      "intent": [
+        "user needs a status indicator",
+        "user wants a tag or label",
+        "user needs to highlight a state",
+        "user wants a count or category badge"
+      ],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "secondary", "outline", "destructive", "success", "warning"],
+          "default": "default",
+          "description": "Visual style variant. Default for primary badges, destructive for errors, success for positive states, warning for caution."
+        }
+      },
+      "accessibility": {
+        "role": "status (implicit via content)",
+        "keyboardNavigation": ["Not interactive by default"],
+        "ariaSupport": ["aria-label for icon-only badges"],
+        "focusManagement": "Not focusable by default. Add tabIndex if interactive.",
+        "wcag": "WCAG 2.2 AA compliant - color not the sole means of conveying status"
+      },
+      "usage": {
+        "when": "User needs to show status, category, or count (active/inactive, tags, notification counts)",
+        "avoid": "Don't use for actions (use Button), don't use for long text",
+        "examples": [
+          {
+            "scenario": "Status badges",
+            "code": "<Badge variant=\"success\">Active</Badge>\n<Badge variant=\"destructive\">Error</Badge>\n<Badge variant=\"warning\">Pending</Badge>"
+          },
+          {
+            "scenario": "Outline badge for tags",
+            "code": "<Badge variant=\"outline\">React</Badge>\n<Badge variant=\"outline\">TypeScript</Badge>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Card", "Alert", "Button"]
+    },
+    "alert": {
+      "name": "Alert",
+      "description": "Persistent message component for important information. Supports semantic variants with icon placement. Sub-components: Alert, AlertTitle, AlertDescription.",
+      "intent": [
+        "user needs a persistent notification",
+        "user wants to display an error or warning message",
+        "user needs an info banner",
+        "user wants a callout block"
+      ],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "info", "warning", "error", "success"],
+          "default": "default",
+          "description": "Visual style variant indicating alert severity"
+        }
+      },
+      "accessibility": {
+        "role": "alert",
+        "keyboardNavigation": ["Not interactive by default"],
+        "ariaSupport": ["role=alert (auto-applied)", "aria-live=assertive (implicit)"],
+        "focusManagement": "Not focusable; content is announced by screen readers via role=alert",
+        "wcag": "WCAG 2.2 AA compliant - role=alert for screen readers, icon + color + text for status"
+      },
+      "usage": {
+        "when": "User needs to see a persistent important message (errors, warnings, success confirmations, info)",
+        "avoid": "Don't use for transient messages (use Toast), don't use for confirmations (use AlertDialog)",
+        "examples": [
+          {
+            "scenario": "Error alert",
+            "code": "<Alert variant=\"error\">\n  <AlertTitle>Error</AlertTitle>\n  <AlertDescription>Something went wrong. Please try again.</AlertDescription>\n</Alert>"
+          },
+          {
+            "scenario": "Info alert",
+            "code": "<Alert variant=\"info\">\n  <AlertTitle>Note</AlertTitle>\n  <AlertDescription>This feature is in beta.</AlertDescription>\n</Alert>"
+          },
+          {
+            "scenario": "Success alert",
+            "code": "<Alert variant=\"success\">\n  <AlertTitle>Success</AlertTitle>\n  <AlertDescription>Your profile has been updated.</AlertDescription>\n</Alert>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Toast", "AlertDialog", "Badge"]
+    },
+    "skeleton": {
+      "name": "Skeleton",
+      "description": "Loading placeholder with pulse animation. Renders a gray pulsing block sized via className to mimic the content being loaded.",
+      "intent": [
+        "user needs a loading placeholder",
+        "user wants a skeleton screen",
+        "user needs content loading animation",
+        "user wants to show a loading state"
+      ],
+      "props": {
+        "className": {
+          "type": "string",
+          "description": "Width, height, and shape classes. Use h-*, w-*, and rounded-* to match target content."
+        }
+      },
+      "accessibility": {
+        "role": "presentation (decorative loading indicator)",
+        "keyboardNavigation": ["Not interactive"],
+        "ariaSupport": ["aria-hidden recommended, or aria-label='Loading' on container"],
+        "focusManagement": "Not focusable",
+        "wcag": "WCAG 2.2 AA compliant - animated pulse respects prefers-reduced-motion"
+      },
+      "usage": {
+        "when": "Content is loading and you want to show the layout structure before data arrives",
+        "avoid": "Don't use for indeterminate loading (use Spinner), don't use without matching the content dimensions",
+        "examples": [
+          {
+            "scenario": "Card skeleton",
+            "code": "<div className=\"space-y-3\">\n  <Skeleton className=\"h-12 w-12 rounded-full\" />\n  <Skeleton className=\"h-4 w-[250px]\" />\n  <Skeleton className=\"h-4 w-[200px]\" />\n</div>"
+          },
+          {
+            "scenario": "Text line skeletons",
+            "code": "<div className=\"space-y-2\">\n  <Skeleton className=\"h-4 w-full\" />\n  <Skeleton className=\"h-4 w-3/4\" />\n</div>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Spinner", "Card", "Avatar"]
+    },
+    "spinner": {
+      "name": "Spinner",
+      "description": "Animated SVG loading indicator with size variants. Renders a spinning circle with accessible label.",
+      "intent": [
+        "user needs a loading spinner",
+        "user wants an inline loading indicator",
+        "user needs to show processing state",
+        "user wants a button loading state"
+      ],
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["sm", "md", "lg", "xl"],
+          "default": "md",
+          "description": "Spinner size. sm=16px, md=24px, lg=32px, xl=48px."
+        },
+        "label": {
+          "type": "string",
+          "default": "Loading",
+          "description": "Accessible label for screen readers via aria-label"
+        }
+      },
+      "accessibility": {
+        "role": "status",
+        "keyboardNavigation": ["Not interactive"],
+        "ariaSupport": ["role=status", "aria-label (customizable)"],
+        "focusManagement": "Not focusable",
+        "wcag": "WCAG 2.2 AA compliant - accessible label, respects prefers-reduced-motion"
+      },
+      "usage": {
+        "when": "User needs to see that something is loading or processing (form submission, data fetch)",
+        "avoid": "Don't use for page-level loading (use Skeleton), don't use without a label for screen readers",
+        "examples": [
+          {
+            "scenario": "Basic spinner",
+            "code": "<Spinner />"
+          },
+          {
+            "scenario": "Large spinner with custom label",
+            "code": "<Spinner size=\"lg\" label=\"Submitting form\" />"
+          },
+          {
+            "scenario": "Inline button loading",
+            "code": "<Button disabled><Spinner size=\"sm\" className=\"mr-2\" />Saving...</Button>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Skeleton", "Button", "Progress"]
+    },
+    "tabs": {
+      "name": "Tabs",
+      "description": "Tabbed content panels for organizing related content. Compound component: Tabs, TabsList, TabsTrigger, TabsContent.",
+      "intent": [
+        "user needs tabbed content sections",
+        "user wants to switch between views",
+        "user needs a tab navigation interface",
+        "user wants organized content panels"
+      ],
+      "props": {
+        "value": {
+          "type": "string",
+          "description": "Controlled active tab value"
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "Default active tab for uncontrolled usage"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired when active tab changes"
+        },
+        "orientation": {
+          "type": "enum",
+          "values": ["horizontal", "vertical"],
+          "default": "horizontal",
+          "description": "Tab layout direction"
+        }
+      },
+      "accessibility": {
+        "role": "tablist / tab / tabpanel",
+        "keyboardNavigation": ["Arrow keys to switch tabs", "Tab to enter/exit tab list", "Home/End for first/last tab"],
+        "ariaSupport": ["aria-selected on active tab", "aria-controls linking tab to panel", "aria-labelledby on panel"],
+        "focusManagement": "Roving tabindex in tab list, tab panel receives focus on activation",
+        "wcag": "WCAG 2.2 AAA compliant - full keyboard navigation, ARIA tab pattern"
+      },
+      "usage": {
+        "when": "User needs to switch between related content sections without page navigation",
+        "avoid": "Don't use for page navigation (use NavigationMenu), don't use with only 1 tab",
+        "examples": [
+          {
+            "scenario": "Basic tabs",
+            "code": "<Tabs defaultValue=\"account\">\n  <TabsList>\n    <TabsTrigger value=\"account\">Account</TabsTrigger>\n    <TabsTrigger value=\"password\">Password</TabsTrigger>\n  </TabsList>\n  <TabsContent value=\"account\">Account settings here.</TabsContent>\n  <TabsContent value=\"password\">Password settings here.</TabsContent>\n</Tabs>"
+          },
+          {
+            "scenario": "Controlled tabs",
+            "code": "<Tabs value={activeTab} onValueChange={setActiveTab}>\n  <TabsList>\n    <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n    <TabsTrigger value=\"analytics\">Analytics</TabsTrigger>\n  </TabsList>\n</Tabs>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-tabs"],
+      "relatedComponents": ["Card", "NavigationMenu", "Accordion"]
+    },
+    "avatar": {
+      "name": "Avatar",
+      "description": "User avatar with image and fallback. Compound component: Avatar, AvatarImage, AvatarFallback. Shows fallback (initials or icon) while image loads or on error.",
+      "intent": [
+        "user needs a user profile image",
+        "user wants to display an avatar",
+        "user needs initials as fallback",
+        "user wants a user thumbnail"
+      ],
+      "props": {
+        "src": {
+          "type": "string",
+          "description": "Image source URL (on AvatarImage)"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alt text for the avatar image (on AvatarImage)"
+        },
+        "delayMs": {
+          "type": "number",
+          "description": "Delay before showing fallback, to prevent flash (on AvatarFallback)"
+        }
+      },
+      "accessibility": {
+        "role": "img (via AvatarImage alt text)",
+        "keyboardNavigation": ["Not interactive by default"],
+        "ariaSupport": ["alt text on AvatarImage", "aria-label on Avatar container"],
+        "focusManagement": "Not focusable by default",
+        "wcag": "WCAG 2.2 AA compliant - alt text for images, visible fallback"
+      },
+      "usage": {
+        "when": "User needs to display a profile picture with graceful fallback",
+        "avoid": "Don't use without alt text, don't use for decorative images (use img directly)",
+        "examples": [
+          {
+            "scenario": "Avatar with fallback initials",
+            "code": "<Avatar>\n  <AvatarImage src=\"/avatar.png\" alt=\"John Doe\" />\n  <AvatarFallback>JD</AvatarFallback>\n</Avatar>"
+          },
+          {
+            "scenario": "Avatar with custom size",
+            "code": "<Avatar className=\"h-16 w-16\">\n  <AvatarImage src=\"/large-avatar.png\" alt=\"Profile\" />\n  <AvatarFallback>AB</AvatarFallback>\n</Avatar>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-avatar"],
+      "relatedComponents": ["HoverCard", "Card", "Skeleton"]
+    },
+    "separator": {
+      "name": "Separator",
+      "description": "Visual divider line. Supports horizontal and vertical orientations.",
+      "intent": [
+        "user needs a visual divider",
+        "user wants to separate content sections",
+        "user needs a horizontal or vertical line"
+      ],
+      "props": {
+        "orientation": {
+          "type": "enum",
+          "values": ["horizontal", "vertical"],
+          "default": "horizontal",
+          "description": "Divider direction"
+        },
+        "decorative": {
+          "type": "boolean",
+          "default": true,
+          "description": "When true, separator is hidden from accessibility tree (purely visual)"
+        }
+      },
+      "accessibility": {
+        "role": "separator (when decorative=false) or none (when decorative=true)",
+        "keyboardNavigation": ["Not interactive"],
+        "ariaSupport": ["role=separator when non-decorative", "aria-orientation"],
+        "focusManagement": "Not focusable",
+        "wcag": "WCAG 2.2 AA compliant - semantic separator role when meaningful"
+      },
+      "usage": {
+        "when": "User needs to visually divide content sections",
+        "avoid": "Don't use for spacing only (use CSS margin/padding), set decorative=false if the separator conveys meaning",
+        "examples": [
+          {
+            "scenario": "Horizontal separator",
+            "code": "<div>\n  <p>Content above</p>\n  <Separator className=\"my-4\" />\n  <p>Content below</p>\n</div>"
+          },
+          {
+            "scenario": "Vertical separator in toolbar",
+            "code": "<div className=\"flex h-5 items-center space-x-4\">\n  <span>Item 1</span>\n  <Separator orientation=\"vertical\" />\n  <span>Item 2</span>\n</div>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-separator"],
+      "relatedComponents": ["Card", "DropdownMenu", "Toolbar"]
+    },
+    "progress": {
+      "name": "Progress",
+      "description": "Progress bar showing completion status. Displays a filled bar from 0 to 100.",
+      "intent": [
+        "user needs a progress indicator",
+        "user wants to show completion percentage",
+        "user needs a loading bar",
+        "user wants to display upload or task progress"
+      ],
+      "props": {
+        "value": {
+          "type": "number",
+          "description": "Progress value from 0 to 100. Omit for indeterminate state."
+        },
+        "max": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum value"
+        }
+      },
+      "accessibility": {
+        "role": "progressbar",
+        "keyboardNavigation": ["Not interactive"],
+        "ariaSupport": ["aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-label"],
+        "focusManagement": "Not focusable",
+        "wcag": "WCAG 2.2 AA compliant - announces progress to screen readers"
+      },
+      "usage": {
+        "when": "User needs to see how far along a process is (file upload, form completion, step progress)",
+        "avoid": "Don't use for indeterminate loading (use Spinner), don't use without providing a value",
+        "examples": [
+          {
+            "scenario": "Basic progress bar",
+            "code": "<Progress value={60} className=\"w-full\" />"
+          },
+          {
+            "scenario": "Progress with label",
+            "code": "<div>\n  <div className=\"flex justify-between mb-1\">\n    <span>Uploading...</span>\n    <span>60%</span>\n  </div>\n  <Progress value={60} />\n</div>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-progress"],
+      "relatedComponents": ["Spinner", "Skeleton", "Badge"]
+    },
+    "accordion": {
+      "name": "Accordion",
+      "description": "Collapsible content sections with animated expand/collapse. Compound component: Accordion, AccordionItem, AccordionTrigger, AccordionContent.",
+      "intent": [
+        "user needs collapsible sections",
+        "user wants an FAQ layout",
+        "user needs expandable content areas",
+        "user wants to organize content vertically with show/hide"
+      ],
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["single", "multiple"],
+          "description": "Whether one or multiple items can be open simultaneously"
+        },
+        "value": {
+          "type": "string | string[]",
+          "description": "Controlled open item(s)"
+        },
+        "defaultValue": {
+          "type": "string | string[]",
+          "description": "Default open item(s)"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired when open items change"
+        },
+        "collapsible": {
+          "type": "boolean",
+          "default": false,
+          "description": "When type='single', allows closing all items (otherwise one must stay open)"
+        }
+      },
+      "accessibility": {
+        "role": "region (content) with heading (trigger)",
+        "keyboardNavigation": ["Space/Enter to toggle", "Arrow keys between triggers", "Home/End for first/last"],
+        "ariaSupport": ["aria-expanded on trigger", "aria-controls linking trigger to content", "aria-labelledby on content"],
+        "focusManagement": "Roving tabindex between triggers",
+        "wcag": "WCAG 2.2 AAA compliant - full keyboard navigation, ARIA accordion pattern"
+      },
+      "usage": {
+        "when": "User needs to organize multiple collapsible sections (FAQs, settings, long content lists)",
+        "avoid": "Don't use for single show/hide (use Collapsible), don't use for tabs (use Tabs)",
+        "examples": [
+          {
+            "scenario": "FAQ accordion",
+            "code": "<Accordion type=\"single\" collapsible>\n  <AccordionItem value=\"item-1\">\n    <AccordionTrigger>What is this?</AccordionTrigger>\n    <AccordionContent>This is a design system component.</AccordionContent>\n  </AccordionItem>\n  <AccordionItem value=\"item-2\">\n    <AccordionTrigger>How do I use it?</AccordionTrigger>\n    <AccordionContent>Import and compose the sub-components.</AccordionContent>\n  </AccordionItem>\n</Accordion>"
+          },
+          {
+            "scenario": "Multiple open sections",
+            "code": "<Accordion type=\"multiple\" defaultValue={[\"item-1\"]}>\n  <AccordionItem value=\"item-1\">\n    <AccordionTrigger>Section 1</AccordionTrigger>\n    <AccordionContent>Content 1</AccordionContent>\n  </AccordionItem>\n  <AccordionItem value=\"item-2\">\n    <AccordionTrigger>Section 2</AccordionTrigger>\n    <AccordionContent>Content 2</AccordionContent>\n  </AccordionItem>\n</Accordion>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-accordion", "lucide-react"],
+      "relatedComponents": ["Collapsible", "Tabs", "Card"]
+    },
+    "collapsible": {
+      "name": "Collapsible",
+      "description": "Generic collapsible container for showing/hiding content. Compound component: Collapsible, CollapsibleTrigger, CollapsibleContent.",
+      "intent": [
+        "user needs a simple show/hide toggle",
+        "user wants to collapse a section",
+        "user needs expandable content",
+        "user wants a toggle-able content area"
+      ],
+      "props": {
+        "open": {
+          "type": "boolean",
+          "description": "Controlled open state"
+        },
+        "defaultOpen": {
+          "type": "boolean",
+          "description": "Default open state"
+        },
+        "onOpenChange": {
+          "type": "function",
+          "description": "Callback fired when open state changes"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disables the collapsible"
+        }
+      },
+      "accessibility": {
+        "role": "group with disclosure pattern",
+        "keyboardNavigation": ["Enter/Space to toggle trigger", "Tab to focus trigger"],
+        "ariaSupport": ["aria-expanded on trigger", "aria-controls"],
+        "focusManagement": "Focus on trigger element",
+        "wcag": "WCAG 2.2 AA compliant - disclosure widget pattern"
+      },
+      "usage": {
+        "when": "User needs a single collapsible section (advanced options, more info toggle)",
+        "avoid": "Don't use for multiple collapsible sections (use Accordion), don't use for tabs (use Tabs)",
+        "examples": [
+          {
+            "scenario": "Basic collapsible",
+            "code": "<Collapsible>\n  <CollapsibleTrigger asChild>\n    <Button variant=\"ghost\">Toggle</Button>\n  </CollapsibleTrigger>\n  <CollapsibleContent>\n    <p>Hidden content goes here</p>\n  </CollapsibleContent>\n</Collapsible>"
+          },
+          {
+            "scenario": "Controlled collapsible",
+            "code": "<Collapsible open={isOpen} onOpenChange={setIsOpen}>\n  <CollapsibleTrigger>Show details</CollapsibleTrigger>\n  <CollapsibleContent>Details content</CollapsibleContent>\n</Collapsible>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-collapsible"],
+      "relatedComponents": ["Accordion", "Card"]
+    },
+    "scroll-area": {
+      "name": "ScrollArea",
+      "description": "Custom scrollbar container replacing native scrollbars. Compound component: ScrollArea, ScrollBar.",
+      "intent": [
+        "user needs custom styled scrollbars",
+        "user wants a scrollable container",
+        "user needs consistent scroll behavior across browsers",
+        "user wants a scrollable list or content area"
+      ],
+      "props": {
+        "orientation": {
+          "type": "enum",
+          "values": ["vertical", "horizontal"],
+          "default": "vertical",
+          "description": "Scrollbar orientation (on ScrollBar)"
+        },
+        "type": {
+          "type": "enum",
+          "values": ["auto", "always", "scroll", "hover"],
+          "default": "hover",
+          "description": "Scrollbar visibility behavior"
+        }
+      },
+      "accessibility": {
+        "role": "region with scrollable content",
+        "keyboardNavigation": ["Arrow keys to scroll", "Page Up/Down for large scrolls", "Home/End for start/end"],
+        "ariaSupport": ["aria-label on container", "scrollbar is keyboard accessible"],
+        "focusManagement": "Viewport is focusable for keyboard scrolling",
+        "wcag": "WCAG 2.2 AA compliant - keyboard scrollable, touch accessible"
+      },
+      "usage": {
+        "when": "User needs a scrollable area with custom styled scrollbars (sidebars, long lists, code blocks)",
+        "avoid": "Don't use for full-page scrolling, don't use when native scrollbars are acceptable",
+        "examples": [
+          {
+            "scenario": "Scrollable list",
+            "code": "<ScrollArea className=\"h-72 w-48 rounded-md border\">\n  <div className=\"p-4\">\n    {items.map(item => <div key={item}>{item}</div>)}\n  </div>\n</ScrollArea>"
+          },
+          {
+            "scenario": "Horizontal scroll area",
+            "code": "<ScrollArea className=\"w-full whitespace-nowrap\">\n  <div className=\"flex space-x-4\">\n    {images.map(img => <img key={img} src={img} />)}\n  </div>\n  <ScrollBar orientation=\"horizontal\" />\n</ScrollArea>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-scroll-area"],
+      "relatedComponents": ["Card", "Sheet"]
+    },
+    "aspect-ratio": {
+      "name": "AspectRatio",
+      "description": "Container that maintains a specified aspect ratio for its children (images, videos, embeds).",
+      "intent": [
+        "user needs to maintain aspect ratio for media",
+        "user wants a responsive image container",
+        "user needs a 16:9 or 4:3 video wrapper"
+      ],
+      "props": {
+        "ratio": {
+          "type": "number",
+          "default": 1,
+          "description": "The desired aspect ratio expressed as width/height (e.g., 16/9, 4/3, 1)"
+        }
+      },
+      "accessibility": {
+        "role": "presentation (layout utility)",
+        "keyboardNavigation": ["Not interactive"],
+        "ariaSupport": ["Children should have appropriate alt text"],
+        "focusManagement": "Not focusable",
+        "wcag": "WCAG 2.2 AA compliant - layout utility, children handle accessibility"
+      },
+      "usage": {
+        "when": "User needs consistent aspect ratios for images, videos, or embeds",
+        "avoid": "Don't use when native CSS aspect-ratio suffices, don't use without media content",
+        "examples": [
+          {
+            "scenario": "16:9 image container",
+            "code": "<AspectRatio ratio={16 / 9}>\n  <img src=\"image.jpg\" alt=\"Landscape\" className=\"rounded-md object-cover w-full h-full\" />\n</AspectRatio>"
+          },
+          {
+            "scenario": "Square avatar container",
+            "code": "<AspectRatio ratio={1}>\n  <img src=\"avatar.jpg\" alt=\"Profile\" className=\"object-cover w-full h-full\" />\n</AspectRatio>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-aspect-ratio"],
+      "relatedComponents": ["Card", "Avatar"]
+    },
+    "visually-hidden": {
+      "name": "VisuallyHidden",
+      "description": "Hides content visually while keeping it accessible to screen readers. Essential for accessible icon buttons and decorative elements.",
+      "intent": [
+        "user needs screen reader only text",
+        "user wants to hide content visually but keep it accessible",
+        "user needs an accessible label for an icon button",
+        "user wants to provide screen reader context"
+      ],
+      "props": {},
+      "accessibility": {
+        "role": "none (passes through to child content)",
+        "keyboardNavigation": ["Not interactive"],
+        "ariaSupport": ["Content is announced by screen readers despite being visually hidden"],
+        "focusManagement": "Not focusable (content within may be)",
+        "wcag": "WCAG 2.2 AAA compliant - enables accessible names for visual-only elements"
+      },
+      "usage": {
+        "when": "User needs accessible text that should not be visible (icon button labels, decorative element descriptions)",
+        "avoid": "Don't use for content that users should see, use aria-label when VisuallyHidden is overkill",
+        "examples": [
+          {
+            "scenario": "Icon button with accessible label",
+            "code": "<button>\n  <Icon name=\"close\" />\n  <VisuallyHidden>Close dialog</VisuallyHidden>\n</button>"
+          },
+          {
+            "scenario": "Accessible heading for navigation",
+            "code": "<VisuallyHidden>\n  <h2>Main Navigation</h2>\n</VisuallyHidden>\n<nav>...</nav>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-visually-hidden"],
+      "relatedComponents": ["Button", "Dialog", "Label"]
+    },
+    "navigation-menu": {
+      "name": "NavigationMenu",
+      "description": "Complex navigation component with dropdown panels. Compound component: NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuViewport, NavigationMenuIndicator.",
+      "intent": [
+        "user needs a site navigation with dropdowns",
+        "user wants a horizontal navigation bar",
+        "user needs a mega menu",
+        "user wants a multi-level navigation"
+      ],
+      "props": {
+        "value": {
+          "type": "string",
+          "description": "Controlled active item value"
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "Default active item"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired when active item changes"
+        },
+        "orientation": {
+          "type": "enum",
+          "values": ["horizontal", "vertical"],
+          "default": "horizontal",
+          "description": "Navigation layout direction"
+        },
+        "delayDuration": {
+          "type": "number",
+          "default": 200,
+          "description": "Delay in ms before showing content on hover"
+        }
+      },
+      "accessibility": {
+        "role": "navigation",
+        "keyboardNavigation": ["Arrow keys between items", "Enter/Space to open content", "Escape to close", "Tab to exit"],
+        "ariaSupport": ["aria-expanded on triggers", "aria-haspopup", "aria-label on nav"],
+        "focusManagement": "Roving tabindex in menu list, focus moves to content on open",
+        "wcag": "WCAG 2.2 AAA compliant - full keyboard navigation, ARIA menu pattern"
+      },
+      "usage": {
+        "when": "User needs primary site navigation with dropdown panels (header nav, mega menus)",
+        "avoid": "Don't use for action menus (use DropdownMenu), don't use for simple link lists",
+        "examples": [
+          {
+            "scenario": "Basic navigation menu",
+            "code": "<NavigationMenu>\n  <NavigationMenuList>\n    <NavigationMenuItem>\n      <NavigationMenuTrigger>Products</NavigationMenuTrigger>\n      <NavigationMenuContent>\n        <ul className=\"grid gap-3 p-4 w-[400px]\">\n          <li><NavigationMenuLink href=\"/product-a\">Product A</NavigationMenuLink></li>\n          <li><NavigationMenuLink href=\"/product-b\">Product B</NavigationMenuLink></li>\n        </ul>\n      </NavigationMenuContent>\n    </NavigationMenuItem>\n    <NavigationMenuItem>\n      <NavigationMenuLink href=\"/about\">About</NavigationMenuLink>\n    </NavigationMenuItem>\n  </NavigationMenuList>\n</NavigationMenu>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-navigation-menu", "class-variance-authority", "lucide-react"],
+      "relatedComponents": ["Breadcrumb", "Link", "Tabs", "Menubar"]
+    },
+    "menubar": {
+      "name": "Menubar",
+      "description": "Application menu bar (File, Edit, View pattern). Full compound component: Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem, MenubarSeparator, MenubarLabel, MenubarCheckboxItem, MenubarRadioItem, MenubarRadioGroup, MenubarSub, MenubarSubTrigger, MenubarSubContent, MenubarShortcut.",
+      "intent": [
+        "user needs an application menu bar",
+        "user wants File/Edit/View style menus",
+        "user needs a horizontal menu with dropdowns",
+        "user wants a desktop application-style menu"
+      ],
+      "props": {
+        "inset": {
+          "type": "boolean",
+          "default": false,
+          "description": "Adds left padding for menu items with icons (on MenubarItem/SubTrigger/Label)"
+        }
+      },
+      "accessibility": {
+        "role": "menubar / menu / menuitem",
+        "keyboardNavigation": ["Left/Right arrows between top-level menus", "Up/Down arrows within menu", "Enter/Space to select", "Escape to close"],
+        "ariaSupport": ["aria-expanded", "aria-haspopup", "aria-checked for checkbox/radio items"],
+        "focusManagement": "Roving tabindex in menubar, focus trapped in open menus",
+        "wcag": "WCAG 2.2 AAA compliant - full menubar ARIA pattern"
+      },
+      "usage": {
+        "when": "Building desktop-style application interfaces with persistent menu bar",
+        "avoid": "Don't use for site navigation (use NavigationMenu), don't use for single dropdown (use DropdownMenu)",
+        "examples": [
+          {
+            "scenario": "Application menubar",
+            "code": "<Menubar>\n  <MenubarMenu>\n    <MenubarTrigger>File</MenubarTrigger>\n    <MenubarContent>\n      <MenubarItem>New Tab <MenubarShortcut>⌘T</MenubarShortcut></MenubarItem>\n      <MenubarItem>New Window <MenubarShortcut>⌘N</MenubarShortcut></MenubarItem>\n      <MenubarSeparator />\n      <MenubarItem>Print <MenubarShortcut>⌘P</MenubarShortcut></MenubarItem>\n    </MenubarContent>\n  </MenubarMenu>\n  <MenubarMenu>\n    <MenubarTrigger>Edit</MenubarTrigger>\n    <MenubarContent>\n      <MenubarItem>Undo <MenubarShortcut>⌘Z</MenubarShortcut></MenubarItem>\n      <MenubarItem>Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut></MenubarItem>\n    </MenubarContent>\n  </MenubarMenu>\n</Menubar>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-menubar", "lucide-react"],
+      "relatedComponents": ["DropdownMenu", "NavigationMenu", "Toolbar"]
+    },
+    "breadcrumb": {
+      "name": "Breadcrumb",
+      "description": "Navigation breadcrumb trail showing hierarchical location. Compound component: Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis.",
+      "intent": [
+        "user needs a breadcrumb trail",
+        "user wants hierarchical navigation",
+        "user needs to show page location in hierarchy",
+        "user wants a path indicator"
+      ],
+      "props": {
+        "asChild": {
+          "type": "boolean",
+          "default": false,
+          "description": "Render BreadcrumbLink as child element (e.g., router Link)"
+        },
+        "separator": {
+          "type": "ReactNode",
+          "default": "ChevronRight icon",
+          "description": "Custom separator element (children of BreadcrumbSeparator)"
+        }
+      },
+      "accessibility": {
+        "role": "navigation with aria-label='breadcrumb'",
+        "keyboardNavigation": ["Tab through breadcrumb links"],
+        "ariaSupport": ["aria-label='breadcrumb' on nav", "aria-current='page' on current page", "aria-hidden on separators"],
+        "focusManagement": "Links are focusable, current page is aria-disabled",
+        "wcag": "WCAG 2.2 AAA compliant - semantic nav, aria-current for current page"
+      },
+      "usage": {
+        "when": "User needs to understand and navigate page hierarchy (e-commerce, documentation, file browsers)",
+        "avoid": "Don't use for flat navigation (use Tabs or NavigationMenu), don't use with only one level",
+        "examples": [
+          {
+            "scenario": "Basic breadcrumb",
+            "code": "<Breadcrumb>\n  <BreadcrumbList>\n    <BreadcrumbItem>\n      <BreadcrumbLink href=\"/\">Home</BreadcrumbLink>\n    </BreadcrumbItem>\n    <BreadcrumbSeparator />\n    <BreadcrumbItem>\n      <BreadcrumbLink href=\"/products\">Products</BreadcrumbLink>\n    </BreadcrumbItem>\n    <BreadcrumbSeparator />\n    <BreadcrumbItem>\n      <BreadcrumbPage>Widget</BreadcrumbPage>\n    </BreadcrumbItem>\n  </BreadcrumbList>\n</Breadcrumb>"
+          },
+          {
+            "scenario": "Breadcrumb with ellipsis",
+            "code": "<Breadcrumb>\n  <BreadcrumbList>\n    <BreadcrumbItem><BreadcrumbLink href=\"/\">Home</BreadcrumbLink></BreadcrumbItem>\n    <BreadcrumbSeparator />\n    <BreadcrumbItem><BreadcrumbEllipsis /></BreadcrumbItem>\n    <BreadcrumbSeparator />\n    <BreadcrumbItem><BreadcrumbPage>Current</BreadcrumbPage></BreadcrumbItem>\n  </BreadcrumbList>\n</Breadcrumb>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-slot", "lucide-react"],
+      "relatedComponents": ["NavigationMenu", "Link", "Pagination"]
+    },
+    "pagination": {
+      "name": "Pagination",
+      "description": "Page navigation for paginated content. Compound component: Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis.",
+      "intent": [
+        "user needs page navigation",
+        "user wants pagination controls",
+        "user needs previous/next page buttons",
+        "user wants numbered page links"
+      ],
+      "props": {
+        "isActive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Marks the current page link as active (on PaginationLink)"
+        },
+        "size": {
+          "type": "enum",
+          "values": ["sm", "md", "lg"],
+          "default": "md",
+          "description": "Size of pagination links"
+        }
+      },
+      "accessibility": {
+        "role": "navigation with aria-label='pagination'",
+        "keyboardNavigation": ["Tab through page links", "Enter to navigate"],
+        "ariaSupport": ["aria-label='pagination' on nav", "aria-current='page' on active link", "aria-label on Previous/Next"],
+        "focusManagement": "Links are focusable, clear active state",
+        "wcag": "WCAG 2.2 AA compliant - semantic navigation, clear active page"
+      },
+      "usage": {
+        "when": "User needs to navigate between pages of a large data set",
+        "avoid": "Don't use for small data sets (show all content), don't use for infinite scroll patterns",
+        "examples": [
+          {
+            "scenario": "Basic pagination",
+            "code": "<Pagination>\n  <PaginationContent>\n    <PaginationItem>\n      <PaginationPrevious href=\"#\" />\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationLink href=\"#\" isActive>1</PaginationLink>\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationLink href=\"#\">2</PaginationLink>\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationEllipsis />\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationNext href=\"#\" />\n    </PaginationItem>\n  </PaginationContent>\n</Pagination>"
+          }
+        ]
+      },
+      "dependencies": ["lucide-react"],
+      "relatedComponents": ["Breadcrumb", "Button", "NavigationMenu"]
+    },
+    "toggle-group": {
+      "name": "ToggleGroup",
+      "description": "Group of toggle buttons for single or multiple selection. Shares button variants. Compound component: ToggleGroup, ToggleGroupItem.",
+      "intent": [
+        "user needs a group of toggle buttons",
+        "user wants a segmented control",
+        "user needs multi-select button group",
+        "user wants a button-style radio or checkbox group"
+      ],
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["single", "multiple"],
+          "description": "Whether one or multiple items can be selected"
+        },
+        "value": {
+          "type": "string | string[]",
+          "description": "Controlled selected value(s)"
+        },
+        "defaultValue": {
+          "type": "string | string[]",
+          "description": "Default selected value(s)"
+        },
+        "onValueChange": {
+          "type": "function",
+          "description": "Callback fired when selection changes"
+        },
+        "variant": {
+          "type": "enum",
+          "values": ["primary", "secondary", "outline", "ghost", "danger"],
+          "default": "outline",
+          "description": "Button variant applied to all items (inherits from Button variants)"
+        },
+        "size": {
+          "type": "enum",
+          "values": ["sm", "md", "lg"],
+          "default": "md",
+          "description": "Button size applied to all items"
+        }
+      },
+      "accessibility": {
+        "role": "group / toggle button",
+        "keyboardNavigation": ["Arrow keys between items", "Space/Enter to toggle", "Tab to enter/exit group"],
+        "ariaSupport": ["aria-pressed on each item", "aria-label on group"],
+        "focusManagement": "Roving tabindex within group",
+        "wcag": "WCAG 2.2 AAA compliant - keyboard operable, pressed state announcements"
+      },
+      "usage": {
+        "when": "User needs button-style toggles for view modes, formatting options, or filter selections",
+        "avoid": "Don't use for form selections (use RadioGroup or Checkbox), don't use for navigation (use Tabs)",
+        "examples": [
+          {
+            "scenario": "View mode toggle",
+            "code": "<ToggleGroup type=\"single\" defaultValue=\"grid\">\n  <ToggleGroupItem value=\"grid\">Grid</ToggleGroupItem>\n  <ToggleGroupItem value=\"list\">List</ToggleGroupItem>\n</ToggleGroup>"
+          },
+          {
+            "scenario": "Multi-select formatting",
+            "code": "<ToggleGroup type=\"multiple\" variant=\"outline\" size=\"sm\">\n  <ToggleGroupItem value=\"bold\">B</ToggleGroupItem>\n  <ToggleGroupItem value=\"italic\">I</ToggleGroupItem>\n  <ToggleGroupItem value=\"underline\">U</ToggleGroupItem>\n</ToggleGroup>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-toggle-group", "class-variance-authority"],
+      "relatedComponents": ["Button", "Toolbar", "RadioGroup", "Tabs"]
+    },
+    "toolbar": {
+      "name": "Toolbar",
+      "description": "Action toolbar container for grouping related controls. Compound component: Toolbar, ToolbarButton, ToolbarSeparator, ToolbarToggleGroup, ToolbarToggleItem, ToolbarLink.",
+      "intent": [
+        "user needs an action toolbar",
+        "user wants grouped controls in a bar",
+        "user needs a formatting toolbar",
+        "user wants to group related buttons and toggles"
+      ],
+      "props": {
+        "orientation": {
+          "type": "enum",
+          "values": ["horizontal", "vertical"],
+          "default": "horizontal",
+          "description": "Layout direction of the toolbar"
+        },
+        "loop": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether keyboard navigation wraps from last to first item"
+        }
+      },
+      "accessibility": {
+        "role": "toolbar",
+        "keyboardNavigation": ["Arrow keys between toolbar items", "Tab to enter/exit toolbar", "Space/Enter to activate"],
+        "ariaSupport": ["role=toolbar", "aria-label", "aria-orientation"],
+        "focusManagement": "Roving tabindex within toolbar",
+        "wcag": "WCAG 2.2 AAA compliant - ARIA toolbar pattern, keyboard operable"
+      },
+      "usage": {
+        "when": "User needs a horizontal or vertical bar of related actions (text formatting, editor tools, view controls)",
+        "avoid": "Don't use for navigation (use NavigationMenu), don't use for a single action (use Button)",
+        "examples": [
+          {
+            "scenario": "Formatting toolbar",
+            "code": "<Toolbar>\n  <ToolbarToggleGroup type=\"multiple\">\n    <ToolbarToggleItem value=\"bold\">Bold</ToolbarToggleItem>\n    <ToolbarToggleItem value=\"italic\">Italic</ToolbarToggleItem>\n  </ToolbarToggleGroup>\n  <ToolbarSeparator />\n  <ToolbarButton>Undo</ToolbarButton>\n  <ToolbarButton>Redo</ToolbarButton>\n  <ToolbarSeparator />\n  <ToolbarLink href=\"/help\">Help</ToolbarLink>\n</Toolbar>"
+          }
+        ]
+      },
+      "dependencies": ["@radix-ui/react-toolbar"],
+      "relatedComponents": ["ToggleGroup", "Button", "Separator", "Menubar"]
+    },
+    "stack": {
+      "name": "Stack",
+      "description": "Flex layout wrapper with density-aware spacing. Supports vertical and horizontal direction, gap control, alignment, justification, and wrap.",
+      "intent": [
+        "user wants to layout items vertically",
+        "user wants to layout items horizontally",
+        "user needs a flex container with consistent spacing",
+        "user wants a simple column or row layout"
+      ],
+      "props": {
+        "direction": {
+          "type": "enum",
+          "values": ["vertical", "horizontal"],
+          "default": "vertical",
+          "description": "Flex direction. Vertical for columns, horizontal for rows."
+        },
+        "spacing": {
+          "type": "enum",
+          "values": ["none", "xs", "sm", "md", "lg", "xl"],
+          "default": "md",
+          "description": "Gap between children using density-aware design tokens."
+        },
+        "align": {
+          "type": "enum",
+          "values": ["start", "center", "end", "stretch", "baseline"],
+          "default": "stretch",
+          "description": "Cross-axis alignment of children."
+        },
+        "as": {
+          "type": "string",
+          "description": "Polymorphic element type (div, section, nav, ul, etc)."
+        }
+      },
+      "accessibility": {
+        "role": "When used as navigation (as='nav'), add aria-label",
+        "considerations": ["Use semantic element via as prop when appropriate (nav, section, main)"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Vertical card list",
+            "code": "<Stack spacing=\"lg\">\n  <Card>First</Card>\n  <Card>Second</Card>\n  <Card>Third</Card>\n</Stack>"
+          },
+          {
+            "scenario": "Horizontal toolbar",
+            "code": "<Stack direction=\"horizontal\" spacing=\"sm\" align=\"center\">\n  <Avatar />\n  <Text>Username</Text>\n  <Button size=\"sm\">Edit</Button>\n</Stack>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Container", "Card", "Heading", "Text"]
+    },
+    "container": {
+      "name": "Container",
+      "description": "Max-width wrapper with responsive padding. Centers content and constrains width using standard breakpoint presets.",
+      "intent": [
+        "user wants a max-width content wrapper",
+        "user needs centered page content",
+        "user wants responsive container padding",
+        "user needs a prose-width container for reading"
+      ],
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["sm", "md", "lg", "xl", "2xl", "full", "prose"],
+          "default": "lg",
+          "description": "Max-width preset. Prose is optimized for reading (~65 characters)."
+        },
+        "padding": {
+          "type": "enum",
+          "values": ["none", "sm", "md", "lg", "xl"],
+          "description": "Horizontal padding override."
+        },
+        "center": {
+          "type": "boolean",
+          "default": false,
+          "description": "Centers content vertically using flex."
+        }
+      },
+      "accessibility": {
+        "role": "Use as='main' for main content area",
+        "considerations": ["Wrap in semantic landmark element for accessibility"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Page layout",
+            "code": "<Container size=\"xl\">\n  <Heading level={1}>Page Title</Heading>\n  <Text>Page content within constrained width.</Text>\n</Container>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Stack", "Heading", "Text"]
+    },
+    "heading": {
+      "name": "Heading",
+      "description": "Semantic heading component (h1-h6) with fluid token-based typography. Supports independent visual size override from semantic level.",
+      "intent": [
+        "user needs a page title",
+        "user wants a section heading",
+        "user needs semantic headings for accessibility",
+        "user wants fluid responsive headings"
+      ],
+      "props": {
+        "level": {
+          "type": "enum",
+          "values": [1, 2, 3, 4, 5, 6],
+          "default": 2,
+          "description": "Semantic heading level. Determines the HTML element (h1-h6)."
+        },
+        "size": {
+          "type": "enum",
+          "values": ["1", "2", "3", "4", "5", "6"],
+          "description": "Visual size override. Defaults to matching the level."
+        },
+        "weight": {
+          "type": "enum",
+          "values": ["normal", "medium", "semibold", "bold"],
+          "default": "bold",
+          "description": "Font weight."
+        },
+        "align": {
+          "type": "enum",
+          "values": ["left", "center", "right"],
+          "description": "Text alignment."
+        }
+      },
+      "accessibility": {
+        "role": "heading with aria-level",
+        "considerations": ["Maintain proper heading hierarchy (h1 > h2 > h3)", "Use level for semantics and size for visuals independently"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Page title hierarchy",
+            "code": "<Heading level={1}>Page Title</Heading>\n<Heading level={2}>Section Title</Heading>\n<Heading level={3}>Subsection</Heading>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Text", "Container", "Stack"]
+    },
+    "text": {
+      "name": "Text",
+      "description": "Paragraph text component with size, weight, color, and alignment variants. Uses fluid design tokens for responsive typography.",
+      "intent": [
+        "user needs paragraph text",
+        "user wants styled body text",
+        "user needs secondary or muted text",
+        "user wants colored text for status messages",
+        "user needs inline text with a span"
+      ],
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["xs", "sm", "base", "lg", "xl"],
+          "default": "base",
+          "description": "Text size using fluid typography tokens."
+        },
+        "weight": {
+          "type": "enum",
+          "values": ["normal", "medium", "semibold", "bold"],
+          "default": "normal",
+          "description": "Font weight."
+        },
+        "color": {
+          "type": "enum",
+          "values": ["primary", "secondary", "tertiary", "inverse", "success", "warning", "error", "info"],
+          "default": "primary",
+          "description": "Text color using semantic tokens."
+        },
+        "as": {
+          "type": "string",
+          "description": "Polymorphic element type (p, span, label, div, etc)."
+        }
+      },
+      "accessibility": {
+        "role": "none (semantic via as prop)",
+        "considerations": ["Ensure sufficient color contrast for secondary/tertiary variants", "Use as='label' when labeling form inputs"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Content block",
+            "code": "<Text>Main paragraph text.</Text>\n<Text size=\"sm\" color=\"secondary\">Secondary caption text.</Text>\n<Text color=\"error\">Error message text.</Text>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Heading", "Stack", "Container", "Badge"]
+    },
+    "code": {
+      "name": "Code",
+      "description": "Inline code snippet and multi-line code block components. CodeBlock supports language labels and line numbers.",
+      "intent": [
+        "user wants to display inline code",
+        "user needs a code block",
+        "user wants syntax-highlighted code display",
+        "user needs to show code with line numbers"
+      ],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "ghost"],
+          "default": "default",
+          "description": "Code: default has background highlight, ghost is plain text."
+        }
+      },
+      "accessibility": {
+        "role": "code element",
+        "considerations": ["Use semantic <code> for inline snippets", "CodeBlock wraps in <pre> for whitespace preservation"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Inline code in text",
+            "code": "<p>Use the <Code>useState</Code> hook for state management.</p>"
+          },
+          {
+            "scenario": "Code block with language",
+            "code": "<CodeBlock language=\"tsx\" showLineNumbers>\n  {`const App = () => <div>Hello</div>;`}\n</CodeBlock>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Text", "Blockquote"]
+    },
+    "blockquote": {
+      "name": "Blockquote",
+      "description": "Styled quote block with a left border accent. Supports semantic color variants for different contexts.",
+      "intent": [
+        "user wants to display a quote",
+        "user needs a callout block",
+        "user wants a highlighted text block"
+      ],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "values": ["default", "accent", "success", "warning", "error"],
+          "default": "default",
+          "description": "Border color variant for contextual meaning."
+        },
+        "size": {
+          "type": "enum",
+          "values": ["sm", "base", "lg"],
+          "default": "base",
+          "description": "Text size within the quote."
+        }
+      },
+      "accessibility": {
+        "role": "blockquote",
+        "considerations": ["Use cite attribute for attribution when applicable"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Quote with attribution",
+            "code": "<Blockquote variant=\"accent\" size=\"lg\">\n  Design is not just what it looks like. Design is how it works.\n</Blockquote>"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Text", "Code", "Alert"]
+    },
+    "icon": {
+      "name": "Icon",
+      "description": "Icon wrapper component with consistent size and color tokens. Works with any SVG icon library (lucide-react, heroicons, etc).",
+      "intent": [
+        "user wants to display an icon",
+        "user needs consistent icon sizing",
+        "user wants colored icons from design tokens"
+      ],
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "default": "md",
+          "description": "Icon size using component sizing tokens."
+        },
+        "color": {
+          "type": "enum",
+          "values": ["current", "primary", "secondary", "tertiary", "accent", "success", "warning", "error", "info"],
+          "default": "current",
+          "description": "Icon color. 'current' inherits from parent text color."
+        },
+        "label": {
+          "type": "string",
+          "description": "Accessible label. When absent, icon is decorative (aria-hidden)."
+        }
+      },
+      "accessibility": {
+        "role": "img (when label provided), hidden when decorative",
+        "considerations": ["Always provide label for meaningful icons", "Decorative icons are automatically aria-hidden"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Icon with label",
+            "code": "<Icon icon={<AlertCircle />} color=\"error\" label=\"Error\" />"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Button", "Badge", "Alert"]
+    },
+    "image": {
+      "name": "Image",
+      "description": "Enhanced image component with loading skeleton, error fallback, aspect ratio control, and rounded variants.",
+      "intent": [
+        "user wants to display an image",
+        "user needs an image with loading state",
+        "user wants an image with error fallback",
+        "user needs aspect-ratio constrained images"
+      ],
+      "props": {
+        "rounded": {
+          "type": "enum",
+          "values": ["none", "sm", "md", "lg", "xl", "full"],
+          "default": "md",
+          "description": "Border radius. 'full' for circular images."
+        },
+        "fit": {
+          "type": "enum",
+          "values": ["cover", "contain", "fill", "none", "scale-down"],
+          "default": "cover",
+          "description": "Object-fit behavior."
+        },
+        "aspectRatio": {
+          "type": "string",
+          "description": "CSS aspect-ratio value (e.g., '16/9', '1/1')."
+        }
+      },
+      "accessibility": {
+        "role": "img",
+        "considerations": ["Always provide descriptive alt text", "Decorative images should use alt=''"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Hero image",
+            "code": "<Image src=\"/hero.jpg\" alt=\"Hero banner\" aspectRatio=\"16/9\" />"
+          },
+          {
+            "scenario": "Avatar image",
+            "code": "<Image src=\"/avatar.jpg\" alt=\"User\" rounded=\"full\" className=\"h-16 w-16\" />"
+          }
+        ]
+      },
+      "dependencies": ["class-variance-authority"],
+      "relatedComponents": ["Avatar", "Skeleton", "AspectRatio"]
+    },
+    "search-bar": {
+      "name": "SearchBar",
+      "description": "Search input with icon, clear button, loading spinner, and keyboard shortcut hint. Self-contained composition component.",
+      "intent": [
+        "user wants a search input",
+        "user needs a search bar with clear button",
+        "user wants search with loading state",
+        "user needs keyboard shortcut for search"
+      ],
+      "props": {
+        "value": { "type": "string", "description": "Controlled search value." },
+        "onValueChange": { "type": "function", "description": "Called when the search value changes." },
+        "loading": { "type": "boolean", "default": false, "description": "Shows a loading spinner." },
+        "shortcutHint": { "type": "string", "description": "Keyboard shortcut badge text (e.g., '⌘K')." },
+        "onSubmit": { "type": "function", "description": "Called when Enter is pressed." }
+      },
+      "accessibility": {
+        "role": "searchbox",
+        "considerations": ["Clear button has aria-label", "Escape clears input", "Enter submits"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Search with shortcut",
+            "code": "<SearchBar\n  value={query}\n  onValueChange={setQuery}\n  placeholder=\"Search...\"\n  shortcutHint=\"⌘K\"\n/>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Input", "Command", "Combobox"]
+    },
+    "confirm-dialog": {
+      "name": "ConfirmDialog",
+      "description": "Pre-built confirmation dialog with title, description, and confirm/cancel actions. Supports danger variant for destructive actions.",
+      "intent": [
+        "user wants a confirmation dialog",
+        "user needs a delete confirmation",
+        "user wants a destructive action confirmation",
+        "user needs a simple modal with confirm/cancel"
+      ],
+      "props": {
+        "title": { "type": "string", "description": "Dialog title (required)." },
+        "description": { "type": "string", "description": "Dialog description." },
+        "variant": { "type": "enum", "values": ["default", "danger"], "default": "default", "description": "Confirm button style." },
+        "confirmText": { "type": "string", "default": "Confirm", "description": "Confirm button text." },
+        "cancelText": { "type": "string", "default": "Cancel", "description": "Cancel button text." },
+        "loading": { "type": "boolean", "default": false, "description": "Loading state on confirm button." }
+      },
+      "accessibility": {
+        "role": "alertdialog",
+        "considerations": ["Uses aria-labelledby and aria-describedby", "Focus trapped within dialog", "Escape to close"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Delete confirmation",
+            "code": "<ConfirmDialog\n  trigger={<Button variant=\"danger\">Delete</Button>}\n  title=\"Delete item?\"\n  description=\"This action cannot be undone.\"\n  confirmText=\"Delete\"\n  variant=\"danger\"\n  onConfirm={deleteItem}\n/>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Dialog", "Button", "AlertDialog"]
+    },
+    "user-menu": {
+      "name": "UserMenu",
+      "description": "Avatar-triggered dropdown menu showing user info and grouped action items. Self-contained with no external dependencies.",
+      "intent": [
+        "user wants a user account menu",
+        "user needs an avatar dropdown",
+        "user wants a profile menu in the header",
+        "user needs sign out functionality"
+      ],
+      "props": {
+        "name": { "type": "string", "description": "User display name (required)." },
+        "email": { "type": "string", "description": "User email shown in menu header." },
+        "avatarUrl": { "type": "string", "description": "Avatar image URL." },
+        "avatarFallback": { "type": "string", "description": "Custom fallback initials." },
+        "groups": { "type": "array", "description": "Array of menu item groups with optional labels." }
+      },
+      "accessibility": {
+        "role": "menu with menuitem roles",
+        "considerations": ["Trigger has aria-expanded and aria-haspopup", "Escape closes menu", "Focus management on open/close"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Header user menu",
+            "code": "<UserMenu\n  name=\"John Doe\"\n  email=\"john@example.com\"\n  avatarUrl=\"/avatar.jpg\"\n  groups={[\n    { items: [{ label: 'Profile' }, { label: 'Settings' }] },\n    { items: [{ label: 'Sign out', destructive: true }] },\n  ]}\n/>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Avatar", "DropdownMenu", "Button"]
+    },
+    "DateRangePicker": {
+      "name": "DateRangePicker",
+      "description": "Date range selection with built-in calendar dropdown. Two-step from/to flow with min/max date constraints. Self-contained with no external dependencies.",
+      "intent": [
+        "user wants to select a date range",
+        "user needs a start and end date picker",
+        "user wants a calendar range selector",
+        "user needs check-in/check-out date input"
+      ],
+      "props": {
+        "value": { "type": "DateRange", "description": "Current range { from: Date | null, to: Date | null }." },
+        "onValueChange": { "type": "(range: DateRange) => void", "description": "Called when the range changes." },
+        "minDate": { "type": "Date", "description": "Minimum selectable date." },
+        "maxDate": { "type": "Date", "description": "Maximum selectable date." },
+        "disabled": { "type": "boolean", "description": "Disables the picker." },
+        "startPlaceholder": { "type": "string", "description": "Placeholder for start date." },
+        "endPlaceholder": { "type": "string", "description": "Placeholder for end date." }
+      },
+      "accessibility": {
+        "role": "button trigger with grid calendar",
+        "considerations": ["Calendar grid uses role=grid", "Day buttons have focus ring", "Disabled dates are non-interactive", "Outside click closes dropdown"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Booking date range",
+            "code": "const [range, setRange] = React.useState<DateRange>({ from: null, to: null });\n<DateRangePicker value={range} onValueChange={setRange} minDate={new Date()} />"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Calendar", "DatePicker", "Popover"]
+    },
+    "TimePicker": {
+      "name": "TimePicker",
+      "description": "Time selection with hour/minute selects, 12/24h format, and configurable minute step. Uses native select elements for accessibility.",
+      "intent": [
+        "user wants a time selector",
+        "user needs hour and minute input",
+        "user wants an AM/PM time picker",
+        "user needs appointment time selection"
+      ],
+      "props": {
+        "value": { "type": "string", "description": "Time value in HH:MM 24h format." },
+        "onValueChange": { "type": "(time: string) => void", "description": "Called when time changes." },
+        "use12Hour": { "type": "boolean", "description": "Use 12-hour format with AM/PM. Defaults to false." },
+        "minuteStep": { "type": "number", "description": "Minute step interval (e.g. 15 for quarter hours). Defaults to 1." },
+        "disabled": { "type": "boolean", "description": "Disables the picker." }
+      },
+      "accessibility": {
+        "role": "group with labeled selects",
+        "considerations": ["Group has aria-label='Time picker'", "Individual selects labeled Hour, Minute, Period", "Keyboard navigable select elements"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Appointment time",
+            "code": "const [time, setTime] = React.useState('09:00');\n<TimePicker value={time} onValueChange={setTime} use12Hour minuteStep={15} />"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Select", "DatePicker", "DateRangePicker"]
+    },
+    "ColorPicker": {
+      "name": "ColorPicker",
+      "description": "Color selection with native color input, text entry for hex/oklch values, and preset swatches. Validates color values on blur.",
+      "intent": [
+        "user wants a color selector",
+        "user needs a theme color picker",
+        "user wants to choose from color presets",
+        "user needs hex color input"
+      ],
+      "props": {
+        "value": { "type": "string", "description": "Color value (hex string like #3b82f6 or oklch)." },
+        "onValueChange": { "type": "(color: string) => void", "description": "Called when color changes." },
+        "format": { "type": "'hex' | 'oklch'", "description": "Display format for text input. Defaults to 'hex'." },
+        "presets": { "type": "string[]", "description": "Preset color swatches. Defaults to 10 common colors." },
+        "label": { "type": "string", "description": "Label text above the picker." },
+        "disabled": { "type": "boolean", "description": "Disables the picker." }
+      },
+      "accessibility": {
+        "role": "color input with listbox presets",
+        "considerations": ["Native color input has aria-label", "Text input has aria-label", "Preset swatches use role=option with aria-selected", "Preset container uses role=listbox"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Brand color picker",
+            "code": "const [color, setColor] = React.useState('#3b82f6');\n<ColorPicker value={color} onValueChange={setColor} label=\"Brand Color\" />"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Input", "Label"]
+    },
+    "FileUpload": {
+      "name": "FileUpload",
+      "description": "Drag-and-drop file upload zone with preview thumbnails, file size validation, and per-file remove buttons. Supports multiple files and accept filters.",
+      "intent": [
+        "user wants file upload functionality",
+        "user needs drag and drop file input",
+        "user wants image upload with preview",
+        "user needs multi-file upload"
+      ],
+      "props": {
+        "onFilesChange": { "type": "(files: FileUploadFile[]) => void", "description": "Called when files are added or removed." },
+        "accept": { "type": "string", "description": "Accepted file types (e.g. 'image/*,.pdf')." },
+        "multiple": { "type": "boolean", "description": "Allow multiple file selection. Defaults to false." },
+        "maxSize": { "type": "number", "description": "Maximum file size in bytes." },
+        "maxFiles": { "type": "number", "description": "Maximum number of files." },
+        "disabled": { "type": "boolean", "description": "Disables the upload zone." },
+        "description": { "type": "string", "description": "Helper text below the upload prompt." }
+      },
+      "accessibility": {
+        "role": "button for drop zone",
+        "considerations": ["Drop zone is keyboard accessible (Enter/Space)", "File list uses role=list", "Remove buttons have aria-label with file name", "Error messages use role=alert"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Image upload",
+            "code": "<FileUpload\n  accept=\"image/*\"\n  multiple\n  maxSize={5 * 1024 * 1024}\n  onFilesChange={(files) => console.log(files)}\n  description=\"PNG, JPG up to 5MB\"\n/>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Input", "Button"]
+    },
+    "FocusTrap": {
+      "name": "FocusTrap",
+      "description": "Traps keyboard focus within a container element. Wraps Tab/Shift+Tab to cycle through focusable elements. Supports initial focus, escape key handler, and returning focus on deactivation.",
+      "intent": [
+        "user wants to trap focus in a modal",
+        "user needs focus management for dialogs",
+        "user wants to prevent focus from leaving a container",
+        "user needs accessible keyboard navigation"
+      ],
+      "props": {
+        "active": { "type": "boolean", "description": "Whether the focus trap is active. Defaults to true." },
+        "returnFocusOnDeactivate": { "type": "boolean", "description": "Return focus to previously focused element on deactivate. Defaults to true." },
+        "initialFocus": { "type": "string", "description": "CSS selector for initial element to focus." },
+        "clickOutsideDeactivates": { "type": "boolean", "description": "Allow clicking outside the trap to deactivate." },
+        "onEscapeKey": { "type": "() => void", "description": "Called when Escape is pressed." },
+        "children": { "type": "ReactNode", "description": "Content to trap focus within." }
+      },
+      "accessibility": {
+        "role": "focus management container",
+        "considerations": ["Traps Tab/Shift+Tab within focusable elements", "Supports initial focus targeting", "Restores focus on deactivation", "Escape key callback for dismissal"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Modal focus trap",
+            "code": "<FocusTrap active={isOpen} onEscapeKey={() => setIsOpen(false)}>\n  <div role=\"dialog\">\n    <input />\n    <button>Close</button>\n  </div>\n</FocusTrap>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Dialog", "Sheet", "ConfirmDialog"]
+    },
+    "SkipNav": {
+      "name": "SkipNav",
+      "description": "Skip to main content navigation link. Visually hidden until focused, providing keyboard users a way to bypass navigation and jump to main content.",
+      "intent": [
+        "user wants skip navigation link",
+        "user needs skip to main content",
+        "user wants to improve keyboard accessibility",
+        "user needs WCAG skip navigation"
+      ],
+      "props": {
+        "contentId": { "type": "string", "description": "Target element ID (without #). Defaults to 'skip-nav-content'." },
+        "children": { "type": "ReactNode", "description": "Link text. Defaults to 'Skip to main content'." }
+      },
+      "accessibility": {
+        "role": "skip navigation link",
+        "considerations": ["Visually hidden until focused via Tab", "Links to content target via ID", "SkipNavContent receives focus with tabIndex=-1", "WCAG 2.4.1 Bypass Blocks"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Page layout with skip nav",
+            "code": "<SkipNavLink />\n<nav>...</nav>\n<SkipNavContent>\n  <main>Page content here</main>\n</SkipNavContent>"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["NavigationMenu", "VisuallyHidden"]
+    },
+    "Announcement": {
+      "name": "Announcement",
+      "description": "Screen reader live region for dynamic announcements. Renders a visually hidden aria-live region that announces message changes to assistive technology.",
+      "intent": [
+        "user wants screen reader announcements",
+        "user needs aria-live region",
+        "user wants to announce dynamic content changes",
+        "user needs accessible status messages"
+      ],
+      "props": {
+        "message": { "type": "string", "description": "The message to announce." },
+        "politeness": { "type": "'polite' | 'assertive'", "description": "Politeness level. 'polite' waits for idle, 'assertive' interrupts. Defaults to 'polite'." },
+        "clearAfterMs": { "type": "number", "description": "Clear the announcement after this many milliseconds." }
+      },
+      "accessibility": {
+        "role": "status with aria-live",
+        "considerations": ["Uses aria-live for screen reader announcements", "aria-atomic ensures full content is read", "Visually hidden but accessible", "Supports polite and assertive politeness levels"]
+      },
+      "usage": {
+        "examples": [
+          {
+            "scenario": "Form submission feedback",
+            "code": "<Announcement message={status} politeness=\"polite\" clearAfterMs={5000} />"
+          }
+        ]
+      },
+      "dependencies": [],
+      "relatedComponents": ["Alert", "Toast", "VisuallyHidden"]
+    }
+  },
+  "patterns": {
+    "form": {
+      "name": "Form Pattern",
+      "description": "Standard form layout with inputs, labels, validation, and submission",
+      "components": ["Input", "Button", "Label", "FormField", "Select", "Checkbox", "RadioGroup", "Switch", "Textarea", "Slider"],
+      "example": "Use FormField for each input with FormLabel, FormControl, FormHelperText, and FormErrorMessage. Use Input for text, Select for dropdowns, Checkbox for boolean, RadioGroup for single-select, Button for submit."
+    },
+    "authentication": {
+      "name": "Authentication Pattern",
+      "description": "Login, signup, password reset flows",
+      "components": ["Input", "Button", "Card", "FormField", "Label", "Link", "Checkbox"],
+      "example": "Card container with CardHeader for title, CardContent with email/password FormField inputs, Checkbox for 'remember me', CardFooter with primary submit Button and Link for 'forgot password'."
+    },
+    "dataEntry": {
+      "name": "Data Entry Pattern",
+      "description": "Complex forms with multiple fields and validation",
+      "components": ["Input", "Select", "Textarea", "Slider", "FormField", "Button", "Tabs", "Card", "DateRangePicker", "TimePicker", "ColorPicker", "FileUpload"],
+      "example": "Multi-step forms using Tabs for sections, FormField with validation for each input, Select for enums, Textarea for long text, Slider for ranges, DateRangePicker for date ranges, TimePicker for time selection, ColorPicker for colors, FileUpload for attachments, Button for submit."
+    },
+    "modal": {
+      "name": "Modal Pattern",
+      "description": "Modal dialogs for focused tasks, confirmations, and forms",
+      "components": ["Dialog", "AlertDialog", "Button", "FormField", "Input"],
+      "example": "Use Dialog for general modals with forms. Use AlertDialog for destructive confirmations. DialogTrigger on a Button, DialogContent with DialogHeader (title + description), form fields in body, DialogFooter with cancel (ghost/outline) and confirm (primary/danger) Buttons."
+    },
+    "navigation": {
+      "name": "Navigation Pattern",
+      "description": "Application navigation with menus, breadcrumbs, and pagination",
+      "components": ["NavigationMenu", "Breadcrumb", "Pagination", "Tabs", "Link", "Menubar", "Sheet"],
+      "example": "NavigationMenu for primary site nav with dropdown panels. Breadcrumb below header for page hierarchy. Tabs for sub-page navigation. Pagination for data tables. Sheet (side=left) for mobile navigation. Menubar for desktop app-style interfaces."
+    },
+    "feedback": {
+      "name": "Feedback Pattern",
+      "description": "Loading states, alerts, toasts, and progress indicators",
+      "components": ["Spinner", "Skeleton", "Progress", "Alert", "Toast", "Badge"],
+      "example": "Skeleton for initial page load placeholders. Spinner inline in buttons during submission. Progress for upload/download bars. Toast for transient success/error messages. Alert for persistent warnings/info. Badge for status indicators on cards and lists."
+    },
+    "layout": {
+      "name": "Layout Pattern",
+      "description": "Content organization with layout primitives, cards, accordions, tabs, and separators",
+      "components": ["Stack", "Container", "Heading", "Text", "Card", "Accordion", "Tabs", "Separator", "Collapsible", "ScrollArea", "AspectRatio"],
+      "example": "Container for max-width page wrapper. Stack for vertical/horizontal flex layouts with density-aware spacing. Heading for semantic h1-h6 with fluid typography. Text for body text with color variants. Card grid for dashboard widgets. Accordion for FAQ. Tabs for switching views. Separator between sections."
+    },
+    "dashboard": {
+      "name": "Dashboard Pattern",
+      "description": "Data display with cards, progress indicators, badges, and interactive elements",
+      "components": ["Card", "Progress", "Badge", "Tabs", "Avatar", "Separator", "Skeleton", "DropdownMenu", "Button"],
+      "example": "Grid of Cards with CardTitle for metrics, Progress bars for KPIs, Badge for status labels (success/warning/destructive). Avatar for user lists. Tabs to switch between dashboard views. DropdownMenu on cards for actions (export, share, delete). Skeleton for loading state."
+    }
+  },
+  "tokens": {
+    "spacing": "All spacing uses density-aware tokens that respond to data-density attribute (compact/default/comfortable)",
+    "color": "All colors use semantic tokens that adapt to theme (light/dark/high-contrast)",
+    "typography": "Typography uses fluid scaling with clamp() for responsive text sizing",
+    "sizing": "Component heights use --sizing-component-height-{sm,md,lg} tokens for consistent interactive element sizing",
+    "borderRadius": "All components share --component-button-border-radius for consistent rounding"
+  }
+}

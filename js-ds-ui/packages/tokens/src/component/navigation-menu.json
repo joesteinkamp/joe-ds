@@ -1,0 +1,28 @@
+{
+  "$description": "Component-specific tokens for NavigationMenu",
+  "component": {
+    "navigation-menu": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Navigation menu trigger background" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Navigation menu text color" },
+      "hover-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Navigation menu trigger hover background" },
+      "hover-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Navigation menu trigger hover text" },
+      "active-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Navigation menu active item background" },
+      "content-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Navigation menu viewport background" },
+      "content-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Navigation menu viewport border" },
+      "content-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Navigation menu viewport text" },
+      "indicator-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Navigation menu indicator color" },
+      "trigger-height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Navigation trigger height" },
+      "trigger-padding": {
+        "x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Navigation trigger horizontal padding" },
+        "y": { "$type": "dimension", "$value": "{space.component.padding.sm}", "$description": "Navigation trigger vertical padding" }
+      },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Navigation menu border radius" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Navigation menu text size" },
+        "weight": { "$type": "fontWeight", "$value": "{typography.weight.medium}", "$description": "Navigation trigger font weight" }
+      }
+    }
+  }
+}

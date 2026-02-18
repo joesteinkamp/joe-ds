@@ -1,0 +1,23 @@
+{
+  "$description": "Component-specific tokens for DateRangePicker",
+  "component": {
+    "date-range-picker": {
+      "trigger-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Date range picker trigger background" },
+      "trigger-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Date range picker trigger text" },
+      "trigger-placeholder": { "$type": "color", "$value": "{color.text.tertiary}", "$description": "Date range picker placeholder" },
+      "trigger-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Date range picker trigger border" },
+      "range-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Calendar range highlight background" },
+      "range-start-bg": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Calendar range start day background" },
+      "range-end-bg": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Calendar range end day background" },
+      "range-text": { "$type": "color", "$value": "#FFFFFF", "$description": "Calendar range endpoint text color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Date range picker focus ring" },
+      "trigger-height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Date range picker trigger height" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Date range picker border radius" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Date range picker text size" }
+      }
+    }
+  }
+}

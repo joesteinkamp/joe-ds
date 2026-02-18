@@ -1,0 +1,62 @@
+{
+  "$description": "Semantic sizing tokens — all values reference primitive sizing tokens",
+  "size": {
+    "$type": "dimension",
+    "component": {
+      "height": {
+        "xs": {
+          "$value": "{sizing.component.height.xs}",
+          "$description": "Extra small component height"
+        },
+        "sm": {
+          "$value": "{sizing.component.height.sm}",
+          "$description": "Small component height"
+        },
+        "md": {
+          "$value": "{sizing.component.height.md}",
+          "$description": "Medium component height (default)"
+        },
+        "lg": {
+          "$value": "{sizing.component.height.lg}",
+          "$description": "Large component height"
+        },
+        "xl": {
+          "$value": "{sizing.component.height.xl}",
+          "$description": "Extra large component height"
+        }
+      },
+      "icon": {
+        "xs": {
+          "$value": "{sizing.component.icon.xs}",
+          "$description": "Extra small icon size"
+        },
+        "sm": {
+          "$value": "{sizing.component.icon.sm}",
+          "$description": "Small icon size"
+        },
+        "md": {
+          "$value": "{sizing.component.icon.md}",
+          "$description": "Medium icon size (default)"
+        },
+        "lg": {
+          "$value": "{sizing.component.icon.lg}",
+          "$description": "Large icon size"
+        },
+        "xl": {
+          "$value": "{sizing.component.icon.xl}",
+          "$description": "Extra large icon size"
+        }
+      }
+    },
+    "touch": {
+      "minimum": {
+        "$value": "{sizing.touch.minimum}",
+        "$description": "Minimum touch target size"
+      },
+      "comfortable": {
+        "$value": "{sizing.touch.comfortable}",
+        "$description": "Comfortable touch target size"
+      }
+    }
+  }
+}

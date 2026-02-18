@@ -1,0 +1,12 @@
+{
+  "$description": "Component-specific tokens for Link",
+  "component": {
+    "link": {
+      "text": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Link text color" },
+      "text-hover": { "$type": "color", "$value": "{color.interactive.primary-hover}", "$description": "Link hover text color" },
+      "text-active": { "$type": "color", "$value": "{color.interactive.primary-active}", "$description": "Link active text color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Link focus ring color" },
+      "icon-size": { "$type": "dimension", "$value": "0.75rem", "$description": "External link icon size" }
+    }
+  }
+}

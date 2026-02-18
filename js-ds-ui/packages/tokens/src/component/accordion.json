@@ -1,0 +1,22 @@
+{
+  "$description": "Component-specific tokens for Accordion",
+  "component": {
+    "accordion": {
+      "bg": { "$type": "color", "$value": "transparent", "$description": "Accordion item background" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Accordion trigger text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Accordion item border color" },
+      "content-text": { "$type": "color", "$value": "{color.text.secondary}", "$description": "Accordion content text color" },
+      "trigger-hover-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Accordion trigger hover text" },
+      "padding": { "$type": "dimension", "$value": "{spacing.4}", "$description": "Accordion trigger padding" },
+      "content-padding": { "$type": "dimension", "$value": "{spacing.4}", "$description": "Accordion content padding" },
+      "font": {
+        "family": { "$type": "fontFamily", "$value": "{typography.family.sans}", "$description": "Accordion font family" },
+        "size": { "$type": "dimension", "$value": "{typography.size.base}", "$description": "Accordion content text size" },
+        "weight": { "$type": "fontWeight", "$value": "{typography.weight.medium}", "$description": "Accordion trigger font weight" }
+      },
+      "icon-size": { "$type": "dimension", "$value": "1rem", "$description": "Accordion chevron icon size" },
+      "radius": { "$type": "dimension", "$value": "{radii.lg}", "$description": "Accordion container radius" },
+      "border-width": { "$type": "dimension", "$value": "1px", "$description": "Accordion container border width" }
+    }
+  }
+}

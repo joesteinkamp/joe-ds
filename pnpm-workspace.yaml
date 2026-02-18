@@ -1,0 +1,4 @@
+packages:
+  - "js-ds-ui/packages/*"
+  - "js-ds-ui/tools/*"
+  - "docs"

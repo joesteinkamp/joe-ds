@@ -1,0 +1,41 @@
+{
+  "radii": {
+    "$type": "dimension",
+    "none": {
+      "$value": "0",
+      "$description": "No border radius"
+    },
+    "xs": {
+      "$value": "0.125rem",
+      "$description": "2px - Extra small radius"
+    },
+    "sm": {
+      "$value": "0.25rem",
+      "$description": "4px - Small radius"
+    },
+    "md": {
+      "$value": "0.375rem",
+      "$description": "6px - Medium radius (default)"
+    },
+    "lg": {
+      "$value": "0.5rem",
+      "$description": "8px - Large radius"
+    },
+    "xl": {
+      "$value": "0.75rem",
+      "$description": "12px - Extra large radius"
+    },
+    "2xl": {
+      "$value": "1rem",
+      "$description": "16px - 2XL radius"
+    },
+    "3xl": {
+      "$value": "1.5rem",
+      "$description": "24px - 3XL radius"
+    },
+    "full": {
+      "$value": "9999px",
+      "$description": "Full radius (circle/pill)"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // Configure Tailwind CDN to avoid conflicts with token CSS custom properties.
+  // The CDN provides utility classes (flex, p-4, rounded-md, text-white, etc.)
+  // while our token CSS files provide the custom property values.
+  tailwind.config = {
+    // Do not use !important — let the CSS cascade and layers work naturally
+    important: false,
+    corePlugins: {
+      // Disable preflight since our base.css handles resets
+      preflight: false,
+    },
+  };
+</script>

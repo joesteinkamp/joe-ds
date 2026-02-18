@@ -1,0 +1,11 @@
+{
+  "$description": "Component-specific tokens for Heading",
+  "component": {
+    "heading": {
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Heading text color" },
+      "font": {
+        "weight": { "$type": "fontWeight", "$value": "{typography.weight.bold}", "$description": "Default heading font weight" }
+      }
+    }
+  }
+}

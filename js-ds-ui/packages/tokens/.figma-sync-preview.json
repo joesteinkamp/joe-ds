@@ -1,0 +1,2189 @@
+[
+  {
+    "name": "Primitives",
+    "modes": [
+      {
+        "name": "Default"
+      }
+    ],
+    "variables": [
+      {
+        "name": "color/brand/primary",
+        "resolvedType": "COLOR",
+        "description": "Primary brand color - Blue",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.55 0.22 250)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/brand/secondary",
+        "resolvedType": "COLOR",
+        "description": "Secondary brand color - Purple",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.65 0.18 320)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/brand/accent",
+        "resolvedType": "COLOR",
+        "description": "Accent color - Green",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.70 0.20 140)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/neutral/black",
+        "resolvedType": "COLOR",
+        "description": "Near black with slight blue tint",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.15 0.02 250)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/neutral/white",
+        "resolvedType": "COLOR",
+        "description": "Pure white with minimal tint",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.99 0.01 250)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/semantic/success",
+        "resolvedType": "COLOR",
+        "description": "Success green",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.65 0.18 145)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/semantic/warning",
+        "resolvedType": "COLOR",
+        "description": "Warning yellow-orange",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.75 0.15 85)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/semantic/error",
+        "resolvedType": "COLOR",
+        "description": "Error red",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.60 0.22 25)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/semantic/info",
+        "resolvedType": "COLOR",
+        "description": "Info blue",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "oklch(0.60 0.18 240)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "animation/duration/instant",
+        "resolvedType": "FLOAT",
+        "description": "No animation, immediate state change",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/duration/fast",
+        "resolvedType": "FLOAT",
+        "description": "Micro-interactions, toggles, small state changes",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 100
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/duration/normal",
+        "resolvedType": "FLOAT",
+        "description": "Standard transitions, hover effects, focus changes",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 200
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/duration/slow",
+        "resolvedType": "FLOAT",
+        "description": "Emphasis animations, overlays opening",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 300
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/duration/slower",
+        "resolvedType": "FLOAT",
+        "description": "Page transitions, large content shifts",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 500
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/easing/linear",
+        "resolvedType": "STRING",
+        "description": "No easing, constant speed",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[0,0,1,1]"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/easing/ease-in",
+        "resolvedType": "STRING",
+        "description": "Accelerating, use for elements exiting the screen",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[0.4,0,1,1]"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/easing/ease-out",
+        "resolvedType": "STRING",
+        "description": "Decelerating, use for elements entering the screen",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[0,0,0.2,1]"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/easing/ease-in-out",
+        "resolvedType": "STRING",
+        "description": "Smooth acceleration and deceleration, use for most transitions",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[0.4,0,0.2,1]"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "animation/easing/spring",
+        "resolvedType": "STRING",
+        "description": "Slight overshoot, use for playful or bouncy interactions",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[0.175,0.885,0.32,1.275]"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "shadow/none",
+        "resolvedType": "STRING",
+        "description": "No shadow",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "{\"offsetX\":\"0px\",\"offsetY\":\"0px\",\"blur\":\"0px\",\"spread\":\"0px\",\"color\":\"rgba(0, 0, 0, 0)\"}"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "shadow/xs",
+        "resolvedType": "STRING",
+        "description": "Subtle shadow for cards and surfaces",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "{\"offsetX\":\"0px\",\"offsetY\":\"1px\",\"blur\":\"2px\",\"spread\":\"0px\",\"color\":\"rgba(0, 0, 0, 0.05)\"}"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "shadow/sm",
+        "resolvedType": "STRING",
+        "description": "Small shadow for buttons and inputs",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "{\"offsetX\":\"0px\",\"offsetY\":\"1px\",\"blur\":\"3px\",\"spread\":\"0px\",\"color\":\"rgba(0, 0, 0, 0.1)\"}"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "shadow/md",
+        "resolvedType": "STRING",
+        "description": "Medium shadow for dropdowns and popovers",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "{\"offsetX\":\"0px\",\"offsetY\":\"4px\",\"blur\":\"6px\",\"spread\":\"-1px\",\"color\":\"rgba(0, 0, 0, 0.1)\"}"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "shadow/lg",
+        "resolvedType": "STRING",
+        "description": "Large shadow for modals and dialogs",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "{\"offsetX\":\"0px\",\"offsetY\":\"10px\",\"blur\":\"15px\",\"spread\":\"-3px\",\"color\":\"rgba(0, 0, 0, 0.1)\"}"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "shadow/xl",
+        "resolvedType": "STRING",
+        "description": "Extra large shadow for sheets and elevated surfaces",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "{\"offsetX\":\"0px\",\"offsetY\":\"20px\",\"blur\":\"25px\",\"spread\":\"-5px\",\"color\":\"rgba(0, 0, 0, 0.1)\"}"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/component/height/xs",
+        "resolvedType": "FLOAT",
+        "description": "24px - Extra small component height",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.5
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "sizing/component/height/sm",
+        "resolvedType": "FLOAT",
+        "description": "32px - Small component height",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "sizing/component/height/md",
+        "resolvedType": "FLOAT",
+        "description": "40px - Medium component height (default)",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2.5
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "sizing/component/height/lg",
+        "resolvedType": "FLOAT",
+        "description": "48px - Large component height",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 3
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "sizing/component/height/xl",
+        "resolvedType": "FLOAT",
+        "description": "56px - Extra large component height",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 3.5
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "sizing/component/icon/xs",
+        "resolvedType": "FLOAT",
+        "description": "16px - Extra small icon",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/component/icon/sm",
+        "resolvedType": "FLOAT",
+        "description": "20px - Small icon",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.25
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/component/icon/md",
+        "resolvedType": "FLOAT",
+        "description": "24px - Medium icon (default)",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.5
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/component/icon/lg",
+        "resolvedType": "FLOAT",
+        "description": "32px - Large icon",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/component/icon/xl",
+        "resolvedType": "FLOAT",
+        "description": "40px - Extra large icon",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2.5
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/touch/minimum",
+        "resolvedType": "FLOAT",
+        "description": "44px - Minimum touch target (Apple HIG)",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2.75
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "sizing/touch/comfortable",
+        "resolvedType": "FLOAT",
+        "description": "48px - Comfortable touch target (WCAG 2.5.5 guidance)",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 3
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "spacing/0",
+        "resolvedType": "FLOAT",
+        "description": "Zero spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/1",
+        "resolvedType": "FLOAT",
+        "description": "4px - Extra small spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0.25
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/2",
+        "resolvedType": "FLOAT",
+        "description": "8px - Small spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0.5
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/3",
+        "resolvedType": "FLOAT",
+        "description": "12px - Medium-small spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0.75
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/4",
+        "resolvedType": "FLOAT",
+        "description": "16px - Base spacing unit",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/5",
+        "resolvedType": "FLOAT",
+        "description": "20px - Medium spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.25
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/6",
+        "resolvedType": "FLOAT",
+        "description": "24px - Medium-large spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.5
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/8",
+        "resolvedType": "FLOAT",
+        "description": "32px - Large spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/10",
+        "resolvedType": "FLOAT",
+        "description": "40px - Extra large spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 2.5
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/12",
+        "resolvedType": "FLOAT",
+        "description": "48px - 2XL spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 3
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/16",
+        "resolvedType": "FLOAT",
+        "description": "64px - 3XL spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 4
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/20",
+        "resolvedType": "FLOAT",
+        "description": "80px - 4XL spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 5
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "spacing/24",
+        "resolvedType": "FLOAT",
+        "description": "96px - 5XL spacing",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 6
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "font/family/sans",
+        "resolvedType": "STRING",
+        "description": "Default sans-serif font stack",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[\"Inter\",\"system-ui\",\"-apple-system\",\"BlinkMacSystemFont\",\"Segoe UI\",\"Roboto\",\"sans-serif\"]"
+          }
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ]
+      },
+      {
+        "name": "font/family/mono",
+        "resolvedType": "STRING",
+        "description": "Monospace font stack for code",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": "[\"JetBrains Mono\",\"Consolas\",\"Monaco\",\"Courier New\",\"monospace\"]"
+          }
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ]
+      },
+      {
+        "name": "font/size/xs",
+        "resolvedType": "FLOAT",
+        "description": "12-14px - Extra small text",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/sm",
+        "resolvedType": "FLOAT",
+        "description": "14-16px - Small text",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/base",
+        "resolvedType": "FLOAT",
+        "description": "16-18px - Body text",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/lg",
+        "resolvedType": "FLOAT",
+        "description": "18-20px - Large text",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/xl",
+        "resolvedType": "FLOAT",
+        "description": "20-24px - Extra large",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/2xl",
+        "resolvedType": "FLOAT",
+        "description": "24-30px - Heading 4",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/3xl",
+        "resolvedType": "FLOAT",
+        "description": "30-36px - Heading 3",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/4xl",
+        "resolvedType": "FLOAT",
+        "description": "36-48px - Heading 2",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/size/5xl",
+        "resolvedType": "FLOAT",
+        "description": "48-60px - Heading 1",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "font/weight/normal",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 400
+          }
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ]
+      },
+      {
+        "name": "font/weight/medium",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 500
+          }
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ]
+      },
+      {
+        "name": "font/weight/semibold",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 600
+          }
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ]
+      },
+      {
+        "name": "font/weight/bold",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 700
+          }
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ]
+      },
+      {
+        "name": "font/lineHeight/tight",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.25
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "font/lineHeight/normal",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.5
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "font/lineHeight/relaxed",
+        "resolvedType": "FLOAT",
+        "description": "",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1.75
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/hide",
+        "resolvedType": "FLOAT",
+        "description": "Hidden below base layer",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": -1
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/base",
+        "resolvedType": "FLOAT",
+        "description": "Default stacking context",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/dropdown",
+        "resolvedType": "FLOAT",
+        "description": "Dropdown menus and select popups",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1000
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/sticky",
+        "resolvedType": "FLOAT",
+        "description": "Sticky headers and navigation bars",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1020
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/fixed",
+        "resolvedType": "FLOAT",
+        "description": "Fixed position elements",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1030
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/modal-backdrop",
+        "resolvedType": "FLOAT",
+        "description": "Overlay behind modals and dialogs",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1040
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/modal",
+        "resolvedType": "FLOAT",
+        "description": "Modal dialogs and sheets",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1050
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/popover",
+        "resolvedType": "FLOAT",
+        "description": "Popovers and floating elements",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1060
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/tooltip",
+        "resolvedType": "FLOAT",
+        "description": "Tooltips, always on top of other overlays",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1070
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "z-index/toast",
+        "resolvedType": "FLOAT",
+        "description": "Toast notifications, highest priority",
+        "valuesByMode": {
+          "Default": {
+            "type": "literal",
+            "value": 1080
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Semantic",
+    "modes": [
+      {
+        "name": "Light"
+      },
+      {
+        "name": "Dark"
+      },
+      {
+        "name": "High Contrast"
+      }
+    ],
+    "variables": [
+      {
+        "name": "color/text/primary",
+        "resolvedType": "COLOR",
+        "description": "Primary text color",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/black"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/black"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/black"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/secondary",
+        "resolvedType": "COLOR",
+        "description": "Secondary text color - lower contrast",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.45 0.02 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.45 0.02 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.45 0.02 250)"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/tertiary",
+        "resolvedType": "COLOR",
+        "description": "Tertiary text color - lowest contrast",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.60 0.02 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.60 0.02 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.60 0.02 250)"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/inverse",
+        "resolvedType": "COLOR",
+        "description": "Text on dark backgrounds",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/white"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/white"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/white"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/success",
+        "resolvedType": "COLOR",
+        "description": "Success message text",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/success"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/success"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/success"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/warning",
+        "resolvedType": "COLOR",
+        "description": "Warning message text",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/warning"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/warning"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/warning"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/error",
+        "resolvedType": "COLOR",
+        "description": "Error message text",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/error"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/error"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/error"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/text/info",
+        "resolvedType": "COLOR",
+        "description": "Info message text",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/info"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/info"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/semantic/info"
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ]
+      },
+      {
+        "name": "color/background/primary",
+        "resolvedType": "COLOR",
+        "description": "Primary background color",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/white"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/white"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/white"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/secondary",
+        "resolvedType": "COLOR",
+        "description": "Secondary background - subtle contrast",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.97 0.01 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.97 0.01 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.97 0.01 250)"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/tertiary",
+        "resolvedType": "COLOR",
+        "description": "Tertiary background - more contrast",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.94 0.01 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.94 0.01 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.94 0.01 250)"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/inverse",
+        "resolvedType": "COLOR",
+        "description": "Inverse background for dark sections",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/black"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/black"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/neutral/black"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/success",
+        "resolvedType": "COLOR",
+        "description": "Success background - light green",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 145)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 145)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 145)"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/warning",
+        "resolvedType": "COLOR",
+        "description": "Warning background - light yellow",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 85)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 85)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 85)"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/error",
+        "resolvedType": "COLOR",
+        "description": "Error background - light red",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 25)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 25)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 25)"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/background/info",
+        "resolvedType": "COLOR",
+        "description": "Info background - light blue",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 240)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 240)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.95 0.05 240)"
+          }
+        },
+        "scopes": [
+          "FRAME_FILL"
+        ]
+      },
+      {
+        "name": "color/border/default",
+        "resolvedType": "COLOR",
+        "description": "Default border color",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.85 0.01 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.85 0.01 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.85 0.01 250)"
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR"
+        ]
+      },
+      {
+        "name": "color/border/hover",
+        "resolvedType": "COLOR",
+        "description": "Border color on hover",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.75 0.02 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.75 0.02 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.75 0.02 250)"
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR"
+        ]
+      },
+      {
+        "name": "color/border/focus",
+        "resolvedType": "COLOR",
+        "description": "Border color on focus",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/primary"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/primary"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/primary"
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR"
+        ]
+      },
+      {
+        "name": "color/interactive/primary",
+        "resolvedType": "COLOR",
+        "description": "Primary interactive color (buttons, links)",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/primary"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/primary"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/primary"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/interactive/primary-hover",
+        "resolvedType": "COLOR",
+        "description": "Primary interactive hover state",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.50 0.22 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.50 0.22 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.50 0.22 250)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/interactive/primary-active",
+        "resolvedType": "COLOR",
+        "description": "Primary interactive active state",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.45 0.22 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.45 0.22 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.45 0.22 250)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/interactive/secondary",
+        "resolvedType": "COLOR",
+        "description": "Secondary interactive color",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/secondary"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/secondary"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "color/brand/secondary"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "color/interactive/disabled",
+        "resolvedType": "COLOR",
+        "description": "Disabled state color",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": "oklch(0.80 0.01 250)"
+          },
+          "Dark": {
+            "type": "literal",
+            "value": "oklch(0.80 0.01 250)"
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": "oklch(0.80 0.01 250)"
+          }
+        },
+        "scopes": [
+          "ALL_FILLS"
+        ]
+      },
+      {
+        "name": "space/component/padding/xs",
+        "resolvedType": "FLOAT",
+        "description": "Extra small component padding - density aware",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/padding/sm",
+        "resolvedType": "FLOAT",
+        "description": "Small component padding - density aware",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/padding/md",
+        "resolvedType": "FLOAT",
+        "description": "Medium component padding - density aware",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/padding/lg",
+        "resolvedType": "FLOAT",
+        "description": "Large component padding - density aware",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/padding/xl",
+        "resolvedType": "FLOAT",
+        "description": "Extra large component padding - density aware",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/gap/xs",
+        "resolvedType": "FLOAT",
+        "description": "Extra small gap between elements",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/gap/sm",
+        "resolvedType": "FLOAT",
+        "description": "Small gap between elements",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/gap/md",
+        "resolvedType": "FLOAT",
+        "description": "Medium gap between elements",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/component/gap/lg",
+        "resolvedType": "FLOAT",
+        "description": "Large gap between elements",
+        "valuesByMode": {
+          "Light": {
+            "type": "literal",
+            "value": 0
+          },
+          "Dark": {
+            "type": "literal",
+            "value": 0
+          },
+          "High Contrast": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "space/layout/section",
+        "resolvedType": "FLOAT",
+        "description": "Spacing between major layout sections",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "spacing/16"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "spacing/16"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "spacing/16"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      },
+      {
+        "name": "space/layout/container",
+        "resolvedType": "FLOAT",
+        "description": "Container padding",
+        "valuesByMode": {
+          "Light": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "spacing/8"
+          },
+          "Dark": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "spacing/8"
+          },
+          "High Contrast": {
+            "type": "alias",
+            "collectionName": "Semantic",
+            "variableName": "spacing/8"
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Component",
+    "modes": [
+      {
+        "name": "Compact"
+      },
+      {
+        "name": "Default"
+      },
+      {
+        "name": "Comfortable"
+      }
+    ],
+    "variables": [
+      {
+        "name": "component/button/padding/x",
+        "resolvedType": "FLOAT",
+        "description": "Horizontal button padding",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/padding/lg"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/padding/lg"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/padding/lg"
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "component/button/padding/y",
+        "resolvedType": "FLOAT",
+        "description": "Vertical button padding",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/padding/sm"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/padding/sm"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/padding/sm"
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "component/button/height/sm",
+        "resolvedType": "FLOAT",
+        "description": "Small button height",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/sm"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/sm"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/sm"
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "component/button/height/md",
+        "resolvedType": "FLOAT",
+        "description": "Medium button height (default)",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/md"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/md"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/md"
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "component/button/height/lg",
+        "resolvedType": "FLOAT",
+        "description": "Large button height",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/lg"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/lg"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "sizing/component/height/lg"
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "component/button/gap",
+        "resolvedType": "FLOAT",
+        "description": "Gap between button icon and text",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/gap/sm"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/gap/sm"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "space/component/gap/sm"
+          }
+        },
+        "scopes": [
+          "GAP"
+        ]
+      },
+      {
+        "name": "component/button/font/size",
+        "resolvedType": "FLOAT",
+        "description": "Button text size",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "font/size/sm"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "font/size/sm"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "font/size/sm"
+          }
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      {
+        "name": "component/button/font/weight",
+        "resolvedType": "FLOAT",
+        "description": "Button text weight",
+        "valuesByMode": {
+          "Compact": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "font/weight/medium"
+          },
+          "Default": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "font/weight/medium"
+          },
+          "Comfortable": {
+            "type": "alias",
+            "collectionName": "Component",
+            "variableName": "font/weight/medium"
+          }
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ]
+      },
+      {
+        "name": "component/button/border/radius",
+        "resolvedType": "FLOAT",
+        "description": "Button border radius",
+        "valuesByMode": {
+          "Compact": {
+            "type": "literal",
+            "value": 0.375
+          },
+          "Default": {
+            "type": "literal",
+            "value": 0.375
+          },
+          "Comfortable": {
+            "type": "literal",
+            "value": 0.375
+          }
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ]
+      },
+      {
+        "name": "component/button/border/width",
+        "resolvedType": "FLOAT",
+        "description": "Button border width",
+        "valuesByMode": {
+          "Compact": {
+            "type": "literal",
+            "value": 1
+          },
+          "Default": {
+            "type": "literal",
+            "value": 1
+          },
+          "Comfortable": {
+            "type": "literal",
+            "value": 1
+          }
+        },
+        "scopes": [
+          "ALL_SCOPES"
+        ]
+      }
+    ]
+  }
+]

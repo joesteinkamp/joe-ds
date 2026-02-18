@@ -1,0 +1,9 @@
+{
+  "$description": "Component-specific tokens for Separator",
+  "component": {
+    "separator": {
+      "color": { "$type": "color", "$value": "{color.border.default}", "$description": "Separator line color" },
+      "thickness": { "$type": "dimension", "$value": "1px", "$description": "Separator thickness" }
+    }
+  }
+}

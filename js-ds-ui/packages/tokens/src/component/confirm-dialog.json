@@ -1,0 +1,14 @@
+{
+  "$description": "Component-specific tokens for ConfirmDialog",
+  "component": {
+    "confirm-dialog": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "ConfirmDialog background color" },
+      "border": { "$type": "color", "$value": "{color.border.default}", "$description": "ConfirmDialog border color" },
+      "padding": { "$type": "dimension", "$value": "{space.component.padding.xl}", "$description": "ConfirmDialog content padding" },
+      "title-font-size": { "$type": "dimension", "$value": "{typography.size.lg}", "$description": "ConfirmDialog title font size" },
+      "title-font-weight": { "$type": "fontWeight", "$value": "{typography.weight.semibold}", "$description": "ConfirmDialog title font weight" },
+      "description-font-size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "ConfirmDialog description font size" },
+      "footer-gap": { "$type": "dimension", "$value": "{space.component.gap.sm}", "$description": "Gap between footer buttons" }
+    }
+  }
+}

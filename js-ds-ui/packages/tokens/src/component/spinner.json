@@ -1,0 +1,14 @@
+{
+  "$description": "Component-specific tokens for Spinner",
+  "component": {
+    "spinner": {
+      "color": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Spinner color" },
+      "size": {
+        "sm": { "$type": "dimension", "$value": "1rem", "$description": "Small spinner size" },
+        "md": { "$type": "dimension", "$value": "1.5rem", "$description": "Medium spinner size" },
+        "lg": { "$type": "dimension", "$value": "2rem", "$description": "Large spinner size" },
+        "xl": { "$type": "dimension", "$value": "3rem", "$description": "Extra large spinner size" }
+      }
+    }
+  }
+}

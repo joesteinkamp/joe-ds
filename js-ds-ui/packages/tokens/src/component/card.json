@@ -1,0 +1,24 @@
+{
+  "$description": "Component-specific tokens for Card",
+  "component": {
+    "card": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Card background color" },
+      "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Card text color" },
+      "description-text": { "$type": "color", "$value": "{color.text.secondary}", "$description": "Card description text color" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Card border color" },
+      "padding": { "$type": "dimension", "$value": "{space.component.padding.lg}", "$description": "Card content padding" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.5rem", "$description": "Card border radius" },
+        "width": { "$type": "dimension", "$value": "1px", "$description": "Card border width" }
+      },
+      "header": {
+        "gap": { "$type": "dimension", "$value": "{space.component.gap.sm}", "$description": "Card header gap" }
+      },
+      "font": {
+        "title-size": { "$type": "dimension", "$value": "{typography.size.lg}", "$description": "Card title font size" },
+        "title-weight": { "$type": "fontWeight", "$value": "{typography.weight.semibold}", "$description": "Card title font weight" },
+        "description-size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Card description font size" }
+      }
+    }
+  }
+}

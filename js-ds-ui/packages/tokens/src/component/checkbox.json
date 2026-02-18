@@ -1,0 +1,21 @@
+{
+  "$description": "Component-specific tokens for Checkbox",
+  "component": {
+    "checkbox": {
+      "bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Checkbox unchecked background" },
+      "border-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Checkbox unchecked border" },
+      "checked-bg": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Checkbox checked background" },
+      "checked-border": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Checkbox checked border" },
+      "checked-text": { "$type": "color", "$value": "#FFFFFF", "$description": "Checkbox check icon color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Checkbox focus ring color" },
+      "size": { "$type": "dimension", "$value": "1.25rem", "$description": "Checkbox size" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.25rem", "$description": "Checkbox border radius" },
+        "width": { "$type": "dimension", "$value": "1px", "$description": "Checkbox border width" }
+      },
+      "icon": {
+        "size": { "$type": "dimension", "$value": "1rem", "$description": "Checkbox check icon size" }
+      }
+    }
+  }
+}

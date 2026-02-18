@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Button",
+    "path": "src/ui/button.tsx",
+    "import": "{ Button }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Input",
+    "path": "src/ui/input.tsx",
+    "import": "{ Input }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Label",
+    "path": "src/ui/label.tsx",
+    "import": "{ Label }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Card",
+    "path": "src/ui/card.tsx",
+    "import": "{ Card }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Badge",
+    "path": "src/ui/badge.tsx",
+    "import": "{ Badge }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Alert",
+    "path": "src/ui/alert.tsx",
+    "import": "{ Alert }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Dialog",
+    "path": "src/ui/dialog.tsx",
+    "import": "{ Dialog }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Select",
+    "path": "src/ui/select.tsx",
+    "import": "{ Select }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Checkbox",
+    "path": "src/ui/checkbox.tsx",
+    "import": "{ Checkbox }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Switch",
+    "path": "src/ui/switch.tsx",
+    "import": "{ Switch }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Tabs",
+    "path": "src/ui/tabs.tsx",
+    "import": "{ Tabs }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Toast",
+    "path": "src/ui/toast.tsx",
+    "import": "{ Toast }",
+    "limit": "4 kB"
+  },
+  {
+    "name": "Tooltip",
+    "path": "src/ui/tooltip.tsx",
+    "import": "{ Tooltip }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Table",
+    "path": "src/ui/table.tsx",
+    "import": "{ Table }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "DataTable",
+    "path": "src/ui/data-table.tsx",
+    "import": "{ DataTable }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Command",
+    "path": "src/ui/command.tsx",
+    "import": "{ Command }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Calendar",
+    "path": "src/ui/calendar.tsx",
+    "import": "{ Calendar }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Form",
+    "path": "src/ui/form.tsx",
+    "import": "{ Form }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Skeleton",
+    "path": "src/ui/skeleton.tsx",
+    "import": "{ Skeleton }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Spinner",
+    "path": "src/ui/spinner.tsx",
+    "import": "{ Spinner }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "All Components",
+    "path": "src/index.ts",
+    "limit": "80 kB"
+  }
+]

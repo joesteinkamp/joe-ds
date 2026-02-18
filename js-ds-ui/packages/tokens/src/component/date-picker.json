@@ -1,0 +1,25 @@
+{
+  "$description": "Component-specific tokens for DatePicker",
+  "component": {
+    "date-picker": {
+      "trigger-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Date picker trigger background" },
+      "trigger-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Date picker trigger text" },
+      "trigger-placeholder": { "$type": "color", "$value": "{color.text.tertiary}", "$description": "Date picker placeholder text" },
+      "trigger-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Date picker trigger border" },
+      "calendar-bg": { "$type": "color", "$value": "{color.background.primary}", "$description": "Calendar popup background" },
+      "calendar-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Calendar popup border" },
+      "day-hover-bg": { "$type": "color", "$value": "{color.background.secondary}", "$description": "Calendar day hover background" },
+      "day-selected-bg": { "$type": "color", "$value": "{color.interactive.primary}", "$description": "Calendar selected day background" },
+      "day-selected-text": { "$type": "color", "$value": "#FFFFFF", "$description": "Calendar selected day text" },
+      "day-today-border": { "$type": "color", "$value": "{color.border.default}", "$description": "Calendar today border color" },
+      "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Date picker focus ring" },
+      "trigger-height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Date picker trigger height" },
+      "border": {
+        "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Date picker border radius" }
+      },
+      "font": {
+        "size": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Date picker text size" }
+      }
+    }
+  }
+}

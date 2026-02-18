@@ -1,0 +1,22 @@
+{
+  "name": "@js-ds-ui/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "description": "End-to-end tests for js-ds-ui component library",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:safari": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "test:visual": "playwright test --project=visual-regression",
+    "test:visual:update": "playwright test --project=visual-regression --update-snapshots",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.49.0"
+  }
+}
