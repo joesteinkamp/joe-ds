@@ -21,8 +21,13 @@
   .sb-show-main,
   .sbdocs {
     background-color: var(--color-background-primary) !important;
-    color: var(--color-text-primary) !important;
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html,
+  body,
+  .sb-show-main {
+    color: var(--color-text-primary) !important;
   }
 
   /* Storybook Docs specific overrides */
@@ -32,7 +37,8 @@
   .sbdocs h4,
   .sbdocs h5,
   .sbdocs h6,
-  .sbdocs p {
+  .sbdocs p,
+  .sbdocs li {
     color: var(--color-text-primary) !important;
   }
 
@@ -53,7 +59,6 @@
   }
 
   body {
-    min-height: 100vh;
     margin: 0;
     font-family: var(--typography-family-sans);
     line-height: var(--typography-lineHeight-normal);

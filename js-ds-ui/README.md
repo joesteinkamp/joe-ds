@@ -118,7 +118,6 @@ js-ds-ui/
 │   └── components/       # React components (source)
 ├── tools/
 │   └── color-generator/  # Leonardo + OKLCH color generation
-├── themes/               # Pre-built themes (light, dark, high-contrast)
 ├── metadata/             # MCP component manifests
 └── README.md
 ```
