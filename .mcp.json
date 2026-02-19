@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "js-ds-ui": {
+      "command": "node",
+      "args": [
+        "/Users/joe.steinkamp/Documents/GitHub/joe-ds/js-ds-ui/packages/cli/dist/index.js",
+        "mcp"
+      ]
+    }
+  }
+}
