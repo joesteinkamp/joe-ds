@@ -13648,10 +13648,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#EEF6FF"
+          "value": "#EEF6FF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#EEF6FF"
+          "value": "#EEF6FF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13659,10 +13665,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#D7EAFF"
+          "value": "#D7EAFF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#D7EAFF"
+          "value": "#D7EAFF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13670,10 +13682,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#B4D8FF"
+          "value": "#B4D8FF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#B4D8FF"
+          "value": "#B4D8FF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13681,10 +13699,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#7CBDFF"
+          "value": "#7CBDFF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#7CBDFF"
+          "value": "#7CBDFF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13692,10 +13716,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#299CFF"
+          "value": "#299CFF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#299CFF"
+          "value": "#299CFF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13703,10 +13733,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0074C8"
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0074C8"
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13714,10 +13750,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0065B0"
+          "value": "#0065B0",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0065B0"
+          "value": "#0065B0",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13725,10 +13767,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#005799"
+          "value": "#005799",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#005799"
+          "value": "#005799",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13736,10 +13784,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#003C6C"
+          "value": "#003C6C",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#003C6C"
+          "value": "#003C6C",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13747,10 +13801,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#002242"
+          "value": "#002242",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#002242"
+          "value": "#002242",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13758,10 +13818,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FBF1FE"
+          "value": "#FBF1FE",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FBF1FE"
+          "value": "#FBF1FE",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13769,10 +13835,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F7DEFD"
+          "value": "#F7DEFD",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F7DEFD"
+          "value": "#F7DEFD",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13780,10 +13852,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#EFC2F9"
+          "value": "#EFC2F9",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#EFC2F9"
+          "value": "#EFC2F9",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13791,10 +13869,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#DC9BEB"
+          "value": "#DC9BEB",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#DC9BEB"
+          "value": "#DC9BEB",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13802,10 +13886,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#C374D5"
+          "value": "#C374D5",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#C374D5"
+          "value": "#C374D5",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13813,10 +13903,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#A74FBB"
+          "value": "#A74FBB",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#A74FBB"
+          "value": "#A74FBB",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13824,10 +13920,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#8E35A1"
+          "value": "#8E35A1",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#8E35A1"
+          "value": "#8E35A1",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13835,10 +13937,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#742785"
+          "value": "#742785",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#742785"
+          "value": "#742785",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13846,10 +13954,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#571B63"
+          "value": "#571B63",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#571B63"
+          "value": "#571B63",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13857,10 +13971,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#350A3E"
+          "value": "#350A3E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#350A3E"
+          "value": "#350A3E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13868,10 +13988,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#EDF9ED"
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#EDF9ED"
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13879,10 +14005,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#D4F1D4"
+          "value": "#D4F1D4",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#D4F1D4"
+          "value": "#D4F1D4",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13890,10 +14022,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#ABE6AC"
+          "value": "#ABE6AC",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#ABE6AC"
+          "value": "#ABE6AC",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13901,10 +14039,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#7ACF7E"
+          "value": "#7ACF7E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#7ACF7E"
+          "value": "#7ACF7E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13912,10 +14056,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#4DB956"
+          "value": "#4DB956",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#4DB956"
+          "value": "#4DB956",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13923,10 +14073,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#11A22F"
+          "value": "#11A22F",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#11A22F"
+          "value": "#11A22F",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13934,10 +14090,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#008A23"
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#008A23"
+          "value": "#008A23",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13945,10 +14107,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#006818"
+          "value": "#006818",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#006818"
+          "value": "#006818",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13956,10 +14124,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#00480E"
+          "value": "#00480E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#00480E"
+          "value": "#00480E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13967,10 +14141,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#002B05"
+          "value": "#002B05",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#002B05"
+          "value": "#002B05",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13978,10 +14158,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FFF2F0"
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FFF2F0"
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -13989,10 +14175,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FFDFDC"
+          "value": "#FFDFDC",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FFDFDC"
+          "value": "#FFDFDC",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14000,10 +14192,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FFC3BD"
+          "value": "#FFC3BD",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FFC3BD"
+          "value": "#FFC3BD",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14011,10 +14209,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FF958D"
+          "value": "#FF958D",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FF958D"
+          "value": "#FF958D",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14022,10 +14226,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F75D59"
+          "value": "#F75D59",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F75D59"
+          "value": "#F75D59",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14033,10 +14243,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#DF202E"
+          "value": "#DF202E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#DF202E"
+          "value": "#DF202E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14044,10 +14260,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#BB061E"
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#BB061E"
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14055,10 +14277,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#990016"
+          "value": "#990016",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#990016"
+          "value": "#990016",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14066,10 +14294,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#72020E"
+          "value": "#72020E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#72020E"
+          "value": "#72020E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14077,10 +14311,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#460105"
+          "value": "#460105",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#460105"
+          "value": "#460105",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14088,10 +14328,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FBF4E6"
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FBF4E6"
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14099,10 +14345,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F7E6C3"
+          "value": "#F7E6C3",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F7E6C3"
+          "value": "#F7E6C3",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14110,10 +14362,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F3D086"
+          "value": "#F3D086",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F3D086"
+          "value": "#F3D086",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14121,10 +14379,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#E4B750"
+          "value": "#E4B750",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#E4B750"
+          "value": "#E4B750",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14132,10 +14396,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#D9A514"
+          "value": "#D9A514",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#D9A514"
+          "value": "#D9A514",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14143,10 +14413,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#BF9000"
+          "value": "#BF9000",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#BF9000"
+          "value": "#BF9000",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14154,10 +14430,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#A27900"
+          "value": "#A27900",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#A27900"
+          "value": "#A27900",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14165,10 +14447,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#7E5E00"
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#7E5E00"
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14176,10 +14464,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#5C4300"
+          "value": "#5C4300",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#5C4300"
+          "value": "#5C4300",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14187,10 +14481,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#3C2B00"
+          "value": "#3C2B00",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#3C2B00"
+          "value": "#3C2B00",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14198,10 +14498,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#ECF7FF"
+          "value": "#ECF7FF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#ECF7FF"
+          "value": "#ECF7FF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14209,10 +14515,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#D2ECFF"
+          "value": "#D2ECFF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#D2ECFF"
+          "value": "#D2ECFF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14220,10 +14532,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#AADBFF"
+          "value": "#AADBFF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#AADBFF"
+          "value": "#AADBFF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14231,10 +14549,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#64C1FF"
+          "value": "#64C1FF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#64C1FF"
+          "value": "#64C1FF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14242,10 +14566,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#00A2EE"
+          "value": "#00A2EE",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#00A2EE"
+          "value": "#00A2EE",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14253,10 +14583,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0082C0"
+          "value": "#0082C0",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0082C0"
+          "value": "#0082C0",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14264,10 +14600,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#006A9D"
+          "value": "#006A9D",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#006A9D"
+          "value": "#006A9D",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14275,10 +14617,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#005580"
+          "value": "#005580",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#005580"
+          "value": "#005580",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14286,10 +14634,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#003F60"
+          "value": "#003F60",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#003F60"
+          "value": "#003F60",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14297,10 +14651,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#00243A"
+          "value": "#00243A",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#00243A"
+          "value": "#00243A",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14308,10 +14668,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F6F9FC"
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F6F9FC"
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14319,10 +14685,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#EFF2F5"
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#EFF2F5"
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14330,10 +14702,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#E1E5EA"
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#E1E5EA"
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14341,10 +14719,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#C9CED4"
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#C9CED4"
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14352,10 +14736,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#A8AFB5"
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#A8AFB5"
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14363,10 +14753,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#7A8189"
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#7A8189"
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14374,10 +14770,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#5D646C"
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#5D646C"
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14385,10 +14787,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#424850"
+          "value": "#424850",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#424850"
+          "value": "#424850",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14396,10 +14804,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#21272E"
+          "value": "#21272E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#21272E"
+          "value": "#21272E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14407,10 +14821,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0D1218"
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0D1218"
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14418,10 +14838,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#03080F"
+          "value": "#03080F",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#03080F"
+          "value": "#03080F",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14429,10 +14855,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0D1218"
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0D1218"
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14440,10 +14872,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#5D646C"
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#5D646C"
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14451,10 +14889,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#7A8189"
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#7A8189"
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14462,10 +14906,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F6F9FC"
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F6F9FC"
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14473,10 +14923,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#008A23"
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#008A23"
+          "value": "#008A23",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14484,10 +14940,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#7E5E00"
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#7E5E00"
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14495,10 +14957,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#BB061E"
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#BB061E"
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14506,10 +14974,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#006A9D"
+          "value": "#006A9D",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#006A9D"
+          "value": "#006A9D",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14517,10 +14991,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#F6F9FC"
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#F6F9FC"
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14528,10 +15008,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#EFF2F5"
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#EFF2F5"
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14539,10 +15025,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#E1E5EA"
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#E1E5EA"
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14550,10 +15042,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0D1218"
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0D1218"
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14561,10 +15059,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#EDF9ED"
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#EDF9ED"
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14572,10 +15076,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FBF4E6"
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FBF4E6"
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14583,10 +15093,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#FFF2F0"
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#FFF2F0"
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14594,10 +15110,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#ECF7FF"
+          "value": "#ECF7FF",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#ECF7FF"
+          "value": "#ECF7FF",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14605,10 +15127,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#03080F"
+          "value": "#03080F",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#03080F"
+          "value": "#03080F",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14616,10 +15144,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#C9CED4"
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#C9CED4"
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14627,10 +15161,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#A8AFB5"
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#A8AFB5"
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14638,10 +15178,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#0074C8"
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0074C8"
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14649,29 +15195,67 @@
       "type": "color",
       "value": [
         {
-          "value": "#0074C8"
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#0074C8"
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
     "color.interactive.primary-hover": {
       "type": "color",
-      "value": "#0065B0"
+      "value": [
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "color.interactive.primary-active": {
       "type": "color",
-      "value": "#005799"
+      "value": [
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "color.interactive.secondary": {
       "type": "color",
       "value": [
         {
-          "value": "#A74FBB"
+          "value": "#A74FBB",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#A74FBB"
+          "value": "#A74FBB",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14679,10 +15263,16 @@
       "type": "color",
       "value": [
         {
-          "value": "#C9CED4"
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": "#C9CED4"
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14690,10 +15280,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14701,10 +15297,16 @@
       "type": "number",
       "value": [
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14712,10 +15314,16 @@
       "type": "number",
       "value": [
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14723,10 +15331,16 @@
       "type": "number",
       "value": [
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14734,10 +15348,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14745,10 +15365,16 @@
       "type": "number",
       "value": [
         {
-          "value": 2
+          "value": 2,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 2
+          "value": 2,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14756,10 +15382,16 @@
       "type": "number",
       "value": [
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14767,10 +15399,16 @@
       "type": "number",
       "value": [
         {
-          "value": 6
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 6
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14778,10 +15416,16 @@
       "type": "number",
       "value": [
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14789,10 +15433,16 @@
       "type": "number",
       "value": [
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14800,10 +15450,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14811,10 +15467,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14822,10 +15484,16 @@
       "type": "number",
       "value": [
         {
-          "value": 9999
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 9999
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14833,10 +15501,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14844,10 +15518,16 @@
       "type": "number",
       "value": [
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14855,10 +15535,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14866,10 +15552,16 @@
       "type": "number",
       "value": [
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14877,10 +15569,16 @@
       "type": "number",
       "value": [
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14888,10 +15586,16 @@
       "type": "number",
       "value": [
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14899,10 +15603,16 @@
       "type": "number",
       "value": [
         {
-          "value": 64
+          "value": 64,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 64
+          "value": 64,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14910,10 +15620,16 @@
       "type": "number",
       "value": [
         {
-          "value": 80
+          "value": 80,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 80
+          "value": 80,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14921,10 +15637,16 @@
       "type": "number",
       "value": [
         {
-          "value": 96
+          "value": 96,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 96
+          "value": 96,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14932,10 +15654,16 @@
       "type": "number",
       "value": [
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14943,10 +15671,16 @@
       "type": "number",
       "value": [
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14954,10 +15688,16 @@
       "type": "number",
       "value": [
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14965,10 +15705,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14976,10 +15722,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14987,10 +15739,16 @@
       "type": "number",
       "value": [
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -14998,10 +15756,16 @@
       "type": "number",
       "value": [
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 8
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15009,10 +15773,16 @@
       "type": "number",
       "value": [
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15020,10 +15790,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15031,10 +15807,16 @@
       "type": "number",
       "value": [
         {
-          "value": 64
+          "value": 64,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 64
+          "value": 64,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15042,10 +15824,16 @@
       "type": "number",
       "value": [
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15053,10 +15841,16 @@
       "type": "number",
       "value": [
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 12
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15081,10 +15875,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15092,10 +15892,16 @@
       "type": "number",
       "value": [
         {
-          "value": 18
+          "value": 18,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 18
+          "value": 18,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15103,10 +15909,16 @@
       "type": "number",
       "value": [
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15114,10 +15926,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15125,10 +15943,16 @@
       "type": "number",
       "value": [
         {
-          "value": 30
+          "value": 30,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 30
+          "value": 30,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15136,10 +15960,16 @@
       "type": "number",
       "value": [
         {
-          "value": 36
+          "value": 36,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 36
+          "value": 36,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15147,10 +15977,16 @@
       "type": "number",
       "value": [
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15158,13 +15994,16 @@
       "type": "number",
       "value": [
         {
-          "value": 400
+          "value": 400,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 400
-        },
-        {
-          "value": 400
+          "value": 400,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15172,13 +16011,16 @@
       "type": "number",
       "value": [
         {
-          "value": 500
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 500
-        },
-        {
-          "value": 500
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15186,13 +16028,16 @@
       "type": "number",
       "value": [
         {
-          "value": 600
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 600
-        },
-        {
-          "value": 600
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15200,13 +16045,16 @@
       "type": "number",
       "value": [
         {
-          "value": 700
+          "value": 700,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 700
-        },
-        {
-          "value": 700
+          "value": 700,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15214,13 +16062,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1.25
+          "value": 1.25,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1.25
-        },
-        {
-          "value": 1.25
+          "value": 1.25,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15228,13 +16079,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1.5
+          "value": 1.5,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1.5
-        },
-        {
-          "value": 1.5
+          "value": 1.5,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15242,13 +16096,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1.75
+          "value": 1.75,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1.75
-        },
-        {
-          "value": 1.75
+          "value": 1.75,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15256,10 +16113,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15267,10 +16130,16 @@
       "type": "number",
       "value": [
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15278,10 +16147,16 @@
       "type": "number",
       "value": [
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15289,10 +16164,16 @@
       "type": "number",
       "value": [
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15300,10 +16181,16 @@
       "type": "number",
       "value": [
         {
-          "value": 56
+          "value": 56,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 56
+          "value": 56,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15311,10 +16198,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15322,10 +16215,16 @@
       "type": "number",
       "value": [
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15333,10 +16232,16 @@
       "type": "number",
       "value": [
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15344,10 +16249,16 @@
       "type": "number",
       "value": [
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15355,10 +16266,16 @@
       "type": "number",
       "value": [
         {
-          "value": 56
+          "value": 56,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 56
+          "value": 56,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15366,10 +16283,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15377,10 +16300,16 @@
       "type": "number",
       "value": [
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15388,10 +16317,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15399,10 +16334,16 @@
       "type": "number",
       "value": [
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15410,10 +16351,16 @@
       "type": "number",
       "value": [
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15421,10 +16368,16 @@
       "type": "number",
       "value": [
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 16
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15432,10 +16385,16 @@
       "type": "number",
       "value": [
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15443,10 +16402,16 @@
       "type": "number",
       "value": [
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 24
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15454,10 +16419,16 @@
       "type": "number",
       "value": [
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 32
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15465,10 +16436,16 @@
       "type": "number",
       "value": [
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 40
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15476,10 +16453,16 @@
       "type": "number",
       "value": [
         {
-          "value": 44
+          "value": 44,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 44
+          "value": 44,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15487,10 +16470,16 @@
       "type": "number",
       "value": [
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15498,10 +16487,16 @@
       "type": "number",
       "value": [
         {
-          "value": 44
+          "value": 44,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 44
+          "value": 44,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15509,10 +16504,16 @@
       "type": "number",
       "value": [
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 48
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15520,10 +16521,16 @@
       "type": "number",
       "value": [
         {
-          "value": -1
+          "value": -1,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": -1
+          "value": -1,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15531,10 +16538,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15542,10 +16555,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1000
+          "value": 1000,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1000
+          "value": 1000,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15553,10 +16572,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1020
+          "value": 1020,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1020
+          "value": 1020,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15564,10 +16589,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1030
+          "value": 1030,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1030
+          "value": 1030,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15575,10 +16606,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1040
+          "value": 1040,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1040
+          "value": 1040,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15586,10 +16623,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1050
+          "value": 1050,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1050
+          "value": 1050,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15597,10 +16640,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1060
+          "value": 1060,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1060
+          "value": 1060,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15608,10 +16657,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1070
+          "value": 1070,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1070
+          "value": 1070,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15619,10 +16674,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1080
+          "value": 1080,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1080
+          "value": 1080,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15630,10 +16691,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15641,10 +16708,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15652,10 +16725,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15663,10 +16742,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15674,10 +16759,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15685,10 +16776,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15696,10 +16793,16 @@
       "type": "number",
       "value": [
         {
-          "value": 2
+          "value": 2,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 2
+          "value": 2,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15707,10 +16810,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15718,10 +16827,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15729,10 +16844,16 @@
       "type": "number",
       "value": [
         {
-          "value": 1
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 1
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15740,10 +16861,16 @@
       "type": "number",
       "value": [
         {
-          "value": 3
+          "value": 3,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 3
+          "value": 3,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15751,10 +16878,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15762,10 +16895,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15773,10 +16912,16 @@
       "type": "number",
       "value": [
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 4
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15784,10 +16929,16 @@
       "type": "number",
       "value": [
         {
-          "value": 6
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 6
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15795,10 +16946,16 @@
       "type": "number",
       "value": [
         {
-          "value": -1
+          "value": -1,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": -1
+          "value": -1,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15806,10 +16963,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15817,10 +16980,16 @@
       "type": "number",
       "value": [
         {
-          "value": 10
+          "value": 10,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 10
+          "value": 10,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15828,10 +16997,16 @@
       "type": "number",
       "value": [
         {
-          "value": 15
+          "value": 15,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 15
+          "value": 15,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15839,10 +17014,16 @@
       "type": "number",
       "value": [
         {
-          "value": -3
+          "value": -3,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": -3
+          "value": -3,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15850,10 +17031,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15861,10 +17048,16 @@
       "type": "number",
       "value": [
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 20
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15872,10 +17065,16 @@
       "type": "number",
       "value": [
         {
-          "value": 25
+          "value": 25,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 25
+          "value": 25,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15883,10 +17082,16 @@
       "type": "number",
       "value": [
         {
-          "value": -5
+          "value": -5,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": -5
+          "value": -5,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15894,10 +17099,16 @@
       "type": "number",
       "value": [
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 0
+          "value": 0,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15905,10 +17116,16 @@
       "type": "number",
       "value": [
         {
-          "value": 100
+          "value": 100,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 100
+          "value": 100,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15916,10 +17133,16 @@
       "type": "number",
       "value": [
         {
-          "value": 200
+          "value": 200,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 200
+          "value": 200,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15927,10 +17150,16 @@
       "type": "number",
       "value": [
         {
-          "value": 300
+          "value": 300,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 300
+          "value": 300,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
@@ -15938,240 +17167,1021 @@
       "type": "number",
       "value": [
         {
-          "value": 500
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
         },
         {
-          "value": 500
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
         }
       ]
     },
     "component.button.padding-x": {
       "type": "number",
-      "value": 16
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.padding-y": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.height-sm": {
       "type": "number",
-      "value": 32
+      "value": [
+        {
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.height-md": {
       "type": "number",
-      "value": 40
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.height-lg": {
       "type": "number",
-      "value": 48
+      "value": [
+        {
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.gap": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.font-size": {
       "type": "number",
-      "value": 14
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.font-weight": {
       "type": "number",
-      "value": 500
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.border-radius": {
       "type": "number",
-      "value": 6
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.button.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.input.height": {
       "type": "number",
-      "value": 40
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.input.padding-x": {
       "type": "number",
-      "value": 12
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.input.padding-y": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.input.font-size": {
       "type": "number",
-      "value": 14
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.input.border-radius": {
       "type": "number",
-      "value": 6
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.input.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.alert.padding": {
       "type": "number",
-      "value": 12
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.alert.border-radius": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.alert.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.badge.padding-x": {
       "type": "number",
-      "value": 10
+      "value": [
+        {
+          "value": 10,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 10,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.badge.padding-y": {
       "type": "number",
-      "value": 2
+      "value": [
+        {
+          "value": 2,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 2,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.badge.font-size": {
       "type": "number",
-      "value": 12
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.badge.font-weight": {
       "type": "number",
-      "value": 600
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.badge.border-radius": {
       "type": "number",
-      "value": 9999
+      "value": [
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.badge.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.card.padding": {
       "type": "number",
-      "value": 16
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.card.border-radius": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.card.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.card.header-gap": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.checkbox.size": {
       "type": "number",
-      "value": 20
+      "value": [
+        {
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.checkbox.border-radius": {
       "type": "number",
-      "value": 4
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.checkbox.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.checkbox.icon-size": {
       "type": "number",
-      "value": 16
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.dialog.padding": {
       "type": "number",
-      "value": 24
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.dialog.gap": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.dialog.border-radius": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.dialog.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.dialog.max-width": {
       "type": "number",
-      "value": 512
+      "value": [
+        {
+          "value": 512,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 512,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.switch.width": {
       "type": "number",
-      "value": 44
+      "value": [
+        {
+          "value": 44,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 44,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.switch.height": {
       "type": "number",
-      "value": 24
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.switch.thumb-size": {
       "type": "number",
-      "value": 20
+      "value": [
+        {
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.switch.border-radius": {
       "type": "number",
-      "value": 9999
+      "value": [
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.toast.padding": {
       "type": "number",
-      "value": 16
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.toast.border-radius": {
       "type": "number",
-      "value": 8
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.toast.border-width": {
       "type": "number",
-      "value": 1
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "component.toast.max-width": {
       "type": "number",
-      "value": 420
+      "value": [
+        {
+          "value": 420,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 420,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "animation.easing.ease-in": {
       "type": "string",
-      "value": "cubic-bezier(0.4, 0, 1, 1)"
+      "value": [
+        {
+          "value": "cubic-bezier(0.4, 0, 1, 1)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "cubic-bezier(0.4, 0, 1, 1)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "animation.easing.ease-in-out": {
       "type": "string",
-      "value": "cubic-bezier(0.4, 0, 0.2, 1)"
+      "value": [
+        {
+          "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "animation.easing.ease-out": {
       "type": "string",
-      "value": "cubic-bezier(0, 0, 0.2, 1)"
+      "value": [
+        {
+          "value": "cubic-bezier(0, 0, 0.2, 1)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "cubic-bezier(0, 0, 0.2, 1)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "animation.easing.linear": {
       "type": "string",
-      "value": "cubic-bezier(0, 0, 1, 1)"
+      "value": [
+        {
+          "value": "cubic-bezier(0, 0, 1, 1)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "cubic-bezier(0, 0, 1, 1)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "animation.easing.spring": {
       "type": "string",
-      "value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      "value": [
+        {
+          "value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "font.family.mono": {
       "type": "string",
-      "value": "JetBrains Mono, Consolas, Monaco, Courier New, monospace"
+      "value": [
+        {
+          "value": "JetBrains Mono, Consolas, Monaco, Courier New, monospace",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "JetBrains Mono, Consolas, Monaco, Courier New, monospace",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "font.family.sans": {
       "type": "string",
-      "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif"
+      "value": [
+        {
+          "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "color.interactive.primary.active": {
       "type": "color",
-      "value": "#005799"
+      "value": [
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "color.interactive.primary.hover": {
       "type": "color",
-      "value": "#0065B0"
+      "value": [
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "typography.family.mono": {
       "type": "string",
-      "value": "'JetBrains Mono', Consolas, Monaco, 'Courier New', monospace"
+      "value": [
+        {
+          "value": "'JetBrains Mono', Consolas, Monaco, 'Courier New', monospace",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "'JetBrains Mono', Consolas, Monaco, 'Courier New', monospace",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     },
     "typography.family.sans": {
       "type": "string",
-      "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      "value": [
+        {
+          "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.black": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.white": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
     }
   }
 }
