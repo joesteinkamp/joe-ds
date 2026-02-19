@@ -35,33 +35,24 @@
       },
       "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Button focus ring color" },
       "disabled-opacity": { "$type": "number", "$value": 0.5, "$description": "Button disabled state opacity" },
-      "padding": {
-        "x": {
-          "$type": "dimension",
-          "$value": "{space.component.padding.lg}",
-          "$description": "Horizontal button padding"
-        },
-        "y": {
-          "$type": "dimension",
-          "$value": "{space.component.padding.sm}",
-          "$description": "Vertical button padding"
-        }
-      },
-      "height": {
+      "size": {
         "sm": {
-          "$type": "dimension",
-          "$value": "{size.component.height.sm}",
-          "$description": "Small button height"
+          "height": { "$type": "dimension", "$value": "{size.component.height.sm}", "$description": "Small button height" },
+          "padding-x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Small button horizontal padding" },
+          "padding-y": { "$type": "dimension", "$value": "{space.component.padding.xs}", "$description": "Small button vertical padding" },
+          "text": { "$type": "dimension", "$value": "{typography.size.xs}", "$description": "Small button text size" }
         },
         "md": {
-          "$type": "dimension",
-          "$value": "{size.component.height.md}",
-          "$description": "Medium button height (default)"
+          "height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Medium button height (default)" },
+          "padding-x": { "$type": "dimension", "$value": "{space.component.padding.lg}", "$description": "Medium button horizontal padding" },
+          "padding-y": { "$type": "dimension", "$value": "{space.component.padding.sm}", "$description": "Medium button vertical padding" },
+          "text": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Medium button text size" }
         },
         "lg": {
-          "$type": "dimension",
-          "$value": "{size.component.height.lg}",
-          "$description": "Large button height"
+          "height": { "$type": "dimension", "$value": "{size.component.height.lg}", "$description": "Large button height" },
+          "padding-x": { "$type": "dimension", "$value": "{space.component.padding.xl}", "$description": "Large button horizontal padding" },
+          "padding-y": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Large button vertical padding" },
+          "text": { "$type": "dimension", "$value": "{typography.size.base}", "$description": "Large button text size" }
         }
       },
       "gap": {
@@ -70,11 +61,6 @@
         "$description": "Gap between button icon and text"
       },
       "font": {
-        "size": {
-          "$type": "dimension",
-          "$value": "{typography.size.sm}",
-          "$description": "Button text size"
-        },
         "weight": {
           "$type": "fontWeight",
           "$value": "{typography.weight.medium}",

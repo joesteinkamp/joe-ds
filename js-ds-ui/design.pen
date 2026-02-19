@@ -2659,7 +2659,6 @@
           "id": "frame-242",
           "name": "Buttons",
           "width": 1344,
-          "height": 320,
           "layout": "vertical",
           "gap": 12,
           "children": [
@@ -2694,7 +2693,6 @@
                   "id": "frame-202",
                   "name": "btn-primary-sm",
                   "width": 80,
-                  "height": 32,
                   "fill": "$color.interactive.primary",
                   "cornerRadius": 6,
                   "stroke": {
@@ -2702,8 +2700,8 @@
                   },
                   "gap": 8,
                   "padding": [
-                    12,
-                    10
+                    "$component.button.size.sm.padding-y",
+                    "$component.button.size.sm.padding-x"
                   ],
                   "justifyContent": "center",
                   "alignItems": "center",
@@ -2997,6 +2995,115 @@
                       "type": "text",
                       "id": "text-217",
                       "fill": "$color.interactive.primary",
+                      "content": "Outline",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "oHSBf",
+              "name": "btn-row-outline",
+              "width": 1344,
+              "height": 52,
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "b6SoM",
+                  "fill": "$color.text.secondary",
+                  "content": "Ghost",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "KxIa3",
+                  "name": "btn-outline-sm",
+                  "width": 80,
+                  "height": 32,
+                  "fill": "$component.button.ghost.bg",
+                  "cornerRadius": 6,
+                  "stroke": {
+                    "thickness": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    10
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "7EwVa",
+                      "fill": "$component.button.ghost.text",
+                      "content": "Outline",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jJTDX",
+                  "name": "btn-outline-md",
+                  "width": 90.80000000000001,
+                  "height": 40,
+                  "fill": "$component.button.ghost.bg",
+                  "cornerRadius": 6,
+                  "stroke": {
+                    "thickness": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    16,
+                    13
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HEShS",
+                      "fill": "$component.button.ghost.text",
+                      "content": "Outline",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "R2y8w",
+                  "name": "btn-outline-lg",
+                  "width": 107.2,
+                  "height": 48,
+                  "fill": "$component.button.ghost.bg",
+                  "cornerRadius": 6,
+                  "stroke": {
+                    "thickness": 1
+                  },
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "liqQD",
+                      "fill": "$component.button.ghost.text",
                       "content": "Outline",
                       "fontFamily": "Inter",
                       "fontSize": 16,
@@ -6655,10 +6762,10 @@
               "reusable": true,
               "width": 400,
               "height": 180,
-              "cornerRadius": "$radii.lg",
+              "cornerRadius": "$component.accordion.radius",
               "stroke": {
                 "thickness": 1,
-                "fill": "$color.border.default"
+                "fill": "$component.accordion.border-color"
               },
               "layout": "vertical",
               "children": [
@@ -6683,20 +6790,17 @@
                         "fill": "$color.border.default"
                       },
                       "gap": 8,
-                      "padding": [
-                        "$spacing.3",
-                        "$spacing.4"
-                      ],
+                      "padding": "$component.accordion.padding",
                       "justifyContent": "space_between",
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "text",
                           "id": "text-455",
-                          "fill": "$color.text.primary",
+                          "fill": "$component.accordion.text",
                           "content": "Section One",
                           "fontFamily": "Inter",
-                          "fontSize": "$typography.size.base",
+                          "fontSize": "$component.accordion.font.size",
                           "fontWeight": "500"
                         },
                         {
@@ -6706,7 +6810,7 @@
                           "height": 16,
                           "iconFontName": "chevron-up",
                           "iconFontFamily": "lucide",
-                          "fill": "$color.text.secondary"
+                          "fill": "$component.accordion.text"
                         }
                       ]
                     },
@@ -6723,19 +6827,16 @@
                         },
                         "fill": "$color.border.default"
                       },
-                      "padding": [
-                        "$spacing.3",
-                        "$spacing.4"
-                      ],
+                      "padding": "$component.accordion.padding",
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "text",
                           "id": "text-457",
-                          "fill": "$color.text.secondary",
+                          "fill": "$component.accordion.content-text",
                           "content": "This section is expanded and shows its content.",
                           "fontFamily": "Inter",
-                          "fontSize": "$typography.size.base",
+                          "fontSize": "$component.accordion.font.size",
                           "fontWeight": "normal"
                         }
                       ]
@@ -6773,10 +6874,10 @@
                         {
                           "type": "text",
                           "id": "text-461",
-                          "fill": "$color.text.primary",
+                          "fill": "$component.accordion.text",
                           "content": "Section Two",
                           "fontFamily": "Inter",
-                          "fontSize": "$typography.size.base",
+                          "fontSize": "$component.accordion.font.size",
                           "fontWeight": "500"
                         },
                         {
@@ -6786,7 +6887,7 @@
                           "height": 16,
                           "iconFontName": "chevron-down",
                           "iconFontFamily": "lucide",
-                          "fill": "$color.text.secondary"
+                          "fill": "$component.accordion.text"
                         }
                       ]
                     }
@@ -6820,10 +6921,10 @@
                         {
                           "type": "text",
                           "id": "text-465",
-                          "fill": "$color.text.primary",
+                          "fill": "$component.accordion.text",
                           "content": "Section Three",
                           "fontFamily": "Inter",
-                          "fontSize": "$typography.size.base",
+                          "fontSize": "$component.accordion.font.size",
                           "fontWeight": "500"
                         },
                         {
@@ -6833,7 +6934,7 @@
                           "height": 16,
                           "iconFontName": "chevron-down",
                           "iconFontFamily": "lucide",
-                          "fill": "$color.text.secondary"
+                          "fill": "$component.accordion.text"
                         }
                       ]
                     }
@@ -18177,6 +18278,8336 @@
         },
         {
           "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.description-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.font.description-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.font.title-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 18,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 18,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.font.title-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.card.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.checkbox.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.checkbox.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.checkbox.checked-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.checkbox.checked-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.checkbox.checked-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.checkbox.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.description-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.font.description-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.font.title-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 18,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 18,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.font.title-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.overlay-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#03080F",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#03080F",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dialog.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.font.label-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.item-focus-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.item-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.item-padding.x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.item-padding.y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.label-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.min-width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 128,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 128,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.separator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.shortcut-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.context-menu.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.cell-padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.empty-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.font.header-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.header-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.header-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.pagination-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.row-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.row-selected-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.data-table.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.active-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.active-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.font-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.item-size-lg": {
+      "type": "number",
+      "value": [
+        {
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.item-size-md": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.item-size-sm": {
+      "type": "number",
+      "value": [
+        {
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.pagination.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.popover.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.popover.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.popover.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.popover.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.popover.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.popover.width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 288,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 288,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.progress.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.progress.height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.progress.indicator-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.progress.track-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.checked-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.border-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.error-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.input.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.switch.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.switch.thumb-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.switch.track-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.switch.track-checked-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.default.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.default.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.default.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.error.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.error.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.error.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.success.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.success.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.success.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.warning.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.warning.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.warning.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.interactive.danger": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#460105",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.interactive.danger-active": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFC3BD",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#990016",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.interactive.danger-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFDFDC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#72020E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.interactive.secondary-active": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "color.interactive.secondary-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#424850",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.lineHeight.normal": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1.5,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1.5,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.lineHeight.relaxed": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1.75,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1.75,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.lineHeight.tight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1.25,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1.25,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.2xl": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(1.25rem, calc(1.15rem + 0.5vw), 1.5rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(1.25rem, calc(1.15rem + 0.5vw), 1.5rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.3xl": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(1.5rem, calc(1.35rem + 0.75vw), 1.875rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(1.5rem, calc(1.35rem + 0.75vw), 1.875rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.4xl": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(1.875rem, calc(1.65rem + 1.125vw), 2.25rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(1.875rem, calc(1.65rem + 1.125vw), 2.25rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.5xl": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(2.25rem, calc(1.95rem + 1.5vw), 3rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(2.25rem, calc(1.95rem + 1.5vw), 3rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.base": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(0.875rem, calc(0.825rem + 0.25vw), 1rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(0.875rem, calc(0.825rem + 0.25vw), 1rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.lg": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(1rem, calc(0.95rem + 0.25vw), 1.125rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(1rem, calc(0.95rem + 0.25vw), 1.125rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.sm": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(0.75rem, calc(0.7rem + 0.25vw), 0.875rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(0.75rem, calc(0.7rem + 0.25vw), 0.875rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.xl": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(1.125rem, calc(1.05rem + 0.375vw), 1.25rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(1.125rem, calc(1.05rem + 0.375vw), 1.25rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.size.xs": {
+      "type": "string",
+      "value": [
+        {
+          "value": "clamp(0.625rem, calc(0.575rem + 0.25vw), 0.75rem)",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "clamp(0.625rem, calc(0.575rem + 0.25vw), 0.75rem)",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.weight.bold": {
+      "type": "number",
+      "value": [
+        {
+          "value": 700,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 700,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.weight.medium": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.weight.normal": {
+      "type": "number",
+      "value": [
+        {
+          "value": 400,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 400,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "font.weight.semibold": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.calendar-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.calendar-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.day-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.day-selected-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.day-selected-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.day-today-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.trigger-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.trigger-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.trigger-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.trigger-placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-picker.trigger-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.range-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.range-end-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.range-start-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.range-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.trigger-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.trigger-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.trigger-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.trigger-placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.date-range-picker.trigger-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.border-width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.indicator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.indicator-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 10,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 10,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.radio-group.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.scroll-area.scrollbar-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.scroll-area.scrollbar-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 10,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 10,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.scroll-area.thumb-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.scroll-area.thumb-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#A8AFB5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.scroll-area.thumb-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.clear-button-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.icon-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.search-bar.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "transparent",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "transparent",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.border-width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.content-padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.content-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.font.family": {
+      "type": "string",
+      "value": [
+        {
+          "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.icon-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.accordion.trigger-hover-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.action-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.action-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.close-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.font.title-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toast.font.title-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.default.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.default.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#424850",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.default.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.error.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#460105",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.error.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F75D59",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.error.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F75D59",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.info.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#ECF7FF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00243A",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.info.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#006A9D",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00A2EE",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.info.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#006A9D",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00A2EE",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.success.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EDF9ED",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#002B05",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.success.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#4DB956",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.success.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#4DB956",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.warning.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FBF4E6",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#3C2B00",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.warning.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#E4B750",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.alert.warning.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#E4B750",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.font.label-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.item-focus-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.item-focus-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.item-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.item-padding.x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.item-padding.y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.min-width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 128,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 128,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.separator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.shortcut-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.dropdown-menu.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.bg-active": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.border-active": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.border.width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 2,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 2,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.error-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.icon-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.file-upload.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.content-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.content-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.content-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.font-label-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.item-focus-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.item-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.separator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.trigger-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.trigger-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.trigger-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.trigger-placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.select.trigger-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.separator.color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.separator.thickness": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.close-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.description-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.overlay-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#03080F",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#03080F",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.default.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#299CFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.default.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.default.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.destructive.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F75D59",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.destructive.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.destructive.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#299CFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.outline.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.outline.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#424850",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.outline.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.secondary.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#21272E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.secondary.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.secondary.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.success.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#4DB956",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.success.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.success.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.warning.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#E4B750",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.warning.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.badge.warning.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.fallback-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.fallback-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.size.lg": {
+      "type": "number",
+      "value": [
+        {
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.size.md": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.avatar.size.sm": {
+      "type": "number",
+      "value": [
+        {
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.current-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.separator-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.breadcrumb.text-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.collapsible.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "transparent",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "transparent",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.collapsible.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.description-font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.footer-gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.title-font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 18,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 18,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.confirm-dialog.title-font-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.error-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.font.helper-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.font.label-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.font.label-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.helper-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.label-error-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.form-field.label-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.heading.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 700,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 700,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.heading.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.hover-card.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.hover-card.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.hover-card.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.hover-card.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.hover-card.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.hover-card.width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 256,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 256,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.label.error-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.label.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.label.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.label.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.link.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.link.icon-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.link.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.link.text-active": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.link.text-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.font-description-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.font-title-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 18,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 18,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.font-title-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.sheet.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.skeleton.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.skeleton.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 9999,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.range-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.thumb-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.thumb-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.thumb-border-width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 2,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 2,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.thumb-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 20,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 20,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.track-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.slider.track-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.spinner.color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.spinner.size-lg": {
+      "type": "number",
+      "value": [
+        {
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.spinner.size-md": {
+      "type": "number",
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.spinner.size-sm": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.spinner.size-xl": {
+      "type": "number",
+      "value": [
+        {
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.danger.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFF2F0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#460105",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.danger.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFDFDC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#72020E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.danger.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.danger.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.disabled-opacity": {
+      "type": "number",
+      "value": [
+        {
+          "value": 0.5,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 0.5,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#299CFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.ghost.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.ghost.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#21272E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.ghost.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.ghost.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.outline.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.outline.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#21272E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.outline.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#424850",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.outline.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.primary.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#299CFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.primary.bg-active": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#005799",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#B4D8FF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.primary.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0065B0",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7CBDFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.primary.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.primary.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.secondary.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#21272E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.secondary.bg-hover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#424850",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.secondary.border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.secondary.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.font-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.list-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.list-padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.list-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.trigger-active-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.trigger-active-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.trigger-padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tabs.trigger-padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.error": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.info": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#006A9D",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#006A9D",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.inverse": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.success": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#008A23",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.tertiary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.text.warning": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7E5E00",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.content-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.content-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.content-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.font.label-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.item-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.separator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.shortcut-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.trigger-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.menubar.trigger-open-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.active-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.content-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.content-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.content-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.hover-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.border.radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.font.size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.font.weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 500,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 500,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.indicator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.trigger-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.trigger-padding.x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.navigation-menu.trigger-padding.y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.border-width": {
+      "type": "number",
+      "value": [
+        {
+          "value": 1,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 1,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.error-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#BB061E",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.min-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 80,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 80,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.textarea.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.content-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.content-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.item-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.item-selected-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.item-selected-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.trigger-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.trigger-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.trigger-height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.trigger-placeholder": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.time-picker.trigger-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toggle-group.active-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#E1E5EA",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toggle-group.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toggle-group.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toggle-group.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toggle-group.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toolbar.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toolbar.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toolbar.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toolbar.gap": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toolbar.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.toolbar.separator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.border-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.tooltip.text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.content-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#F6F9FC",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.content-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.content-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.item-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.separator-color": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#C9CED4",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.trigger-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#00000000",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.trigger-hover-bg": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#EFF2F5",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.border-radius": {
+      "type": "number",
+      "value": [
+        {
+          "value": 6,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 6,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.description-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#5D646C",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.focus-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0074C8",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.font-label-weight": {
+      "type": "number",
+      "value": [
+        {
+          "value": 600,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 600,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.font-size": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.label-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#0D1218",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.padding": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.user-menu.shortcut-text": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": "#7A8189",
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.lg.height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 48,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 48,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.lg.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 24,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 24,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.lg.padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.lg.text": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.md.height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 40,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 40,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.md.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 16,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 16,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.md.padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 8,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 8,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.md.text": {
+      "type": "number",
+      "value": [
+        {
+          "value": 14,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 14,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.sm.height": {
+      "type": "number",
+      "value": [
+        {
+          "value": 32,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 32,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.sm.padding-x": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.sm.padding-y": {
+      "type": "number",
+      "value": [
+        {
+          "value": 4,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 4,
+          "theme": {
+            "mode": "dark"
+          }
+        }
+      ]
+    },
+    "component.button.size.sm.text": {
+      "type": "number",
+      "value": [
+        {
+          "value": 12,
+          "theme": {
+            "mode": "light"
+          }
+        },
+        {
+          "value": 12,
           "theme": {
             "mode": "dark"
           }

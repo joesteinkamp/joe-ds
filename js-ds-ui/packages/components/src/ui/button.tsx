@@ -16,14 +16,14 @@ const buttonVariants = cva(
           'bg-[var(--component-button-secondary-bg)] [color:var(--component-button-secondary-text)] hover:bg-[var(--component-button-secondary-bg-hover)] border-[var(--component-button-secondary-border)] focus-visible:ring-[var(--color-border-focus)]',
         outline:
           'border-[var(--component-button-outline-border)] bg-transparent hover:bg-[var(--component-button-outline-bg-hover)] focus-visible:ring-[var(--color-border-focus)]',
-        ghost: 'hover:bg-[var(--component-button-ghost-bg-hover)] focus-visible:ring-[var(--color-border-focus)] border-transparent',
+        ghost: 'bg-[var(--component-button-ghost-bg)] hover:bg-[var(--component-button-ghost-bg-hover)] focus-visible:ring-[var(--color-border-focus)] border-transparent',
         danger:
           'bg-[var(--component-button-danger-bg)] text-white hover:bg-[var(--component-button-danger-bg-hover)] focus-visible:ring-[var(--component-button-danger-bg)] border-transparent',
       },
       size: {
-        sm: 'h-[var(--component-button-sm-height)] px-[var(--component-button-sm-padding-x)] [font-size:var(--component-button-sm-font-size)]',
-        md: 'h-[var(--component-button-height)] px-[var(--component-button-padding-x)] py-[var(--component-button-padding-y)] [font-size:var(--component-button-font-size)]',
-        lg: 'h-[var(--component-button-lg-height)] px-[var(--component-button-lg-padding-x)] [font-size:var(--component-button-lg-font-size)]',
+        sm: 'h-[var(--component-button-size-sm-height)] px-[var(--component-button-size-sm-padding-x)] py-[var(--component-button-size-sm-padding-y)] [font-size:var(--component-button-size-sm-text)]',
+        md: 'h-[var(--component-button-size-md-height)] px-[var(--component-button-size-md-padding-x)] py-[var(--component-button-size-md-padding-y)] [font-size:var(--component-button-size-md-text)]',
+        lg: 'h-[var(--component-button-size-lg-height)] px-[var(--component-button-size-lg-padding-x)] py-[var(--component-button-size-lg-padding-y)] [font-size:var(--component-button-size-lg-text)]',
       },
     },
     defaultVariants: {

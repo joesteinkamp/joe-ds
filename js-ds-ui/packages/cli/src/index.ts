@@ -7,6 +7,7 @@ import { removeCommand } from './commands/remove.js';
 import { diffCommand } from './commands/diff.js';
 import { updateCommand } from './commands/update.js';
 import { themeCreateCommand } from './commands/theme-create.js';
+import { mcpCommand } from './commands/mcp.js';
 
 const program = new Command();
 
@@ -76,5 +77,10 @@ themeCmd
       format: opts.format,
     });
   });
+
+program
+  .command('mcp')
+  .description('Start MCP server for js-ds-ui')
+  .action(mcpCommand);
 
 program.parse();
