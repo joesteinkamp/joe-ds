@@ -46,14 +46,18 @@ export interface AlertProps
  * ```
  */
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ className, variant, ...props }, ref) => (
-    <div
-      ref={ref}
-      role="alert"
-      className={cn(alertVariants({ variant, className }))}
-      {...props}
-    />
-  )
+  ({ className, variant, ...props }, ref) => {
+    const isError = variant === 'error';
+    return (
+      <div
+        ref={ref}
+        role={isError ? 'alert' : 'status'}
+        aria-live={isError ? 'assertive' : 'polite'}
+        className={cn(alertVariants({ variant, className }))}
+        {...props}
+      />
+    );
+  }
 );
 
 Alert.displayName = 'Alert';
