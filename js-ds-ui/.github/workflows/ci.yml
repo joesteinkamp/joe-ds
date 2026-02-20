@@ -36,6 +36,12 @@ jobs:
       - name: Lint
         run: pnpm --filter @js-ds-ui/components lint
 
+      - name: Build CLI
+        run: pnpm --filter @js-ds-ui/cli build
+
+      - name: Build Storybook
+        run: pnpm --filter @js-ds-ui/components storybook:build
+
       - name: Bundle size check
         run: pnpm --filter @js-ds-ui/components size
 
