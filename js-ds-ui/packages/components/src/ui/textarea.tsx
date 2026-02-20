@@ -1,10 +1,28 @@
 'use client';
 
 import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../lib/utils';
 
+const textareaVariants = cva(
+  'flex w-full rounded-[var(--component-input-border-radius)] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] ring-offset-background placeholder:text-[var(--color-text-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  {
+    variants: {
+      size: {
+        sm: 'min-h-[var(--component-textarea-size-sm-min-height,3.75rem)] px-[var(--component-textarea-size-sm-padding-x)] py-[var(--component-textarea-size-sm-padding-y)] [font-size:var(--component-textarea-size-sm-text)]',
+        md: 'min-h-[var(--component-textarea-size-md-min-height,5rem)] px-[var(--component-textarea-size-md-padding-x)] py-[var(--component-textarea-size-md-padding-y)] [font-size:var(--component-textarea-size-md-text)]',
+        lg: 'min-h-[var(--component-textarea-size-lg-min-height,6.25rem)] px-[var(--component-textarea-size-lg-padding-x)] py-[var(--component-textarea-size-lg-padding-y)] [font-size:var(--component-textarea-size-lg-text)]',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  }
+);
+
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'>,
+    VariantProps<typeof textareaVariants> {}
 
 /**
  * Textarea component for multi-line text entry
@@ -14,18 +32,15 @@ export interface TextareaProps
  * @example
  * ```tsx
  * <Textarea placeholder="Type your message here." />
- * <Textarea rows={6} />
- * <Textarea disabled placeholder="Disabled textarea" />
+ * <Textarea size="sm" rows={3} />
+ * <Textarea size="lg" rows={8} />
  * ```
  */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, size, ...props }, ref) => {
     return (
       <textarea
-        className={cn(
-          'flex min-h-[80px] w-full rounded-[var(--component-input-border-radius)] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] px-[var(--space-component-padding-md)] py-[var(--space-component-padding-sm)] [font-size:var(--component-textarea-font-size,var(--font-size-sm))] ring-offset-background placeholder:text-[var(--color-text-tertiary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-          className
-        )}
+        className={cn(textareaVariants({ size, className }))}
         ref={ref}
         {...props}
       />
@@ -35,4 +50,4 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
 Textarea.displayName = 'Textarea';
 
-export { Textarea };
+export { Textarea, textareaVariants };

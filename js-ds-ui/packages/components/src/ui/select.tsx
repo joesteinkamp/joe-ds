@@ -3,25 +3,40 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../lib/utils';
+
+const selectTriggerVariants = cva(
+  'flex w-full items-center justify-between rounded-[var(--component-select-border-radius,var(--component-input-border-radius))] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] ring-offset-background placeholder:text-[var(--color-text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-border-focus)] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+  {
+    variants: {
+      size: {
+        sm: 'h-[var(--component-select-size-sm-height)] px-[var(--component-select-size-sm-padding-x)] py-[var(--component-select-size-sm-padding-y)] [font-size:var(--component-select-size-sm-text)]',
+        md: 'h-[var(--component-select-size-md-height)] px-[var(--component-select-size-md-padding-x)] py-[var(--component-select-size-md-padding-y)] [font-size:var(--component-select-size-md-text)]',
+        lg: 'h-[var(--component-select-size-lg-height)] px-[var(--component-select-size-lg-padding-x)] py-[var(--component-select-size-lg-padding-y)] [font-size:var(--component-select-size-lg-text)]',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  }
+);
 
 const Select = SelectPrimitive.Root;
 const SelectGroup = SelectPrimitive.Group;
 const SelectValue = SelectPrimitive.Value;
 
 export interface SelectTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {}
+  extends Omit<React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>, 'size'>,
+    VariantProps<typeof selectTriggerVariants> {}
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
->(({ className, children, ...props }, ref) => (
+>(({ className, children, size, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
-    className={cn(
-      'flex h-[var(--component-select-height,var(--sizing-component-height-md))] w-full items-center justify-between rounded-[var(--component-select-border-radius,var(--component-input-border-radius))] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] px-[var(--component-select-padding-x,var(--space-component-padding-md))] py-[var(--space-component-padding-sm)] [font-size:var(--component-select-font-size,var(--font-size-sm))] ring-offset-background placeholder:text-[var(--color-text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-border-focus)] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
-      className
-    )}
+    className={cn(selectTriggerVariants({ size, className }))}
     {...props}
   >
     {children}
@@ -175,6 +190,7 @@ export {
   SelectGroup,
   SelectValue,
   SelectTrigger,
+  selectTriggerVariants,
   SelectContent,
   SelectLabel,
   SelectItem,

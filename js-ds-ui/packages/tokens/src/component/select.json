@@ -13,10 +13,25 @@
       "item-focus-text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Select item focus text" },
       "separator-color": { "$type": "color", "$value": "{color.border.default}", "$description": "Select separator color" },
       "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Select focus ring color" },
-      "trigger-height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Select trigger height" },
-      "padding": {
-        "x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Select horizontal padding" },
-        "y": { "$type": "dimension", "$value": "{space.component.padding.sm}", "$description": "Select vertical padding" }
+      "size": {
+        "sm": {
+          "height": { "$type": "dimension", "$value": "{size.component.height.sm}", "$description": "Small select trigger height" },
+          "padding-x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Small select horizontal padding" },
+          "padding-y": { "$type": "dimension", "$value": "{space.component.padding.xs}", "$description": "Small select vertical padding" },
+          "text": { "$type": "dimension", "$value": "{typography.size.xs}", "$description": "Small select text size" }
+        },
+        "md": {
+          "height": { "$type": "dimension", "$value": "{size.component.height.md}", "$description": "Medium select trigger height (default)" },
+          "padding-x": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Medium select horizontal padding" },
+          "padding-y": { "$type": "dimension", "$value": "{space.component.padding.sm}", "$description": "Medium select vertical padding" },
+          "text": { "$type": "dimension", "$value": "{typography.size.sm}", "$description": "Medium select text size" }
+        },
+        "lg": {
+          "height": { "$type": "dimension", "$value": "{size.component.height.lg}", "$description": "Large select trigger height" },
+          "padding-x": { "$type": "dimension", "$value": "{space.component.padding.lg}", "$description": "Large select horizontal padding" },
+          "padding-y": { "$type": "dimension", "$value": "{space.component.padding.md}", "$description": "Large select vertical padding" },
+          "text": { "$type": "dimension", "$value": "{typography.size.base}", "$description": "Large select text size" }
+        }
       },
       "border": {
         "radius": { "$type": "dimension", "$value": "0.375rem", "$description": "Select border radius" }
