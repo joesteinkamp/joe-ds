@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "description": "A modern design system for 2026 with OKLCH colors, density controls, and theme-first architecture",
-  "workspaces": [
-    "packages/*",
-    "tools/*"
-  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -21,12 +17,6 @@
     "theme:create": "pnpm --filter @js-ds-ui/cli exec js-ds-ui theme create"
   },
   "devDependencies": {
-    "turbo": "^2.3.3",
     "typescript": "^5.7.2"
-  },
-  "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=8.0.0"
-  },
-  "packageManager": "pnpm@8.15.0"
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "joe-ds",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A modern design system with OKLCH colors, density controls, and theme-first architecture",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
