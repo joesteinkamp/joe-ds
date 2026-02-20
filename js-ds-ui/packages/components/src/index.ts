@@ -1,5 +1,7 @@
 export * from './hooks/use-density';
 export * from './hooks/use-theme';
+export * from './hooks/theme-context';
+export * from './hooks/density-context';
 export * from './hooks/use-container-query';
 export * from './hooks/use-media-feature';
 export * from './lib/utils';
