@@ -5,7 +5,6 @@
 
 export interface ComponentFile {
   path: string;
-  content: string;
   type: 'component' | 'hook' | 'util';
 }
 
@@ -34,7 +33,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'lib/utils.ts',
-        content: '',
+
         type: 'util',
       },
     ],
@@ -53,7 +52,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'hooks/use-theme.ts',
-        content: '',
+
         type: 'hook',
       },
     ],
@@ -69,7 +68,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'hooks/use-density.ts',
-        content: '',
+
         type: 'hook',
       },
     ],
@@ -87,7 +86,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/label.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -106,7 +105,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/checkbox.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -126,7 +125,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/radio-group.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -146,7 +145,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/switch.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -165,7 +164,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/select.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -185,7 +184,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/input.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -202,7 +201,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/textarea.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -219,7 +218,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/button.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -240,7 +239,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/slider.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -259,7 +258,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/form-field.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -273,7 +272,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Form wrapper with validation state management',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/form.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/form.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {},
     registryDependencies: ['utils'],
@@ -287,7 +286,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/link.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -305,7 +304,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Flex layout wrapper with density-aware spacing. Supports vertical/horizontal direction, gap, alignment, and wrap.',
     status: 'beta' as ComponentStatus,
     since: '0.2.0',
-    files: [{ path: 'components/ui/stack.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/stack.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -320,7 +319,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Max-width wrapper with responsive padding. Supports size presets and centering.',
     status: 'beta' as ComponentStatus,
     since: '0.2.0',
-    files: [{ path: 'components/ui/container.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/container.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -335,7 +334,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Semantic heading (h1-h6) with fluid token-based typography. Supports independent visual size override.',
     status: 'beta' as ComponentStatus,
     since: '0.2.0',
-    files: [{ path: 'components/ui/heading.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/heading.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -350,7 +349,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Paragraph text with size, weight, and color variants using design tokens.',
     status: 'beta' as ComponentStatus,
     since: '0.2.0',
-    files: [{ path: 'components/ui/text.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/text.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -368,7 +367,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
       'Inline code and multi-line code block components with optional language label and line numbers.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/code.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/code.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -383,7 +382,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Styled quote block with accent variants and size options.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/blockquote.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/blockquote.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -399,7 +398,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
       'Icon wrapper with size and color token variants. Works with any SVG icon library.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/icon.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/icon.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -415,7 +414,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
       'Enhanced image with loading skeleton, error fallback, aspect ratio, and rounded variants.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/image.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/image.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'class-variance-authority': '^0.7.1',
@@ -435,7 +434,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/dialog.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -455,7 +454,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/popover.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -474,7 +473,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/tooltip.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -493,7 +492,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/dropdown-menu.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -513,7 +512,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/context-menu.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -533,7 +532,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/hover-card.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -552,7 +551,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/sheet.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -573,7 +572,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/toast.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -591,7 +590,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Command palette with search and keyboard navigation',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/command.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/command.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: { 'lucide-react': '^0.468.0' },
     registryDependencies: ['utils'],
@@ -602,7 +601,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Searchable select dropdown with autocomplete',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/combobox.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/combobox.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: { 'lucide-react': '^0.468.0' },
     registryDependencies: ['utils', 'popover', 'command', 'button'],
@@ -618,7 +617,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/tabs.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -637,7 +636,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/avatar.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -656,7 +655,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/separator.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -675,7 +674,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/progress.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -694,7 +693,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/accordion.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -714,7 +713,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/collapsible.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -733,7 +732,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/scroll-area.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -752,7 +751,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/aspect-ratio.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -770,7 +769,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/visually-hidden.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -789,7 +788,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/card.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -806,7 +805,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/badge.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -825,7 +824,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/alert.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -844,7 +843,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/skeleton.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -861,7 +860,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/spinner.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -877,7 +876,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Styled HTML table with header, body, footer, and caption',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/table.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/table.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {},
     registryDependencies: ['utils'],
@@ -888,7 +887,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Grid calendar with date selection and navigation',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/calendar.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/calendar.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: { 'lucide-react': '^0.468.0' },
     registryDependencies: ['utils'],
@@ -899,7 +898,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Date selection with popover calendar',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/date-picker.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/date-picker.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: { 'lucide-react': '^0.468.0' },
     registryDependencies: ['utils', 'popover', 'calendar', 'button'],
@@ -910,7 +909,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Advanced table with sorting, pagination, and row selection',
     status: 'beta',
     since: '0.2.0',
-    files: [{ path: 'components/ui/data-table.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/data-table.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: { 'lucide-react': '^0.468.0' },
     registryDependencies: ['utils'],
@@ -926,7 +925,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/navigation-menu.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -947,7 +946,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/menubar.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -967,7 +966,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/breadcrumb.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -987,7 +986,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/pagination.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -1008,7 +1007,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/toggle-group.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -1028,7 +1027,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     files: [
       {
         path: 'components/ui/toolbar.tsx',
-        content: '',
+
         type: 'component',
       },
     ],
@@ -1046,7 +1045,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Search input with icon, clear button, loading state, and keyboard shortcut hint.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/search-bar.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/search-bar.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1060,7 +1059,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Pre-built confirmation dialog with title, description, and confirm/cancel actions.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/confirm-dialog.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/confirm-dialog.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1074,7 +1073,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Avatar-triggered dropdown menu with user info header and grouped menu items.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/user-menu.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/user-menu.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1090,7 +1089,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Date range selection with built-in calendar dropdown. Two-step from/to selection with min/max constraints.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/date-range-picker.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/date-range-picker.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1104,7 +1103,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Time selection with hour/minute selects, 12/24h format, and configurable minute step.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/time-picker.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/time-picker.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1118,7 +1117,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Color selection with native input, text entry, and preset swatches.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/color-picker.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/color-picker.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1132,7 +1131,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Drag-and-drop file upload with preview thumbnails, size validation, and remove.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/file-upload.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/file-upload.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1148,7 +1147,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Traps keyboard focus within a container. Supports Tab wrapping, initial focus, escape key, and focus restoration.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/focus-trap.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/focus-trap.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1162,7 +1161,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Skip to main content link. Visually hidden until focused for keyboard navigation.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/skip-nav.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/skip-nav.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
@@ -1176,7 +1175,7 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
     description: 'Screen reader live region for dynamic announcements with polite/assertive modes.',
     status: 'beta' as ComponentStatus,
     since: '0.3.0',
-    files: [{ path: 'components/ui/announcement.tsx', content: '', type: 'component' }],
+    files: [{ path: 'components/ui/announcement.tsx', type: 'component' }],
     dependencies: [],
     npmDependencies: {
       'clsx': '^2.1.1',
