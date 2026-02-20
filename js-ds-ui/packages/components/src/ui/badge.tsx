@@ -14,8 +14,8 @@ const badgeVariants = cva(
         secondary:
           'border-transparent bg-[var(--component-badge-secondary-bg)] [color:var(--component-badge-secondary-text)]',
         outline: '[color:var(--component-badge-outline-text)]',
-        destructive:
-          'border-transparent bg-[var(--component-badge-destructive-bg)] text-white',
+        error:
+          'border-transparent bg-[var(--component-badge-error-bg)] text-white',
         success:
           'border-transparent bg-[var(--component-badge-success-bg)] text-white',
         warning:
@@ -39,7 +39,7 @@ export interface BadgeProps
  * ```tsx
  * <Badge>Default</Badge>
  * <Badge variant="success">Active</Badge>
- * <Badge variant="destructive">Error</Badge>
+ * <Badge variant="error">Error</Badge>
  * <Badge variant="warning">Pending</Badge>
  * ```
  */

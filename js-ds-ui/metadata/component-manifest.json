@@ -1148,9 +1148,9 @@
       "props": {
         "variant": {
           "type": "enum",
-          "values": ["default", "secondary", "outline", "destructive", "success", "warning"],
+          "values": ["default", "secondary", "outline", "error", "success", "warning"],
           "default": "default",
-          "description": "Visual style variant. Default for primary badges, destructive for errors, success for positive states, warning for caution."
+          "description": "Visual style variant. Default for primary badges, error for error states, success for positive states, warning for caution."
         }
       },
       "accessibility": {

@@ -7,7 +7,7 @@ figma.connect(Badge, 'https://www.figma.com/design/YOUR_FILE_ID/js-ds-ui?node-id
       Default: 'default',
       Secondary: 'secondary',
       Outline: 'outline',
-      Destructive: 'destructive',
+      Destructive: 'error',
       Success: 'success',
       Warning: 'warning',
     }),

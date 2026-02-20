@@ -9,7 +9,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'secondary', 'outline', 'destructive', 'success', 'warning'],
+      options: ['default', 'secondary', 'outline', 'error', 'success', 'warning'],
     },
   },
 } satisfies Meta<typeof Badge>;
@@ -37,10 +37,10 @@ export const Outline: Story = {
   },
 };
 
-export const Destructive: Story = {
+export const Error: Story = {
   args: {
-    variant: 'destructive',
-    children: 'Destructive',
+    variant: 'error',
+    children: 'Error',
   },
 };
 

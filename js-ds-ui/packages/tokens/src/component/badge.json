@@ -17,10 +17,10 @@
         "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Outline badge text color" },
         "border": { "$type": "color", "$value": "{color.border.default}", "$description": "Outline badge border color" }
       },
-      "destructive": {
-        "bg": { "$type": "color", "$value": "{color.text.error}", "$description": "Destructive badge background" },
-        "text": { "$type": "color", "$value": "#FFFFFF", "$description": "Destructive badge text color" },
-        "border": { "$type": "color", "$value": "transparent", "$description": "Destructive badge border color" }
+      "error": {
+        "bg": { "$type": "color", "$value": "{color.text.error}", "$description": "Error badge background" },
+        "text": { "$type": "color", "$value": "#FFFFFF", "$description": "Error badge text color" },
+        "border": { "$type": "color", "$value": "transparent", "$description": "Error badge border color" }
       },
       "success": {
         "bg": { "$type": "color", "$value": "{color.text.success}", "$description": "Success badge background" },

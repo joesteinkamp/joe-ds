@@ -15,7 +15,7 @@ describe('Badge', () => {
     });
 
     it('renders all variants', () => {
-      const variants = ['default', 'secondary', 'outline', 'destructive', 'success', 'warning'] as const;
+      const variants = ['default', 'secondary', 'outline', 'error', 'success', 'warning'] as const;
 
       variants.forEach((variant) => {
         const { unmount } = render(<Badge variant={variant}>{variant}</Badge>);
@@ -57,8 +57,8 @@ describe('Badge', () => {
       expect(results).toHaveNoViolations();
     });
 
-    it('has no accessibility violations (destructive variant)', async () => {
-      const { container } = render(<Badge variant="destructive">Error</Badge>);
+    it('has no accessibility violations (error variant)', async () => {
+      const { container } = render(<Badge variant="error">Error</Badge>);
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
