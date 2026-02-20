@@ -8,6 +8,9 @@ import '../../tokens/dist/components.css';
 // Base styles (layers, container queries, utilities)
 import '../src/styles/base.css';
 
+// Storybook-specific theme overrides (not part of the DS distribution)
+import './storybook-overrides.css';
+
 const preview: Preview = {
   parameters: {
     controls: {

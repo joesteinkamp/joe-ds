@@ -17,45 +17,10 @@
   }
 
   html,
-  body,
-  .sb-show-main,
-  .sbdocs {
-    background-color: var(--color-background-primary) !important;
+  body {
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  html,
-  body,
-  .sb-show-main {
-    color: var(--color-text-primary) !important;
-  }
-
-  /* Storybook Docs specific overrides */
-  .sbdocs h1,
-  .sbdocs h2,
-  .sbdocs h3,
-  .sbdocs h4,
-  .sbdocs h5,
-  .sbdocs h6,
-  .sbdocs p,
-  .sbdocs li {
-    color: var(--color-text-primary) !important;
-  }
-
-  /* Fix ArgsTable and other tables in docs */
-  .sbdocs .docblock-argstable,
-  .sbdocs table {
-    background-color: transparent !important;
-    color: var(--color-text-primary) !important;
-  }
-
-  .sbdocs .docblock-argstable thead th,
-  .sbdocs .docblock-argstable tbody td,
-  .sbdocs table th,
-  .sbdocs table td {
-    color: var(--color-text-primary) !important;
-    background-color: var(--color-background-secondary) !important;
-    border-color: var(--color-border-default) !important;
   }
 
   body {
