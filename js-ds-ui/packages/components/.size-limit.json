@@ -1,9 +1,201 @@
 [
   {
+    "name": "Accordion",
+    "path": "src/ui/accordion.tsx",
+    "import": "{ Accordion }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Alert",
+    "path": "src/ui/alert.tsx",
+    "import": "{ Alert }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Announcement",
+    "path": "src/ui/announcement.tsx",
+    "import": "{ Announcement }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "AspectRatio",
+    "path": "src/ui/aspect-ratio.tsx",
+    "import": "{ AspectRatio }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Avatar",
+    "path": "src/ui/avatar.tsx",
+    "import": "{ Avatar }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Badge",
+    "path": "src/ui/badge.tsx",
+    "import": "{ Badge }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Blockquote",
+    "path": "src/ui/blockquote.tsx",
+    "import": "{ Blockquote }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Breadcrumb",
+    "path": "src/ui/breadcrumb.tsx",
+    "import": "{ Breadcrumb }",
+    "limit": "2 kB"
+  },
+  {
     "name": "Button",
     "path": "src/ui/button.tsx",
     "import": "{ Button }",
     "limit": "3 kB"
+  },
+  {
+    "name": "Calendar",
+    "path": "src/ui/calendar.tsx",
+    "import": "{ Calendar }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Card",
+    "path": "src/ui/card.tsx",
+    "import": "{ Card }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Checkbox",
+    "path": "src/ui/checkbox.tsx",
+    "import": "{ Checkbox }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Code",
+    "path": "src/ui/code.tsx",
+    "import": "{ Code }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Collapsible",
+    "path": "src/ui/collapsible.tsx",
+    "import": "{ Collapsible }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "ColorPicker",
+    "path": "src/ui/color-picker.tsx",
+    "import": "{ ColorPicker }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Combobox",
+    "path": "src/ui/combobox.tsx",
+    "import": "{ Combobox }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Command",
+    "path": "src/ui/command.tsx",
+    "import": "{ Command }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "ConfirmDialog",
+    "path": "src/ui/confirm-dialog.tsx",
+    "import": "{ ConfirmDialog }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Container",
+    "path": "src/ui/container.tsx",
+    "import": "{ Container }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "ContextMenu",
+    "path": "src/ui/context-menu.tsx",
+    "import": "{ ContextMenu }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "DataTable",
+    "path": "src/ui/data-table.tsx",
+    "import": "{ DataTable }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "DatePicker",
+    "path": "src/ui/date-picker.tsx",
+    "import": "{ DatePicker }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "DateRangePicker",
+    "path": "src/ui/date-range-picker.tsx",
+    "import": "{ DateRangePicker }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Dialog",
+    "path": "src/ui/dialog.tsx",
+    "import": "{ Dialog }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "DropdownMenu",
+    "path": "src/ui/dropdown-menu.tsx",
+    "import": "{ DropdownMenu }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "FileUpload",
+    "path": "src/ui/file-upload.tsx",
+    "import": "{ FileUpload }",
+    "limit": "4 kB"
+  },
+  {
+    "name": "FocusTrap",
+    "path": "src/ui/focus-trap.tsx",
+    "import": "{ FocusTrap }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Form",
+    "path": "src/ui/form.tsx",
+    "import": "{ Form }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "FormField",
+    "path": "src/ui/form-field.tsx",
+    "import": "{ FormField }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Heading",
+    "path": "src/ui/heading.tsx",
+    "import": "{ Heading }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "HoverCard",
+    "path": "src/ui/hover-card.tsx",
+    "import": "{ HoverCard }",
+    "limit": "4 kB"
+  },
+  {
+    "name": "Icon",
+    "path": "src/ui/icon.tsx",
+    "import": "{ Icon }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Image",
+    "path": "src/ui/image.tsx",
+    "import": "{ Image }",
+    "limit": "2 kB"
   },
   {
     "name": "Input",
@@ -18,28 +210,58 @@
     "limit": "1 kB"
   },
   {
-    "name": "Card",
-    "path": "src/ui/card.tsx",
-    "import": "{ Card }",
-    "limit": "2 kB"
+    "name": "Link",
+    "path": "src/ui/link.tsx",
+    "import": "{ Link }",
+    "limit": "1 kB"
   },
   {
-    "name": "Badge",
-    "path": "src/ui/badge.tsx",
-    "import": "{ Badge }",
-    "limit": "2 kB"
-  },
-  {
-    "name": "Alert",
-    "path": "src/ui/alert.tsx",
-    "import": "{ Alert }",
-    "limit": "2 kB"
-  },
-  {
-    "name": "Dialog",
-    "path": "src/ui/dialog.tsx",
-    "import": "{ Dialog }",
+    "name": "Menubar",
+    "path": "src/ui/menubar.tsx",
+    "import": "{ Menubar }",
     "limit": "5 kB"
+  },
+  {
+    "name": "NavigationMenu",
+    "path": "src/ui/navigation-menu.tsx",
+    "import": "{ NavigationMenu }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Pagination",
+    "path": "src/ui/pagination.tsx",
+    "import": "{ Pagination }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Popover",
+    "path": "src/ui/popover.tsx",
+    "import": "{ Popover }",
+    "limit": "4 kB"
+  },
+  {
+    "name": "Progress",
+    "path": "src/ui/progress.tsx",
+    "import": "{ Progress }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "RadioGroup",
+    "path": "src/ui/radio-group.tsx",
+    "import": "{ RadioGroup }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "ScrollArea",
+    "path": "src/ui/scroll-area.tsx",
+    "import": "{ ScrollArea }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "SearchBar",
+    "path": "src/ui/search-bar.tsx",
+    "import": "{ SearchBar }",
+    "limit": "3 kB"
   },
   {
     "name": "Select",
@@ -48,33 +270,51 @@
     "limit": "5 kB"
   },
   {
-    "name": "Checkbox",
-    "path": "src/ui/checkbox.tsx",
-    "import": "{ Checkbox }",
+    "name": "Separator",
+    "path": "src/ui/separator.tsx",
+    "import": "{ Separator }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Sheet",
+    "path": "src/ui/sheet.tsx",
+    "import": "{ Sheet }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "Skeleton",
+    "path": "src/ui/skeleton.tsx",
+    "import": "{ Skeleton }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "SkipNav",
+    "path": "src/ui/skip-nav.tsx",
+    "import": "{ SkipNav }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "Slider",
+    "path": "src/ui/slider.tsx",
+    "import": "{ Slider }",
     "limit": "3 kB"
+  },
+  {
+    "name": "Spinner",
+    "path": "src/ui/spinner.tsx",
+    "import": "{ Spinner }",
+    "limit": "2 kB"
+  },
+  {
+    "name": "Stack",
+    "path": "src/ui/stack.tsx",
+    "import": "{ Stack }",
+    "limit": "1 kB"
   },
   {
     "name": "Switch",
     "path": "src/ui/switch.tsx",
     "import": "{ Switch }",
-    "limit": "3 kB"
-  },
-  {
-    "name": "Tabs",
-    "path": "src/ui/tabs.tsx",
-    "import": "{ Tabs }",
-    "limit": "3 kB"
-  },
-  {
-    "name": "Toast",
-    "path": "src/ui/toast.tsx",
-    "import": "{ Toast }",
-    "limit": "4 kB"
-  },
-  {
-    "name": "Tooltip",
-    "path": "src/ui/tooltip.tsx",
-    "import": "{ Tooltip }",
     "limit": "3 kB"
   },
   {
@@ -84,40 +324,64 @@
     "limit": "2 kB"
   },
   {
-    "name": "DataTable",
-    "path": "src/ui/data-table.tsx",
-    "import": "{ DataTable }",
-    "limit": "5 kB"
-  },
-  {
-    "name": "Command",
-    "path": "src/ui/command.tsx",
-    "import": "{ Command }",
-    "limit": "5 kB"
-  },
-  {
-    "name": "Calendar",
-    "path": "src/ui/calendar.tsx",
-    "import": "{ Calendar }",
-    "limit": "5 kB"
-  },
-  {
-    "name": "Form",
-    "path": "src/ui/form.tsx",
-    "import": "{ Form }",
+    "name": "Tabs",
+    "path": "src/ui/tabs.tsx",
+    "import": "{ Tabs }",
     "limit": "3 kB"
   },
   {
-    "name": "Skeleton",
-    "path": "src/ui/skeleton.tsx",
-    "import": "{ Skeleton }",
+    "name": "Text",
+    "path": "src/ui/text.tsx",
+    "import": "{ Text }",
     "limit": "1 kB"
   },
   {
-    "name": "Spinner",
-    "path": "src/ui/spinner.tsx",
-    "import": "{ Spinner }",
-    "limit": "2 kB"
+    "name": "Textarea",
+    "path": "src/ui/textarea.tsx",
+    "import": "{ Textarea }",
+    "limit": "1 kB"
+  },
+  {
+    "name": "TimePicker",
+    "path": "src/ui/time-picker.tsx",
+    "import": "{ TimePicker }",
+    "limit": "4 kB"
+  },
+  {
+    "name": "Toast",
+    "path": "src/ui/toast.tsx",
+    "import": "{ Toast }",
+    "limit": "4 kB"
+  },
+  {
+    "name": "ToggleGroup",
+    "path": "src/ui/toggle-group.tsx",
+    "import": "{ ToggleGroup }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Toolbar",
+    "path": "src/ui/toolbar.tsx",
+    "import": "{ Toolbar }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "Tooltip",
+    "path": "src/ui/tooltip.tsx",
+    "import": "{ Tooltip }",
+    "limit": "3 kB"
+  },
+  {
+    "name": "UserMenu",
+    "path": "src/ui/user-menu.tsx",
+    "import": "{ UserMenu }",
+    "limit": "5 kB"
+  },
+  {
+    "name": "VisuallyHidden",
+    "path": "src/ui/visually-hidden.tsx",
+    "import": "{ VisuallyHidden }",
+    "limit": "1 kB"
   },
   {
     "name": "All Components",
