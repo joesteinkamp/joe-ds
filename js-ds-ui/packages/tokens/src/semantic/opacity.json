@@ -1,0 +1,26 @@
+{
+  "$description": "Semantic opacity tokens for consistent transparency across the design system",
+  "opacity": {
+    "$type": "number",
+    "disabled": {
+      "$value": 0.5,
+      "$description": "Opacity for disabled interactive elements"
+    },
+    "overlay": {
+      "$value": 0.8,
+      "$description": "Opacity for overlay backgrounds (dialog, sheet)"
+    },
+    "hover": {
+      "$value": 0.9,
+      "$description": "Opacity for hover state feedback"
+    },
+    "placeholder": {
+      "$value": 0.4,
+      "$description": "Opacity for placeholder/loading content"
+    },
+    "muted": {
+      "$value": 0.5,
+      "$description": "Opacity for secondary/muted elements like icons and sort indicators"
+    }
+  }
+}
