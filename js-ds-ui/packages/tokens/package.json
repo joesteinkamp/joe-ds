@@ -23,7 +23,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean && npm run tokens:build && npm run types:generate",
+    "build": "npm run clean && npm run tokens:build && npm run types:generate && npm run pen:sync",
+    "pen:sync": "node ../../scripts/gen-pen-variables.mjs",
     "tokens:build": "style-dictionary build --config config/style-dictionary.config.js",
     "types:generate": "tsx scripts/generate-types.ts",
     "clean": "rm -rf dist generated",
