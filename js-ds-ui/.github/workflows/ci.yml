@@ -36,9 +36,6 @@ jobs:
       - name: Lint
         run: pnpm --filter @js-ds-ui/components lint
 
-      - name: Unit tests
-        run: pnpm --filter @js-ds-ui/components test -- --run
-
       - name: Bundle size check
         run: pnpm --filter @js-ds-ui/components size
 
@@ -53,3 +50,39 @@ jobs:
           name: size-report
           path: packages/components/.size-report.json
           retention-days: 7
+
+  test:
+    name: Tests (React ${{ matrix.react }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        react: [18, 19]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build tokens
+        run: pnpm --filter @js-ds-ui/tokens build
+
+      - name: Override React version (React 19)
+        if: matrix.react == 19
+        working-directory: js-ds-ui/packages/components
+        run: |
+          pnpm add -D react@^19.0.0 react-dom@^19.0.0 @types/react@^19.0.0 @types/react-dom@^19.0.0
+
+      - name: Unit tests
+        run: pnpm --filter @js-ds-ui/components test -- --run
