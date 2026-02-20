@@ -14,9 +14,13 @@
     "cli:dev": "pnpm --filter @js-ds-ui/cli dev",
     "e2e": "pnpm --filter @js-ds-ui/e2e test",
     "e2e:ui": "pnpm --filter @js-ds-ui/e2e test:ui",
-    "theme:create": "pnpm --filter @js-ds-ui/cli exec js-ds-ui theme create"
+    "theme:create": "pnpm --filter @js-ds-ui/cli exec js-ds-ui theme create",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.0",
     "typescript": "^5.7.2"
   }
 }
