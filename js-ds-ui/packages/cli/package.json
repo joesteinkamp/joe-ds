@@ -10,6 +10,7 @@
     "dist"
   ],
   "scripts": {
+    "prebuild": "node ../../scripts/gen-cli-templates.mjs",
     "build": "tsup",
     "dev": "tsup --watch",
     "type-check": "tsc --noEmit"
