@@ -30,7 +30,7 @@
       "danger": {
         "bg": { "$type": "color", "$value": "{color.interactive.danger}", "$description": "Danger button background" },
         "bg-hover": { "$type": "color", "$value": "{color.interactive.danger-hover}", "$description": "Danger button hover background" },
-        "text": { "$type": "color", "$value": "#FFFFFF", "$description": "Danger button text color" },
+        "text": { "$type": "color", "$value": "{color.text.primary}", "$description": "Danger button text color" },
         "border": { "$type": "color", "$value": "transparent", "$description": "Danger button border color" }
       },
       "focus-ring": { "$type": "color", "$value": "{color.border.focus}", "$description": "Button focus ring color" },

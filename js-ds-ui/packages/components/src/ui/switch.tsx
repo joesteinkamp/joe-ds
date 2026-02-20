@@ -34,7 +34,7 @@ const Switch = React.forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        'pointer-events-none block h-[var(--component-switch-thumb-size,1.25rem)] w-[var(--component-switch-thumb-size,1.25rem)] rounded-[var(--component-switch-border-radius,9999px)] bg-[var(--color-background-primary)] shadow-lg ring-0 transition-transform [transition-duration:var(--animation-duration-normal)] [transition-timing-function:var(--animation-easing-ease-in-out)] data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0'
+        'pointer-events-none block h-[var(--component-switch-thumb-size,1.25rem)] w-[var(--component-switch-thumb-size,1.25rem)] rounded-[var(--component-switch-border-radius,9999px)] bg-[var(--color-background-primary)] shadow-lg ring-0 transition-transform [transition-duration:var(--animation-duration-normal)] [transition-timing-function:var(--animation-easing-ease-in-out)] data-[state=checked]:translate-x-[calc(var(--component-switch-width,2.75rem)-var(--component-switch-thumb-size,1.25rem)-2px)] data-[state=unchecked]:translate-x-0'
       )}
     />
   </SwitchPrimitives.Root>

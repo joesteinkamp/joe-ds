@@ -32,10 +32,10 @@ const Slider = React.forwardRef<
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-[var(--color-background-secondary)]">
-      <SliderPrimitive.Range className="absolute h-full bg-[var(--color-interactive-primary)]" />
+    <SliderPrimitive.Track className="relative h-[var(--component-slider-track-height,0.5rem)] w-full grow overflow-hidden rounded-[var(--component-slider-border-radius,9999px)] bg-[var(--component-slider-track-bg)]">
+      <SliderPrimitive.Range className="absolute h-full bg-[var(--component-slider-range-bg)]" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-[var(--color-interactive-primary)] bg-[var(--color-background-primary)] ring-offset-background transition-colors [transition-duration:var(--animation-duration-normal)] [transition-timing-function:var(--animation-easing-ease-in-out)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
+    <SliderPrimitive.Thumb className="block h-[var(--component-slider-thumb-size,1.25rem)] w-[var(--component-slider-thumb-size,1.25rem)] rounded-[var(--component-slider-border-radius,9999px)] border-[length:var(--component-slider-thumb-border-width,2px)] border-[var(--component-slider-thumb-border)] bg-[var(--component-slider-thumb-bg)] ring-offset-background transition-colors [transition-duration:var(--animation-duration-normal)] [transition-timing-function:var(--animation-easing-ease-in-out)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--component-slider-focus-ring)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
   </SliderPrimitive.Root>
 ));
 

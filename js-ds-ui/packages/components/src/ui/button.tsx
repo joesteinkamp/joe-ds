@@ -11,14 +11,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-[var(--component-button-primary-bg)] text-white hover:bg-[var(--component-button-primary-bg-hover)] active:bg-[var(--component-button-primary-bg-active)] focus-visible:ring-[var(--color-border-focus)] border-transparent',
+          'bg-[var(--component-button-primary-bg)] text-[var(--component-button-primary-text)] hover:bg-[var(--component-button-primary-bg-hover)] active:bg-[var(--component-button-primary-bg-active)] focus-visible:ring-[var(--color-border-focus)] border-transparent',
         secondary:
           'bg-[var(--component-button-secondary-bg)] [color:var(--component-button-secondary-text)] hover:bg-[var(--component-button-secondary-bg-hover)] border-[var(--component-button-secondary-border)] focus-visible:ring-[var(--color-border-focus)]',
         outline:
           'border-[var(--component-button-outline-border)] bg-transparent hover:bg-[var(--component-button-outline-bg-hover)] focus-visible:ring-[var(--color-border-focus)]',
         ghost: 'bg-[var(--component-button-ghost-bg)] hover:bg-[var(--component-button-ghost-bg-hover)] focus-visible:ring-[var(--color-border-focus)] border-transparent',
         danger:
-          'bg-[var(--component-button-danger-bg)] text-white hover:bg-[var(--component-button-danger-bg-hover)] focus-visible:ring-[var(--component-button-danger-bg)] border-transparent',
+          'bg-[var(--component-button-danger-bg)] text-[var(--component-button-danger-text)] hover:bg-[var(--component-button-danger-bg-hover)] focus-visible:ring-[var(--component-button-danger-bg)] border-transparent',
       },
       size: {
         sm: 'h-[var(--component-button-size-sm-height)] px-[var(--component-button-size-sm-padding-x)] py-[var(--component-button-size-sm-padding-y)] [font-size:var(--component-button-size-sm-text)]',
