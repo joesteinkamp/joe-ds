@@ -17,6 +17,8 @@ export interface DataTableProps<T> {
   columns: DataTableColumn<T>[];
   data: T[];
   className?: string;
+  /** Function to derive a stable React key from each row. Falls back to row.id, then index. */
+  rowKey?: (row: T, index: number) => string | number;
   /** Enable row selection */
   selectable?: boolean;
   /** Currently selected row indices */
@@ -32,6 +34,7 @@ function DataTableInner<T extends Record<string, unknown>>(
     columns,
     data,
     className,
+    rowKey,
     selectable = false,
     selectedRows: controlledSelected,
     onSelectionChange,
@@ -159,9 +162,10 @@ function DataTableInner<T extends Record<string, unknown>>(
             ) : (
               paginatedData.map((row, rowIndex) => {
                 const actualIndex = pageSize > 0 ? page * pageSize + rowIndex : rowIndex;
+                const key = rowKey ? rowKey(row, actualIndex) : (row as Record<string, unknown>).id as string | number ?? actualIndex;
                 return (
                   <tr
-                    key={rowIndex}
+                    key={key}
                     className={cn(
                       'border-b border-[var(--color-border-default)] transition-colors hover:bg-[var(--color-background-secondary)]/50',
                       selected.has(actualIndex) && 'bg-[var(--color-background-secondary)]'
