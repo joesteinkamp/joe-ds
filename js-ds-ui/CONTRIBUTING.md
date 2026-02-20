@@ -119,13 +119,10 @@ export const REGISTRY: Record<string, ComponentRegistryItem> = {
 };
 ```
 
-4. **Add template**
+4. **Regenerate CLI templates** (auto-generated from source files)
 
-```typescript
-// packages/cli/src/templates/index.ts
-function getNewComponentTemplate(typescript: boolean): string {
-  // Return component source code
-}
+```bash
+node scripts/gen-cli-templates.mjs
 ```
 
 5. **Update MCP metadata**
@@ -251,6 +248,16 @@ We use TypeScript strict mode and ESLint.
 - Use CSS custom properties for theming
 - Document props with JSDoc
 - Use semantic token names
+
+### Variant naming
+
+- **`danger`** — for destructive *actions* (Button, ConfirmDialog)
+- **`error`** — for status *indicators* (Alert, Badge, Toast)
+- **`success`**, **`warning`**, **`info`** — for other status indicators
+
+### React.forwardRef deprecation
+
+All components currently use `React.forwardRef`. This is deprecated in React 19 (refs can be passed as regular props). We accept the deprecation warnings for React 19 consumers for now. A future major version will drop `forwardRef` when React 19 becomes the minimum supported version.
 
 ## Pull Request Process
 
