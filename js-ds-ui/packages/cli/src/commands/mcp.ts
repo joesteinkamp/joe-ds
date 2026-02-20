@@ -8,6 +8,7 @@ import {
   type ComponentRegistryItem,
 } from '../registry.js';
 import { addCommand } from './add.js';
+import { resolveTargetPath } from '../utils/paths.js';
 
 export async function mcpCommand() {
   // Create an MCP server
@@ -219,7 +220,7 @@ async function addComponentsSilent(componentNames: string[]) {
       
         for (const file of component.files) {
           const template = getComponentTemplate(name, config.typescript);
-          const targetPath = resolveTargetPath(file.path, config);
+          const targetPath = resolveTargetPath(file.path, config.aliases);
       
           await fs.ensureDir(path.dirname(targetPath));
           await fs.writeFile(targetPath, template);
@@ -240,20 +241,4 @@ async function addComponentsSilent(componentNames: string[]) {
 }
 
 
-function resolveTargetPath(registryPath: string, config: any): string {
-    const cwd = process.cwd();
-  
-    if (registryPath.startsWith('components/')) {
-      return path.join(cwd, config.aliases.components, registryPath.replace('components/', ''));
-    }
-  
-    if (registryPath.startsWith('lib/')) {
-      return path.join(cwd, config.aliases.utils, registryPath.replace('lib/', ''));
-    }
-  
-    if (registryPath.startsWith('hooks/')) {
-      return path.join(cwd, config.aliases.hooks, registryPath.replace('hooks/', ''));
-    }
-  
-    return path.join(cwd, 'src', registryPath);
-}
+// resolveTargetPath imported from ../utils/paths.js

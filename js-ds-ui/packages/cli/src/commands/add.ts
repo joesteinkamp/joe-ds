@@ -11,6 +11,7 @@ import {
   type ComponentRegistryItem,
 } from '../registry.js';
 import { getComponentTemplate } from '../templates/index.js';
+import { resolveTargetPath } from '../utils/paths.js';
 
 interface ProjectConfig {
   style: string;
@@ -152,27 +153,11 @@ async function copyComponent(name: string, config: ProjectConfig) {
 
   for (const file of component.files) {
     const template = getComponentTemplate(name, config.typescript);
-    const targetPath = resolveTargetPath(file.path, config);
+    const targetPath = resolveTargetPath(file.path, config.aliases);
 
     await fs.ensureDir(path.dirname(targetPath));
     await fs.writeFile(targetPath, template);
   }
 }
 
-function resolveTargetPath(registryPath: string, config: ProjectConfig): string {
-  const cwd = process.cwd();
-
-  if (registryPath.startsWith('components/')) {
-    return path.join(cwd, config.aliases.components, registryPath.replace('components/', ''));
-  }
-
-  if (registryPath.startsWith('lib/')) {
-    return path.join(cwd, config.aliases.utils, registryPath.replace('lib/', ''));
-  }
-
-  if (registryPath.startsWith('hooks/')) {
-    return path.join(cwd, config.aliases.hooks, registryPath.replace('hooks/', ''));
-  }
-
-  return path.join(cwd, 'src', registryPath);
-}
+// resolveTargetPath imported from ../utils/paths.js
