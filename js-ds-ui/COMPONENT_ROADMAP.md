@@ -21,33 +21,33 @@ These are must-haves for any design system. Focus on these first.
 |-----------|--------|-----------------|----------|-------|
 | Input | 🟢 | - | P0 | ✅ Done |
 | Button | 🟢 | Slot | P0 | ✅ Done |
-| Textarea | ⚪ | - | P0 | Multi-line text input |
+| Textarea | 🟢 | - | P0 | ✅ Done — CVA size variants |
 | Label | 🟢 | Label | P0 | ✅ Done |
-| Checkbox | 🟢 | Checkbox | P0 | ✅ Done |
+| Checkbox | 🟢 | Checkbox | P0 | ✅ Done — indeterminate support |
 | Radio | 🟢 | Radio Group | P0 | ✅ Done |
-| Select | 🟢 | Select | P0 | ✅ Done |
+| Select | 🟢 | Select | P0 | ✅ Done — CVA size variants |
 | Switch | 🟢 | Switch | P0 | ✅ Done |
-| Form | ⚪ | - | P1 | Form wrapper with validation |
-| FormField | ⚪ | - | P1 | Field wrapper (label + input + error) |
+| Form | 🟢 | - | P1 | ✅ Done |
+| FormField | 🟢 | - | P1 | ✅ Done |
 
 ### Feedback Components
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| Alert | ⚪ | - | P0 | Info/warning/error/success alerts |
+| Alert | 🟢 | - | P0 | ✅ Done — conditional aria-live |
 | Toast | 🟢 | Toast | P0 | ✅ Done |
-| Spinner | ⚪ | - | P0 | Loading indicator |
+| Spinner | 🟢 | - | P0 | ✅ Done |
 | Progress | 🟢 | Progress | P1 | ✅ Done |
-| Skeleton | ⚪ | - | P1 | Loading placeholder |
+| Skeleton | 🟢 | - | P1 | ✅ Done |
 
 ### Layout Components
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| Card | ⚪ | - | P0 | Content container |
+| Card | 🟢 | - | P0 | ✅ Done |
 | Separator | 🟢 | Separator | P0 | ✅ Done |
-| Container | ⚪ | - | P1 | Max-width container |
-| Stack | ⚪ | - | P1 | Vertical/horizontal stack |
+| Container | 🟢 | - | P1 | ✅ Done |
+| Stack | 🟢 | - | P1 | ✅ Done |
 
 ---
 
@@ -60,8 +60,8 @@ Components for navigation and modal interactions.
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
 | Tabs | 🟢 | Tabs | P0 | ✅ Done |
-| Breadcrumb | ⚪ | - | P1 | Breadcrumb navigation |
-| Pagination | ⚪ | - | P1 | Page navigation |
+| Breadcrumb | 🟢 | - | P1 | ✅ Done |
+| Pagination | 🟢 | - | P1 | ✅ Done |
 | NavigationMenu | 🟢 | Navigation Menu | P1 | ✅ Done |
 
 ### Overlay Components
@@ -86,9 +86,9 @@ Components for displaying structured data.
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| Badge | ⚪ | - | P0 | Status badge/tag |
+| Badge | 🟢 | - | P0 | ✅ Done — error/warning/success/info variants |
 | Avatar | 🟢 | Avatar | P0 | ✅ Done |
-| Table | ⚪ | - | P1 | Data table |
+| Table | 🟢 | - | P1 | ✅ Done |
 | Accordion | 🟢 | Accordion | P1 | ✅ Done |
 | Collapsible | 🟢 | Collapsible | P1 | ✅ Done |
 | List | ⚪ | - | P1 | Ordered/unordered lists |
@@ -104,15 +104,15 @@ Complex input components and pickers.
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| Combobox | ⚪ | - | P1 | Searchable select (cmdk) |
-| Command | ⚪ | - | P1 | Command palette |
+| Combobox | 🟢 | - | P1 | ✅ Done — cmdk based |
+| Command | 🟢 | - | P1 | ✅ Done |
 | Slider | 🟢 | Slider | P1 | ✅ Done |
-| DatePicker | ⚪ | Popover + Calendar | P1 | Single date picker |
-| Calendar | ⚪ | - | P1 | Calendar grid |
-| TimePicker | ⚪ | - | P2 | Time selection |
-| DateRangePicker | ⚪ | Popover + Calendar | P2 | Date range selection |
-| ColorPicker | 🔵 | - | P2 | Color selection |
-| FileUpload | 🔵 | - | P2 | File upload with preview |
+| DatePicker | 🟢 | Popover + Calendar | P1 | ✅ Done |
+| Calendar | 🟢 | - | P1 | ✅ Done |
+| TimePicker | 🟢 | - | P2 | ✅ Done |
+| DateRangePicker | 🟢 | Popover + Calendar | P2 | ✅ Done |
+| ColorPicker | 🟢 | - | P2 | ✅ Done |
+| FileUpload | 🟢 | - | P2 | ✅ Done |
 
 ---
 
@@ -124,7 +124,7 @@ Domain-specific and advanced components.
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| DataTable | ⚪ | - | P1 | Table with sorting/filtering |
+| DataTable | 🟢 | - | P1 | ✅ Done — sorting/filtering/rowKey |
 | Menubar | 🟢 | Menubar | P2 | ✅ Done |
 | ScrollArea | 🟢 | Scroll Area | P2 | ✅ Done |
 | AspectRatio | 🟢 | Aspect Ratio | P2 | ✅ Done |
@@ -144,13 +144,12 @@ Higher-level components composed from primitives.
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| SearchBar | ⚪ | Input + Combobox | P1 | Search with autocomplete |
+| SearchBar | 🟢 | Input + Combobox | P1 | ✅ Done |
 | LoginForm | 🔵 | Form + Input + Button | P2 | Pre-built login form |
 | SignupForm | 🔵 | Form + Input + Button | P2 | Pre-built signup form |
-| ConfirmDialog | 🔵 | Dialog + Button | P2 | Confirmation modal |
-| UserMenu | 🔵 | DropdownMenu + Avatar | P2 | User profile dropdown |
+| ConfirmDialog | 🟢 | Dialog + Button | P2 | ✅ Done |
+| UserMenu | 🟢 | DropdownMenu + Avatar | P2 | ✅ Done |
 | FilterBar | 🔵 | Multiple | P2 | Data filtering UI |
-| Pagination | ⚪ | Button | P1 | Page navigation |
 
 ---
 
@@ -162,19 +161,19 @@ Text and media components.
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| Heading | ⚪ | - | P1 | h1-h6 with variants |
-| Text | ⚪ | - | P1 | Paragraph text with sizes |
-| Code | ⚪ | - | P1 | Inline code block |
+| Heading | 🟢 | - | P1 | ✅ Done |
+| Text | 🟢 | - | P1 | ✅ Done |
+| Code | 🟢 | - | P1 | ✅ Done |
 | CodeBlock | ⚪ | - | P2 | Multi-line code with syntax |
-| Blockquote | ⚪ | - | P2 | Quote block |
-| Link | ⚪ | - | P0 | Hyperlink |
+| Blockquote | 🟢 | - | P2 | ✅ Done |
+| Link | 🟢 | - | P0 | ✅ Done |
 
 ### Media Components
 
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
-| Image | ⚪ | - | P1 | Image with loading states |
-| Icon | ⚪ | - | P0 | Icon wrapper |
+| Image | 🟢 | - | P1 | ✅ Done |
+| Icon | 🟢 | - | P0 | ✅ Done |
 | Video | 🔵 | - | P2 | Video player |
 
 ---
@@ -188,9 +187,9 @@ Components focused on accessibility and developer experience.
 | Component | Status | Radix Primitive | Priority | Notes |
 |-----------|--------|-----------------|----------|-------|
 | VisuallyHidden | 🟢 | Visually Hidden | P1 | ✅ Done |
-| FocusTrap | ⚪ | - | P1 | Trap focus within element |
-| SkipNav | ⚪ | - | P2 | Skip to main content |
-| Announcement | ⚪ | - | P2 | Live region announcements |
+| FocusTrap | 🟢 | - | P1 | ✅ Done |
+| SkipNav | 🟢 | - | P2 | ✅ Done |
+| Announcement | 🟢 | - | P2 | ✅ Done |
 
 ### Utility Components
 
@@ -199,64 +198,6 @@ Components focused on accessibility and developer experience.
 | Portal | ⚪ | Portal | P1 | Render outside DOM hierarchy |
 | Slot | 🟢 | Slot | P0 | ✅ Already via Radix |
 | Presence | ⚪ | - | P2 | Animation presence |
-
----
-
-## Recommended Implementation Order
-
-### Sprint 1: Core Forms (2 weeks)
-1. Label
-2. Checkbox
-3. Radio
-4. Switch
-5. Textarea
-6. Select
-7. FormField
-8. Form
-
-### Sprint 2: Feedback & Layout (1 week)
-1. Alert
-2. Toast
-3. Spinner
-4. Card
-5. Separator
-6. Badge
-
-### Sprint 3: Overlays (2 weeks)
-1. Dialog
-2. Popover
-3. Tooltip
-4. DropdownMenu
-5. Sheet
-
-### Sprint 4: Navigation & Display (2 weeks)
-1. Tabs
-2. Breadcrumb
-3. Avatar
-4. Table
-5. Accordion
-6. Link
-
-### Sprint 5: Advanced Inputs (2 weeks)
-1. Combobox/Command
-2. Slider
-3. Calendar
-4. DatePicker
-5. DateRangePicker
-
-### Sprint 6: Typography & Refinements (1 week)
-1. Heading
-2. Text
-3. Code
-4. Icon
-5. Image
-
-### Sprint 7: Specialized (2 weeks)
-1. DataTable
-2. Pagination
-3. ScrollArea
-4. ToggleGroup
-5. Menubar
 
 ---
 
@@ -283,20 +224,19 @@ Components focused on accessibility and developer experience.
 - **Phase 3 (Data Display)**: 7 components
 - **Phase 4 (Advanced Inputs)**: 9 components
 - **Phase 5 (Specialized)**: 9 components
-- **Phase 6 (Composition)**: 7 components
+- **Phase 6 (Composition)**: 6 components
 - **Phase 7 (Typography/Media)**: 9 components
-- **Phase 8 (Accessibility/Utils)**: 7 components
+- **Phase 8 (Accessibility/Utils)**: 6 components
 
-**Total: ~73 components** (including variations)
+**Total: ~72 components** (including variations)
 
 ---
 
-## Priority Breakdown
+## Progress Summary
 
-- **P0 (Critical)**: 25 components - Must have for MVP
-- **P1 (High)**: 30 components - Core functionality
-- **P2 (Medium)**: 13 components - Enhanced experience
-- **Optional**: 5 components - Nice to have
+- **🟢 Done**: 60 components
+- **⚪ Planned**: 5 components (List, EmptyState, CodeBlock, Portal, Presence)
+- **🔵 Optional**: 7 components (Stepper, Timeline, Rating, LoginForm, SignupForm, FilterBar, Video)
 
 ---
 
@@ -333,22 +273,3 @@ New tokens may be needed for:
 - Z-index scale
 - Border radius variants
 - Shadow scale
-
----
-
-## Quick Start: Next 5 Components
-
-If you want to start immediately, build these in order:
-
-1. **Label** - Simple, needed by all form components
-2. **Checkbox** - Common form input, good Radix example
-3. **Alert** - Important for user feedback
-4. **Card** - Basic layout primitive
-5. **Dialog** - Essential for modals
-
-This gives you:
-- ✅ Better form support
-- ✅ User feedback
-- ✅ Layout options
-- ✅ Modal dialogs
-- ✅ Good variety to test the system
