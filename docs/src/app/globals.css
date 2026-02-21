@@ -5,39 +5,7 @@
   color-scheme: light dark;
 }
 
-/* ── Docs-site utility classes (plain CSS, no Tailwind) ── */
-
-.flex { display: flex; }
-.grid { display: grid; }
-.flex-wrap { flex-wrap: wrap; }
-.items-center { align-items: center; }
-.place-items-center { place-items: center; }
-
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 0.75rem; }
-.gap-4 { gap: 1rem; }
-
-.w-full { width: 100%; }
-.h-full { height: 100%; }
-.w-56 { width: 14rem; }
-.w-64 { width: 16rem; }
-.h-32 { height: 8rem; }
-
-.p-3 { padding: 0.75rem; }
-.p-4 { padding: 1rem; }
-.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-.px-4 { padding-left: 1rem; padding-right: 1rem; }
-.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-.mt-3 { margin-top: 0.75rem; }
-.mt-4 { margin-top: 1rem; }
-.space-y-2 > * + * { margin-top: 0.5rem; }
-
-.rounded-lg { border-radius: 0.5rem; }
-.rounded-md { border-radius: 0.375rem; }
-.border { border: 1px solid; }
-
-.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-
+/* Docs-site token-based classes (replacing Tailwind arbitrary values) */
 .demo-text-secondary { color: var(--color-text-secondary); }
 .demo-bg-secondary { background-color: var(--color-background-secondary); }
 .demo-border { border-color: var(--color-border-default); }
