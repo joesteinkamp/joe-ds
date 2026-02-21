@@ -124,8 +124,8 @@ export const componentDemos: Record<string, React.ReactNode> = {
     </Accordion>
   ),
   "aspect-ratio": (
-    <AspectRatio ratio={16 / 9} className="rounded-lg bg-[var(--color-background-secondary)]">
-      <div className="h-full w-full grid place-items-center text-sm text-[var(--color-text-secondary)]">
+    <AspectRatio ratio={16 / 9} className="rounded-lg demo-bg-secondary">
+      <div className="h-full w-full grid place-items-center text-sm demo-text-secondary">
         16:9 media
       </div>
     </AspectRatio>
@@ -158,14 +158,14 @@ export const componentDemos: Record<string, React.ReactNode> = {
       <CollapsibleTrigger asChild>
         <Button variant="outline">Toggle details</Button>
       </CollapsibleTrigger>
-      <CollapsibleContent className="mt-3 text-sm text-[var(--color-text-secondary)]">
+      <CollapsibleContent className="mt-3 text-sm demo-text-secondary">
         Collapsible content goes here.
       </CollapsibleContent>
     </Collapsible>
   ),
   "context-menu": (
     <ContextMenu>
-      <ContextMenuTrigger className="rounded-md border border-[var(--color-border-default)] px-4 py-2 text-sm">
+      <ContextMenuTrigger className="rounded-md border demo-border px-4 py-2 text-sm">
         Right click me
       </ContextMenuTrigger>
       <ContextMenuContent>
@@ -285,7 +285,7 @@ export const componentDemos: Record<string, React.ReactNode> = {
     </RadioGroup>
   ),
   "scroll-area": (
-    <ScrollArea className="h-32 w-full rounded-md border border-[var(--color-border-default)] p-3">
+    <ScrollArea className="h-32 w-full rounded-md border demo-border p-3">
       <div className="space-y-2 text-sm">
         <div>Scrollable content line 1</div>
         <div>Scrollable content line 2</div>
@@ -334,10 +334,10 @@ export const componentDemos: Record<string, React.ReactNode> = {
         <TabsTrigger value="overview">Overview</TabsTrigger>
         <TabsTrigger value="tokens">Tokens</TabsTrigger>
       </TabsList>
-      <TabsContent value="overview" className="text-sm text-[var(--color-text-secondary)]">
+      <TabsContent value="overview" className="text-sm demo-text-secondary">
         Use Tabs for dense content.
       </TabsContent>
-      <TabsContent value="tokens" className="text-sm text-[var(--color-text-secondary)]">
+      <TabsContent value="tokens" className="text-sm demo-text-secondary">
         Token definitions and examples.
       </TabsContent>
     </Tabs>
