@@ -1,4 +1,4 @@
-name: E2E Tests
+name: E2E and Visual Regression
 
 on:
   push:
@@ -8,9 +8,9 @@ on:
 
 jobs:
   e2e:
-    name: E2E Tests (${{ matrix.project }})
+    name: E2E (${{ matrix.project }})
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     strategy:
       fail-fast: false
       matrix:
@@ -21,7 +21,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 10.15.0
 
       - uses: actions/setup-node@v4
         with:
@@ -31,44 +31,36 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Install Playwright browsers
+      - name: Install Playwright browser
         run: pnpm --filter @js-ds-ui/e2e exec playwright install --with-deps ${{ matrix.project }}
 
       - name: Build tokens
         run: pnpm --filter @js-ds-ui/tokens build
 
-      - name: Run E2E tests
+      - name: Run e2e tests
         run: pnpm --filter @js-ds-ui/e2e test -- --project=${{ matrix.project }}
         env:
           CI: true
 
-      - name: Upload test report
+      - name: Upload e2e report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: e2e-report-${{ matrix.project }}
-          path: packages/e2e/playwright-report/
+          path: js-ds-ui/packages/e2e/playwright-report/
           retention-days: 14
 
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-results-${{ matrix.project }}
-          path: packages/e2e/test-results/
-          retention-days: 7
-
-  e2e-mobile:
-    name: E2E Tests (Mobile)
+  mobile:
+    name: E2E (mobile)
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 10.15.0
 
       - uses: actions/setup-node@v4
         with:
@@ -84,30 +76,30 @@ jobs:
       - name: Build tokens
         run: pnpm --filter @js-ds-ui/tokens build
 
-      - name: Run mobile E2E tests
+      - name: Run mobile tests
         run: pnpm --filter @js-ds-ui/e2e test -- --project=mobile-chrome --project=mobile-safari
         env:
           CI: true
 
-      - name: Upload test report
+      - name: Upload mobile report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: e2e-report-mobile
-          path: packages/e2e/playwright-report/
+          path: js-ds-ui/packages/e2e/playwright-report/
           retention-days: 14
 
-  visual-regression:
+  visual:
     name: Visual Regression
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 10.15.0
 
       - uses: actions/setup-node@v4
         with:
@@ -117,7 +109,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Install Playwright browsers
+      - name: Install Playwright browser
         run: pnpm --filter @js-ds-ui/e2e exec playwright install --with-deps chromium
 
       - name: Build tokens
@@ -128,18 +120,18 @@ jobs:
         env:
           CI: true
 
-      - name: Upload diff artifacts
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: visual-regression-diffs
-          path: packages/e2e/test-results/
-          retention-days: 14
-
-      - name: Upload test report
+      - name: Upload visual report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: visual-regression-report
-          path: packages/e2e/playwright-report/
+          path: js-ds-ui/packages/e2e/playwright-report/
+          retention-days: 14
+
+      - name: Upload visual diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-diffs
+          path: js-ds-ui/packages/e2e/test-results/
           retention-days: 14

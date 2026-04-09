@@ -1,0 +1,57 @@
+name: Monorepo CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    name: Quality Gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Roadmap quality checks
+        run: pnpm --dir js-ds-ui quality:check
+
+      - name: Breaking change classification
+        run: pnpm --dir js-ds-ui changes:check
+
+      - name: Build tokens
+        run: pnpm --filter @js-ds-ui/tokens build
+
+      - name: Type-check components
+        run: pnpm --filter @js-ds-ui/components type-check
+
+      - name: Lint components
+        run: pnpm --filter @js-ds-ui/components lint
+
+      - name: Run unit tests
+        run: pnpm --filter @js-ds-ui/components test:ci
+
+      - name: Build CLI
+        run: pnpm --filter @js-ds-ui/cli build
+
+      - name: Bundle budget check
+        run: pnpm --filter @js-ds-ui/components size:ci
+
+      - name: Build docs
+        run: pnpm --filter docs build

@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { generateColorScales } from "@js-ds-ui/color-generator";
+import { generateColorScales, type ColorScale } from "@js-ds-ui/color-generator";
 import { Button, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@js-ds-ui/components";
 
 type ColorInput = { name: string; baseColor: string };
+type ScaleStep = keyof ColorScale;
 
 const DEFAULT_COLORS: ColorInput[] = [
   { name: "primary", baseColor: "oklch(0.55 0.22 250)" },
@@ -13,7 +14,7 @@ const DEFAULT_COLORS: ColorInput[] = [
   { name: "neutral", baseColor: "oklch(0.55 0.02 250)" },
 ];
 
-const DEFAULT_TARGETS: Record<string, number> = {
+const DEFAULT_TARGETS: Record<ScaleStep, number> = {
   50: 1.05,
   100: 1.15,
   200: 1.3,
@@ -27,9 +28,9 @@ const DEFAULT_TARGETS: Record<string, number> = {
   950: 18.0,
 };
 
-const SCALE_STEPS = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"];
+const SCALE_STEPS: ScaleStep[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
-function formatCss(scales: Record<string, Record<string, string>>) {
+function formatCss(scales: Record<string, ColorScale>) {
   const lines = Object.entries(scales).flatMap(([name, scale]) =>
     Object.entries(scale).map(([step, value]) => `  --color-${name}-${step}: ${value};`)
   );
@@ -38,7 +39,7 @@ function formatCss(scales: Record<string, Record<string, string>>) {
 
 export default function ColorGeneratorDemo() {
   const [colors, setColors] = React.useState<ColorInput[]>(DEFAULT_COLORS);
-  const [targets, setTargets] = React.useState<Record<string, number>>(DEFAULT_TARGETS);
+  const [targets, setTargets] = React.useState<Record<ScaleStep, number>>(DEFAULT_TARGETS);
   const [stepCount, setStepCount] = React.useState("11");
 
   const scales = React.useMemo(() => {
@@ -58,7 +59,7 @@ export default function ColorGeneratorDemo() {
     setColors((prev) => prev.map((item, idx) => (idx === index ? { ...item, [key]: value } : item)));
   }
 
-  function updateTarget(step: string, value: string) {
+  function updateTarget(step: ScaleStep, value: string) {
     const numeric = Number(value);
     if (!Number.isFinite(numeric)) return;
     setTargets((prev) => ({ ...prev, [step]: numeric }));

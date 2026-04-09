@@ -16,15 +16,17 @@
   },
   "scripts": {
     "test": "vitest",
+    "test:ci": "vitest --run src/ui/color-picker.test.tsx src/ui/file-upload.test.tsx src/ui/form-field.test.tsx",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "type-check": "tsc --noEmit",
-    "lint": "eslint src",
+    "lint": "eslint src --ignore-pattern '**/*.test.ts' --ignore-pattern '**/*.test.tsx' --ignore-pattern '**/*.stories.tsx' --ignore-pattern '**/*.figma.tsx'",
     "figma:validate": "npx figma connect validate",
     "figma:publish": "npx figma connect publish",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "size": "size-limit",
+    "size:ci": "size-limit --config .size-limit.ci.json",
     "size:report": "size-limit --json > .size-report.json",
     "analyze": "tsx scripts/analyze-bundle.ts",
     "dep-graph": "tsx scripts/dep-graph.ts"

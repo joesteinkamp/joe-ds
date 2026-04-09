@@ -671,6 +671,26 @@
     "type": "number",
     "value": 1080
   },
+  "opacity.disabled": {
+    "type": "number",
+    "value": 0.5
+  },
+  "opacity.overlay": {
+    "type": "number",
+    "value": 0.8
+  },
+  "opacity.hover": {
+    "type": "number",
+    "value": 0.9
+  },
+  "opacity.placeholder": {
+    "type": "number",
+    "value": 0.4
+  },
+  "opacity.muted": {
+    "type": "number",
+    "value": 0.5
+  },
   "size.component.height.xs": {
     "type": "number",
     "value": 24
@@ -1027,15 +1047,15 @@
     "type": "color",
     "value": "#C9CED4"
   },
-  "component.badge.destructive.bg": {
+  "component.badge.error.bg": {
     "type": "color",
     "value": "#BB061E"
   },
-  "component.badge.destructive.text": {
+  "component.badge.error.text": {
     "type": "color",
     "value": "#FFFFFF"
   },
-  "component.badge.destructive.border": {
+  "component.badge.error.border": {
     "type": "color",
     "value": "#00000000"
   },
@@ -1197,7 +1217,7 @@
   },
   "component.button.danger.text": {
     "type": "color",
-    "value": "#FFFFFF"
+    "value": "#0D1218"
   },
   "component.button.danger.border": {
     "type": "color",
@@ -1867,21 +1887,53 @@
     "type": "color",
     "value": "#BB061E"
   },
-  "component.input.height": {
+  "component.input.size.sm.height": {
     "type": "number",
-    "value": 40
+    "value": 32
   },
-  "component.input.padding.x": {
+  "component.input.size.sm.padding-x": {
     "type": "number",
     "value": 12
   },
-  "component.input.padding.y": {
+  "component.input.size.sm.padding-y": {
+    "type": "number",
+    "value": 4
+  },
+  "component.input.size.sm.text": {
+    "type": "number",
+    "value": 9
+  },
+  "component.input.size.md.height": {
+    "type": "number",
+    "value": 40
+  },
+  "component.input.size.md.padding-x": {
+    "type": "number",
+    "value": 12
+  },
+  "component.input.size.md.padding-y": {
     "type": "number",
     "value": 8
   },
-  "component.input.font.size": {
+  "component.input.size.md.text": {
     "type": "number",
     "value": 11
+  },
+  "component.input.size.lg.height": {
+    "type": "number",
+    "value": 48
+  },
+  "component.input.size.lg.padding-x": {
+    "type": "number",
+    "value": 16
+  },
+  "component.input.size.lg.padding-y": {
+    "type": "number",
+    "value": 12
+  },
+  "component.input.size.lg.text": {
+    "type": "number",
+    "value": 13
   },
   "component.input.border.radius": {
     "type": "number",
@@ -2287,17 +2339,53 @@
     "type": "color",
     "value": "#006FEA"
   },
-  "component.select.trigger-height": {
+  "component.select.size.sm.height": {
     "type": "number",
-    "value": 40
+    "value": 32
   },
-  "component.select.padding.x": {
+  "component.select.size.sm.padding-x": {
     "type": "number",
     "value": 12
   },
-  "component.select.padding.y": {
+  "component.select.size.sm.padding-y": {
+    "type": "number",
+    "value": 4
+  },
+  "component.select.size.sm.text": {
+    "type": "number",
+    "value": 9
+  },
+  "component.select.size.md.height": {
+    "type": "number",
+    "value": 40
+  },
+  "component.select.size.md.padding-x": {
+    "type": "number",
+    "value": 12
+  },
+  "component.select.size.md.padding-y": {
     "type": "number",
     "value": 8
+  },
+  "component.select.size.md.text": {
+    "type": "number",
+    "value": 11
+  },
+  "component.select.size.lg.height": {
+    "type": "number",
+    "value": 48
+  },
+  "component.select.size.lg.padding-x": {
+    "type": "number",
+    "value": 16
+  },
+  "component.select.size.lg.padding-y": {
+    "type": "number",
+    "value": 12
+  },
+  "component.select.size.lg.text": {
+    "type": "number",
+    "value": 13
   },
   "component.select.border.radius": {
     "type": "number",
@@ -2563,17 +2651,53 @@
     "type": "color",
     "value": "#BB061E"
   },
-  "component.textarea.min-height": {
+  "component.textarea.size.sm.min-height": {
     "type": "number",
-    "value": 80
+    "value": 60
   },
-  "component.textarea.padding.x": {
+  "component.textarea.size.sm.padding-x": {
     "type": "number",
     "value": 12
   },
-  "component.textarea.padding.y": {
+  "component.textarea.size.sm.padding-y": {
+    "type": "number",
+    "value": 4
+  },
+  "component.textarea.size.sm.text": {
+    "type": "number",
+    "value": 9
+  },
+  "component.textarea.size.md.min-height": {
+    "type": "number",
+    "value": 80
+  },
+  "component.textarea.size.md.padding-x": {
+    "type": "number",
+    "value": 12
+  },
+  "component.textarea.size.md.padding-y": {
     "type": "number",
     "value": 8
+  },
+  "component.textarea.size.md.text": {
+    "type": "number",
+    "value": 11
+  },
+  "component.textarea.size.lg.min-height": {
+    "type": "number",
+    "value": 100
+  },
+  "component.textarea.size.lg.padding-x": {
+    "type": "number",
+    "value": 16
+  },
+  "component.textarea.size.lg.padding-y": {
+    "type": "number",
+    "value": 12
+  },
+  "component.textarea.size.lg.text": {
+    "type": "number",
+    "value": 13
   },
   "component.textarea.border.radius": {
     "type": "number",

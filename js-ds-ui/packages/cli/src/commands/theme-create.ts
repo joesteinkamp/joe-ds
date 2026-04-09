@@ -97,13 +97,13 @@ function generateScale(
 
   const bgColor = new BackgroundColor({
     name: 'background',
-    colorKeys: [oklchToHex(background)],
+    colorKeys: [oklchToHex(background) as any],
     ratios: [1],
   });
 
   const leonardoColor = new Color({
     name,
-    colorKeys: [oklchToHex(baseColor)],
+    colorKeys: [oklchToHex(baseColor) as any],
     ratios: DEFAULT_CONTRAST_RATIOS,
     smooth: true,
   });

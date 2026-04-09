@@ -1,0 +1,40 @@
+name: RFC
+description: Propose a design system architectural or API change
+title: "RFC: "
+labels:
+  - rfc
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user or platform problem are we solving?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the approach and key decisions.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What alternatives were considered and why were they rejected?
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility / Migration
+      description: Detail breakage risk and migration path.
+    validations:
+      required: true
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Quality Plan
+      options:
+        - label: Accessibility impact has been addressed
+        - label: Visual regression strategy has been defined
+        - label: Performance budget impact has been reviewed

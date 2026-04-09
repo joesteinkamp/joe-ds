@@ -18,13 +18,54 @@ const EXAMPLES_PATH = path.resolve(
 );
 
 type Manifest = {
-  components: Record<string, any>;
-  patterns?: Record<string, any>;
+  components: Record<string, ManifestComponent>;
+  patterns?: Record<string, unknown>;
 };
 
 type Examples = {
-  examples: Record<string, any>;
+  examples: Record<string, UsageExample>;
 };
+
+export interface ManifestProp {
+  type?: string;
+  default?: unknown;
+  description?: string;
+}
+
+export interface ManifestAccessibility {
+  role?: string;
+  keyboardNavigation?: string[];
+  ariaSupport?: string[];
+  focusManagement?: string;
+  wcag?: string;
+}
+
+export interface ManifestComponent {
+  name: string;
+  description?: string;
+  props?: Record<string, ManifestProp>;
+  accessibility?: ManifestAccessibility;
+  usage?: {
+    when?: string;
+    avoid?: string;
+    examples?: Array<{
+      scenario?: string;
+      code?: string;
+    }>;
+  };
+}
+
+interface UsageExampleSolution {
+  component?: string;
+  components?: string[];
+  code?: string;
+  explanation?: string;
+}
+
+export interface UsageExample {
+  intent?: string;
+  solution?: UsageExampleSolution;
+}
 
 let manifestCache: Manifest | null = null;
 let examplesCache: Examples | null = null;
@@ -52,7 +93,7 @@ export function getManifestEntry(slug: string) {
 
 export function getExamplesForComponent(componentName: string) {
   const examples = getUsageExamples().examples ?? {};
-  return Object.values(examples).filter((example: any) => {
+  return Object.values(examples).filter((example) => {
     if (example?.solution?.component) {
       return example.solution.component === componentName;
     }

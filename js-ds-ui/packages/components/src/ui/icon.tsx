@@ -32,7 +32,7 @@ const iconVariants = cva('inline-flex shrink-0', {
 });
 
 export interface IconProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
     VariantProps<typeof iconVariants> {
   /** The icon element to render (e.g., a lucide-react icon component instance) */
   icon?: React.ReactNode;

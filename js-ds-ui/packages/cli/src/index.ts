@@ -8,13 +8,14 @@ import { diffCommand } from './commands/diff.js';
 import { updateCommand } from './commands/update.js';
 import { themeCreateCommand } from './commands/theme-create.js';
 import { mcpCommand } from './commands/mcp.js';
+import { CLI_VERSION } from './version.js';
 
 const program = new Command();
 
 program
   .name('js-ds-ui')
   .description('CLI for js-ds-ui design system')
-  .version('0.1.0');
+  .version(CLI_VERSION);
 
 program
   .command('init')

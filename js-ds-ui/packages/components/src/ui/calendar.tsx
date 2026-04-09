@@ -50,7 +50,7 @@ const Calendar = ({ selected, onSelect, className, disabled, month: controlledMo
   const year = displayMonth.getFullYear();
   const monthIndex = displayMonth.getMonth();
   const days = getDaysInMonth(year, monthIndex);
-  const firstDayOfWeek = days[0].getDay(); // 0 = Sunday
+  const firstDayOfWeek = days[0]?.getDay() ?? 0; // 0 = Sunday
 
   const prevMonth = () => setMonth(new Date(year, monthIndex - 1, 1));
   const nextMonth = () => setMonth(new Date(year, monthIndex + 1, 1));

@@ -27,6 +27,7 @@
     "pen:sync": "node ../../scripts/gen-pen-variables.mjs",
     "tokens:build": "style-dictionary build --config config/style-dictionary.config.js",
     "types:generate": "tsx scripts/generate-types.ts",
+    "contracts:check": "node scripts/check-contracts.mjs",
     "clean": "rm -rf dist generated",
     "dev": "npm run build -- --watch",
     "figma:push": "tsx scripts/figma/sync-to-figma.ts",

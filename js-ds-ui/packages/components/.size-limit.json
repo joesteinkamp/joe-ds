@@ -288,9 +288,9 @@
     "limit": "1 kB"
   },
   {
-    "name": "SkipNav",
+    "name": "SkipNavLink",
     "path": "src/ui/skip-nav.tsx",
-    "import": "{ SkipNav }",
+    "import": "{ SkipNavLink }",
     "limit": "1 kB"
   },
   {

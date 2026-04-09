@@ -82,3 +82,9 @@ npx @js-ds-ui/cli add button input
 ## License
 
 MIT
+
+## Roadmap
+
+Execution roadmap for top-tier 2026 maturity:
+
+- [ROADMAP_2026_TOP_TIER.md](./ROADMAP_2026_TOP_TIER.md)

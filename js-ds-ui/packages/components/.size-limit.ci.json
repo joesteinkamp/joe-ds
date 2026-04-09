@@ -1,0 +1,7 @@
+[
+  {
+    "name": "All Components",
+    "path": "src/index.ts",
+    "limit": "80 kB"
+  }
+]

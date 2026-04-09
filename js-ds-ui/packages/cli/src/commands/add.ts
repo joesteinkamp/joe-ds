@@ -12,6 +12,7 @@ import {
 } from '../registry.js';
 import { getComponentTemplate } from '../templates/index.js';
 import { resolveTargetPath } from '../utils/paths.js';
+import { CLI_VERSION } from '../version.js';
 
 interface ProjectConfig {
   style: string;
@@ -40,7 +41,7 @@ export async function addCommand(components?: string[]) {
 
   if (!selectedComponents.length) {
     const allComponents = getAllComponents()
-      .filter((c) => c.type !== 'util' && c.type !== 'hook')
+      .filter((c) => c.files.some((file) => file.type === 'component'))
       .map((c) => ({
         value: c.name,
         label: c.label,
@@ -91,7 +92,7 @@ export async function addCommand(components?: string[]) {
     }
     for (const name of componentList) {
       fullConfig.installedComponents[name] = {
-        version: '0.1.0',
+        version: CLI_VERSION,
         installedAt: new Date().toISOString(),
       };
     }

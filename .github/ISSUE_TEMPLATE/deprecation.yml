@@ -1,0 +1,47 @@
+name: Deprecation Plan
+description: Track component/token/API deprecation with migration details
+title: "Deprecate: "
+labels:
+  - deprecation
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Target to Deprecate
+      description: Component, token, hook, or API name.
+      placeholder: component.button.variant.legacy
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Why is deprecation necessary?
+    validations:
+      required: true
+  - type: textarea
+    id: replacement
+    attributes:
+      label: Replacement
+      description: What should consumers use instead?
+    validations:
+      required: true
+  - type: input
+    id: announce
+    attributes:
+      label: Announce By
+      description: Date in YYYY-MM-DD.
+      placeholder: 2026-03-15
+  - type: input
+    id: removal
+    attributes:
+      label: Planned Removal Date
+      description: Date in YYYY-MM-DD.
+      placeholder: 2026-06-30
+  - type: textarea
+    id: migration
+    attributes:
+      label: Migration Steps
+      description: Explicit migration examples.
+    validations:
+      required: true

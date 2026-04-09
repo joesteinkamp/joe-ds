@@ -36,7 +36,7 @@ const FocusTrap = React.forwardRef<HTMLDivElement, FocusTrapProps>(
     },
     ref
   ) => {
-    const internalRef = React.useRef<HTMLDivElement>(null);
+    const internalRef = React.useRef<HTMLDivElement | null>(null);
     const previouslyFocusedRef = React.useRef<Element | null>(null);
 
     // Merge the forwarded ref with the internal ref
@@ -75,8 +75,9 @@ const FocusTrap = React.forwardRef<HTMLDivElement, FocusTrapProps>(
         }
 
         const focusableElements = container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
-        if (focusableElements.length > 0) {
-          focusableElements[0].focus();
+        const firstFocusable = focusableElements.item(0);
+        if (firstFocusable) {
+          firstFocusable.focus();
         }
       };
 
@@ -98,8 +99,12 @@ const FocusTrap = React.forwardRef<HTMLDivElement, FocusTrapProps>(
           return;
         }
 
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
+        const firstElement = focusableElements.item(0);
+        const lastElement = focusableElements.item(focusableElements.length - 1);
+        if (!firstElement || !lastElement) {
+          event.preventDefault();
+          return;
+        }
 
         if (event.shiftKey) {
           if (document.activeElement === firstElement) {

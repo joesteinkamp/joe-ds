@@ -57,7 +57,7 @@ const textVariants = cva(
 );
 
 export interface TextProps
-  extends React.HTMLAttributes<HTMLParagraphElement>,
+  extends Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'>,
     VariantProps<typeof textVariants> {
   /** Render as a different element */
   as?: React.ElementType;

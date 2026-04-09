@@ -9,6 +9,7 @@ import {
   type ComponentRegistryItem,
 } from '../registry.js';
 import { getComponentTemplate } from '../templates/index.js';
+import { CLI_VERSION } from '../version.js';
 
 interface ProjectConfig {
   style: string;
@@ -115,7 +116,7 @@ export async function updateCommand(components?: string[]) {
         config.installedComponents = {};
       }
       config.installedComponents[item.name] = {
-        version: '0.1.0', // CLI version
+        version: CLI_VERSION,
         installedAt: new Date().toISOString(),
       };
     }

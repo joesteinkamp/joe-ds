@@ -11,9 +11,12 @@ const ToggleGroupContext = React.createContext<VariantProps<typeof buttonVariant
   variant: 'outline',
 });
 
-export interface ToggleGroupProps
-  extends React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root>,
-    VariantProps<typeof buttonVariants> {}
+export type ToggleGroupProps = React.ComponentPropsWithoutRef<
+  typeof ToggleGroupPrimitive.Root
+> &
+  VariantProps<typeof buttonVariants> & {
+  children?: React.ReactNode;
+};
 
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
@@ -34,7 +37,9 @@ ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
 
 export interface ToggleGroupItemProps
   extends React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  children?: React.ReactNode;
+}
 
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,

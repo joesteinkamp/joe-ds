@@ -96,11 +96,18 @@ const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
       <div ref={ref} className={cn(className)} {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child as React.ReactElement<any>, {
+            return React.cloneElement(
+              child as React.ReactElement<{
+                id?: string;
+                'aria-describedby'?: string;
+                'aria-invalid'?: boolean;
+              }>,
+              {
               id,
               'aria-describedby': describedBy,
               'aria-invalid': error ? true : undefined,
-            });
+              }
+            );
           }
           return child;
         })}

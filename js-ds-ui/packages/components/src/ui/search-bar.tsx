@@ -3,7 +3,11 @@
 import * as React from 'react';
 import { cn } from '../lib/utils';
 
-export interface SearchBarProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface SearchBarProps
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'onChange' | 'onSubmit'
+  > {
   /** Controlled value */
   value?: string;
   /** Called when the search value changes */
@@ -44,8 +48,19 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
     },
     ref
   ) => {
-    const inputRef = React.useRef<HTMLInputElement>(null);
-    const combinedRef = ref || inputRef;
+    const inputRef = React.useRef<HTMLInputElement | null>(null);
+
+    const setInputRef = React.useCallback(
+      (node: HTMLInputElement | null) => {
+        inputRef.current = node;
+        if (typeof ref === 'function') {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      },
+      [ref]
+    );
 
     const handleChange = React.useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,8 +83,8 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
 
     const handleClear = React.useCallback(() => {
       onValueChange?.('');
-      (typeof combinedRef === 'object' && combinedRef?.current)?.focus();
-    }, [onValueChange, combinedRef]);
+      inputRef.current?.focus();
+    }, [onValueChange]);
 
     return (
       <div
@@ -91,7 +106,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
         </svg>
 
         <input
-          ref={combinedRef as React.Ref<HTMLInputElement>}
+          ref={setInputRef}
           type="search"
           role="searchbox"
           value={value}

@@ -2,19 +2,24 @@ import { notFound } from "next/navigation";
 import ComponentPreview from "@/components/docs/ComponentPreview";
 import PropsTable from "@/components/docs/PropsTable";
 import { getComponentBySlug } from "@/lib/components";
-import { getExamplesForComponent, getManifestEntry } from "@/lib/manifest";
+import {
+  getExamplesForComponent,
+  getManifestEntry,
+  type UsageExample,
+} from "@/lib/manifest";
 
-export default function ComponentDetailPage({
+export default async function ComponentDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const component = getComponentBySlug(params.slug);
+  const { slug } = await params;
+  const component = getComponentBySlug(slug);
   if (!component) {
     notFound();
   }
 
-  const manifest = getManifestEntry(params.slug);
+  const manifest = getManifestEntry(slug);
   const examples = manifest?.name ? getExamplesForComponent(manifest.name) : [];
 
   return (
@@ -22,9 +27,9 @@ export default function ComponentDetailPage({
       <h1 className="docs-h1">{component.name}</h1>
       {manifest?.description && <p className="docs-paragraph">{manifest.description}</p>}
 
-      <ComponentPreview slug={params.slug} />
+      <ComponentPreview slug={slug} />
 
-      <PropsTable slug={params.slug} />
+      <PropsTable slug={slug} />
 
       {manifest?.accessibility && (
         <div className="docs-section">
@@ -45,7 +50,7 @@ export default function ComponentDetailPage({
       {examples.length > 0 && (
         <div className="docs-section">
           <h3 className="docs-h3">Examples</h3>
-          {examples.map((example: any, index: number) => (
+          {examples.map((example: UsageExample, index: number) => (
             <div key={index} className="docs-card">
               <div className="docs-card-title">{example.intent}</div>
               <pre className="docs-pre">{example.solution?.code}</pre>

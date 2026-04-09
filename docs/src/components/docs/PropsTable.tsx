@@ -1,4 +1,4 @@
-import { getManifestEntry } from "@/lib/manifest";
+import { getManifestEntry, type ManifestProp } from "@/lib/manifest";
 
 interface PropsTableProps {
   slug: string;
@@ -34,9 +34,9 @@ export default function PropsTable({ slug }: PropsTableProps) {
           {rows.map(([propName, propValue]) => (
             <tr key={propName}>
               <td>{propName}</td>
-              <td>{String((propValue as any).type ?? "-")}</td>
-              <td>{String((propValue as any).default ?? "-")}</td>
-              <td>{String((propValue as any).description ?? "-")}</td>
+              <td>{String((propValue as ManifestProp).type ?? "-")}</td>
+              <td>{String((propValue as ManifestProp).default ?? "-")}</td>
+              <td>{String((propValue as ManifestProp).description ?? "-")}</td>
             </tr>
           ))}
         </tbody>

@@ -9,12 +9,13 @@ import {
 } from '../registry.js';
 import { addCommand } from './add.js';
 import { resolveTargetPath } from '../utils/paths.js';
+import { CLI_VERSION } from '../version.js';
 
 export async function mcpCommand() {
   // Create an MCP server
   const server = new McpServer({
     name: 'js-ds-ui',
-    version: '0.1.0',
+    version: CLI_VERSION,
   });
 
   // Tool: get_components
@@ -233,7 +234,7 @@ async function addComponentsSilent(componentNames: string[]) {
     }
     for (const name of componentList) {
         config.installedComponents[name] = {
-            version: '0.1.0',
+            version: CLI_VERSION,
             installedAt: new Date().toISOString(),
         };
     }

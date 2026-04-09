@@ -218,14 +218,18 @@ export interface AlertProps
  * \`\`\`
  */
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ className, variant, ...props }, ref) => (
-    <div
-      ref={ref}
-      role="alert"
-      className={cn(alertVariants({ variant, className }))}
-      {...props}
-    />
-  )
+  ({ className, variant, ...props }, ref) => {
+    const isError = variant === 'error';
+    return (
+      <div
+        ref={ref}
+        role={isError ? 'alert' : 'status'}
+        aria-live={isError ? 'assertive' : 'polite'}
+        className={cn(alertVariants({ variant, className }))}
+        {...props}
+      />
+    );
+  }
 );
 
 Alert.displayName = 'Alert';
@@ -315,14 +319,18 @@ export interface AlertProps
  * \`\`\`
  */
 const Alert = React.forwardRef(
-  ({ className, variant, ...props }, ref) => (
-    <div
-      ref={ref}
-      role="alert"
-      className={cn(alertVariants({ variant, className }))}
-      {...props}
-    />
-  )
+  ({ className, variant, ...props }, ref) => {
+    const isError = variant === 'error';
+    return (
+      <div
+        ref={ref}
+        role={isError ? 'alert' : 'status'}
+        aria-live={isError ? 'assertive' : 'polite'}
+        className={cn(alertVariants({ variant, className }))}
+        {...props}
+      />
+    );
+  }
 );
 
 Alert.displayName = 'Alert';
@@ -1340,7 +1348,7 @@ const Calendar = ({ selected, onSelect, className, disabled, month: controlledMo
   const year = displayMonth.getFullYear();
   const monthIndex = displayMonth.getMonth();
   const days = getDaysInMonth(year, monthIndex);
-  const firstDayOfWeek = days[0].getDay(); // 0 = Sunday
+  const firstDayOfWeek = days[0]?.getDay() ?? 0; // 0 = Sunday
 
   const prevMonth = () => setMonth(new Date(year, monthIndex - 1, 1));
   const nextMonth = () => setMonth(new Date(year, monthIndex + 1, 1));
@@ -1464,7 +1472,7 @@ const Calendar = ({ selected, onSelect, className, disabled, month, onMonthChang
   const year = displayMonth.getFullYear();
   const monthIndex = displayMonth.getMonth();
   const days = getDaysInMonth(year, monthIndex);
-  const firstDayOfWeek = days[0].getDay(); // 0 = Sunday
+  const firstDayOfWeek = days[0]?.getDay() ?? 0; // 0 = Sunday
 
   const prevMonth = () => setMonth(new Date(year, monthIndex - 1, 1));
   const nextMonth = () => setMonth(new Date(year, monthIndex + 1, 1));
@@ -1699,7 +1707,7 @@ import { cn } from '../lib/utils';
 
 import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { Check } from 'lucide-react';
+import { Check, Minus } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export interface CheckboxProps
@@ -1719,11 +1727,12 @@ export interface CheckboxProps
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
->(({ className, ...props }, ref) => (
+>(({ className, checked, ...props }, ref) => (
   <CheckboxPrimitive.Root
     ref={ref}
+    checked={checked}
     className={cn(
-      'peer h-[var(--component-checkbox-size,1.25rem)] w-[var(--component-checkbox-size,1.25rem)] shrink-0 rounded-[var(--component-checkbox-border-radius,0.25rem)] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[var(--color-interactive-primary)] data-[state=checked]:text-white data-[state=checked]:border-[var(--color-interactive-primary)]',
+      'peer h-[var(--component-checkbox-size,1.25rem)] w-[var(--component-checkbox-size,1.25rem)] shrink-0 rounded-[var(--component-checkbox-border-radius,0.25rem)] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[var(--color-interactive-primary)] data-[state=checked]:text-white data-[state=checked]:border-[var(--color-interactive-primary)] data-[state=indeterminate]:bg-[var(--color-interactive-primary)] data-[state=indeterminate]:text-white data-[state=indeterminate]:border-[var(--color-interactive-primary)]',
       className
     )}
     {...props}
@@ -1731,7 +1740,11 @@ const Checkbox = React.forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn('flex items-center justify-center text-current')}
     >
-      <Check className="h-[var(--component-checkbox-icon-size,1rem)] w-[var(--component-checkbox-icon-size,1rem)]" strokeWidth={3} />
+      {checked === 'indeterminate' ? (
+        <Minus className="h-[var(--component-checkbox-icon-size,1rem)] w-[var(--component-checkbox-icon-size,1rem)]" strokeWidth={3} />
+      ) : (
+        <Check className="h-[var(--component-checkbox-icon-size,1rem)] w-[var(--component-checkbox-icon-size,1rem)]" strokeWidth={3} />
+      )}
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ));
@@ -1744,7 +1757,7 @@ export { Checkbox };
 
 import *'react';
 import *'@radix-ui/react-checkbox';
-import { Check } from 'lucide-react';
+import { Check, Minus } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export interface CheckboxProps
@@ -1764,11 +1777,12 @@ export interface CheckboxProps
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
->(({ className, ...props }, ref) => (
+>(({ className, checked, ...props }, ref) => (
   <CheckboxPrimitive.Root
     ref={ref}
+    checked={checked}
     className={cn(
-      'peer h-[var(--component-checkbox-size,1.25rem)] w-[var(--component-checkbox-size,1.25rem)] shrink-0 rounded-[var(--component-checkbox-border-radius,0.25rem)] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[var(--color-interactive-primary)] data-[state=checked]:text-white data-[state=checked]:border-[var(--color-interactive-primary)]',
+      'peer h-[var(--component-checkbox-size,1.25rem)] w-[var(--component-checkbox-size,1.25rem)] shrink-0 rounded-[var(--component-checkbox-border-radius,0.25rem)] border border-[var(--color-border-default)] bg-[var(--color-background-primary)] ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-border-focus)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[var(--color-interactive-primary)] data-[state=checked]:text-white data-[state=checked]:border-[var(--color-interactive-primary)] data-[state=indeterminate]:bg-[var(--color-interactive-primary)] data-[state=indeterminate]:text-white data-[state=indeterminate]:border-[var(--color-interactive-primary)]',
       className
     )}
     {...props}
@@ -1776,7 +1790,11 @@ const Checkbox = React.forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn('flex items-center justify-center text-current')}
     >
-      <Check className="h-[var(--component-checkbox-icon-size,1rem)] w-[var(--component-checkbox-icon-size,1rem)]" strokeWidth={3} />
+      {checked === 'indeterminate' ? (
+        <Minus className="h-[var(--component-checkbox-icon-size,1rem)] w-[var(--component-checkbox-icon-size,1rem)]" strokeWidth={3} />
+      ) : (
+        <Check className="h-[var(--component-checkbox-icon-size,1rem)] w-[var(--component-checkbox-icon-size,1rem)]" strokeWidth={3} />
+      )}
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ));
@@ -2769,7 +2787,8 @@ const CommandGroup = React.forwardRef<HTMLDivElement, CommandGroupProps>(
 
 CommandGroup.displayName = 'CommandGroup';
 
-export interface CommandItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CommandItemProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   value?: string;
   onSelect?: (value: string) => void;
   disabled?: boolean;
@@ -5960,7 +5979,7 @@ const FocusTrap = React.forwardRef<HTMLDivElement, FocusTrapProps>(
     },
     ref
   ) => {
-    const internalRef = React.useRef<HTMLDivElement>(null);
+    const internalRef = React.useRef<HTMLDivElement | null>(null);
     const previouslyFocusedRef = React.useRef<Element | null>(null);
 
     // Merge the forwarded ref with the internal ref
@@ -5999,8 +6018,9 @@ const FocusTrap = React.forwardRef<HTMLDivElement, FocusTrapProps>(
         }
 
         const focusableElements = container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
-        if (focusableElements.length > 0) {
-          focusableElements[0].focus();
+        const firstFocusable = focusableElements.item(0);
+        if (firstFocusable) {
+          firstFocusable.focus();
         }
       };
 
@@ -6022,8 +6042,12 @@ const FocusTrap = React.forwardRef<HTMLDivElement, FocusTrapProps>(
           return;
         }
 
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
+        const firstElement = focusableElements.item(0);
+        const lastElement = focusableElements.item(focusableElements.length - 1);
+        if (!firstElement || !lastElement) {
+          event.preventDefault();
+          return;
+        }
 
         if (event.shiftKey) {
           if (document.activeElement === firstElement) {
@@ -6139,8 +6163,9 @@ const FocusTrap = React.forwardRef(
         }
 
         const focusableElements = container.querySelectorAll(FOCUSABLE_SELECTOR);
-        if (focusableElements.length > 0) {
-          focusableElements[0].focus();
+        const firstFocusable = focusableElements.item(0);
+        if (firstFocusable) {
+          firstFocusable.focus();
         }
       };
 
@@ -6162,8 +6187,12 @@ const FocusTrap = React.forwardRef(
           return;
         }
 
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
+        const firstElement = focusableElements.item(0);
+        const lastElement = focusableElements.item(focusableElements.length - 1);
+        if (!firstElement || !lastElement) {
+          event.preventDefault();
+          return;
+        }
 
         if (event.shiftKey) {
           if (document.activeElement === firstElement) {
@@ -6609,11 +6638,18 @@ const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
       <div ref={ref} className={cn(className)} {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child as React.ReactElement<any>, {
+            return React.cloneElement(
+              child as React.ReactElement<{
+                id?: string;
+                'aria-describedby'?: string;
+                'aria-invalid'?: boolean;
+              }>,
+              {
               id,
               'aria-describedby': describedBy,
               'aria-invalid': error ? true : undefined,
-            });
+              }
+            );
           }
           return child;
         })}
@@ -6984,7 +7020,7 @@ const iconVariants = cva('inline-flex shrink-0', {
 });
 
 export interface IconProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
     VariantProps<typeof iconVariants> {
   /** The icon element to render (e.g., a lucide-react icon component instance) */
   icon?: React.ReactNode;
@@ -7710,11 +7746,11 @@ import * as MenubarPrimitive from '@radix-ui/react-menubar';
 import { Check, ChevronRight, Circle } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const MenubarMenu = MenubarPrimitive.Menu;
-const MenubarGroup = MenubarPrimitive.Group;
-const MenubarPortal = MenubarPrimitive.Portal;
-const MenubarSub = MenubarPrimitive.Sub;
-const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
+const MenubarMenu: typeof MenubarPrimitive.Menu = MenubarPrimitive.Menu;
+const MenubarGroup: typeof MenubarPrimitive.Group = MenubarPrimitive.Group;
+const MenubarPortal: typeof MenubarPrimitive.Portal = MenubarPrimitive.Portal;
+const MenubarSub: typeof MenubarPrimitive.Sub = MenubarPrimitive.Sub;
+const MenubarRadioGroup: typeof MenubarPrimitive.RadioGroup = MenubarPrimitive.RadioGroup;
 
 const Menubar = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Root>,
@@ -7953,11 +7989,11 @@ import *'@radix-ui/react-menubar';
 import { Check, ChevronRight, Circle } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const MenubarMenu = MenubarPrimitive.Menu;
-const MenubarGroup = MenubarPrimitive.Group;
-const MenubarPortal = MenubarPrimitive.Portal;
-const MenubarSub = MenubarPrimitive.Sub;
-const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
+const MenubarMenu: typeof MenubarPrimitive.Menu = MenubarPrimitive.Menu;
+const MenubarGroup: typeof MenubarPrimitive.Group = MenubarPrimitive.Group;
+const MenubarPortal: typeof MenubarPrimitive.Portal = MenubarPrimitive.Portal;
+const MenubarSub: typeof MenubarPrimitive.Sub = MenubarPrimitive.Sub;
+const MenubarRadioGroup: typeof MenubarPrimitive.RadioGroup = MenubarPrimitive.RadioGroup;
 
 const Menubar = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Root>,
@@ -9104,7 +9140,11 @@ export { ScrollArea, ScrollBar };`,
 import * as React from 'react';
 import { cn } from '../lib/utils';
 
-export interface SearchBarProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+export interface SearchBarProps
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'onChange' | 'onSubmit'
+  > {
   /** Controlled value */
   value?: string;
   /** Called when the search value changes */
@@ -9145,8 +9185,19 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
     },
     ref
   ) => {
-    const inputRef = React.useRef<HTMLInputElement>(null);
-    const combinedRef = ref || inputRef;
+    const inputRef = React.useRef<HTMLInputElement | null>(null);
+
+    const setInputRef = React.useCallback(
+      (node: HTMLInputElement | null) => {
+        inputRef.current = node;
+        if (typeof ref === 'function') {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      },
+      [ref]
+    );
 
     const handleChange = React.useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -9169,8 +9220,8 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
 
     const handleClear = React.useCallback(() => {
       onValueChange?.('');
-      (typeof combinedRef === 'object' && combinedRef?.current)?.focus();
-    }, [onValueChange, combinedRef]);
+      inputRef.current?.focus();
+    }, [onValueChange]);
 
     return (
       <div
@@ -9192,7 +9243,7 @@ const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>(
         </svg>
 
         <input
-          ref={combinedRef as React.Ref<HTMLInputElement>}
+          ref={setInputRef}
           type="search"
           role="searchbox"
           value={value}
@@ -9279,7 +9330,18 @@ const SearchBar = React.forwardRef(
     ref
   ) => {
     const inputRef = React.useRef(null);
-    const combinedRef = ref || inputRef;
+
+    const setInputRef = React.useCallback(
+      (node) => {
+        inputRef.current = node;
+        if (typeof ref === 'function') {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      },
+      [ref]
+    );
 
     const handleChange = React.useCallback(
       (e) => {
@@ -9302,8 +9364,8 @@ const SearchBar = React.forwardRef(
 
     const handleClear = React.useCallback(() => {
       onValueChange?.('');
-      (typeof combinedRef === 'object' && combinedRef?.current)?.focus();
-    }, [onValueChange, combinedRef]);
+      inputRef.current?.focus();
+    }, [onValueChange]);
 
     return (
       <div
@@ -9325,7 +9387,7 @@ const SearchBar = React.forwardRef(
         </svg>
 
         <input
-          ref={combinedRef}
+          ref={setInputRef}
           type="search"
           role="searchbox"
           value={value}
@@ -10910,7 +10972,7 @@ const textVariants = cva(
 );
 
 export interface TextProps
-  extends React.HTMLAttributes<HTMLParagraphElement>,
+  extends Omit<React.HTMLAttributes<HTMLParagraphElement>, 'color'>,
     VariantProps<typeof textVariants> {
   /** Render as a different element */
   as?: React.ElementType;
@@ -11846,9 +11908,12 @@ const ToggleGroupContext = React.createContext<VariantProps<typeof buttonVariant
   variant: 'outline',
 });
 
-export interface ToggleGroupProps
-  extends React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root>,
-    VariantProps<typeof buttonVariants> {}
+export type ToggleGroupProps = React.ComponentPropsWithoutRef<
+  typeof ToggleGroupPrimitive.Root
+> &
+  VariantProps<typeof buttonVariants> & {
+  children?: React.ReactNode;
+};
 
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
@@ -11869,7 +11934,9 @@ ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
 
 export interface ToggleGroupItemProps
   extends React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  children?: React.ReactNode;
+}
 
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
@@ -11912,7 +11979,48 @@ const ToggleGroupContext = React.createContext({
   variant: 'outline',
 });
 
-);
+;
+
+const ToggleGroup = React.forwardRef<
+  React.ElementRef<typeof ToggleGroupPrimitive.Root>,
+  ToggleGroupProps
+>(({ className, variant, size, children, ...props }, ref) => (
+  <ToggleGroupPrimitive.Root
+    ref={ref}
+    className={cn('flex items-center justify-center gap-1', className)}
+    {...props}
+  >
+    <ToggleGroupContext.Provider value={{ variant, size }}>
+      {children}
+    </ToggleGroupContext.Provider>
+  </ToggleGroupPrimitive.Root>
+));
+
+ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
+
+const ToggleGroupItem = React.forwardRef<
+  React.ElementRef<typeof ToggleGroupPrimitive.Item>,
+  ToggleGroupItemProps
+>(({ className, children, variant, size, ...props }, ref) => {
+  const context = React.useContext(ToggleGroupContext);
+
+  return (
+    <ToggleGroupPrimitive.Item
+      ref={ref}
+      className={cn(
+        buttonVariants({
+          variant: context.variant || variant,
+          size: context.size || size,
+        }),
+        'data-[state=on]:bg-[var(--color-background-tertiary)]',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </ToggleGroupPrimitive.Item>
+  );
+});
 
 ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
 

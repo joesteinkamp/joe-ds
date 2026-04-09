@@ -31,11 +31,11 @@ export function generateColorScale(config: ColorConfig): ColorScale {
   // Use Leonardo to generate colors with target contrast ratios
   const bgColor = new BackgroundColor({
     name: 'background',
-    colorKeys: [oklchToHex(background)],
+    colorKeys: [oklchToHex(background) as `#${string}`],
     ratios: [1],
   });
 
-  const colorKeys = [oklchToHex(baseColor)];
+  const colorKeys = [oklchToHex(baseColor) as `#${string}`];
   const targetContrasts = config.targetContrasts || DEFAULT_CONTRAST_RATIOS;
 
   // Generate scale using Leonardo
@@ -74,7 +74,7 @@ export function generateColorScale(config: ColorConfig): ColorScale {
   if (config.overrides) {
     Object.entries(config.overrides).forEach(([key, value]) => {
       if (value) {
-        scale[key as keyof ColorScale] = value;
+        scale[key as unknown as keyof ColorScale] = value;
       }
     });
   }
@@ -94,7 +94,7 @@ export function validateColorScale(
   const background: OklchColor = { mode: 'oklch', l: 0.99, c: 0.01, h: 250 };
 
   // Check 600+ shades can be used for text
-  const textShades: (keyof ColorScale)[] = ['600', '700', '800', '900', '950'];
+  const textShades: (keyof ColorScale)[] = [600, 700, 800, 900, 950];
 
   textShades.forEach((shade) => {
     const color = parseOklch(scale[shade]);

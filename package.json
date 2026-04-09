@@ -8,7 +8,8 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "lint": "turbo run lint",
-    "type-check": "turbo run type-check"
+    "type-check": "turbo run type-check",
+    "roadmap:check": "pnpm --dir js-ds-ui quality:check"
   },
   "devDependencies": {
     "turbo": "^2.3.3"
