@@ -1,0 +1,307 @@
+// Copyright 2026 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { describe, it, expect } from 'bun:test';
+import { TailwindEmitterHandler } from './handler.js';
+import { ModelHandler } from '../model/handler.js';
+import type { ParsedDesignSystem } from '../parser/spec.js';
+
+const emitter = new TailwindEmitterHandler();
+const modelHandler = new ModelHandler();
+
+function buildState(overrides: Partial<ParsedDesignSystem> = {}) {
+  const parsed: ParsedDesignSystem = { sourceMap: new Map(), ...overrides };
+  const result = modelHandler.execute(parsed);
+  const hasErrors = result.findings.some(d => d.severity === 'error');
+  if (hasErrors) {
+    throw new Error(`Model build failed: ${result.findings.map(d => d.message).join(', ')}`);
+  }
+  return result.designSystem;
+}
+
+describe('TailwindEmitterHandler', () => {
+  // ── Cycle 22: Colors map to theme.extend.colors ─────────────────
+  describe('colors mapping', () => {
+    it('maps resolved colors to theme.extend.colors', () => {
+      const state = buildState({
+        colors: { primary: '#647D66', secondary: '#ff0000' },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const config = result.data;
+      expect(config.theme.extend.colors?.['primary']).toBe('#647d66');
+      expect(config.theme.extend.colors?.['secondary']).toBe('#ff0000');
+    });
+  });
+
+  // ── Cycle 23: Typography maps to fontFamily + fontSize ──────────
+  describe('typography mapping', () => {
+    it('maps typography scales to fontFamily and fontSize', () => {
+      const state = buildState({
+        typography: {
+          'headline-lg': {
+            fontFamily: 'Google Sans Display',
+            fontSize: '42px',
+            fontWeight: 500,
+            lineHeight: '50px',
+            letterSpacing: '1.2px',
+          },
+          'body-lg': {
+            fontFamily: 'Roboto',
+            fontSize: '14px',
+            fontWeight: 400,
+            lineHeight: '20px',
+          },
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const config = result.data;
+
+      // fontFamily
+      expect(config.theme.extend.fontFamily?.['headline-lg']).toContain('Google Sans Display');
+      expect(config.theme.extend.fontFamily?.['body-lg']).toContain('Roboto');
+
+      // fontSize with metadata tuple
+      const hlFontSize = config.theme.extend.fontSize?.['headline-lg'];
+      expect(hlFontSize).toBeDefined();
+      expect(hlFontSize?.[0]).toBe('42px');
+      expect(hlFontSize?.[1]?.['lineHeight']).toBe('50px');
+      expect(hlFontSize?.[1]?.['letterSpacing']).toBe('1.2px');
+    });
+  });
+
+  // ── Cycle 24: Rounded + spacing map correctly ───────────────────
+  describe('dimensions mapping', () => {
+    it('maps rounded to borderRadius and spacing to spacing', () => {
+      const state = buildState({
+        rounded: { regular: '4px', lg: '8px', full: '9999px' },
+        spacing: { 'gutter-s': '8px', 'gutter-l': '16px' },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const config = result.data;
+
+      expect(config.theme.extend.borderRadius?.['regular']).toBe('4px');
+      expect(config.theme.extend.borderRadius?.['lg']).toBe('8px');
+      expect(config.theme.extend.borderRadius?.['full']).toBe('9999px');
+
+      expect(config.theme.extend.spacing?.['gutter-s']).toBe('8px');
+      expect(config.theme.extend.spacing?.['gutter-l']).toBe('16px');
+    });
+  });
+
+  // ── Empty state produces empty config ─────────────────────────────
+  describe('empty state', () => {
+    it('produces a valid config with empty extend sections', () => {
+      const state = buildState({});
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const config = result.data;
+      expect(config.theme.extend).toBeDefined();
+    });
+  });
+
+  // ── Issue #2: elevation → boxShadow ──────────────────────────────
+  describe('elevation mapping', () => {
+    it('maps elevation tokens to theme.extend.boxShadow', () => {
+      const state = buildState({
+        elevation: {
+          resting: '0 1px 2px rgba(0,0,0,0.06)',
+          raised: '0 4px 8px rgba(0,0,0,0.08)',
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      expect(result.data.theme.extend.boxShadow?.['resting']).toBe('0 1px 2px rgba(0,0,0,0.06)');
+      expect(result.data.theme.extend.boxShadow?.['raised']).toBe('0 4px 8px rgba(0,0,0,0.08)');
+    });
+  });
+
+  // ── Ramps and pairs ───────────────────────────────────────────────
+  describe('ramps and pairs', () => {
+    it('emits ramps as nested objects with DEFAULT and step keys', () => {
+      const state = buildState({
+        colors: { primary: { type: 'ramp', anchor: '#3b82f6', humanName: 'Sky' } },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const colors = result.data.theme.extend.colors!;
+      const primary = colors['primary'];
+      expect(typeof primary).toBe('object');
+      const ramp = primary as Record<string, string>;
+      expect(ramp['DEFAULT']).toBe('#3b82f6');
+      expect(ramp['500']).toBe('#3b82f6');
+      expect(ramp['50']).toBeDefined();
+      expect(ramp['900']).toBeDefined();
+      // Steps should not also leak as top-level entries.
+      expect(colors['primary.500']).toBeUndefined();
+    });
+
+    it('emits standalone pair members under hyphenated flat keys', () => {
+      const state = buildState({
+        colors: {
+          'surface-info': { type: 'pair', container: '#E0F2FE', onContainer: '#0C4A6E' },
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const colors = result.data.theme.extend.colors!;
+      expect(colors['surface-info']).toBe('#e0f2fe');
+      expect(colors['surface-info-foreground']).toBe('#0c4a6e');
+      // The dotted-form internal members must not leak as top-level keys.
+      expect(colors['surface-info.container']).toBeUndefined();
+    });
+
+    it('emits inline-ramp pair flat aliases in M3 form', () => {
+      const state = buildState({
+        colors: {
+          primary: {
+            type: 'ramp',
+            anchor: '#3b82f6',
+            humanName: 'Sky',
+            pairs: { container: { bg: 100, fg: 800 } },
+          },
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const colors = result.data.theme.extend.colors!;
+      expect(colors['primary-container']).toBeDefined();
+      expect(colors['primary-container-foreground']).toBeDefined();
+    });
+  });
+
+  describe('motion mapping', () => {
+    it('emits motion durations and easings as transition tokens', () => {
+      const state = buildState({
+        motion: {
+          duration: { fast: '150ms', medium: '0.25s' },
+          easing: { standard: 'cubic-bezier(0.4, 0, 0.2, 1)', linear: 'linear' },
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      const ext = result.data.theme.extend;
+      expect(ext.transitionDuration?.['fast']).toBe('150ms');
+      expect(ext.transitionDuration?.['medium']).toBe('0.25s');
+      expect(ext.transitionTimingFunction?.['standard']).toBe('cubic-bezier(0.4, 0, 0.2, 1)');
+      expect(ext.transitionTimingFunction?.['linear']).toBe('linear');
+    });
+
+    it('omits transition keys when motion is undeclared', () => {
+      const state = buildState({});
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      expect(result.data.theme.extend.transitionDuration).toEqual({});
+      expect(result.data.theme.extend.transitionTimingFunction).toEqual({});
+    });
+  });
+
+  describe('components plugin (opt-in)', () => {
+    it('omits the plugin block by default', () => {
+      const state = buildState({
+        colors: { primary: '#1A1C1E' },
+        components: { 'btn': { backgroundColor: '{colors.primary}' } },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      expect(result.data.plugin).toBeUndefined();
+    });
+
+    it('emits a plugin object with state variants when opted in', () => {
+      const state = buildState({
+        colors: { primary: '#1A1C1E', accent: '#FFFFFF' },
+        components: {
+          'btn': {
+            backgroundColor: '{colors.primary}',
+            interactive: true,
+            states: {
+              hover: { backgroundColor: '{colors.accent}' },
+              'focus-visible': { outline: '2px solid {colors.accent}' },
+              disabled: { cursor: 'not-allowed' },
+            },
+          },
+        },
+      });
+      const result = emitter.execute(state, { components: true });
+      if (!result.success) throw new Error('Expected success');
+
+      const plugin = result.data.plugin as Record<string, Record<string, unknown>>;
+      expect(plugin).toBeDefined();
+      const btn = plugin['.btn'];
+      expect(btn).toBeDefined();
+      expect(btn?.['background-color']).toBe('#1a1c1e');
+      const hover = btn?.['&:hover'] as Record<string, unknown>;
+      expect(hover?.['background-color']).toBe('#ffffff');
+      const focus = btn?.['&:focus-visible'] as Record<string, unknown>;
+      expect(focus?.['outline']).toContain('solid');
+      const disabled = btn?.['&:disabled, &[aria-disabled="true"]'] as Record<string, unknown>;
+      expect(disabled?.['cursor']).toBe('not-allowed');
+    });
+  });
+
+  describe('themes mapping', () => {
+    it('omits the themes field when no extra themes are declared', () => {
+      const state = buildState({ colors: { primary: '#1A1C1E' } });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+      expect(result.data.themes).toBeUndefined();
+    });
+
+    it('emits per-theme color overrides for dark and high-contrast', () => {
+      const state = buildState({
+        colors: { primary: '#1A1C1E', surface: '#FFFFFF' },
+        themes: {
+          dark: { colors: { primary: '#A3C9FF', surface: '#1A1C1E' } },
+          'high-contrast': {
+            colors: { primary: '#000000', surface: '#FFFFFF' },
+            contrastTarget: { body: 7, large: 4.5, ui: 4.5 },
+          },
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+
+      // Base colors live in theme.extend.colors as the light defaults.
+      expect(result.data.theme.extend.colors?.['primary']).toBe('#1a1c1e');
+
+      // Themes carries the dark and high-contrast overrides.
+      const themes = result.data.themes!;
+      expect(themes['dark']?.colors['primary']).toBe('#a3c9ff');
+      expect(themes['dark']?.colors['surface']).toBe('#1a1c1e');
+      expect(themes['high-contrast']?.colors['primary']).toBe('#000000');
+      expect(themes['high-contrast']?.contrastTarget).toEqual({ body: 7, large: 4.5, ui: 4.5 });
+    });
+
+    it('emits per-theme ramp groups, mirroring the base shape', () => {
+      const state = buildState({
+        colors: { primary: { type: 'ramp', anchor: '#1A1C1E', humanName: 'Charcoal' } },
+        themes: {
+          dark: { colors: { primary: { type: 'ramp', anchor: '#A3C9FF', humanName: 'Sky' } } },
+        },
+      });
+      const result = emitter.execute(state);
+      if (!result.success) throw new Error('Expected success');
+
+      const lightPrimary = result.data.theme.extend.colors?.['primary'] as Record<string, string>;
+      expect(lightPrimary?.['DEFAULT']).toBe('#1a1c1e');
+      expect(lightPrimary?.['500']).toBe('#1a1c1e');
+
+      const darkPrimary = result.data.themes!['dark']?.colors['primary'] as Record<string, string>;
+      expect(darkPrimary?.['DEFAULT']).toBe('#a3c9ff');
+      expect(darkPrimary?.['500']).toBe('#a3c9ff');
+    });
+  });
+});
