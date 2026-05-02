@@ -1,0 +1,757 @@
+// Copyright 2026 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { describe, it, expect } from 'bun:test';
+import { ModelHandler, contrastRatio } from './handler.js';
+import type { ParsedDesignSystem } from '../parser/spec.js';
+
+const handler = new ModelHandler();
+
+function makeParsed(overrides: Partial<ParsedDesignSystem> = {}): ParsedDesignSystem {
+  return {
+    sourceMap: new Map(),
+    ...overrides,
+  };
+}
+
+describe('ModelHandler', () => {
+  // ── Cycle 9: Build symbol table from parsed colors ────────────────
+  describe('symbol table from colors', () => {
+    it('resolves valid hex colors into the symbol table', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#647D66', secondary: '#ff0000' },
+      }));
+      const primary = result.designSystem.symbolTable.get('colors.primary');
+      expect(primary).toBeDefined();
+      expect(typeof primary === 'object' && primary !== null && 'type' in primary && primary.type === 'color').toBe(true);
+      if (typeof primary === 'object' && primary !== null && 'hex' in primary) {
+        expect(primary.hex).toBe('#647d66');
+      }
+
+      expect(result.designSystem.colors.size).toBe(2);
+    });
+    it('emits diagnostic for invalid color format', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: 'invalid-color' },
+      }));
+      expect(result.findings.length).toBe(1);
+      expect(result.findings[0]!.path).toBe('colors.primary');
+      expect(result.findings[0]!.severity).toBe('error');
+    });
+
+    it('normalizes #RGB shorthand to #RRGGBB', () => {
+      const result = handler.execute(makeParsed({
+        colors: { accent: '#abc' },
+      }));
+      const accent = result.designSystem.colors.get('accent');
+      expect(accent?.hex).toBe('#aabbcc');
+    });
+
+    it('normalizes #RGBA shorthand to #RRGGBBAA and extracts alpha', () => {
+      const result = handler.execute(makeParsed({
+        colors: { transparent: '#abc0' },
+      }));
+      const transparent = result.designSystem.colors.get('transparent');
+      expect(transparent?.hex).toBe('#aabbcc00');
+      expect(transparent?.a).toBe(0);
+    });
+
+    it('accepts 8-digit hex colors and extracts alpha', () => {
+      const result = handler.execute(makeParsed({
+        colors: { semitransparent: '#FFFFFFA6' },
+      }));
+      const semitransparent = result.designSystem.colors.get('semitransparent');
+      expect(semitransparent?.hex).toBe('#ffffffa6');
+      expect(semitransparent?.a).toBeCloseTo(166 / 255, 5);
+    });
+  });
+
+  // ── Cycle 10: Resolve single-level token reference ────────────────
+  describe('single-level token reference resolution', () => {
+    it('resolves a direct {section.token} reference in components', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#647D66' },
+        components: {
+          'button-primary': {
+            backgroundColor: '{colors.primary}',
+          },
+        },
+      }));
+      const btn = result.designSystem.components.get('button-primary');
+      expect(btn).toBeDefined();
+      const bg = btn?.properties.get('backgroundColor');
+      expect(typeof bg === 'object' && bg !== null && 'type' in bg && bg.type === 'color').toBe(true);
+    });
+  });
+
+  // ── Cycle 11: Resolve chained token reference ─────────────────────
+  describe('chained token reference resolution', () => {
+    it('resolves chained refs: {a} → {b} → #value', () => {
+      const result = handler.execute(makeParsed({
+        colors: {
+          'brand': '#647D66',
+          'primary': '{colors.brand}' as string,
+        },
+        components: {
+          'button': {
+            backgroundColor: '{colors.primary}',
+          },
+        },
+      }));
+      const btn = result.designSystem.components.get('button');
+      const bg = btn?.properties.get('backgroundColor');
+      expect(typeof bg === 'object' && bg !== null && 'type' in bg && bg.type === 'color').toBe(true);
+      if (typeof bg === 'object' && bg !== null && 'hex' in bg) {
+        expect(bg.hex).toBe('#647d66');
+      }
+    });
+  });
+
+  // ── Cycle 12: Detect circular reference ───────────────────────────
+  describe('circular reference detection', () => {
+    it('detects circular refs and records them as unresolved', () => {
+      const result = handler.execute(makeParsed({
+        colors: {
+          'a': '{colors.b}' as string,
+          'b': '{colors.a}' as string,
+        },
+        components: {
+          'card': {
+            backgroundColor: '{colors.a}',
+          },
+        },
+      }));
+      const card = result.designSystem.components.get('card');
+      expect(card?.unresolvedRefs.length).toBeGreaterThan(0);
+    });
+
+    it('detects long circular reference chains', () => {
+      const result = handler.execute(makeParsed({
+        colors: {
+          'a': '{colors.b}',
+          'b': '{colors.c}',
+          'c': '{colors.d}',
+          'd': '{colors.e}',
+          'e': '{colors.f}',
+          'f': '{colors.g}',
+          'g': '{colors.h}',
+          'h': '{colors.i}',
+          'i': '{colors.j}',
+          'j': '{colors.a}',
+        },
+        components: {
+          'card': {
+            backgroundColor: '{colors.a}',
+          },
+        },
+      }));
+      const card = result.designSystem.components.get('card');
+      expect(card?.unresolvedRefs.length).toBeGreaterThan(0);
+    });
+  });
+
+  // ── Cycle N: Non-standard units are parsed, not dropped ────────────
+  describe('non-standard dimension units', () => {
+    it('emits diagnostic for non-standard dimension units in typography', () => {
+      const result = handler.execute(makeParsed({
+        typography: {
+          'headline': { fontFamily: 'Roboto', fontSize: '32px', letterSpacing: '-0.02vh' },
+        },
+      }));
+      expect(result.findings.length).toBe(1);
+      expect(result.findings[0]!.path).toBe('typography.headline.letterSpacing');
+      expect(result.findings[0]!.severity).toBe('error');
+    });
+  });
+  describe('typography validation', () => {
+    it('emits diagnostic when fontFamily is a hex color', () => {
+      const result = handler.execute(makeParsed({
+        typography: {
+          'headline': { fontFamily: '#ffffff' },
+        },
+      }));
+      expect(result.findings.length).toBe(1);
+      expect(result.findings[0]!.path).toBe('typography.headline.fontFamily');
+      expect(result.findings[0]!.severity).toBe('error');
+    });
+
+    it('emits diagnostic when fontWeight is not a number or valid number string', () => {
+      const result = handler.execute(makeParsed({
+        typography: {
+          'headline': { fontWeight: 'bold' },
+        },
+      }));
+      expect(result.findings.length).toBe(1);
+      expect(result.findings[0]!.path).toBe('typography.headline.fontWeight');
+      expect(result.findings[0]!.severity).toBe('error');
+    });
+
+    it('accepts string representations of numbers for fontWeight', () => {
+      const result = handler.execute(makeParsed({
+        typography: {
+          'headline': { fontWeight: '700' },
+        },
+      }));
+      expect(result.findings.length).toBe(0);
+      const headline = result.designSystem.typography.get('headline');
+      expect(headline?.fontWeight).toBe(700);
+    });
+  });
+
+  describe('rounded validation', () => {
+    it('emits diagnostic for non-standard units in rounded', () => {
+      const result = handler.execute(makeParsed({
+        rounded: { sm: '2vh' },
+      }));
+      expect(result.findings.length).toBe(1);
+      expect(result.findings[0]!.path).toBe('rounded.sm');
+      expect(result.findings[0]!.severity).toBe('error');
+    });
+  });
+
+  // ── Cycle 13: Compute WCAG contrast ratio ─────────────────────────
+
+  describe('WCAG contrast ratio', () => {
+    it('computes correct contrast ratio for black on white (21:1)', () => {
+      const result = handler.execute(makeParsed({
+        colors: { black: '#000000', white: '#ffffff' },
+      }));
+      const black = result.designSystem.colors.get('black');
+      const white = result.designSystem.colors.get('white');
+      expect(black).toBeDefined();
+      expect(white).toBeDefined();
+
+      const ratio = contrastRatio(black!, white!);
+      expect(ratio).toBeCloseTo(21, 0);
+    });
+
+    it('computes correct contrast for identical colors (1:1)', () => {
+      const result = handler.execute(makeParsed({
+        colors: { red1: '#ff0000', red2: '#ff0000' },
+      }));
+      const ratio = contrastRatio(result.designSystem.colors.get('red1')!, result.designSystem.colors.get('red2')!);
+      expect(ratio).toBeCloseTo(1, 1);
+    });
+  });
+
+  describe('component states', () => {
+    it('parses interactive flag and produces resolvedStates merged from base', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#1A1C1E', accent: '#FF0000' },
+        components: {
+          'btn': {
+            backgroundColor: '{colors.primary}',
+            padding: '12px',
+            interactive: true,
+            states: {
+              hover: { backgroundColor: '{colors.accent}' },
+            },
+          },
+        },
+      }));
+      const btn = result.designSystem.components.get('btn');
+      expect(btn).toBeDefined();
+      expect(btn?.interactive).toBe(true);
+      expect(btn?.states.size).toBe(1);
+      const hover = btn?.resolvedStates.get('hover');
+      expect(hover).toBeDefined();
+      // Merged: base padding survives, hover backgroundColor overrides base
+      expect(hover?.has('padding')).toBe(true);
+      const bg = hover?.get('backgroundColor');
+      expect(typeof bg === 'object' && bg !== null && 'hex' in bg && bg.hex).toBe('#ff0000');
+    });
+
+    it('records unresolved refs from inside state overrides', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#1A1C1E' },
+        components: {
+          'btn': {
+            backgroundColor: '{colors.primary}',
+            interactive: true,
+            states: {
+              hover: { backgroundColor: '{colors.does-not-exist}' },
+            },
+          },
+        },
+      }));
+      const btn = result.designSystem.components.get('btn');
+      expect(btn?.unresolvedRefs).toContain('{colors.does-not-exist}');
+    });
+
+    it('omits states when none are declared', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#1A1C1E' },
+        components: {
+          'btn': { backgroundColor: '{colors.primary}' },
+        },
+      }));
+      const btn = result.designSystem.components.get('btn');
+      expect(btn?.states.size).toBe(0);
+      expect(btn?.resolvedStates.size).toBe(0);
+      expect(btn?.interactive).toBeUndefined();
+    });
+  });
+
+  describe('return signature', () => {
+    it('returns findings array', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#647D66' },
+      }));
+      expect(result.findings).toBeDefined();
+    });
+  });
+
+  // ── Fix #25: rounded and spacing token references ─────────────────
+  describe('rounded token reference resolution', () => {
+    it('resolves a direct token reference in rounded', () => {
+      const result = handler.execute(makeParsed({
+        rounded: {
+          sm: '4px',
+          button: '{rounded.sm}' as string,
+        },
+      }));
+      const button = result.designSystem.rounded.get('button');
+      expect(button).toBeDefined();
+      expect(button?.value).toBe(4);
+      expect(button?.unit).toBe('px');
+    });
+
+    it('resolves a chained token reference in rounded', () => {
+      const result = handler.execute(makeParsed({
+        rounded: {
+          sm: '4px',
+          md: '{rounded.sm}' as string,
+          card: '{rounded.md}' as string,
+        },
+      }));
+      const card = result.designSystem.rounded.get('card');
+      expect(card).toBeDefined();
+      expect(card?.value).toBe(4);
+      expect(card?.unit).toBe('px');
+    });
+
+    it('resolved rounded reference appears in symbol table', () => {
+      const result = handler.execute(makeParsed({
+        rounded: {
+          sm: '4px',
+          button: '{rounded.sm}' as string,
+        },
+      }));
+      const sym = result.designSystem.symbolTable.get('rounded.button');
+      expect(sym).toBeDefined();
+      expect(typeof sym === 'object' && sym !== null && 'type' in sym && sym.type === 'dimension').toBe(true);
+    });
+  });
+
+  describe('spacing token reference resolution', () => {
+    it('resolves a direct token reference in spacing', () => {
+      const result = handler.execute(makeParsed({
+        spacing: {
+          base: '8px',
+          'button-padding': '{spacing.base}' as string,
+        },
+      }));
+      const buttonPadding = result.designSystem.spacing.get('button-padding');
+      expect(buttonPadding).toBeDefined();
+      expect(buttonPadding?.value).toBe(8);
+      expect(buttonPadding?.unit).toBe('px');
+    });
+
+    it('resolves a chained token reference in spacing', () => {
+      const result = handler.execute(makeParsed({
+        spacing: {
+          base: '8px',
+          md: '{spacing.base}' as string,
+          'section-gap': '{spacing.md}' as string,
+        },
+      }));
+      const sectionGap = result.designSystem.spacing.get('section-gap');
+      expect(sectionGap).toBeDefined();
+      expect(sectionGap?.value).toBe(8);
+      expect(sectionGap?.unit).toBe('px');
+    });
+
+    it('resolved spacing reference appears in symbol table', () => {
+      const result = handler.execute(makeParsed({
+        spacing: {
+          base: '8px',
+          'button-padding': '{spacing.base}' as string,
+        },
+      }));
+      const sym = result.designSystem.symbolTable.get('spacing.button-padding');
+      expect(sym).toBeDefined();
+      expect(typeof sym === 'object' && sym !== null && 'type' in sym && sym.type === 'dimension').toBe(true);
+    });
+
+    it('resolved spacing reference propagates correctly to component resolution', () => {
+      const result = handler.execute(makeParsed({
+        spacing: {
+          base: '8px',
+          'button-padding': '{spacing.base}' as string,
+        },
+        components: {
+          'button-primary': {
+            padding: '{spacing.button-padding}',
+          },
+        },
+      }));
+      const btn = result.designSystem.components.get('button-primary');
+      const padding = btn?.properties.get('padding');
+      expect(typeof padding === 'object' && padding !== null && 'type' in padding && padding.type === 'dimension').toBe(true);
+      if (typeof padding === 'object' && padding !== null && 'value' in padding) {
+        expect(padding.value).toBe(8);
+      }
+    });
+  });
+
+  // ── Issue #2: typed component sub-token validation ───────────────
+  describe('typed component sub-token validation', () => {
+    it('emits error for opacity > 1', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { opacity: '2' } },
+      }));
+      const errs = result.findings.filter(f => f.severity === 'error');
+      expect(errs.length).toBe(1);
+      expect(errs[0]!.path).toBe('components.card.opacity');
+    });
+
+    it('emits error for malformed border shorthand', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { border: '1px squiggly #000' } },
+      }));
+      const errs = result.findings.filter(f => f.severity === 'error');
+      expect(errs.length).toBe(1);
+      expect(errs[0]!.path).toBe('components.card.border');
+    });
+
+    it('emits error for shadow without a color', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { shadow: '0 4px 8px' } },
+      }));
+      const errs = result.findings.filter(f => f.severity === 'error');
+      expect(errs.length).toBe(1);
+    });
+
+    it('emits error for transition with non-time duration', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { transition: 'opacity 200px ease-out' } },
+      }));
+      const errs = result.findings.filter(f => f.severity === 'error');
+      expect(errs.length).toBe(1);
+    });
+
+    it('accepts iconSize: auto', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { iconSize: 'auto' } },
+      }));
+      expect(result.findings.filter(f => f.severity === 'error').length).toBe(0);
+    });
+
+    it('accepts padding shorthand (12px 16px)', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { padding: '12px 16px' } },
+      }));
+      expect(result.findings.filter(f => f.severity === 'error').length).toBe(0);
+    });
+
+    it('skips validation for token references', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#ff0000' },
+        components: { card: { borderColor: '{colors.primary}' } },
+      }));
+      expect(result.findings.filter(f => f.severity === 'error').length).toBe(0);
+    });
+  });
+
+  describe('elevation token group', () => {
+    it('parses elevation entries into the state', () => {
+      const result = handler.execute(makeParsed({
+        elevation: {
+          raised: '0 4px 8px rgba(0,0,0,0.08)',
+          modal: '0 24px 48px rgba(0,0,0,0.16)',
+        },
+      }));
+      expect(result.designSystem.elevation.size).toBe(2);
+      const raised = result.designSystem.elevation.get('raised');
+      expect(raised?.type).toBe('shadow');
+      expect(raised?.raw).toBe('0 4px 8px rgba(0,0,0,0.08)');
+    });
+
+    it('resolves component shadow via {elevation.*} reference', () => {
+      const result = handler.execute(makeParsed({
+        elevation: { raised: '0 4px 8px rgba(0,0,0,0.08)' },
+        components: { card: { shadow: '{elevation.raised}' } },
+      }));
+      const shadow = result.designSystem.components.get('card')?.properties.get('shadow');
+      expect(typeof shadow === 'object' && shadow !== null && 'type' in shadow && shadow.type === 'shadow').toBe(true);
+    });
+
+    it('resolves bare elevation: raised against the elevation map', () => {
+      const result = handler.execute(makeParsed({
+        elevation: { raised: '0 4px 8px rgba(0,0,0,0.08)' },
+        components: { card: { elevation: 'raised' } },
+      }));
+      const elevation = result.designSystem.components.get('card')?.properties.get('elevation');
+      expect(typeof elevation === 'object' && elevation !== null && 'type' in elevation && elevation.type === 'shadow').toBe(true);
+    });
+  });
+
+  describe('motion parsing', () => {
+    it('parses durations and easings into the model + symbol table', () => {
+      const result = handler.execute(makeParsed({
+        motion: {
+          duration: { fast: '150ms', slow: '0.4s' },
+          easing: { standard: 'cubic-bezier(0.4, 0, 0.2, 1)', linear: 'linear' },
+        },
+      }));
+      const ds = result.designSystem;
+      expect(ds.motion.duration.get('fast')?.value).toBe(150);
+      expect(ds.motion.duration.get('fast')?.unit).toBe('ms');
+      expect(ds.motion.duration.get('slow')?.unit).toBe('s');
+      expect(ds.motion.easing.get('standard')?.controlPoints).toEqual([0.4, 0, 0.2, 1]);
+      expect(ds.motion.easing.get('linear')?.raw).toBe('linear');
+      expect(ds.symbolTable.get('motion.duration.fast')).toBeDefined();
+      expect(ds.symbolTable.get('motion.easing.standard')).toBeDefined();
+    });
+
+    it('rejects malformed durations and easings with error findings', () => {
+      const result = handler.execute(makeParsed({
+        motion: {
+          duration: { broken: '100' },
+          easing: { weird: 'wiggle()' },
+        },
+      }));
+      const errors = result.findings.filter(f => f.severity === 'error');
+      expect(errors.some(e => e.path === 'motion.duration.broken')).toBe(true);
+      expect(errors.some(e => e.path === 'motion.easing.weird')).toBe(true);
+    });
+
+    it('warns when reducedMotion references undeclared duration / easing', () => {
+      const result = handler.execute(makeParsed({
+        motion: {
+          duration: { fast: '150ms' },
+          easing: { standard: 'ease-in' },
+          reducedMotion: { duration: 'instant', easing: 'standard' },
+        },
+      }));
+      expect(result.findings.some(f => f.path === 'motion.reducedMotion.duration')).toBe(true);
+    });
+
+    it('substitutes embedded motion refs in component transitions', () => {
+      const result = handler.execute(makeParsed({
+        motion: {
+          duration: { fast: '150ms' },
+          easing: { standard: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+        },
+        components: {
+          btn: { transition: 'opacity {motion.duration.fast} {motion.easing.standard}' },
+        },
+      }));
+      const transition = result.designSystem.components.get('btn')?.properties.get('transition');
+      expect(transition).toBe('opacity 150ms cubic-bezier(0.4, 0, 0.2, 1)');
+    });
+  });
+
+  describe('iconography parsing', () => {
+    it('parses library + sizes + stroke weight + color binding', () => {
+      const result = handler.execute(makeParsed({
+        iconography: {
+          library: { name: 'lucide', version: '0.451.0', style: 'outlined' },
+          strokeWeight: '1.5px',
+          sizes: { sm: '16px', md: '20px' },
+          defaultSize: 'md',
+          colorBinding: 'currentColor',
+        },
+      }));
+      const ico = result.designSystem.iconography!;
+      expect(ico.library.name).toBe('lucide');
+      expect(ico.library.style).toBe('outlined');
+      expect(ico.sizes.get('sm')?.value).toBe(16);
+      expect(ico.strokeWeight?.value).toBe(1.5);
+      expect(ico.colorBinding).toBe('currentColor');
+      expect(result.designSystem.symbolTable.get('iconography.sizes.md')).toBeDefined();
+    });
+
+    it('warns on unknown library name (not in closed enum)', () => {
+      const result = handler.execute(makeParsed({
+        iconography: {
+          library: { name: 'made-up-icons', style: 'outlined' },
+          sizes: { md: '20px' },
+        },
+      }));
+      expect(result.findings.some(f => f.path === 'iconography.library.name')).toBe(true);
+    });
+
+    it('rejects iconography without a library name', () => {
+      const result = handler.execute(makeParsed({
+        iconography: { sizes: { md: '20px' } },
+      }));
+      expect(result.designSystem.iconography).toBeUndefined();
+      expect(result.findings.some(f => f.severity === 'error' && f.path === 'iconography.library')).toBe(true);
+    });
+  });
+
+  describe('component registry', () => {
+    it('omits componentRegistry when not declared (open-world back-compat)', () => {
+      const result = handler.execute(makeParsed({
+        components: { card: { backgroundColor: '#000' } },
+      }));
+      expect(result.designSystem.componentRegistry).toBeUndefined();
+    });
+
+    it('builds the registry map with kind-derived interactivity', () => {
+      const result = handler.execute(makeParsed({
+        componentRegistry: [
+          { name: 'button-primary', kind: 'button' },
+          { name: 'card', kind: 'container' },
+        ],
+        components: {
+          'button-primary': { backgroundColor: '#000' },
+          card: { backgroundColor: '#fff' },
+        },
+      }));
+      const registry = result.designSystem.componentRegistry!;
+      expect(registry.get('button-primary')!.interactive).toBe(true);
+      expect(registry.get('card')!.interactive).toBe(false);
+    });
+
+    it('lets explicit interactive override the kind default', () => {
+      const result = handler.execute(makeParsed({
+        componentRegistry: [
+          { name: 'card', kind: 'container', interactive: true },
+        ],
+        components: { card: { backgroundColor: '#000' } },
+      }));
+      expect(result.designSystem.componentRegistry!.get('card')!.interactive).toBe(true);
+    });
+
+    it('pre-merges composed properties before child overrides', () => {
+      const result = handler.execute(makeParsed({
+        colors: { primary: '#ff0000' },
+        componentRegistry: [
+          { name: 'card', kind: 'container' },
+          { name: 'card-elevated', kind: 'container', composes: 'card' },
+        ],
+        components: {
+          card: { backgroundColor: '{colors.primary}', padding: '12px' },
+          'card-elevated': { padding: '24px' },
+        },
+      }));
+      const elevated = result.designSystem.components.get('card-elevated')!;
+      const bg = elevated.properties.get('backgroundColor');
+      // Inherited from card.
+      expect(typeof bg === 'object' && bg !== null && 'type' in bg && bg.type === 'color').toBe(true);
+      // Own override wins.
+      const padding = elevated.properties.get('padding');
+      expect(typeof padding === 'object' && padding !== null && 'value' in padding ? padding.value : null).toBe(24);
+    });
+
+    it('short-circuits composes cycles without crashing', () => {
+      const result = handler.execute(makeParsed({
+        componentRegistry: [
+          { name: 'a', kind: 'container', composes: 'b' },
+          { name: 'b', kind: 'container', composes: 'a' },
+        ],
+        components: { a: { padding: '12px' }, b: { padding: '8px' } },
+      }));
+      // Build succeeded; the linter rule reports the cycle.
+      expect(result.designSystem.components.has('a')).toBe(true);
+      expect(result.designSystem.components.has('b')).toBe(true);
+    });
+  });
+
+  // ── Voice + Copy ─────────────────────────────────────────────────
+  describe('voice and copy parsing', () => {
+    it('parses voice axes with valid integer values', () => {
+      const result = handler.execute(makeParsed({
+        voice: { formality: 3, warmth: 4, person: 'second' },
+      }));
+      const voice = result.designSystem.voice!;
+      expect(voice.axes.get('formality')).toBe(3);
+      expect(voice.axes.get('warmth')).toBe(4);
+      expect(voice.person).toBe('second');
+    });
+
+    it('errors on out-of-range voice axis', () => {
+      const result = handler.execute(makeParsed({
+        voice: { formality: 7 },
+      }));
+      const errs = result.findings.filter(f => f.severity === 'error' && f.path === 'voice.formality');
+      expect(errs.length).toBe(1);
+      expect(result.designSystem.voice?.axes.has('formality')).toBe(false);
+    });
+
+    it('errors on invalid voice.person', () => {
+      const result = handler.execute(makeParsed({
+        voice: { person: 'fourth' },
+      }));
+      const errs = result.findings.filter(f => f.severity === 'error' && f.path === 'voice.person');
+      expect(errs.length).toBe(1);
+    });
+
+    it('warns on unknown voice key', () => {
+      const result = handler.execute(makeParsed({
+        voice: { vibe: 5 },
+      }));
+      const warns = result.findings.filter(f => f.severity === 'warning' && f.path === 'voice.vibe');
+      expect(warns.length).toBe(1);
+    });
+
+    it('parses copy block with casing, banned terms, and approved terms', () => {
+      const result = handler.execute(makeParsed({
+        copy: {
+          casing: { button: 'sentence-case', nav: 'title-case' },
+          bannedTerms: ['seamless'],
+          approvedTerms: { user: 'customer' },
+          buttonLabelMaxWords: 3,
+        },
+      }));
+      const copy = result.designSystem.copy!;
+      expect(copy.casing.get('button')).toBe('sentence-case');
+      expect(copy.casing.get('nav')).toBe('title-case');
+      expect(copy.bannedTerms).toEqual(['seamless']);
+      expect(copy.approvedTerms.get('user')).toBe('customer');
+      expect(copy.buttonLabelMaxWords).toBe(3);
+    });
+
+    it('compiles bannedRegex with case-insensitive inline flag', () => {
+      const result = handler.execute(makeParsed({
+        copy: { bannedRegex: ['(?i)\\bgame[- ]?changer\\b'] },
+      }));
+      const copy = result.designSystem.copy!;
+      expect(copy.bannedRegex.length).toBe(1);
+      expect(copy.bannedRegex[0]!.pattern.flags).toContain('i');
+      expect(copy.bannedRegex[0]!.pattern.test('Game-Changer')).toBe(true);
+    });
+
+    it('errors on invalid casing surface and value', () => {
+      const result = handler.execute(makeParsed({
+        copy: {
+          casing: { button: 'whateverCase', toolbar: 'sentence-case' },
+        },
+      }));
+      const enumErr = result.findings.filter(f => f.path === 'copy.casing.button');
+      expect(enumErr.length).toBe(1);
+      const surfaceWarn = result.findings.filter(f => f.path === 'copy.casing.toolbar');
+      expect(surfaceWarn.length).toBe(1);
+    });
+
+    it('exposes voice.* references via the symbol table', () => {
+      const result = handler.execute(makeParsed({
+        voice: { warmth: 4 },
+      }));
+      expect(result.designSystem.symbolTable.get('voice.warmth')).toBe('4');
+    });
+  });
+});
