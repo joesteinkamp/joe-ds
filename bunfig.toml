@@ -1,0 +1,6 @@
+[install]
+# Use exact versions; reproducible installs.
+exact = true
+
+[install.scopes]
+# Default registry; override per-scope here if needed.
