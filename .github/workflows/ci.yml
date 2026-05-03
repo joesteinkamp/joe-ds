@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      - name: Install workspace deps
+        run: bun install --frozen-lockfile
+
+      - name: Install vendor/design-md deps
+        run: bun install --frozen-lockfile
+        working-directory: vendor/design-md
+
+      - name: Lint DESIGN.md
+        run: bun run tokens:lint
+
+      - name: Build tokens
+        run: bun run tokens
+
+      - name: Type-check
+        run: bun --filter='*' run type-check
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build
+        run: bun --filter='*' run build

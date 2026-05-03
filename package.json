@@ -1,0 +1,28 @@
+{
+  "name": "joe-ds",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A modern design system built on Base UI, Tailwind v4, and DESIGN.md tokens.",
+  "workspaces": ["apps/*", "packages/*", "tools/*"],
+  "scripts": {
+    "dev": "bun --filter docs dev",
+    "build": "bun run tokens && bun --filter '*' run build",
+    "type-check": "bun --filter '*' run type-check",
+    "lint": "bunx biome check .",
+    "format": "bunx biome format --write .",
+    "tokens": "bun run tokens:design && bun run tokens:build",
+    "tokens:design": "bun run vendor/design-md/packages/cli/src/index.ts export --format dtcg DESIGN.md > tokens/design.json",
+    "tokens:lint": "bun run vendor/design-md/packages/cli/src/index.ts lint DESIGN.md",
+    "tokens:build": "bun run tools/build-tokens/index.ts",
+    "scaffold": "bun run tools/scaffold-component/index.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "packageManager": "bun@1.3.11"
+}

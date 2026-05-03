@@ -1,0 +1,11 @@
+{
+  "$component": "slider",
+  "$description": "Slider component-scoped tokens. Aliases semantic primitives.",
+  "light": {
+    "bg": "{colors.bg-default}",
+    "fg": "{colors.fg-default}",
+    "border": "{colors.border-default}",
+    "ring": "{colors.ring-default}"
+  },
+  "dark": {}
+}

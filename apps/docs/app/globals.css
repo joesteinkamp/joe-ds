@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "@joe-ds/ui/styles/tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Map our generated CSS variables (from DESIGN.md + per-component tokens) into
+ * Tailwind v4's @theme namespaces so utilities like bg-bg-default, text-fg-muted
+ * etc. resolve directly. Keep this list aligned with semantic tokens in DESIGN.md.
+ */
+@theme {
+  --color-bg-default: var(--bg-default);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-muted: var(--bg-muted);
+  --color-bg-inverted: var(--bg-inverted);
+  --color-fg-default: var(--fg-default);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-inverted: var(--fg-inverted);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-ring: var(--ring-default);
+  --color-accent: var(--accent-default);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-hover: var(--accent-hover);
+  --color-success: var(--success-default);
+  --color-warning: var(--warning-default);
+  --color-danger: var(--danger-default);
+
+  --radius-sm: var(--rounded-sm);
+  --radius: var(--rounded);
+  --radius-md: var(--rounded-md);
+  --radius-lg: var(--rounded-lg);
+  --radius-xl: var(--rounded-xl);
+  --radius-full: var(--rounded-full);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  background-color: var(--bg-default);
+  color: var(--fg-default);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
