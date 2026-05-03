@@ -1,22 +1,69 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Dialog as BaseDialog } from '@base-ui-components/react/dialog';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Dialog as BaseDialog } from '@base-ui-components/react/dialog';
-// Then export a typed wrapper that consumes `var(--dialog-*)` CSS variables
-// declared in dialog.tokens.json.
+const Backdrop = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseDialog.Backdrop>>(
+  function DialogBackdrop({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseDialog.Backdrop
+        ref={ref}
+        {...props}
+        className={cn(
+          'fixed inset-0 z-50 bg-[var(--dialog-backdrop-bg)] backdrop-blur-sm',
+          'data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 transition-opacity duration-150',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export interface DialogProps {
-  className?: string;
-  children?: ReactNode;
-}
+const Popup = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseDialog.Popup>>(
+  function DialogPopup({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseDialog.Popup
+        ref={ref}
+        {...props}
+        className={cn(
+          'fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2',
+          'rounded-lg border border-[var(--dialog-border)] bg-[var(--dialog-bg)] p-6 text-fg-default shadow-xl outline-none',
+          'data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 transition-opacity duration-150',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export function Dialog({ className, children }: DialogProps): React.ReactNode {
+const Title = forwardRef<HTMLHeadingElement, ComponentPropsWithoutRef<typeof BaseDialog.Title>>(
+  function DialogTitle({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseDialog.Title
+        ref={ref}
+        {...props}
+        className={cn('text-lg font-semibold text-fg-default', className)}
+      />
+    );
+  },
+);
+
+const Description = forwardRef<
+  HTMLParagraphElement,
+  ComponentPropsWithoutRef<typeof BaseDialog.Description>
+>(function DialogDescription({ className, ...props }, ref) {
+  // @ts-ignore — ref polymorphism
   return (
-    <div data-component="dialog" className={cn(className)}>
-      {children}
-    </div>
+    <BaseDialog.Description
+      ref={ref}
+      {...props}
+      className={cn('mt-2 text-sm text-fg-muted', className)}
+    />
   );
-}
+});
+
+export const Dialog = { ...BaseDialog, Backdrop, Popup, Title, Description };

@@ -1,22 +1,24 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Input as BaseInput } from '@base-ui-components/react/input';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Input as BaseInput } from '@base-ui-components/react/input';
-// Then export a typed wrapper that consumes `var(--input-*)` CSS variables
-// declared in input.tokens.json.
-
-export interface InputProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function Input({ className, children }: InputProps): React.ReactNode {
-  return (
-    <div data-component="input" className={cn(className)}>
-      {children}
-    </div>
-  );
-}
+export const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<typeof BaseInput>>(
+  function Input({ className, ...props }, ref) {
+    return (
+      // @ts-ignore — ref polymorphism
+      <BaseInput
+        ref={ref}
+        {...props}
+        className={cn(
+          'h-9 w-full rounded-md border bg-[var(--input-bg)] text-fg-default border-[var(--input-border)] px-3 text-sm outline-none',
+          'placeholder:text-fg-subtle',
+          'focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-[var(--input-border-focus)]',
+          'disabled:cursor-not-allowed disabled:opacity-50',
+          className,
+        )}
+      />
+    );
+  },
+);

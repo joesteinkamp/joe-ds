@@ -1,11 +1,8 @@
 {
   "$component": "avatar",
-  "$description": "Avatar component-scoped tokens. Aliases semantic primitives.",
   "light": {
-    "bg": "{colors.bg-default}",
-    "fg": "{colors.fg-default}",
-    "border": "{colors.border-default}",
-    "ring": "{colors.ring-default}"
+    "bg": "{colors.bg-subtle}",
+    "fallback-fg": "{colors.fg-muted}"
   },
   "dark": {}
 }

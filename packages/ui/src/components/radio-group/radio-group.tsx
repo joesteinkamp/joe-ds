@@ -1,22 +1,15 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { RadioGroup as BaseRadioGroup } from '@base-ui-components/react/radio-group';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { RadioGroup as BaseRadioGroup } from '@base-ui-components/react/radio-group';
-// Then export a typed wrapper that consumes `var(--radio-group-*)` CSS variables
-// declared in radio-group.tokens.json.
-
-export interface RadioGroupProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function RadioGroup({ className, children }: RadioGroupProps): React.ReactNode {
+export const RadioGroup = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithoutRef<typeof BaseRadioGroup>
+>(function RadioGroup({ className, ...props }, ref) {
   return (
-    <div data-component="radio-group" className={cn(className)}>
-      {children}
-    </div>
+    // @ts-ignore — ref polymorphism
+    <BaseRadioGroup ref={ref} {...props} className={cn('flex flex-col gap-2', className)} />
   );
-}
+});

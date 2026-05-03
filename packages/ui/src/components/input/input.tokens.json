@@ -1,11 +1,10 @@
 {
   "$component": "input",
-  "$description": "Input component-scoped tokens. Aliases semantic primitives.",
+  "$description": "Text input. Tokens cover the surface, border, and focus state.",
   "light": {
     "bg": "{colors.bg-default}",
-    "fg": "{colors.fg-default}",
     "border": "{colors.border-default}",
-    "ring": "{colors.ring-default}"
+    "border-focus": "{colors.ring-default}"
   },
   "dark": {}
 }

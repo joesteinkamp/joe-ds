@@ -1,22 +1,24 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { PreviewCard as BasePreviewCard } from '@base-ui-components/react/preview-card';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { PreviewCard as BasePreviewCard } from '@base-ui-components/react/preview-card';
-// Then export a typed wrapper that consumes `var(--preview-card-*)` CSS variables
-// declared in preview-card.tokens.json.
+const Popup = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BasePreviewCard.Popup>>(
+  function PreviewCardPopup({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BasePreviewCard.Popup
+        ref={ref}
+        {...props}
+        className={cn(
+          'rounded-md border border-[var(--preview-card-border)] bg-[var(--preview-card-bg)] p-3 text-sm text-fg-default outline-none',
+          'shadow-lg shadow-black/5',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export interface PreviewCardProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function PreviewCard({ className, children }: PreviewCardProps): React.ReactNode {
-  return (
-    <div data-component="preview-card" className={cn(className)}>
-      {children}
-    </div>
-  );
-}
+export const PreviewCard = { ...BasePreviewCard, Popup };

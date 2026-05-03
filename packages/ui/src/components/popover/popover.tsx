@@ -1,22 +1,52 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Popover as BasePopover } from '@base-ui-components/react/popover';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Popover as BasePopover } from '@base-ui-components/react/popover';
-// Then export a typed wrapper that consumes `var(--popover-*)` CSS variables
-// declared in popover.tokens.json.
+const Popup = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BasePopover.Popup>>(
+  function PopoverPopup({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BasePopover.Popup
+        ref={ref}
+        {...props}
+        className={cn(
+          'rounded-md border border-[var(--popover-border)] bg-[var(--popover-bg)] p-4 text-sm text-fg-default outline-none',
+          'shadow-lg shadow-black/5',
+          'data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 transition-opacity duration-100',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export interface PopoverProps {
-  className?: string;
-  children?: ReactNode;
-}
+const Title = forwardRef<HTMLHeadingElement, ComponentPropsWithoutRef<typeof BasePopover.Title>>(
+  function PopoverTitle({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BasePopover.Title
+        ref={ref}
+        {...props}
+        className={cn('text-sm font-semibold text-fg-default', className)}
+      />
+    );
+  },
+);
 
-export function Popover({ className, children }: PopoverProps): React.ReactNode {
+const Description = forwardRef<
+  HTMLParagraphElement,
+  ComponentPropsWithoutRef<typeof BasePopover.Description>
+>(function PopoverDescription({ className, ...props }, ref) {
+  // @ts-ignore — ref polymorphism
   return (
-    <div data-component="popover" className={cn(className)}>
-      {children}
-    </div>
+    <BasePopover.Description
+      ref={ref}
+      {...props}
+      className={cn('text-sm text-fg-muted', className)}
+    />
   );
-}
+});
+
+export const Popover = { ...BasePopover, Popup, Title, Description };

@@ -1,0 +1,10 @@
+{
+  "$component": "radio",
+  "light": {
+    "bg": "{colors.bg-default}",
+    "border": "{colors.border-strong}",
+    "checked-border": "{colors.accent-default}",
+    "indicator-bg": "{colors.accent-default}"
+  },
+  "dark": {}
+}

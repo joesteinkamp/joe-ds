@@ -1,22 +1,41 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { ContextMenu as BaseContextMenu } from '@base-ui-components/react/context-menu';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { ContextMenu as BaseContextMenu } from '@base-ui-components/react/context-menu';
-// Then export a typed wrapper that consumes `var(--context-menu-*)` CSS variables
-// declared in context-menu.tokens.json.
+const Popup = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseContextMenu.Popup>>(
+  function ContextMenuPopup({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseContextMenu.Popup
+        ref={ref}
+        {...props}
+        className={cn(
+          'min-w-32 rounded-md border border-[var(--context-menu-border)] bg-[var(--context-menu-bg)] p-1 text-fg-default outline-none',
+          'shadow-lg shadow-black/5',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export interface ContextMenuProps {
-  className?: string;
-  children?: ReactNode;
-}
+const Item = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseContextMenu.Item>>(
+  function ContextMenuItem({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseContextMenu.Item
+        ref={ref}
+        {...props}
+        className={cn(
+          'flex cursor-default select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
+          'data-[highlighted]:bg-[var(--context-menu-item-hover-bg)] data-[disabled]:opacity-50',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export function ContextMenu({ className, children }: ContextMenuProps): React.ReactNode {
-  return (
-    <div data-component="context-menu" className={cn(className)}>
-      {children}
-    </div>
-  );
-}
+export const ContextMenu = { ...BaseContextMenu, Popup, Item };

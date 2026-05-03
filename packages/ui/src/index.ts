@@ -1,8 +1,9 @@
 export { cn } from './lib/cn';
-// Component re-exports are appended by the scaffold tool.
+
 export { Accordion } from './components/accordion';
 export { AlertDialog } from './components/alert-dialog';
 export { Avatar } from './components/avatar';
+export { Button, type ButtonProps } from './components/button';
 export { Checkbox } from './components/checkbox';
 export { CheckboxGroup } from './components/checkbox-group';
 export { Collapsible } from './components/collapsible';
@@ -19,6 +20,7 @@ export { NumberField } from './components/number-field';
 export { Popover } from './components/popover';
 export { PreviewCard } from './components/preview-card';
 export { Progress } from './components/progress';
+export { Radio } from './components/radio';
 export { RadioGroup } from './components/radio-group';
 export { ScrollArea } from './components/scroll-area';
 export { Select } from './components/select';

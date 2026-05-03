@@ -1,11 +1,9 @@
 {
   "$component": "tabs",
-  "$description": "Tabs component-scoped tokens. Aliases semantic primitives.",
   "light": {
-    "bg": "{colors.bg-default}",
-    "fg": "{colors.fg-default}",
-    "border": "{colors.border-default}",
-    "ring": "{colors.ring-default}"
+    "list-bg": "{colors.bg-subtle}",
+    "tab-active-bg": "{colors.bg-default}",
+    "tab-active-fg": "{colors.fg-default}"
   },
   "dark": {}
 }

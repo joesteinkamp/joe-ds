@@ -1,11 +1,10 @@
 {
   "$component": "checkbox",
-  "$description": "Checkbox component-scoped tokens. Aliases semantic primitives.",
   "light": {
     "bg": "{colors.bg-default}",
-    "fg": "{colors.fg-default}",
-    "border": "{colors.border-default}",
-    "ring": "{colors.ring-default}"
+    "border": "{colors.border-strong}",
+    "checked-bg": "{colors.accent-default}",
+    "checked-fg": "{colors.accent-fg}"
   },
   "dark": {}
 }

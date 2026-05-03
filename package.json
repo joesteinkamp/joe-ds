@@ -13,8 +13,7 @@
     "tokens": "bun run tokens:design && bun run tokens:build",
     "tokens:design": "bun run vendor/design-md/packages/cli/src/index.ts export --format dtcg DESIGN.md > tokens/design.json",
     "tokens:lint": "bun run vendor/design-md/packages/cli/src/index.ts lint DESIGN.md",
-    "tokens:build": "bun run tools/build-tokens/index.ts",
-    "scaffold": "bun run tools/scaffold-component/index.ts"
+    "tokens:build": "bun run tools/build-tokens/index.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

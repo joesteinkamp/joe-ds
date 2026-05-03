@@ -1,11 +1,11 @@
 {
   "$component": "select",
-  "$description": "Select component-scoped tokens. Aliases semantic primitives.",
   "light": {
-    "bg": "{colors.bg-default}",
-    "fg": "{colors.fg-default}",
-    "border": "{colors.border-default}",
-    "ring": "{colors.ring-default}"
+    "trigger-bg": "{colors.bg-default}",
+    "trigger-border": "{colors.border-default}",
+    "popup-bg": "{colors.bg-default}",
+    "popup-border": "{colors.border-default}",
+    "item-hover-bg": "{colors.bg-subtle}"
   },
   "dark": {}
 }

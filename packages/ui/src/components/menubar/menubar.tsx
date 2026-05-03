@@ -1,22 +1,21 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Menubar as BaseMenubar } from '@base-ui-components/react/menubar';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Menubar as BaseMenubar } from '@base-ui-components/react/menubar';
-// Then export a typed wrapper that consumes `var(--menubar-*)` CSS variables
-// declared in menubar.tokens.json.
-
-export interface MenubarProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function Menubar({ className, children }: MenubarProps): React.ReactNode {
-  return (
-    <div data-component="menubar" className={cn(className)}>
-      {children}
-    </div>
-  );
-}
+export const Menubar = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseMenubar>>(
+  function Menubar({ className, ...props }, ref) {
+    return (
+      // @ts-ignore — ref polymorphism
+      <BaseMenubar
+        ref={ref}
+        {...props}
+        className={cn(
+          'inline-flex items-center gap-1 rounded-md border border-[var(--menubar-border)] bg-[var(--menubar-bg)] p-1',
+          className,
+        )}
+      />
+    );
+  },
+);

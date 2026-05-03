@@ -1,0 +1,17 @@
+{
+  "$component": "button",
+  "$description": "Button variants. Tokens map to DESIGN.md component definitions.",
+  "light": {
+    "primary-bg": "{colors.accent-default}",
+    "primary-fg": "{colors.accent-fg}",
+    "primary-hover-bg": "{colors.accent-hover}",
+    "secondary-bg": "{colors.bg-default}",
+    "secondary-fg": "{colors.fg-default}",
+    "secondary-border": "{colors.border-default}",
+    "secondary-hover-bg": "{colors.bg-subtle}",
+    "ghost-hover-bg": "{colors.bg-subtle}",
+    "danger-bg": "{colors.danger-default}",
+    "danger-fg": "{colors.accent-fg}"
+  },
+  "dark": {}
+}

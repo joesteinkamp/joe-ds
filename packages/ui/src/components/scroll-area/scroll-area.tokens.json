@@ -1,11 +1,8 @@
 {
   "$component": "scroll-area",
-  "$description": "ScrollArea component-scoped tokens. Aliases semantic primitives.",
   "light": {
-    "bg": "{colors.bg-default}",
-    "fg": "{colors.fg-default}",
-    "border": "{colors.border-default}",
-    "ring": "{colors.ring-default}"
+    "scrollbar-bg": "{colors.bg-subtle}",
+    "thumb-bg": "{colors.border-strong}"
   },
   "dark": {}
 }

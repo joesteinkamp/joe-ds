@@ -1,22 +1,24 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Tooltip as BaseTooltip } from '@base-ui-components/react/tooltip';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Tooltip as BaseTooltip } from '@base-ui-components/react/tooltip';
-// Then export a typed wrapper that consumes `var(--tooltip-*)` CSS variables
-// declared in tooltip.tokens.json.
+const Popup = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseTooltip.Popup>>(
+  function TooltipPopup({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseTooltip.Popup
+        ref={ref}
+        {...props}
+        className={cn(
+          'rounded-md bg-[var(--tooltip-bg)] px-2 py-1 text-xs font-medium text-[var(--tooltip-fg)] shadow-md outline-none',
+          'data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 transition-opacity duration-100',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export interface TooltipProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function Tooltip({ className, children }: TooltipProps): React.ReactNode {
-  return (
-    <div data-component="tooltip" className={cn(className)}>
-      {children}
-    </div>
-  );
-}
+export const Tooltip = { ...BaseTooltip, Popup };

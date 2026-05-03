@@ -1,22 +1,36 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Fieldset as BaseFieldset } from '@base-ui-components/react/fieldset';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Fieldset as BaseFieldset } from '@base-ui-components/react/fieldset';
-// Then export a typed wrapper that consumes `var(--fieldset-*)` CSS variables
-// declared in fieldset.tokens.json.
+const Root = forwardRef<HTMLFieldSetElement, ComponentPropsWithoutRef<typeof BaseFieldset.Root>>(
+  function FieldsetRoot({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseFieldset.Root
+        ref={ref}
+        {...props}
+        className={cn(
+          'flex flex-col gap-3 rounded-md border border-[var(--fieldset-border)] p-4',
+          className,
+        )}
+      />
+    );
+  },
+);
 
-export interface FieldsetProps {
-  className?: string;
-  children?: ReactNode;
-}
+const Legend = forwardRef<HTMLLegendElement, ComponentPropsWithoutRef<typeof BaseFieldset.Legend>>(
+  function FieldsetLegend({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseFieldset.Legend
+        ref={ref}
+        {...props}
+        className={cn('px-1 text-sm font-medium text-fg-default', className)}
+      />
+    );
+  },
+);
 
-export function Fieldset({ className, children }: FieldsetProps): React.ReactNode {
-  return (
-    <div data-component="fieldset" className={cn(className)}>
-      {children}
-    </div>
-  );
-}
+export const Fieldset = { ...BaseFieldset, Root, Legend };

@@ -1,22 +1,38 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { Collapsible as BaseCollapsible } from '@base-ui-components/react/collapsible';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { Collapsible as BaseCollapsible } from '@base-ui-components/react/collapsible';
-// Then export a typed wrapper that consumes `var(--collapsible-*)` CSS variables
-// declared in collapsible.tokens.json.
-
-export interface CollapsibleProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function Collapsible({ className, children }: CollapsibleProps): React.ReactNode {
+const Trigger = forwardRef<
+  HTMLButtonElement,
+  ComponentPropsWithoutRef<typeof BaseCollapsible.Trigger>
+>(function CollapsibleTrigger({ className, ...props }, ref) {
+  // @ts-ignore — ref polymorphism
   return (
-    <div data-component="collapsible" className={cn(className)}>
-      {children}
-    </div>
+    <BaseCollapsible.Trigger
+      ref={ref}
+      {...props}
+      className={cn(
+        'inline-flex items-center gap-1 text-sm font-medium text-fg-default outline-none',
+        'focus-visible:ring-2 focus-visible:ring-ring',
+        className,
+      )}
+    />
   );
-}
+});
+
+const Panel = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof BaseCollapsible.Panel>>(
+  function CollapsiblePanel({ className, ...props }, ref) {
+    // @ts-ignore — ref polymorphism
+    return (
+      <BaseCollapsible.Panel
+        ref={ref}
+        {...props}
+        className={cn('overflow-hidden text-sm text-fg-muted', className)}
+      />
+    );
+  },
+);
+
+export const Collapsible = { ...BaseCollapsible, Trigger, Panel };

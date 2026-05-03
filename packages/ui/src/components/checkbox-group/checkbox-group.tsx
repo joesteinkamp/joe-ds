@@ -1,22 +1,15 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { CheckboxGroup as BaseCheckboxGroup } from '@base-ui-components/react/checkbox-group';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { cn } from '../../lib/cn';
 
-// Scaffolded placeholder. Replace the body with composed Base UI parts:
-//   import { CheckboxGroup as BaseCheckboxGroup } from '@base-ui-components/react/checkbox-group';
-// Then export a typed wrapper that consumes `var(--checkbox-group-*)` CSS variables
-// declared in checkbox-group.tokens.json.
-
-export interface CheckboxGroupProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export function CheckboxGroup({ className, children }: CheckboxGroupProps): React.ReactNode {
+export const CheckboxGroup = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithoutRef<typeof BaseCheckboxGroup>
+>(function CheckboxGroup({ className, ...props }, ref) {
   return (
-    <div data-component="checkbox-group" className={cn(className)}>
-      {children}
-    </div>
+    // @ts-ignore — ref polymorphism
+    <BaseCheckboxGroup ref={ref} {...props} className={cn('flex flex-col gap-2', className)} />
   );
-}
+});
